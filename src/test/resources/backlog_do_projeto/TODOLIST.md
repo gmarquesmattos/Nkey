@@ -38,3 +38,7 @@
 
 ## Versionamento
 - Treinamento git?
+
+## Propriedade Coletiva
+- De quem é o código?
+...

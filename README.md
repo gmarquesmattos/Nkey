@@ -4,7 +4,7 @@
 PoC - Projeto de Automação de Testes para Front-End do Portal Siebel
 
 
-[![pipeline status](https://git.sicredi.net/prospect-qa/siebel-web/badges/master/pipeline.svg)](https://git.sicredi.net/prospect-qa/siebel-web/commits/master)
+[![pipeline status](https://git.sicredi.net/siebel-qa/siebel-web/badges/master/pipeline.svg)](https://git.sicredi.net/siebel-qa/siebel-web/commits/master)
 
 
 ## Backlog 
