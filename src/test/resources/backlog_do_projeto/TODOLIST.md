@@ -7,11 +7,12 @@
 - Selenium?
 
 ## Padrões
-- O que definiremos como padrão (Sonar)?
+- O que definiremos como padrão?
 - Seguiremos alguma convenção Java?
 
 ## Revissão do código
-- Analise estatica do código?
+- Revissão em par?
+- Analise estatica do código (Sonar)?
 - Como fazer?
 
 ## Properties
@@ -32,6 +33,8 @@
 
 ## Organização dos testes
 - Como ficará separado?
+- Independentes?
+- Paralelos?
 
 ## Versionamento
 - Treinamento git?
