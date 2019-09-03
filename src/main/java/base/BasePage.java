@@ -1,11 +1,11 @@
 package base;
 
 
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.javascript.host.dom.Document;
+import driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,10 +13,15 @@ import static driver.DriverManager.getDriver;
 
 public class BasePage {
 
+
 	private int tempo = 30;
 	protected WebDriverWait wait = new WebDriverWait(getDriver(), tempo);
 	WaitAux waitAux = new WaitAux();
 	WebElement elemento;
+
+	public BasePage() {
+		PageFactory.initElements(DriverManager.getDriver(), this);
+	}
 
 	public void escrever(By by, String texto) {
 		waitAux.waitJQueryAndLoadPage();

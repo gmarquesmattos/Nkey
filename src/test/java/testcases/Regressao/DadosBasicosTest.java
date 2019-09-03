@@ -24,7 +24,7 @@ public class DadosBasicosTest extends BaseTest {
 	
 	@Test
 	public void testConsultarDadosBasicos() {
-		
+		realizarLogin();
 		menuLateralPage.acessarPessoaFisica();
 		pessoaFisicaPage.pesquisar();
 		pessoaFisicaPage.drillNomeCompleto();	
