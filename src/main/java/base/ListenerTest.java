@@ -24,12 +24,10 @@ public class ListenerTest implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -44,12 +42,10 @@ public class ListenerTest implements ITestListener {
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
     public void onStart(ITestContext iTestContext) {
-        throw new UnsupportedOperationException();
     }
 
     @Override

@@ -4,8 +4,6 @@ import base.BasePage;
 import org.openqa.selenium.By;
 
 public class MenuLateralPO extends BasePage {
-	
-
 
 	public void acessarPessoaFisica() {		
 						

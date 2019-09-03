@@ -77,6 +77,7 @@ public abstract class BaseTest extends ListenerTest{
         }
     }
 
+    @Test
     public void realizarLogin(){
         LoginPO loginPO  = new LoginPO();
         loginPO.realizaLoginPortal(USUARIO_TESTE, SENHA_TESTE);

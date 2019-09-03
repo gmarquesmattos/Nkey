@@ -6,7 +6,7 @@ import pageObjects.Retaguarda.RetaguardaPO;
 
 public class AceitacaoTest extends BaseTest {
 
-    // @Test -- Este teste nao esta passando
+    @Test
     public void preencherDetalhamento() {
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
@@ -34,7 +34,7 @@ public class AceitacaoTest extends BaseTest {
 
     }
 
-    // @Test -- Este teste nao esta passando
+    @Test
     public void duplicarTipos() {
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
@@ -45,15 +45,13 @@ public class AceitacaoTest extends BaseTest {
         retaguardaPO.apagarRegistro();
     }
 
-    // @Test -- Este teste nao esta passando
+    @Test
     public void ValorIgualZero() {
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
         retaguardaPO.preencherDetalhamento(0);
         retaguardaPO.textValidacao("[1]Valor ou tipo de valor incorreto detectado no campo Valor. Informe os valores do campo novamente. Se necessitar de assistência adicional, consulte a documentação.(SBL-UIF-00299) [2]O valor informado é inválido.: SBL-DAT-00521");
     }
-
-
 }
 
 
