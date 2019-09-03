@@ -1,6 +1,8 @@
 package base;
 
 
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.javascript.host.dom.Document;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -44,6 +46,8 @@ public class BasePage {
 		elemento.click();
 
 	}
+
+
 
 	public void Enter() {
 
