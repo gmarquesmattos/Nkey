@@ -1,5 +1,8 @@
 package db;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,7 +12,7 @@ import java.util.List;
 import java.util.Properties;
 
 public class Dao {
-
+	protected static final Logger LOGGER = LogManager.getLogger();
 	public Properties prop = new Properties();
 	public ResultSet resultSet;
 	public Statement statement;
@@ -19,10 +22,10 @@ public class Dao {
 		try {
 			prop.load(retornarArquivoPropriedades("conexao"));
 		} catch (FileNotFoundException e1) {
-			System.out.println("Arquivo de propriedades conex�o n�o encontrado!");
+			System.out.println("Arquivo de propriedades conexão não encontrado!");
 			e1.printStackTrace();
 		} catch (IOException e1) {
-			System.out.println("Problemas de conex�o com DB");
+			System.out.println("Problemas de conexão com DB");
 			e1.printStackTrace();
 		}
 		Connection conexao = null;
@@ -42,37 +45,34 @@ public class Dao {
 
 		String nome_file = file;
 		if (nome_file.equalsIgnoreCase("query")) {
-			FileInputStream arquivoConexao = new FileInputStream("./src/main/resources/querys.properties");
+			FileInputStream arquivoConexao = new FileInputStream("./src/test/resources/querys.properties");
 			return arquivoConexao;
 		} else if (nome_file.equalsIgnoreCase("conexao")) {
-			FileInputStream arquivoConexao = new FileInputStream("./src/main/resources/conexoes.properties");
+			FileInputStream arquivoConexao = new FileInputStream("./src/test/resources/conexoes.properties");
 			return arquivoConexao;
 		} else
 			return null;
 	}
 
 	public List<String> retornarDadosDb(String... parametrosConsulta) {
-
-		List<String> dadosDb = new ArrayList<String>();
+        List<String> dadosDb = new ArrayList<String>();
 		try {
 
 			try {
 				prop.load(retornarArquivoPropriedades("query"));
 			} catch (FileNotFoundException e) {
-				System.out.println("Arquivo de propriedades query n�o encontrado!");
-				e.printStackTrace();
+				LOGGER.error("Arquivo de propriedades query não encontrado:", e);
 			} catch (IOException e) {
-				System.out.println("Problemas de conex�o com DB");
-				e.printStackTrace();
+				LOGGER.error("Problemas de conexão com DB :", e);
 			}
-			String query = new String(
+			String query =(
 					prop.getProperty(parametrosConsulta[0]).replace("CPF_PESSOA", parametrosConsulta[1]));
 			statement = retornarConexaoBaseDados().createStatement();
 			resultSet = statement.executeQuery(query);
 
 			while (resultSet.next()) {
 				for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
-					dadosDb.add(resultSet.getString(resultSet.getMetaData().getColumnName(i).toString()));
+					dadosDb.add(resultSet.getString(resultSet.getMetaData().getColumnName(i)));
 				}
 
 			}

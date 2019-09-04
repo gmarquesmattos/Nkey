@@ -13,13 +13,14 @@ public class SolucoesFinanceirasTest extends BaseTest {
 
     @Test
     public void testLinkSaldoContaPrincipalPF() {
+
         realizarLogin();
         MenuLateralPO menuLateralPage = new MenuLateralPO();
-        menuLateralPage.acessarPessoaFisica();
+        SolucoesFinanceirasPO solucoesFinanceirasPage = new SolucoesFinanceirasPO();
         PessoaFisicaPO pessoaFisicaPage = new PessoaFisicaPO();
+        menuLateralPage.acessarPessoaFisica();
         pessoaFisicaPage.pesquisar();
         pessoaFisicaPage.drillNomeCompleto();
-        SolucoesFinanceirasPO solucoesFinanceirasPage = new SolucoesFinanceirasPO();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
         ContaCorrentePFPO contaCorrentePFPage = new ContaCorrentePFPO();
         assertEquals(solucoesFinanceirasPage.obterContaPrincipal().substring(1, 7), contaCorrentePFPage.obterNumeroConta());

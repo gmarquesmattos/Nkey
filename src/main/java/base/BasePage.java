@@ -51,9 +51,6 @@ public class BasePage {
 		elemento.click();
 
 	}
-
-
-
 	public void Enter() {
 
 		waitAux.waitJQueryAndLoadPage();
