@@ -16,21 +16,13 @@ public class SolucoesFinanceirasTest extends BaseTest {
         realizarLogin();
         MenuLateralPO menuLateralPage = new MenuLateralPO();
         menuLateralPage.acessarPessoaFisica();
-
-		PessoaFisicaPO pessoaFisicaPage = new PessoaFisicaPO();
+        PessoaFisicaPO pessoaFisicaPage = new PessoaFisicaPO();
         pessoaFisicaPage.pesquisar();
         pessoaFisicaPage.drillNomeCompleto();
-
-		SolucoesFinanceirasPO solucoesFinanceirasPage = new SolucoesFinanceirasPO();
+        SolucoesFinanceirasPO solucoesFinanceirasPage = new SolucoesFinanceirasPO();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
-
-		ContaCorrentePFPO contaCorrentePFPage = new ContaCorrentePFPO();
-        String teste = contaCorrentePFPage.obterNumeroConta();
-        System.out.println(teste);
+        ContaCorrentePFPO contaCorrentePFPage = new ContaCorrentePFPO();
         assertEquals(solucoesFinanceirasPage.obterContaPrincipal().substring(1, 7), contaCorrentePFPage.obterNumeroConta());
-
-
     }
-
 
 }
