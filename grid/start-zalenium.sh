@@ -4,7 +4,7 @@ docker rm zaleniumsiebel || true
 
 docker pull docker.sicredi.net/elgalu/selenium
 
-docker run --rm -d --name zaleniumsiebel -p 4446:4446 \
+docker run --rm -d --name zaleniumsiebel -p 4444:4444 \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v /temp/videos:/home/seluser/videos \
 --privileged docker.sicredi.net/dosel/zalenium start --timeZone "America/Sao_Paulo" \
@@ -15,7 +15,7 @@ docker run --rm -d --name zaleniumsiebel -p 4446:4446 \
 #Garantir Grid Online
 contador=0
 sleep 5
-until curl -sSL http://localhost:4446/wd/hub/status | jq '.value.ready' | grep true
+until curl -sSL http://localhost:4444wd/hub/status | jq '.value.ready' | grep true
 do
   if [ $contador = 5 ]; then
 	echo "Esgotado numero de tentativas!"
