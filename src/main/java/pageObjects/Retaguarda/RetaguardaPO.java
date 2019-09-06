@@ -10,10 +10,19 @@ import org.testng.Assert;
 import pageObjects.home.HomePO;
 import utils.SeleniumUtil;
 
+import java.time.LocalDate;
+import java.time.Year;
+
 
 public class RetaguardaPO extends RetaguardaElementMap {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
+    private static final String OUTROS_TIPOS = "outros";
+    private static final String MENSAL_PRIORIDADES = "mensal";
+    private static final String VALOR_DETALHAMENTO = "1200";
+    private LocalDate localDate = LocalDate.now();
+    Integer ano;
+    Integer mes;
 
     public RetaguardaPO() {
         PageFactory.initElements(DriverManager.getDriver(), this);
@@ -49,53 +58,56 @@ public class RetaguardaPO extends RetaguardaElementMap {
             SeleniumUtil.esperarElementoClicar(botaoAssumirAtendimento);
         }
         SeleniumUtil.esperarElementoClicar(botaoEditar);
-    }
-
-    public void novoDetalhamento(int valor) {
-        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
-        SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
-        SeleniumUtil.esperarElementoClicar(ClicarComboDetalheTipo);
-        campoValorDetalheTipo.sendKeys("outros");
-        campoValorDetalheTipo.sendKeys(Keys.TAB);
-        SeleniumUtil.esperarElementoClicar(clicarCampooDetalhePeriodicidade);
-        valorComboDetalhePeriodicidade.sendKeys("mensal");
-        valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
-        SeleniumUtil.esperarElementoClicar(clicarCampoValor);
-        detalhamentoValor.clear();
-        detalhamentoValor.sendKeys("" + valor);
-        SeleniumUtil.esperarElementoClicar(clicarBotaoSalvar);
 
 
     }
+
 
     public void novoDetalhamentoTipoDuplicado() {
         SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
         SeleniumUtil.esperarElementoClicar(ClicarComboDetalheTipo);
-        campoValorDetalheTipo.sendKeys("outros");
+        campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
         campoValorDetalheTipo.sendKeys(Keys.TAB);
         SeleniumUtil.esperarElementoClicar(clicarCampooDetalhePeriodicidade);
-        valorComboDetalhePeriodicidade.sendKeys("mensal");
+        valorComboDetalhePeriodicidade.sendKeys(MENSAL_PRIORIDADES);
         valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
         SeleniumUtil.esperarElementoClicar(clicarCampoValor);
-        detalhamentoValor.sendKeys("1200");
+        detalhamentoValor.sendKeys(VALOR_DETALHAMENTO);
         SeleniumUtil.esperarElementoClicar(clicarBotaoSalvar);
     }
 
-    public void alterarRenda(int ano, int mes) {
-        SeleniumUtil.esperarElementoClicar(campoAnoRenda);
-        campoAnoRenda.clear();
-        campoAnoRenda.sendKeys("" + ano);
-        SeleniumUtil.esperarElementoClicar(campoMesRenda);
-        campoMesRenda.clear();
-        campoMesRenda.sendKeys("" + mes);
-        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
+
+    public void TipoDuplicadoBotaoNovodetalhamento() {
+        SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
+        SeleniumUtil.esperarElementoClicar(ClicarComboDetalheTipo);
+        campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
+        campoValorDetalheTipo.sendKeys(Keys.TAB);
+        SeleniumUtil.esperarElementoClicar(clicarCampooDetalhePeriodicidade);
+        valorComboDetalhePeriodicidade.sendKeys(MENSAL_PRIORIDADES);
+        valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
+        SeleniumUtil.esperarElementoClicar(clicarCampoValor);
+        detalhamentoValor.sendKeys(VALOR_DETALHAMENTO);
+        SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
     }
 
 
-    public void anoNãofinalizado(int ano) {
+    public void alterarRenda() {
         SeleniumUtil.esperarElementoClicar(campoAnoRenda);
         campoAnoRenda.clear();
-        campoAnoRenda.sendKeys("" + ano);
+        ano = localDate.getYear();
+        campoAnoRenda.sendKeys(ano.toString());
+        SeleniumUtil.esperarElementoClicar(campoMesRenda);
+        campoMesRenda.clear();
+        mes = (localDate.getMonthValue() + 2);
+        campoMesRenda.sendKeys(mes.toString());
+        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
+    }
+
+    public void anoNaofinalizado() {
+        SeleniumUtil.esperarElementoClicar(campoAnoRenda);
+        campoAnoRenda.clear();
+        Integer var = localDate.getYear();
+        campoAnoRenda.sendKeys(var.toString());
         campoMesRenda.clear();
         SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
     }
@@ -107,9 +119,9 @@ public class RetaguardaPO extends RetaguardaElementMap {
 
     }
 
-    public void botãoPesquisar() {
+    public void botaoPesquisar() {
         SeleniumUtil.esperarElementoClicar(botaoPesquisar);
-        campoValorDetalheTipo.sendKeys("outros");
+        campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
         campoValorDetalheTipo.sendKeys(Keys.TAB);
         SeleniumUtil.esperarElementoClicar(botaoIr);
     }
@@ -129,7 +141,7 @@ public class RetaguardaPO extends RetaguardaElementMap {
         try {
             SeleniumUtil.esperaAlert();
         } catch (InterruptedException e) {
-            System.out.println("Nâo esperou ou encontrou o ALERT.");
+            LOGGER.error("Nâo esperou ou encontrou o ALERT.");
         }
 
         Alert alerta = DriverManager.getDriver().switchTo().alert();
@@ -148,6 +160,25 @@ public class RetaguardaPO extends RetaguardaElementMap {
         Alert alerta = DriverManager.getDriver().switchTo().alert();
         alerta.accept();
     }
+
+    private void novoDetalhamento(Integer valor) {
+        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
+        apagarRegistro();
+        SeleniumUtil.esperarElementoClicar(botaoEditar);
+        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
+        SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
+        SeleniumUtil.esperarElementoClicar(ClicarComboDetalheTipo);
+        campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
+        campoValorDetalheTipo.sendKeys(Keys.TAB);
+        SeleniumUtil.esperarElementoClicar(clicarCampooDetalhePeriodicidade);
+        valorComboDetalhePeriodicidade.sendKeys(MENSAL_PRIORIDADES);
+        valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
+        SeleniumUtil.esperarElementoClicar(clicarCampoValor);
+        detalhamentoValor.clear();
+        detalhamentoValor.sendKeys(valor.toString());
+        SeleniumUtil.esperarElementoClicar(clicarBotaoSalvar);
+    }
+
 }
 
 

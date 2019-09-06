@@ -13,7 +13,6 @@ public class SeleniumUtil {
     public static void esperarElementoClicar(WebElement elemento) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 30);
         WaitAux.waitJQueryAndLoadPage();
-
         wait.until(ExpectedConditions.visibilityOf(elemento));
         wait.until(ExpectedConditions.elementToBeClickable(elemento));
 

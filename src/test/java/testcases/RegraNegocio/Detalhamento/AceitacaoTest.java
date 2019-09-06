@@ -6,25 +6,28 @@ import pageObjects.Retaguarda.RetaguardaPO;
 
 public class AceitacaoTest extends BaseTest {
 
+    public static final int valorDetalhamento = 2;
+    public static final int valorDetalhamentoValorZero = 0;
+
     @Test
-    public void preencherDetalhamento() {
+    public void devePreencherDetalhamento() {
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
-        retaguardaPO.preencherDetalhamento(2);
+        retaguardaPO.preencherDetalhamento(valorDetalhamento);
         retaguardaPO.apagarRegistro();
     }
 
-    // @Test -- Este teste nao esta passando
-    public void pesquisarDetalhamento() {
+     @Test
+    public void devePesquisarDetalhamento() {
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
-        retaguardaPO.preencherDetalhamento(2);
-        retaguardaPO.botãoPesquisar();
+        retaguardaPO.preencherDetalhamento(valorDetalhamento);
+        retaguardaPO.botaoPesquisar();
         retaguardaPO.apagarRegistro();
     }
 
     @Test
-    public void salvarSemRenda() {
+    public void naoDeveSalvarSemRenda() {
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
         retaguardaPO.acessarCadastroCanais();
@@ -35,21 +38,34 @@ public class AceitacaoTest extends BaseTest {
     }
 
     @Test
-    public void duplicarTipos() {
+    public void naoDeveSalvarComTiposDuplicado() {
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
-        retaguardaPO.preencherDetalhamento(2);
+        retaguardaPO.preencherDetalhamento(valorDetalhamento);
         retaguardaPO.novoDetalhamentoTipoDuplicado();
         retaguardaPO.textValidacao("Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)");
         retaguardaPO.excluirRegistroDetalhamento();
         retaguardaPO.apagarRegistro();
     }
 
+
+
+     @Test
+    public void naoDeveSalvarComTiposDuplicadoBotaoDetalhamentoNovo() {
+         realizarLogin();
+         RetaguardaPO retaguardaPO = new RetaguardaPO();
+         retaguardaPO.preencherDetalhamento(valorDetalhamento);
+         retaguardaPO.TipoDuplicadoBotaoNovodetalhamento();
+         retaguardaPO.textValidacao("Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)");
+         retaguardaPO.excluirRegistroDetalhamento();
+         retaguardaPO.apagarRegistro();
+
+     }
     @Test
-    public void ValorIgualZero() {
+    public void naoDeveSalvarValorIgualZero() {
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
-        retaguardaPO.preencherDetalhamento(0);
+        retaguardaPO.preencherDetalhamento(valorDetalhamentoValorZero);
         retaguardaPO.textValidacao("[1]Valor ou tipo de valor incorreto detectado no campo Valor. Informe os valores do campo novamente. Se necessitar de assistência adicional, consulte a documentação.(SBL-UIF-00299) [2]O valor informado é inválido.: SBL-DAT-00521");
     }
 }

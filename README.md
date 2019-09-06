@@ -9,3 +9,8 @@ PoC - Projeto de Automação de Testes para Front-End do Portal Siebel
 
 ## Backlog 
 * [Itens Passiveis de Melhorias](src/test/resources/backlog_do_projeto/TODOLIST.md)
+
+## Melhorias
+- Utilização do Objeto "LocalDate", o mesmo encontra-se src -> main -> java -> pageObjects -> retaguarda -> RetaguardaPO.class
+- Alteração nos nomes dos metodos classes src - > test -> Java -> testcases -> RegrasNegocio -> Detaljamento -> AceitacaoTest.java
+ 

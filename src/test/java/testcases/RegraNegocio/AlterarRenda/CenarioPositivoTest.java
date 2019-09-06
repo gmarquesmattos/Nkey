@@ -7,12 +7,12 @@ import pageObjects.Retaguarda.RetaguardaPO;
 
 public class CenarioPositivoTest extends BaseTest {
     @Test
-    public void mesMaior(){
+    public void deveSalarComMesMaiorQueAtual(){
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
         retaguardaPO.acessarCadastroCanais();
         retaguardaPO.preencherCooperativa();
         retaguardaPO.editarAtendimento();
-        retaguardaPO.alterarRenda(2017, 06);
+        retaguardaPO.alterarRenda();
     }
 }

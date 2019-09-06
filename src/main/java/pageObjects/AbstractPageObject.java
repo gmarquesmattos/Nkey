@@ -14,7 +14,4 @@ public abstract class AbstractPageObject extends BaseTest {
         PageFactory.initElements(new AjaxElementLocatorFactory(DriverManager.getDriver(), timeout), this);
     }
 
-    void clicar(){
-
-    }
 }
