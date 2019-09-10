@@ -7,7 +7,7 @@ import pageObjects.Retaguarda.RetaguardaPO;
 
 public class CenarioPositivoTest extends BaseTest {
     @Test
-    public void deveSalarComMesMaiorQueAtual(){
+    public void deveSalvarComMesMaiorQueAtual(){
         realizarLogin();
         RetaguardaPO retaguardaPO = new RetaguardaPO();
         retaguardaPO.acessarCadastroCanais();

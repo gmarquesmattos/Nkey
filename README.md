@@ -1,10 +1,3 @@
-# prospect-front
-@guilherme_mattos, @dimitrius_santana, @adelar_vieira
-
-PoC - Projeto de Automação de Testes para Front-End do Portal Siebel
-
-Projeto - 2441 Atualização cadastrais em canais
-
 [//Esta parte de cima precisa?]:#
 
 [![pipeline status](https://git.sicredi.net/siebel-qa/siebel-web/badges/master/pipeline.svg)](https://git.sicredi.net/siebel-qa/siebel-web/commits/master)
@@ -14,25 +7,25 @@ Projeto - 2441 Atualização cadastrais em canais
 
 
 ## Descrição
-Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sistemas Siebel.
-
-[//Quantos sistemas siebel existem no sicredi?]:#
+Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sistema *Siebel*.
 
 ## Pré-requisito
-- Ter instalado na maquina JDK, Intellij, Git Bash.
-
-[//Qual versao do JDK? Seria legal ter o link para baixar estas ferramentas. da para usar que nem "Itens passiveis de melhoria" ]:#
+Ter instalado na maquina Git Bash, Arquivo "settings" o mesmo precisa estar na pasta ".m2":
+- [JDK versão 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Intellij](https://www.jetbrains.com/idea/download/#section=windows)
+- [Git Bash](https://git-scm.com/downloads)
+- [Maven](https://maven.apache.org/download.cgi)
 
 ## Como Baixar
 - Criar uma pasta local no computador.
-
-[//Algum lugar recomentado? Exemplo? ]:#
-
+Exemplo:
+````
+Se possivel criar a mesma no diretório c:
+````
 - Acessar o git Bash, navegar até a pasta criada.
 - Realizar o clone do projeto no repositório: https://git.sicredi.net/siebel-qa/siebel-web usando o comando git clone e a URL
-- Garantir que as dependências como: Maven, NgTest, selenium, tenham sido baixadas caso não, realizar a importação do site: https://mvnrepository.com
+- Garantir que as dependências como: NgTest, selenium, tenham sido baixadas caso não, realizar a importação do site: https://mvnrepository.com
 
-[//Será que não precisava comentar algo sobre o settings do Sicredi? ]:#
 
 ## Como Rodar
 - Abrir o Intellij, ir em file -> open abrir o projeto.
@@ -42,21 +35,18 @@ Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sist
 ## Padrões
 Metodos : 
 
-1)Nome dos métodos Deve seguir o seguinte padrão: Letra minúscula na primeira letra,  caso for nome compasto, a inicial da segunda palavra com letra maiúscula. 
-
-[//Este padrão de letra minuscula e letra maiscula é chamado de camel Case na traduçao seria letra camelo por causa do animal ]:#
-[//Cuidar as quebras de linhas para ficar mais legivel o texto. ]:#
-2)Os métodos deve indicar o que de fato precisa ser feito.
-
-[//SHOWWWW!!! Só nesse caso vc estava se referindo aos métodos de com a anotaçao @test correto?]:#
+1. Nome dos métodos Deve seguir o padrão "camelCase". 
+2. Os métodos dos testes, deve indicar o que de fato precisa ser feito.
    
 Exemplo:
 ````
-public void deveSalarComMesMaiorQueAtual()
-public void naoDeveSalvarComMesMaiorQueAtual()
+@Test
+public void deveSalvarComMesMaiorQueAtual()
+
+@Test
+public void naoDeveSalvarComMesMenorQueAtual()
 ````
 
-[//Acho que no primeiro vc digitou errado depois ajusta, este exemplo ficou muito bom. Parabéns. ]:#
 - Campos E botões:
 
 [//Campos e botoes de onde? talve precise de um pouco mais de detalhes. ]:#
