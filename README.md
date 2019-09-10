@@ -28,12 +28,20 @@ Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sist
 
 
 ## Padrões
--
-
-
-
-
-exemplo:
+- Metodos: 
+1)Nome dos métodos Deve seguir o seguinte padrão: Letra minúscula na primeira letra,  caso for nome compasto, a inicial da segunda palavra com letra maiúscula. 
+2)Os métodos deve indicar o que de fato precisa ser feito.   
+Exemplo:
 ````
-Classe com nome 
+public void deveSalarComMesMaiorQueAtual()
+public void naoDeveSalvarComMesMaiorQueAtual()
 ````
+- Campos E botões:
+1)No momento de mapear os elementos, os nomes precisam indicar a natureza do elemento.
+Exemplo:
+````
+WebElement textDataRenda;
+WebElement botaoRetornarFila;
+````
+
+
