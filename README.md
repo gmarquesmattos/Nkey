@@ -24,7 +24,7 @@ Se possivel criar a mesma no diretório c:
 ````
 - Acessar o git Bash, navegar até a pasta criada.
 - Realizar o clone do projeto no repositório: https://git.sicredi.net/siebel-qa/siebel-web usando o comando git clone e a URL
-- Garantir que as dependências como: NgTest, selenium, tenham sido baixadas caso não, realizar a importação do site: https://mvnrepository.com
+- Garantir que as dependências como: TestNg, Selenium, tenham sido baixadas caso não, realizar a importação do site: https://mvnrepository.com
 
 
 ## Como Rodar
@@ -35,7 +35,7 @@ Se possivel criar a mesma no diretório c:
 ## Padrões
 Metodos : 
 
-1. Nome dos métodos Deve seguir o padrão "camelCase". 
+1. Nome dos métodos Deve seguir o padrão "CamelCase". 
 2. Os métodos dos testes, deve indicar o que de fato precisa ser feito.
    
 Exemplo:
