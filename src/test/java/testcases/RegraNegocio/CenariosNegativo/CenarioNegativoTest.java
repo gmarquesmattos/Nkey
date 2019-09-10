@@ -1,16 +1,10 @@
-
-
-
 package testcases.RegraNegocio.CenariosNegativo;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
 import pageObjects.Retaguarda.RetaguardaPO;
 
-import java.time.LocalDate;
-
 public class CenarioNegativoTest extends BaseTest {
-
 
     @Test
     public void naoDeveSalvarComMesMaiorQueAtual() {
@@ -21,7 +15,6 @@ public class CenarioNegativoTest extends BaseTest {
         retaguardaPO.editarAtendimento();
         retaguardaPO.alterarRenda();
         retaguardaPO.textValidacao("O periodo informado é maior que a data atual.(SBL-EXL-00151)(SBL-EXL-00151)");
-
     }
 
     @Test

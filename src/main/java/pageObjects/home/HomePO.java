@@ -18,14 +18,9 @@ public class HomePO extends AbstractPageObject {
 
     @FindBy(id = "s_10_1_9_0")
     WebElement locatorMenuRetaguarda;
-
-
-
     WebElement locatorBotaoSalvar;
 
-
-
-    public HomePO() {
+   public HomePO() {
         driver = DriverManager.getDriver();
         wait = new WebDriverWait(driver, Integer.parseInt(CommonUtils.retornarValorArquivoConfiguracao("timeout")));
     }

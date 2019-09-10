@@ -17,12 +17,12 @@ import java.time.Year;
 public class RetaguardaPO extends RetaguardaElementMap {
 
     private static final Logger LOGGER = LogManager.getLogger();
-    private static final String OUTROS_TIPOS = "outros";
-    private static final String MENSAL_PRIORIDADES = "mensal";
-    private static final String VALOR_DETALHAMENTO = "1200";
+    private  final String OUTROS_TIPOS = "outros";
+    private  final String MENSAL_PRIORIDADES = "mensal";
+    private  final String VALOR_DETALHAMENTO = "1200";
     private LocalDate localDate = LocalDate.now();
-    Integer ano;
-    Integer mes;
+    private Integer ano;
+    private Integer mes;
 
     public RetaguardaPO() {
         PageFactory.initElements(DriverManager.getDriver(), this);
@@ -98,7 +98,7 @@ public class RetaguardaPO extends RetaguardaElementMap {
         campoAnoRenda.sendKeys(ano.toString());
         SeleniumUtil.esperarElementoClicar(campoMesRenda);
         campoMesRenda.clear();
-        mes = (localDate.getMonthValue() + 2);
+        mes = (localDate.getMonthValue() + 1);
         campoMesRenda.sendKeys(mes.toString());
         SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
     }

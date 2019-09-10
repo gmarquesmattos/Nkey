@@ -64,15 +64,11 @@ public class RetaguardaElementMap {
     @FindBy(id = "s_5_1_11_0_Ctrl")
     WebElement botaoNovoDetalhamento;
 
-
     @FindBy(id = "1_s_5_l_Sicredi_Tipo")
     WebElement ClicarComboDetalheTipo;
 
     @FindBy(id = "1_Sicredi_Tipo")
     WebElement campoValorDetalheTipo;
-
-    @FindBy(name = "Outros")
-    WebElement ClicarValorTipo;
 
     @FindBy(id = "1_s_5_l_Sicredi_Peridicidade")
     WebElement clicarCampooDetalhePeriodicidade;
