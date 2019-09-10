@@ -5,7 +5,8 @@ import driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-public class PessoaFisicaPO extends BasePage {
+public class
+PessoaFisicaPO extends BasePage {
 
 
     public PessoaFisicaPO() {
