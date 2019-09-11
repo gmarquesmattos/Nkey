@@ -26,20 +26,21 @@ Diretório C: para baixar os arquivos do projeto
 ````
 - Acessar o git Bash, ir até a pasta criada.
 - Realizar o clone do projeto https://git.sicredi.net/siebel-qa/siebel-web usando o comando Git Clone e a URL
-- Garantir que as dependências como: TestNg, Selenium, tenham sido baixadas caso não, realizar o import das bibliotecas do Maven
+- Garantir que as dependências como: **TestNg, Selenium**, tenham sido baixadas caso não, realizar o import das bibliotecas do Maven
 
 ## Como Rodar
 - Abrir o Intellij, ir em File -> Open projeto.
 
-- Para executar todos os testes basta ir até o caminho: SRC->Test->Resources->Suites-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
+- Para executar todos os testes basta ir até o caminho: **SRC->Test->Resources->Suites**-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
 - Suite é um arquivo que agrupa todos os cenários de testes.
 ## Padrões
 - Para cada página terá um PageObjects com seus respectivos métodos criados.
-- Exemplo: HomePO.java
+- Exemplo: **HomePO.java**
+
 ###Classes
+
  
 ### Metodos  
-
 1. Nome dos métodos Deve seguir o padrão "camelCase". 
 2. Os métodos dos testes, deve indicar o que de fato precisa ser feito.
    
