@@ -21,7 +21,7 @@ Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sist
 
 Exemplo:
 ````
-**Diretório C: para baixar os arquivos do projeto**
+Diretório C: para baixar os arquivos do projeto
 ````
 - Acessar o git Bash, ir até a pasta criada.
 - Realizar o clone do projeto https://git.sicredi.net/siebel-qa/siebel-web usando o comando Git Clone e a URL
@@ -45,11 +45,11 @@ Exemplo:
    
 Exemplos:
 ````
-**@Test
-public void deveSalvarComMesMaiorQueAtual()**
+@Test
+public void deveSalvarComMesMaiorQueAtual()
 
-**@Test
-public void naoDeveSalvarComMesMenorQueAtual()**
+@Test
+public void naoDeveSalvarComMesMenorQueAtual()
 ````
 
 ### Campos E Botões
@@ -58,8 +58,8 @@ public void naoDeveSalvarComMesMenorQueAtual()**
 1. No momento de mapear os elementos, os nomes precisam indicar a natureza do elemento.
 Exemplo:
 ````
-**WebElement textDataRenda;**
-**WebElement botaoRetornarFila;**
+WebElement textDataRenda;
+WebElement botaoRetornarFila;
 ````
 
 
