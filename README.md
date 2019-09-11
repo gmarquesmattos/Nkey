@@ -37,7 +37,20 @@ Diretório C: para baixar os arquivos do projeto
 - Exemplo: **HomePO.java**
 
 ###Classes
-
+As classes do pacote pageObject, precisam serem clara e objetiva de acordo com o propósito do teste. e ter ao final do seu nome,
+a as letras **PO**, que representa uma pageObject. 
+Exemplos: 
+````
+public class DadosBasicosPO{}
+public class RetaguardaPO{}
+```` 
+A objetividade e clareza também se aplica para as classes do pacote testecases, a conotação **Test** ao final do nome 
+da classe deve ser escrita.
+Exemplos:
+  ````
+ public class CenarioNegativoTest{}
+ public class AceitacaoTest
+ ```` 
  
 ### Metodos  
 1. Nome dos métodos Deve seguir o padrão "camelCase". 
@@ -53,9 +66,7 @@ public void naoDeveSalvarComMesMenorQueAtual()
 ````
 
 ### Campos E Botões
-
-[//Campos e botoes de onde? talve precise de um pouco mais de detalhes. ]:#
-1. No momento de mapear os elementos, os nomes precisam indicar a natureza do elemento.
+1. No momento de mapear os elementos das telas, os nomes precisam indicar a natureza do elemento.
 Exemplo:
 ````
 WebElement textDataRenda;
