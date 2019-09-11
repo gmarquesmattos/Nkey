@@ -1,5 +1,3 @@
-[//Esta parte de cima precisa?]:#
-
 [![pipeline status](https://git.sicredi.net/siebel-qa/siebel-web/badges/master/pipeline.svg)](https://git.sicredi.net/siebel-qa/siebel-web/commits/master)
 
 ## Backlog 
@@ -10,9 +8,9 @@
 Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sistema *Siebel*.
 
 ## Pré-requisito
-Ter instalado na maquina Git Bash, Arquivo "settings" o mesmo precisa estar na pasta ".m2":
+ - Ter instalado  na máquina Git , Arquivo "settings"(Onde se esncontra todas as dependências do projeto) o mesmo precisa estar na pasta ".m2":
+ - Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme, Alex, Willy):</br> 
 
-[//Sobre o settings, acho que tem que orientar a pessoa a procurar alguém, e informar que o Settings do Sicredi. ]:#
 - [JDK versão 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Intellij](https://www.jetbrains.com/idea/download/#section=windows)
 - [Git Bash](https://git-scm.com/downloads)
@@ -21,27 +19,19 @@ Ter instalado na maquina Git Bash, Arquivo "settings" o mesmo precisa estar na p
 ## Como Baixar
 - Criar uma pasta local no computador.
 
-[//Sobre criar a pasta seria legal informar, exemplo: "Criar uma pasta para baixar os arquivos do projeto e talvez não precise desse exemplo"]:#
 Exemplo:
 ````
-Se possivel criar a mesma no diretório c:
+Diretório C: para baixar os arquivos do projeto
 ````
-- Acessar o git Bash, navegar até a pasta criada.
+- Acessar o git Bash, ir até a pasta criada.
+- Realizar o clone do projeto https://git.sicredi.net/siebel-qa/siebel-web usando o comando Git Clone e a URL
+- Garantir que as dependências como: TestNg, Selenium, tenham sido baixadas caso não, realizar o import das bibliotecas do Maven
 
-[//Ao invés de navegar da para usar a para "ir"]:#
-- Realizar o clone do projeto no repositório: https://git.sicredi.net/siebel-qa/siebel-web usando o comando git clone e a URL
-
-[//Acho que as palavras "no repositório" não são necessárias ]:#
-- Garantir que as dependências como: TestNg, Selenium, tenham sido baixadas caso não, realizar a importação do site: https://mvnrepository.com
-
-[//Acho que podemos mudar para algo como "Realizar o import das bibliotecas do Maven"]:#
 ## Como Rodar
-- Abrir o Intellij, ir em file -> open abrir o projeto.
+- Abrir o Intellij, ir em File -> Open projeto.
 
-[//Acho que poderiamos dar uma enfase na palavras chaves "IntelliJ, File, Open"]:#
-- Para executar todos os testes basta navegar até o caminho: src->test->resources->suites-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
+- Para executar todos os testes basta ir até o caminho: src->test->resources->suites-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
 
-[//Ao invés de navegar da para usar a para "ir"]:#
 [//Acho que poderiamos dar uma enfase na palavras chaves "SRC, Test, Resources..."]:#
 [//O que é o arquivo Suite? Para que ele serve?"]:#
 ## Padrões
