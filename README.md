@@ -8,10 +8,9 @@
 Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sistema *Siebel*.
 
 ## Pré-requisito
- - Ter instalado  na máquina Git , Arquivo "settings"(Onde se esncontra todas as configurações do Artifactory) o mesmo precisa estar na pasta ".m2":
+ - Ter instalado  na máquina Git , Arquivo **settings**(Onde se esncontra todas as configurações do Artifactory) o mesmo precisa estar na pasta ".m2":
  - Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme):</br><br>
- -As dependências do Maven estão no arquivo "pom.xml" 
-
+ 
 - [JDK versão 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Intellij](https://www.jetbrains.com/idea/download/#section=windows)
 - [Git Bash](https://git-scm.com/downloads)
@@ -22,7 +21,7 @@ Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sist
 
 Exemplo:
 ````
-Diretório C: para baixar os arquivos do projeto
+**Diretório C: para baixar os arquivos do projeto**
 ````
 - Acessar o git Bash, ir até a pasta criada.
 - Realizar o clone do projeto https://git.sicredi.net/siebel-qa/siebel-web usando o comando Git Clone e a URL
@@ -46,11 +45,11 @@ Diretório C: para baixar os arquivos do projeto
    
 Exemplos:
 ````
-@Test
-public void deveSalvarComMesMaiorQueAtual()
+**@Test
+public void deveSalvarComMesMaiorQueAtual()**
 
-@Test
-public void naoDeveSalvarComMesMenorQueAtual()
+**@Test
+public void naoDeveSalvarComMesMenorQueAtual()**
 ````
 
 ### Campos E Botões
@@ -59,8 +58,8 @@ public void naoDeveSalvarComMesMenorQueAtual()
 1. No momento de mapear os elementos, os nomes precisam indicar a natureza do elemento.
 Exemplo:
 ````
-WebElement textDataRenda;
-WebElement botaoRetornarFila;
+**WebElement textDataRenda;**
+**WebElement botaoRetornarFila;**
 ````
 
 
