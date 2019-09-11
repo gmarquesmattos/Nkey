@@ -8,8 +8,9 @@
 Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sistema *Siebel*.
 
 ## Pré-requisito
- - Ter instalado  na máquina Git , Arquivo "settings"(Onde se esncontra todas as dependências do projeto) o mesmo precisa estar na pasta ".m2":
- - Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme, Alex, Willy):</br> 
+ - Ter instalado  na máquina Git , Arquivo "settings"(Onde se esncontra todas as configurações do Artifactory) o mesmo precisa estar na pasta ".m2":
+ - Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme):</br><br>
+ -As dependências do Maven estão no arquivo "pom.xml" 
 
 - [JDK versão 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Intellij](https://www.jetbrains.com/idea/download/#section=windows)
@@ -30,12 +31,13 @@ Diretório C: para baixar os arquivos do projeto
 ## Como Rodar
 - Abrir o Intellij, ir em File -> Open projeto.
 
-- Para executar todos os testes basta ir até o caminho: src->test->resources->suites-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
-
-[//Acho que poderiamos dar uma enfase na palavras chaves "SRC, Test, Resources..."]:#
-[//O que é o arquivo Suite? Para que ele serve?"]:#
+- Para executar todos os testes basta ir até o caminho: SRC->Test->Resources->Suites-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
+- Suite é um arquivo que agrupa todos os cenários de testes.
 ## Padrões
-
+- Para cada página terá um PageObjects com seus respectivos métodos criados.
+- Exemplo: HomePO.java
+###Classes
+ 
 ### Metodos  
 
 1. Nome dos métodos Deve seguir o padrão "camelCase". 
