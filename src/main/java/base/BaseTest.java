@@ -20,13 +20,13 @@ import java.util.regex.Pattern;
 import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 
 @Listeners({ListenerTest.class, ExtentITestListenerClassAdapter.class})
-public abstract class BaseTest extends ListenerTest{
+public abstract class BaseTest extends ListenerTest {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     protected static final String SENHA_TESTE = "teste123";
     protected static final String USUARIO_TESTE = "karine_bonjour";
     protected static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
-
+    public WebDriver driver;
 
     @BeforeMethod
     @Parameters("browser")
@@ -37,6 +37,9 @@ public abstract class BaseTest extends ListenerTest{
 
         DriverManager.getDriver().get(URL_BASE);
         driver.manage().window().maximize();
+
+        realizarLogin();
+
     }
 
     @AfterMethod(alwaysRun = true)
@@ -45,7 +48,7 @@ public abstract class BaseTest extends ListenerTest{
     }
 
     @AfterSuite
-    public void updateReport(){
+    public void updateReport() {
         try {
 
             String relatorioPath = "target/relatorio/execucao.html";
@@ -66,19 +69,19 @@ public abstract class BaseTest extends ListenerTest{
             }
             for (String data : keyList) {
                 String oldString = data + "' data-featherlight='image'>";
-                htmlContent = htmlContent.replace(oldString,oldString + "<img src='"+data+"' style=\"width:150px\">");
+                htmlContent = htmlContent.replace(oldString, oldString + "<img src='" + data + "' style=\"width:150px\">");
             }
-            htmlContent = htmlContent.replace("<span class='label grey badge white-text text-white'>base64-img</span>","");
+            htmlContent = htmlContent.replace("<span class='label grey badge white-text text-white'>base64-img</span>", "");
 
             FileUtils.writeStringToFile(new File(relatorioPath), htmlContent, "utf-8");
 
-        }catch(Exception e){
+        } catch (Exception e) {
             LOGGER.error("Erro ao atualizar miniaturas no report html", e);
         }
     }
 
-    public void realizarLogin(){
-        LoginPO loginPO  = new LoginPO();
+    private void realizarLogin() {
+        LoginPO loginPO = new LoginPO();
         loginPO.realizaLoginPortal(USUARIO_TESTE, SENHA_TESTE);
     }
 }

@@ -3,13 +3,15 @@ package pageObjects.pessoaFisica;
 import base.BasePage;
 import driver.DriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class SolucoesFinanceirasPO extends BasePage {
 
 
-	public SolucoesFinanceirasPO() {
-			PageFactory.initElements(DriverManager.getDriver(), this);
+	public SolucoesFinanceirasPO(WebDriver driver) {
+		super(driver);
+
 		}
 
 	public void clicarLinkSaldoContaPrincipal() {

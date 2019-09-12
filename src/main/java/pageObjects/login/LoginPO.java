@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pageObjects.AbstractPageObject;
-import pageObjects.home.HomePO;
 
 public class LoginPO extends AbstractPageObject {
 
@@ -19,9 +18,6 @@ public class LoginPO extends AbstractPageObject {
 
     @FindBy(id = "btnSubmit")
     WebElement login;
-
-    @FindBy(className ="title")
-    WebElement loginTitlePage;
 
     public LoginPO() {
         driver = DriverManager.getDriver();
@@ -39,16 +35,11 @@ public class LoginPO extends AbstractPageObject {
         login.click();
     }
 
-    public HomePO realizaLoginPortal(String usuario, String senha) {
+    public void realizaLoginPortal(String usuario, String senha) {
         preencheUsuario(usuario);
         preencheSenha(senha);
         clicaBotaoLogin();
-        reportInfo("Preencheu dados de login com sucesso.");
-        return new HomePO();
     }
-
-
-
 
 
 }

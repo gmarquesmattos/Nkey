@@ -1,4 +1,4 @@
-package testcases.Regressao;
+package testcases.regressao;
 
 import base.BaseTest;
 import db.DadosBasicosDb;
@@ -17,14 +17,13 @@ public class DadosBasicosTest extends BaseTest {
 
     @Test
     public void testConsultarDadosBasicos() {
-        PessoaFisicaPO pessoaFisicaPage = new PessoaFisicaPO();
-        DadosBasicosPO dadosBasicosPage = new DadosBasicosPO();
+        PessoaFisicaPO pessoaFisicaPage = new PessoaFisicaPO(driver);
+        DadosBasicosPO dadosBasicosPage = new DadosBasicosPO(driver);
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
 
         List<String> dadosPage = new ArrayList<String>();
         List<String> dadosDb = new ArrayList<String>();
-        MenuLateralPO menuLateralPage = new MenuLateralPO();
-        realizarLogin();
+        MenuLateralPO menuLateralPage = new MenuLateralPO(driver);
         menuLateralPage.acessarPessoaFisica();
         pessoaFisicaPage.pesquisar();
         pessoaFisicaPage.drillNomeCompleto();
