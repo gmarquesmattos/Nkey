@@ -37,7 +37,7 @@ Diretório C: para baixar os arquivos do projeto
 ### Remoto (CI)
 - Acessar o repositorio https://git.sicredi.net/siebel-qa/siebel-web/pipelines 
 - Clicar na botão **Run Pipeline**.
-- No campo **Create for**, Escolher a opção **Master**.
+- No campo **Create for**, escolher a opção **Master**.
 - Clicar no botão **Create Pipeline**. 
 
 ## Padrões
