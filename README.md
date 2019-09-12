@@ -42,8 +42,7 @@ Diretório C: para baixar os arquivos do projeto
 
 ## Padrões
 - Para cada página terá um PageObjects com seus respectivos métodos criados.
-- Exemplo: **HomePage.java**
-
+- Nomes dos métodos e classes escritos em português. 
 ## Classes  
 1. Nome das classes Deve seguir o padrão [CamelCase](https://google.github.io/styleguide/javaguide.html#s5.2.2-class-names). 
 2. As classes do pacote PageObject, **devem** conter ao final do seu nome a palavra **Page**. 
@@ -77,9 +76,6 @@ public void naoDeveriaSalvarComMesMenorQueAtual()
 ## Selenium
 #### Campos E Botões
 
-1. No momento de mapear os elementos, os nomes precisam indicar a natureza do elemento.
-Exemplo:
-
 1. Os nomes dos WebElements devem seguir o seguinte padrão:
 
 ````
@@ -87,6 +83,7 @@ WebElement textDataRenda; // Para campos de texto
 WebElement botaoRetornarFila; // Para botões
 WebElement selectTipoPessoa; // Para seletores
 WebElement alerta; // Para alertas
+WebElement menuRetaguarda; // Para Menus
 ````
 # Dúvidas
  Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme):</br><br>
