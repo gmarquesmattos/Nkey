@@ -10,7 +10,7 @@ Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sist
 ## Pré-requisito
  - Ter instalado  na máquina Git , Arquivo "settings"(Onde se esncontra todas as configurações do Artifactory) o mesmo precisa estar na pasta ".m2":
  - Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme):</br><br>
- -As dependências do Maven estão no arquivo "pom.xml" 
+ - As dependências do Maven estão no arquivo "pom.xml" 
 
 - [JDK versão 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Intellij](https://www.jetbrains.com/idea/download/#section=windows)
@@ -25,56 +25,45 @@ Exemplo:
 Diretório C: para baixar os arquivos do projeto
 ````
 - Acessar o git Bash, ir até a pasta criada.
-- Realizar o clone do projeto https://git.sicredi.net/siebel-qa/siebel-web usando o comando Git Clone e a URL
-<<<<<<< HEAD
-- Garantir que as dependências como: TestNg, Selenium, tenham sido baixadas caso não, realizar o import das bibliotecas do Maven
-=======
+- Realizar o clone do projeto https://git.sicredi.net/siebel-qa/siebel-web usando o comando Git Clone e a URL  
 - Garantir que as dependências tenham sido baixadas.
->>>>>>> a85dcc1025a348ced6e67d6ff12055dbe01724b1
+
 
 ## Como Rodar
 - Abrir o Intellij, ir em **File -> Open projeto.**
 
-<<<<<<< HEAD
 - Para executar todos os testes basta ir até o caminho: SRC->Test->Resources->Suites-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
 - Suite é um arquivo que agrupa todos os cenários de testes.
-## Padrões
-- Para cada página terá um PageObjects com seus respectivos métodos criados.
-- Exemplo: HomePO.java
-###Classes
-=======
-- Para executar todos os testes basta ir até o caminho: **SRC->Test->Resources->Suites**-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
-- [Suite] é um arquivo que agrupa todos os cenários de testes. (https://testng.org/doc/documentation-main.html#testng-xml)
+
 ## Padrões
 - Para cada página terá um PageObjects com seus respectivos métodos criados.
 - Exemplo: **HomePage.java**
 
 ## Classes  
-As classes do pacote PageObject, ter ao final do seu nome, a as letras **Page**, que representa uma pageObject.
-E ter o nome do Página [PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)
+As classes do pacote PageObject, Deve conter ao final do seu nome a palavra **Page**. 
+[PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)
 Exemplos: 
 ````
 public class DadosBasicosPage{}
 public class SolucoesFinanceirasPage{}
 ```` 
-As classes do pacote testecases, a conotação **Test** ao final do nome, seguindo o mesmo empacotamento 
+As classes do pacote testecases, deve conter ao final do seu nome a palavra **Test**, seguindo o mesmo empacotamento 
 da classe deve ser escrita.
 Exemplos:
   ````
  public class DadosBasicosTest{}
  public class SolucoesFinanceirasTest{}
  ```` 
->>>>>>> a85dcc1025a348ced6e67d6ff12055dbe01724b1
  
 ### Metodos  
 
-1. Nome dos métodos Deve seguir o padrão "camelCase". 
+1. Nome dos métodos Deve seguir o padrão [camelCase](http://java-hunters.blogspot.com/2014/12/o-padrao-camelcase.html). 
 2. Os métodos dos testes, deve indicar o que de fato precisa ser feito (ação do objeto).
    
 Exemplos:
 ````
 @Test
-public void deveSalvarComMesMaiorQueAtual()
+public void deveriaSalvarComMesMaiorQueAtual()
 
 @Test
 public void naoDeveSalvarComMesMenorQueAtual()
@@ -89,7 +78,7 @@ Exemplo:
 =======
 1. Os nomes dos WebElements devem seguir o seguinte padrão:
 
->>>>>>> a85dcc1025a348ced6e67d6ff12055dbe01724b1
+
 ````
 WebElement textDataRenda; // Para campos de texto
 WebElement botaoRetornarFila; // Para botões
