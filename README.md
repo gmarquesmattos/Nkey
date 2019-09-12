@@ -8,10 +8,8 @@
 Objetivo desse projeto, é Automatizar os testes funcionais do Front-End do sistema *Siebel*.
 
 ## Pré-requisito
- - Ter instalado  na máquina Git , Arquivo "settings"(Onde se esncontra todas as configurações do Artifactory) o mesmo precisa estar na pasta ".m2":
- - Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme):</br><br>
- - As dependências do Maven estão no arquivo "pom.xml" 
-
+ - Ter o arquivo "settings" do Maven (Onde esncontram-se todas as configurações do Artifactory do Sicredi) o mesmo precisa estar na pasta ".m2":
+ 
 - [JDK versão 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Intellij](https://www.jetbrains.com/idea/download/#section=windows)
 - [Git Bash](https://git-scm.com/downloads)
@@ -30,25 +28,32 @@ Diretório C: para baixar os arquivos do projeto
 
 
 ## Como Rodar
-- Abrir o Intellij, ir em **File -> Open projeto.**
 
+### Localmente
+- Abrir o Intellij, ir em **File -> Open projeto.**
 - Para executar todos os testes basta ir até o caminho: SRC->Test->Resources->Suites-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
 - Suite é um arquivo que agrupa todos os cenários de testes.
+
+### Remoto (CI)
+- Acessar o repositorio https://git.sicredi.net/siebel-qa/siebel-web/pipelines 
+- Clicar na botão **Run Pipeline**.
+- No campo **Create for**, Escolher a opção **Master**.
+- Clicar no botão **Create Pipeline**. 
 
 ## Padrões
 - Para cada página terá um PageObjects com seus respectivos métodos criados.
 - Exemplo: **HomePage.java**
 
 ## Classes  
-As classes do pacote PageObject, Deve conter ao final do seu nome a palavra **Page**. 
-[PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)
+1. Nome das classes Deve seguir o padrão [CamelCase](https://google.github.io/styleguide/javaguide.html#s5.2.2-class-names). 
+2. As classes do pacote PageObject, **devem** conter ao final do seu nome a palavra **Page**. 
+[PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)  
 Exemplos: 
 ````
 public class DadosBasicosPage{}
 public class SolucoesFinanceirasPage{}
 ```` 
-As classes do pacote testecases, deve conter ao final do seu nome a palavra **Test**, seguindo o mesmo empacotamento 
-da classe deve ser escrita.
+As classes do pacote testecases, **devem** conter ao final do seu nome a palavra **Test**.  
 Exemplos:
   ````
  public class DadosBasicosTest{}
@@ -57,8 +62,8 @@ Exemplos:
  
 ### Metodos  
 
-1. Nome dos métodos Deve seguir o padrão [camelCase](https://google.github.io/styleguide/javaguide.html#s5.2.2-class-names). 
-2. Os métodos dos testes, deve indicar o que de fato precisa ser feito (ação do objeto).
+1. Nome dos métodos **devem** seguir o padrão [camelCase](https://google.github.io/styleguide/javaguide.html#s5.2.3-method-names). 
+2. Os métodos dos testes, **devem** indicar o que de fato precisa ser feito (ação do objeto).
    
 Exemplos:
 ````
@@ -74,14 +79,14 @@ public void naoDeveriaSalvarComMesMenorQueAtual()
 
 1. No momento de mapear os elementos, os nomes precisam indicar a natureza do elemento.
 Exemplo:
-=======
+
 1. Os nomes dos WebElements devem seguir o seguinte padrão:
 
 ````
 WebElement textDataRenda; // Para campos de texto
 WebElement botaoRetornarFila; // Para botões
 WebElement selectTipoPessoa; // Para seletores
-WebElement alerta; // Para seletores
+WebElement alerta; // Para alertas
 ````
-
-
+# Dúvidas
+ Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme):</br><br>
