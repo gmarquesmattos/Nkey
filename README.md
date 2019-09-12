@@ -57,7 +57,7 @@ Exemplos:
  
 ### Metodos  
 
-1. Nome dos métodos Deve seguir o padrão [camelCase](http://java-hunters.blogspot.com/2014/12/o-padrao-camelcase.html). 
+1. Nome dos métodos Deve seguir o padrão [camelCase](https://google.github.io/styleguide/javaguide.html#s5.2.2-class-names). 
 2. Os métodos dos testes, deve indicar o que de fato precisa ser feito (ação do objeto).
    
 Exemplos:
@@ -66,18 +66,16 @@ Exemplos:
 public void deveriaSalvarComMesMaiorQueAtual()
 
 @Test
-public void naoDeveSalvarComMesMenorQueAtual()
+public void naoDeveriaSalvarComMesMenorQueAtual()
 ````
 
-### Campos E Botões
-<<<<<<< HEAD
+## Selenium
+#### Campos E Botões
 
-[//Campos e botoes de onde? talve precise de um pouco mais de detalhes. ]:#
 1. No momento de mapear os elementos, os nomes precisam indicar a natureza do elemento.
 Exemplo:
 =======
 1. Os nomes dos WebElements devem seguir o seguinte padrão:
-
 
 ````
 WebElement textDataRenda; // Para campos de texto
