@@ -3,13 +3,14 @@ package pageObjects.pessoaFisica;
 import base.BasePage;
 import driver.DriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class DadosBasicosPO extends BasePage {
 
 
-    public DadosBasicosPO() {
-        PageFactory.initElements(DriverManager.getDriver(), this);
+    public DadosBasicosPO(WebDriver driver) {
+        super(driver);
     }
 
     public String obterNomeCompleto() {

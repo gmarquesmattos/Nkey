@@ -94,7 +94,7 @@ public void naoDeveriaSalvarComMesMenorQueAtual()
 1. Os nomes dos WebElements devem seguir o seguinte padrão:
 
 ````
-WebElement textDataRenda; // Para campos de texto
+WebElement textoDataRenda; // Para campos de texto
 WebElement botaoRetornarFila; // Para botões
 WebElement selectTipoPessoa; // Para seletores
 WebElement alerta; // Para alertas

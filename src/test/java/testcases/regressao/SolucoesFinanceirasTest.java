@@ -1,4 +1,4 @@
-package testcases.Regressao;
+package testcases.regressao;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
@@ -14,15 +14,15 @@ public class SolucoesFinanceirasTest extends BaseTest {
     @Test
     public void testLinkSaldoContaPrincipalPF() {
 
-        realizarLogin();
-        MenuLateralPO menuLateralPage = new MenuLateralPO();
-        SolucoesFinanceirasPO solucoesFinanceirasPage = new SolucoesFinanceirasPO();
-        PessoaFisicaPO pessoaFisicaPage = new PessoaFisicaPO();
+       // realizarLogin();
+        MenuLateralPO menuLateralPage = new MenuLateralPO(driver);
+        SolucoesFinanceirasPO solucoesFinanceirasPage = new SolucoesFinanceirasPO(driver);
+        PessoaFisicaPO pessoaFisicaPage = new PessoaFisicaPO(driver);
         menuLateralPage.acessarPessoaFisica();
         pessoaFisicaPage.pesquisar();
         pessoaFisicaPage.drillNomeCompleto();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
-        ContaCorrentePFPO contaCorrentePFPage = new ContaCorrentePFPO();
+        ContaCorrentePFPO contaCorrentePFPage = new ContaCorrentePFPO(driver);
         assertEquals(solucoesFinanceirasPage.obterContaPrincipal().substring(1, 7), contaCorrentePFPage.obterNumeroConta());
     }
 
