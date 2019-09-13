@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -54,6 +53,7 @@ public class BasePage {
     public String obterValueElemento(String id) {
 
         return getDriver().findElement(By.name(id)).getAttribute("value");
+
     }
 
 
@@ -62,6 +62,14 @@ public class BasePage {
         waitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.ENTER);
     }
+
+
+    public void tab(By campoValorDetalheTipo) {
+
+        waitAux.waitJQueryAndLoadPage();
+        elemento.sendKeys(Keys.TAB);
+    }
+
 
     public boolean verificarSeEstaAtivo(By by) {
         elemento = getDriver().findElement(by);

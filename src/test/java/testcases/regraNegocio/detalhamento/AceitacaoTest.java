@@ -9,20 +9,6 @@ public class AceitacaoTest extends BaseTest {
     public static final int valorDetalhamento = 2;
     public static final int valorDetalhamentoValorZero = 0;
 
-    @Test
-    public void deveriaPreencherDetalhamento() {
-        RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
-        retaguardaPage.preencherDetalhamento(valorDetalhamento);
-        retaguardaPage.apagarRegistro();
-    }
-
-    @Test
-    public void devePesquisarDetalhamento() {
-        RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
-        retaguardaPage.preencherDetalhamento(valorDetalhamento);
-        retaguardaPage.botaoPesquisar();
-        retaguardaPage.apagarRegistro();
-    }
 
     @Test
     public void naoDeveSalvarSemRenda() {
@@ -41,7 +27,7 @@ public class AceitacaoTest extends BaseTest {
         retaguardaPage.novoDetalhamentoTipoDuplicado();
         retaguardaPage.textValidacao("Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)");
         retaguardaPage.excluirRegistroDetalhamento();
-        retaguardaPage.apagarRegistro();
+        //   retaguardaPage.apagarRegistro();
     }
 
 
@@ -52,7 +38,7 @@ public class AceitacaoTest extends BaseTest {
         retaguardaPage.TipoDuplicadoBotaoNovodetalhamento();
         retaguardaPage.textValidacao("Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)");
         retaguardaPage.excluirRegistroDetalhamento();
-        retaguardaPage.apagarRegistro();
+        // retaguardaPage.apagarRegistro();
 
     }
 

@@ -123,91 +123,91 @@ public class RetaguardaPage extends BasePage {
 
     public void editarAtendimento() {
         if (botaoAssumirAtendimento.isEnabled()) {
-            SeleniumUtil.esperarElementoClicar(botaoAssumirAtendimento);
+            SeleniumUtil.clicar(botaoAssumirAtendimento);
         }
-        SeleniumUtil.esperarElementoClicar(botaoEditar);
+        SeleniumUtil.clicar(botaoEditar);
 
 
     }
 
 
     public void novoDetalhamentoTipoDuplicado() {
-        SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
-        SeleniumUtil.esperarElementoClicar(ClicarComboDetalheTipo);
+        SeleniumUtil.clicar(botaoNovoDetalhamento);
+        SeleniumUtil.clicar(ClicarComboDetalheTipo);
         campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
         campoValorDetalheTipo.sendKeys(Keys.TAB);
-        SeleniumUtil.esperarElementoClicar(clicarCampooDetalhePeriodicidade);
+        SeleniumUtil.clicar(clicarCampooDetalhePeriodicidade);
         valorComboDetalhePeriodicidade.sendKeys(MENSAL_PRIORIDADES);
         valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
-        SeleniumUtil.esperarElementoClicar(clicarCampoValor);
+        SeleniumUtil.clicar(clicarCampoValor);
         detalhamentoValor.sendKeys(VALOR_DETALHAMENTO);
-        SeleniumUtil.esperarElementoClicar(clicarBotaoSalvar);
+        SeleniumUtil.clicar(clicarBotaoSalvar);
     }
 
 
     public void TipoDuplicadoBotaoNovodetalhamento() {
-        SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
-        SeleniumUtil.esperarElementoClicar(ClicarComboDetalheTipo);
+        SeleniumUtil.clicar(botaoNovoDetalhamento);
+        SeleniumUtil.clicar(ClicarComboDetalheTipo);
         campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
         campoValorDetalheTipo.sendKeys(Keys.TAB);
-        SeleniumUtil.esperarElementoClicar(clicarCampooDetalhePeriodicidade);
+        SeleniumUtil.clicar(clicarCampooDetalhePeriodicidade);
         valorComboDetalhePeriodicidade.sendKeys(MENSAL_PRIORIDADES);
         valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
-        SeleniumUtil.esperarElementoClicar(clicarCampoValor);
+        SeleniumUtil.clicar(clicarCampoValor);
         detalhamentoValor.sendKeys(VALOR_DETALHAMENTO);
-        SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
+        SeleniumUtil.clicar(botaoNovoDetalhamento);
     }
 
 
     public void alterarRenda() {
-        SeleniumUtil.esperarElementoClicar(campoAnoRenda);
+        SeleniumUtil.clicar(campoAnoRenda);
         campoAnoRenda.clear();
         ano = localDate.getYear();
         campoAnoRenda.sendKeys(ano.toString());
-        SeleniumUtil.esperarElementoClicar(campoMesRenda);
+        SeleniumUtil.clicar(campoMesRenda);
         campoMesRenda.clear();
         mes = (localDate.getMonthValue() + 1);
         campoMesRenda.sendKeys(mes.toString());
-        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
+        SeleniumUtil.clicar(botaoSalvarRenda);
     }
 
     public void anoNaofinalizado() {
-        SeleniumUtil.esperarElementoClicar(campoAnoRenda);
+        SeleniumUtil.clicar(campoAnoRenda);
         campoAnoRenda.clear();
         Integer var = localDate.getYear();
         campoAnoRenda.sendKeys(var.toString());
         campoMesRenda.clear();
-        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
+        SeleniumUtil.clicar(botaoSalvarRenda);
     }
 
 
     public void textValidacao(String text) {
         Assert.assertEquals(text, textDataRenda.getText());
-        SeleniumUtil.esperarElementoClicar(botaoAccept);
+        SeleniumUtil.clicar(botaoAccept);
 
     }
 
     public void botaoPesquisar() {
-        SeleniumUtil.esperarElementoClicar(botaoPesquisar2);
+        SeleniumUtil.clicar(botaoPesquisar2);
         campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
         campoValorDetalheTipo.sendKeys(Keys.TAB);
-        SeleniumUtil.esperarElementoClicar(botaoIr);
+        SeleniumUtil.clicar(botaoIr);
     }
 
     public void salvarSemDetalhamento() {
         if (botaoAssumirAtendimento.isEnabled()) {
-            SeleniumUtil.esperarElementoClicar(botaoAssumirAtendimento);
+            SeleniumUtil.clicar(botaoAssumirAtendimento);
         }
-        SeleniumUtil.esperarElementoClicar(botaoEditar);
-        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
-        SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
-        SeleniumUtil.esperarElementoClicar(clicarBotaoSalvar);
+        SeleniumUtil.clicar(botaoEditar);
+        SeleniumUtil.clicar(botaoSalvarRenda);
+        SeleniumUtil.clicar(botaoNovoDetalhamento);
+        SeleniumUtil.clicar(clicarBotaoSalvar);
     }
 
 
 
     public void excluirRegistroDetalhamento() {
-        SeleniumUtil.esperarElementoClicar(botaoExcluirDetalhamento);
+        SeleniumUtil.clicar(botaoExcluirDetalhamento);
 
         try {
             SeleniumUtil.esperaAlert();
@@ -220,21 +220,21 @@ public class RetaguardaPage extends BasePage {
     }
 
     private void novoDetalhamento(Integer valor) {
-        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
+        SeleniumUtil.clicar(botaoSalvarRenda);
 
-        SeleniumUtil.esperarElementoClicar(botaoEditar);
-        SeleniumUtil.esperarElementoClicar(botaoSalvarRenda);
-        SeleniumUtil.esperarElementoClicar(botaoNovoDetalhamento);
-        SeleniumUtil.esperarElementoClicar(ClicarComboDetalheTipo);
+        SeleniumUtil.clicar(botaoEditar);
+        SeleniumUtil.clicar(botaoSalvarRenda);
+        SeleniumUtil.clicar(botaoNovoDetalhamento);
+        SeleniumUtil.clicar(ClicarComboDetalheTipo);
         campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
         campoValorDetalheTipo.sendKeys(Keys.TAB);
-        SeleniumUtil.esperarElementoClicar(clicarCampooDetalhePeriodicidade);
+        SeleniumUtil.clicar(clicarCampooDetalhePeriodicidade);
         valorComboDetalhePeriodicidade.sendKeys(MENSAL_PRIORIDADES);
         valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
-        SeleniumUtil.esperarElementoClicar(clicarCampoValor);
+        SeleniumUtil.clicar(clicarCampoValor);
         detalhamentoValor.clear();
         detalhamentoValor.sendKeys(valor.toString());
-        SeleniumUtil.esperarElementoClicar(clicarBotaoSalvar);
+        SeleniumUtil.clicar(clicarBotaoSalvar);
     }
 
 }

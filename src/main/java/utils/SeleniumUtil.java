@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumUtil {
 
-    public static void esperarElementoClicar(WebElement elemento) {
+    public static void clicar(WebElement elemento) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 30);
         WaitAux.waitJQueryAndLoadPage();
         wait.until(ExpectedConditions.visibilityOf(elemento));
