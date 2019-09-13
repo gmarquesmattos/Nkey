@@ -66,7 +66,6 @@ public class RetaguardaPage extends BasePage {
     @FindBy(id = "1_s_5_l_Sicredi_Peridicidade")
     WebElement clicarCampooDetalhePeriodicidade;
 
-
     @FindBy(id = "1_Sicredi_Peridicidade")
     WebElement valorComboDetalhePeriodicidade;
 
@@ -78,14 +77,6 @@ public class RetaguardaPage extends BasePage {
 
     @FindBy(id = "s_5_1_24_0_Ctrl")
     WebElement clicarBotaoSalvar;
-
-    @FindBy(id = "s_5_1_10_0_Ctrl")
-    WebElement botaoPesquisar2;
-
-    @FindBy(id = "s_5_1_7_0_Ctrl")
-    WebElement botaoIr;
-
-
 
     @FindBy(id = "btn-accept")
     WebElement botaoAccept;
@@ -126,10 +117,7 @@ public class RetaguardaPage extends BasePage {
             SeleniumUtil.clicar(botaoAssumirAtendimento);
         }
         SeleniumUtil.clicar(botaoEditar);
-
-
     }
-
 
     public void novoDetalhamentoTipoDuplicado() {
         SeleniumUtil.clicar(botaoNovoDetalhamento);
@@ -144,7 +132,6 @@ public class RetaguardaPage extends BasePage {
         SeleniumUtil.clicar(clicarBotaoSalvar);
     }
 
-
     public void TipoDuplicadoBotaoNovodetalhamento() {
         SeleniumUtil.clicar(botaoNovoDetalhamento);
         SeleniumUtil.clicar(ClicarComboDetalheTipo);
@@ -157,7 +144,6 @@ public class RetaguardaPage extends BasePage {
         detalhamentoValor.sendKeys(VALOR_DETALHAMENTO);
         SeleniumUtil.clicar(botaoNovoDetalhamento);
     }
-
 
     public void alterarRenda() {
         SeleniumUtil.clicar(campoAnoRenda);
@@ -180,18 +166,10 @@ public class RetaguardaPage extends BasePage {
         SeleniumUtil.clicar(botaoSalvarRenda);
     }
 
-
     public void textValidacao(String text) {
         Assert.assertEquals(text, textDataRenda.getText());
         SeleniumUtil.clicar(botaoAccept);
 
-    }
-
-    public void botaoPesquisar() {
-        SeleniumUtil.clicar(botaoPesquisar2);
-        campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
-        campoValorDetalheTipo.sendKeys(Keys.TAB);
-        SeleniumUtil.clicar(botaoIr);
     }
 
     public void salvarSemDetalhamento() {
@@ -203,8 +181,6 @@ public class RetaguardaPage extends BasePage {
         SeleniumUtil.clicar(botaoNovoDetalhamento);
         SeleniumUtil.clicar(clicarBotaoSalvar);
     }
-
-
 
     public void excluirRegistroDetalhamento() {
         SeleniumUtil.clicar(botaoExcluirDetalhamento);

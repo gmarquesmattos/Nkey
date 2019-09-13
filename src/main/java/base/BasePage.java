@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import static driver.DriverManager.getDriver;
 
@@ -18,7 +19,6 @@ public class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
     public static final Logger LOGGER = LogManager.getLogger();
-
 
     WaitAux waitAux = new WaitAux();
     WebElement elemento;
@@ -51,11 +51,9 @@ public class BasePage {
     }
 
     public String obterValueElemento(String id) {
-
         return getDriver().findElement(By.name(id)).getAttribute("value");
 
     }
-
 
     public void Enter() {
 
@@ -63,16 +61,19 @@ public class BasePage {
         elemento.sendKeys(Keys.ENTER);
     }
 
-
-    public void tab(By campoValorDetalheTipo) {
+    public void tab(By by) {
 
         waitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.TAB);
     }
 
-
     public boolean verificarSeEstaAtivo(By by) {
         elemento = getDriver().findElement(by);
         return elemento.isEnabled();
     }
+
+    public void comparaString(String texto1, String texto2) {
+        Assert.assertEquals(texto1, texto2);
+    }
+
 }
