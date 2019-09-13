@@ -14,7 +14,7 @@ public class AlterarRenda extends BaseTest {
     }
 
     @Test
-    public void deveSalvarComMesMenorQueAtual() {
+    public void deveriaSalvarComMesMenorQueAtual() {
         new AlterarRendaPage(driver)
                 .alterarRendaValidaAnoMes(-2);
 
