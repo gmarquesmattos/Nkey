@@ -23,11 +23,12 @@ public class DetalhamentoPage extends BasePage {
     private By clicarCampooDetalhePeriodicidade = By.id("1_s_5_l_Sicredi_Peridicidade");
     private By valorComboDetalhePeriodicidade = By.id("1_Sicredi_Peridicidade");
     private By detalhamentoValor = By.id("1_Sicredi_Valor");
-    private By BotaoSalvarDetalhamento = By.id("s_5_1_24_0_Ctrl");
+    private By botaoSalvarDetalhamento = By.id("s_5_1_24_0_Ctrl");
     private By botaoSalvarRenda = By.id("s_6_1_13_0_Ctrl");
     private By clicarCampoValor = By.id("1_s_5_l_Sicredi_Valor");
     private By botaoExcluirDetalhamento = By.id("s_5_1_5_0_Ctrl");
     private By popup = By.id("_sweview_popup");
+    private By botaoAccept = By.id("btn-accept");
 
     public DetalhamentoPage novoDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
@@ -42,11 +43,31 @@ public class DetalhamentoPage extends BasePage {
         tab(valorComboDetalhePeriodicidade);
         String valor = "2";
         escrever(detalhamentoValor, valor);
-        clicar(BotaoSalvarDetalhamento);
-
+        clicar(botaoSalvarDetalhamento);
         alterarRendaPage.apagarRegistro();
         return this;
     }
+
+    public DetalhamentoPage novoDetalhamentoDuplicado() throws InterruptedException {
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage.editarAlterarRenda()
+                .editarAtendimento();
+        clicar(botaoNovoDetalhamento);
+        clicar(clicarComboDetalheTipo);
+        String stringTextoTipoRendaEnv = obterValueElemento("s_2_1_3_0");
+        escrever(campoValorDetalheTipo, (stringTextoTipoRendaEnv));
+        tab(campoValorDetalheTipo);
+        clicar(botaoSalvarDetalhamento);
+        String Text = obterTexto(popup);
+        compararString(Text, Text);
+        clicar(botaoAccept);
+        clicar(botaoExcluirDetalhamento);
+        esperaAlert();
+    //  alterarRendaPage.apagarRegistro();
+        return this;
+
+    }
+
 
     public DetalhamentoPage pesquisarDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
@@ -63,9 +84,9 @@ public class DetalhamentoPage extends BasePage {
         alterarRendaPage.editarAlterarRenda()
                 .editarAtendimento();
         clicar(botaoNovoDetalhamento);
-        clicar(BotaoSalvarDetalhamento);
+        clicar(botaoSalvarDetalhamento);
         String Text = obterTexto(popup);
-        compararString(Text,Text);
+        compararString(Text, Text);
 
     }
 
@@ -79,7 +100,7 @@ public class DetalhamentoPage extends BasePage {
         tab(valorComboDetalhePeriodicidade);
         clicar(clicarCampoValor);
         escrever(detalhamentoValor, (VALOR_DETALHAMENTO));
-        clicar(BotaoSalvarDetalhamento);
+        clicar(botaoSalvarDetalhamento);
     }
 
     public void TipoDuplicadoBotaoNovodetalhamento() {

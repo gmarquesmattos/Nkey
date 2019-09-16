@@ -2,7 +2,6 @@ package testcases.retaguarda.alterarRenda;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-import pageObjects.retaguarda.RetaguardaPage;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 
 public class AlterarRendaTest extends BaseTest {

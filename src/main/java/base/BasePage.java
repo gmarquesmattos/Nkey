@@ -87,6 +87,7 @@ public class BasePage {
         while (i++ < 5) {
             try {
                 Alert alert = DriverManager.getDriver().switchTo().alert();
+
                 break;
             } catch (NoAlertPresentException e) {
                 Thread.sleep(1000);
