@@ -67,6 +67,14 @@ public class BasePage {
         elemento.sendKeys(Keys.TAB);
     }
 
+    public void delete(By by) {
+
+        waitAux.waitJQueryAndLoadPage();
+        elemento.clear();
+
+    }
+
+
     public boolean verificarSeEstaAtivo(By by) {
         elemento = getDriver().findElement(by);
         return elemento.isEnabled();

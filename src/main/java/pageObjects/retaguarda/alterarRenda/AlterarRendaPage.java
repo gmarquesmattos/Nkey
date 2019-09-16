@@ -5,6 +5,8 @@ import driver.DriverManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import pageObjects.retaguarda.RetaguardaPage;
 import utils.SeleniumUtil;
 
@@ -25,6 +27,8 @@ public class AlterarRendaPage extends BasePage {
     private By botaoSalvarRenda = By.id("s_6_1_13_0_Ctrl");
     private By textoAnoRenda = By.xpath("//input[@name='s_6_1_1_0']");
     private By textoMesRenda = By.xpath("//input[@name='s_6_1_2_0']");
+    private By botaoAccept = By.id("btn-accept");
+    private By botaoCancelar = By.id("s_6_1_11_0_Ctrl");
 
 
     public AlterarRendaPage editarAlterarRenda() {
@@ -55,7 +59,7 @@ public class AlterarRendaPage extends BasePage {
         return this;
     }
 
-    public void alterarRendaValidaAnoMes(int mes) {
+    public AlterarRendaPage alterarRendaValidaAnoMes(int mes) {
 
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage
@@ -72,6 +76,47 @@ public class AlterarRendaPage extends BasePage {
         escrever(textoMesRenda, this.mes.toString());
         clicar(botaoSalvarRenda);
         apagarRegistro();
+        return this;
+    }
+
+    public AlterarRendaPage naoSalvaraRendaMesAnoMaiorAtual(int mes2, String textoPopup, String textoEsperado) {
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage
+                .editarAlterarRenda();
+        if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
+            clicar(botaoAssumirAtendimento);
+        }
+        clicar(botaoEditar);
+        clicar(textoAnoRenda);
+        ano = localDate.getYear();
+        escrever(textoAnoRenda, ano.toString());
+        clicar(textoMesRenda);
+        this.mes = (localDate.getMonthValue() + mes2);
+        escrever(textoMesRenda, this.mes.toString());
+        clicar(botaoSalvarRenda);
+        compararString(textoPopup, textoEsperado);
+        clicar(botaoAccept);
+        clicar(botaoCancelar);
+        return this;
+    }
+
+    public AlterarRendaPage anoNaofinalizado(String textoPopup, String textoEsperado) {
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage
+                .editarAlterarRenda();
+        if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
+            clicar(botaoAssumirAtendimento);
+        }
+        clicar(botaoEditar);
+        clicar(textoMesRenda);
+        delete(textoMesRenda);
+        this.ano = localDate.getYear();
+        escrever(textoAnoRenda, this.ano.toString());
+
+
+        compararString(textoPopup, textoEsperado);
+        clicar(botaoSalvarRenda);
+        return this;
     }
 
     public AlterarRendaPage apagarRegistro() {
