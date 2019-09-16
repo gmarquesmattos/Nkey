@@ -4,10 +4,7 @@ package base;
 import driver.DriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -84,4 +81,19 @@ public class BasePage {
         Assert.assertEquals(texto1, texto2);
     }
 
+
+    public static void esperaAlert() throws InterruptedException {
+        int i = 0;
+        while (i++ < 5) {
+            try {
+                Alert alert = DriverManager.getDriver().switchTo().alert();
+                break;
+            } catch (NoAlertPresentException e) {
+                Thread.sleep(1000);
+                continue;
+            }
+        }
+
+
+    }
 }

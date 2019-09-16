@@ -8,7 +8,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import pageObjects.home.HomePage;
-import utils.SeleniumUtil;
 
 import java.time.LocalDate;
 
@@ -35,24 +34,11 @@ public class RetaguardaPage extends BasePage {
     private By textoCooperativa = By.id("1_Sicredi_Organization");
     private By tabelaCategoria = By.id("2_s_2_l_SR_Type_New_");
     private By botaoRetaguardaIr = By.id("s_2_1_9_0_Ctrl");
-
-    @FindBy(id = "s_1_1_1_0_Ctrl")
-    WebElement botaoAssumirAtendimento;
-
-    @FindBy(id = "s_3_1_13_0_Ctrl")
-    WebElement botaoEditar;
-
-    @FindBy(xpath = "//input[@name='s_6_1_1_0']")
-    WebElement campoAnoRenda;
-
-    @FindBy(xpath = "//input[@name='s_6_1_2_0']")
-    WebElement campoMesRenda;
+    private By botaoAssumirAtendimento = By.id("s_1_1_1_0_Ctrl");
+    private By botaoEditar = By.id("s_3_1_13_0_Ctrl");
 
     @FindBy(id = "s_6_1_13_0_Ctrl")
     WebElement botaoSalvarRenda;
-
-    @FindBy(xpath = "//div[@id='_sweview_popup']")
-    WebElement textDataRenda;
 
     @FindBy(id = "s_5_1_11_0_Ctrl")
     WebElement botaoNovoDetalhamento;
@@ -78,19 +64,10 @@ public class RetaguardaPage extends BasePage {
     @FindBy(id = "s_5_1_24_0_Ctrl")
     WebElement clicarBotaoSalvar;
 
-    @FindBy(id = "btn-accept")
-    WebElement botaoAccept;
 
     @FindBy(id = "s_5_1_5_0_Ctrl")
     WebElement botaoExcluirDetalhamento;
 
-    public RetaguardaPage preencherDetalhamento(int valor) {
-        acessarCadastroCanais();
-        preencherCooperativa();
-        editarAtendimento();
-        novoDetalhamento(valor);
-        return this;
-    }
 
     public RetaguardaPage acessarCadastroCanais() {
         HomePage homePO = new HomePage(driver);
@@ -112,106 +89,6 @@ public class RetaguardaPage extends BasePage {
 
     }
 
-    public void editarAtendimento() {
-        if (botaoAssumirAtendimento.isEnabled()) {
-            SeleniumUtil.clicar(botaoAssumirAtendimento);
-        }
-        SeleniumUtil.clicar(botaoEditar);
-    }
-
-    public void novoDetalhamentoTipoDuplicado() {
-        SeleniumUtil.clicar(botaoNovoDetalhamento);
-        SeleniumUtil.clicar(ClicarComboDetalheTipo);
-        campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
-        campoValorDetalheTipo.sendKeys(Keys.TAB);
-        SeleniumUtil.clicar(clicarCampooDetalhePeriodicidade);
-        valorComboDetalhePeriodicidade.sendKeys(MENSAL_PRIORIDADES);
-        valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
-        SeleniumUtil.clicar(clicarCampoValor);
-        detalhamentoValor.sendKeys(VALOR_DETALHAMENTO);
-        SeleniumUtil.clicar(clicarBotaoSalvar);
-    }
-
-    public void TipoDuplicadoBotaoNovodetalhamento() {
-        SeleniumUtil.clicar(botaoNovoDetalhamento);
-        SeleniumUtil.clicar(ClicarComboDetalheTipo);
-        campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
-        campoValorDetalheTipo.sendKeys(Keys.TAB);
-        SeleniumUtil.clicar(clicarCampooDetalhePeriodicidade);
-        valorComboDetalhePeriodicidade.sendKeys(MENSAL_PRIORIDADES);
-        valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
-        SeleniumUtil.clicar(clicarCampoValor);
-        detalhamentoValor.sendKeys(VALOR_DETALHAMENTO);
-        SeleniumUtil.clicar(botaoNovoDetalhamento);
-    }
-
-    public void alterarRenda() {
-        SeleniumUtil.clicar(campoAnoRenda);
-        campoAnoRenda.clear();
-        ano = localDate.getYear();
-        campoAnoRenda.sendKeys(ano.toString());
-        SeleniumUtil.clicar(campoMesRenda);
-        campoMesRenda.clear();
-        mes = (localDate.getMonthValue() + 1);
-        campoMesRenda.sendKeys(mes.toString());
-        SeleniumUtil.clicar(botaoSalvarRenda);
-    }
-
-    public void anoNaofinalizado() {
-        SeleniumUtil.clicar(campoAnoRenda);
-        campoAnoRenda.clear();
-        Integer var = localDate.getYear();
-        campoAnoRenda.sendKeys(var.toString());
-        campoMesRenda.clear();
-        SeleniumUtil.clicar(botaoSalvarRenda);
-    }
-
-    public void textValidacao(String text) {
-        Assert.assertEquals(text, textDataRenda.getText());
-        SeleniumUtil.clicar(botaoAccept);
-
-    }
-
-    public void salvarSemDetalhamento() {
-        if (botaoAssumirAtendimento.isEnabled()) {
-            SeleniumUtil.clicar(botaoAssumirAtendimento);
-        }
-        SeleniumUtil.clicar(botaoEditar);
-        SeleniumUtil.clicar(botaoSalvarRenda);
-        SeleniumUtil.clicar(botaoNovoDetalhamento);
-        SeleniumUtil.clicar(clicarBotaoSalvar);
-    }
-
-    public void excluirRegistroDetalhamento() {
-        SeleniumUtil.clicar(botaoExcluirDetalhamento);
-
-        try {
-            SeleniumUtil.esperaAlert();
-        } catch (InterruptedException e) {
-            LOGGER.error("Nâo esperou ou encontrou o ALERT.");
-        }
-
-        Alert alerta = DriverManager.getDriver().switchTo().alert();
-        alerta.accept();
-    }
-
-    private void novoDetalhamento(Integer valor) {
-        SeleniumUtil.clicar(botaoSalvarRenda);
-
-        SeleniumUtil.clicar(botaoEditar);
-        SeleniumUtil.clicar(botaoSalvarRenda);
-        SeleniumUtil.clicar(botaoNovoDetalhamento);
-        SeleniumUtil.clicar(ClicarComboDetalheTipo);
-        campoValorDetalheTipo.sendKeys(OUTROS_TIPOS);
-        campoValorDetalheTipo.sendKeys(Keys.TAB);
-        SeleniumUtil.clicar(clicarCampooDetalhePeriodicidade);
-        valorComboDetalhePeriodicidade.sendKeys(MENSAL_PRIORIDADES);
-        valorComboDetalhePeriodicidade.sendKeys(Keys.TAB);
-        SeleniumUtil.clicar(clicarCampoValor);
-        detalhamentoValor.clear();
-        detalhamentoValor.sendKeys(valor.toString());
-        SeleniumUtil.clicar(clicarBotaoSalvar);
-    }
 
 }
 

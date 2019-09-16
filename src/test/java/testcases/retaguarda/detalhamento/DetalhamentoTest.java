@@ -2,6 +2,7 @@ package testcases.retaguarda.detalhamento;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
+import org.testng.annotations.TestInstance;
 import pageObjects.retaguarda.detalhamento.DetalhamentoPage;
 
 public class DetalhamentoTest extends BaseTest {
@@ -18,4 +19,13 @@ public class DetalhamentoTest extends BaseTest {
                 .pesquisarDetalhamento();
 
     }
+
+    @Test
+    public void naoDeveSalvarSemDetalhamento() {
+        new DetalhamentoPage(driver)
+               .salvarSemDetalhamento();
+
+    }
+
+
 }

@@ -5,10 +5,7 @@ import driver.DriverManager;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import pageObjects.retaguarda.RetaguardaPage;
-import utils.SeleniumUtil;
 
 import java.time.LocalDate;
 
@@ -122,7 +119,7 @@ public class AlterarRendaPage extends BasePage {
     public AlterarRendaPage apagarRegistro() {
         clicar(botaoApagar);
         try {
-            SeleniumUtil.esperaAlert();
+            BasePage.esperaAlert();
         } catch (InterruptedException e) {
             LOGGER.error("Nâo esperou ou encontrou o ALERT.");
         }
