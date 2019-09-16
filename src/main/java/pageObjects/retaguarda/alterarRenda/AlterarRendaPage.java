@@ -45,13 +45,13 @@ public class AlterarRendaPage extends BasePage {
         clicar(botaoSalvarRenda);
         String stringTextoAnoAltRenda = obterValueElemento("s_3_1_1_0");
         String stringTextoAnoRendaEnv = obterValueElemento("s_2_1_0_0");
-        comparaString(stringTextoAnoAltRenda, stringTextoAnoRendaEnv);
+        compararString(stringTextoAnoAltRenda, stringTextoAnoRendaEnv);
         String stringTextoMesAlterarRenda = obterValueElemento("s_3_1_2_0");
         String stringTextoMesRendaEnv = obterValueElemento("s_2_1_1_0");
-        comparaString(stringTextoMesAlterarRenda, stringTextoMesRendaEnv);
+        compararString(stringTextoMesAlterarRenda, stringTextoMesRendaEnv);
         String stringTextoTipoDetalhamento = obterTexto(By.id("1_s_5_l_Sicredi_Tipo"));
         String stringTextoTipoRendaEnv = obterValueElemento("s_2_1_3_0");
-        comparaString(stringTextoTipoDetalhamento, stringTextoTipoRendaEnv);
+        compararString(stringTextoTipoDetalhamento, stringTextoTipoRendaEnv);
         return this;
     }
 
@@ -73,7 +73,6 @@ public class AlterarRendaPage extends BasePage {
         clicar(botaoSalvarRenda);
         apagarRegistro();
     }
-
 
     public AlterarRendaPage apagarRegistro() {
         clicar(botaoApagar);

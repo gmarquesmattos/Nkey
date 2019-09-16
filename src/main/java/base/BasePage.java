@@ -72,7 +72,7 @@ public class BasePage {
         return elemento.isEnabled();
     }
 
-    public void comparaString(String texto1, String texto2) {
+    public void compararString(String texto1, String texto2) {
         Assert.assertEquals(texto1, texto2);
     }
 

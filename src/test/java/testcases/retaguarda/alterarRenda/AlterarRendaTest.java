@@ -4,7 +4,7 @@ import base.BaseTest;
 import org.testng.annotations.Test;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 
-public class AlterarRenda extends BaseTest {
+public class AlterarRendaTest extends BaseTest {
 
     @Test
     public void deveriaEditarRenda() {
