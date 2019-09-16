@@ -57,12 +57,7 @@ public class AlterarRendaPage extends BasePage {
 
     public AlterarRendaPage alterarRendaValidaAnoMes(int mes) {
 
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage
-                .editarAlterarRenda();
-        if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
-            clicar(botaoAssumirAtendimento);
-        }
+        assumirAtendimento();
         clicar(botaoEditar);
         clicar(textoAnoRenda);
         ano = localDate.getYear();
@@ -76,12 +71,7 @@ public class AlterarRendaPage extends BasePage {
     }
 
     public AlterarRendaPage naoSalvaraRendaMesAnoMaiorAtual(int mes2, String textoPopup, String textoEsperado) {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage
-                .editarAlterarRenda();
-        if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
-            clicar(botaoAssumirAtendimento);
-        }
+        assumirAtendimento();
         clicar(botaoEditar);
         clicar(textoAnoRenda);
         ano = localDate.getYear();
@@ -96,13 +86,17 @@ public class AlterarRendaPage extends BasePage {
         return this;
     }
 
-    public AlterarRendaPage anoNaofinalizado(String textoPopup, String textoEsperado) {
+    private void assumirAtendimento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage
                 .editarAlterarRenda();
         if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
             clicar(botaoAssumirAtendimento);
         }
+    }
+
+    public AlterarRendaPage anoNaofinalizado(String textoPopup, String textoEsperado) {
+        assumirAtendimento();
         clicar(botaoEditar);
         clicar(textoMesRenda);
         delete(textoMesRenda);
@@ -115,7 +109,7 @@ public class AlterarRendaPage extends BasePage {
         return this;
     }
 
-    public AlterarRendaPage apagarRegistro() {
+    private AlterarRendaPage apagarRegistro() {
         clicar(botaoApagar);
         try {
             BasePage.esperaAlert();
