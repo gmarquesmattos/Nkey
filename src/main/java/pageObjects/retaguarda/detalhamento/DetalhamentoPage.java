@@ -13,13 +13,15 @@ import utils.SeleniumUtil;
 
 public class DetalhamentoPage extends BasePage {
 
+    private By botaoAssumirAtendimento = By.id("s_1_1_1_0_Ctrl");
+    private By botaoEditar = By.id("s_3_1_13_0_Ctrl");
+    private By botaoApagar = By.id("s_3_1_11_0_Ctrl");
+
     public DetalhamentoPage(WebDriver driver) {
         super(driver);
     }
 
-    private By botaoAssumirAtendimento = By.id("s_1_1_1_0_Ctrl");
-    private By botaoEditar = By.id("s_3_1_13_0_Ctrl");
-    private By botaoApagar = By.id("s_3_1_11_0_Ctrl");
+
 
     public DetalhamentoPage preencherDetalhamento() {
         RetaguardaPage retaguardaPage = new RetaguardaPage(driver);

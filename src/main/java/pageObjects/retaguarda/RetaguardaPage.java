@@ -237,6 +237,8 @@ public class RetaguardaPage extends BasePage {
         SeleniumUtil.esperarElementoClicar(clicarBotaoSalvar);
     }
 
+    public void apagarRegistro() {
+    }
 }
 
 

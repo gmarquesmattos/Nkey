@@ -2,16 +2,14 @@ package db;
 
 
 
-import java.util.List;
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class DadosBasicosDb {		
 	
     Dao dao = new Dao();
    	
-	public List<String> retornarDadosBasicosDb()  {
-		
-		
-		return dao.retornarDadosDb("query_dados_basicos_pf","03401711970");
+	public String retornarDadosBasicosDb(CamposBanco camposBanco) throws IOException, SQLException {
+		return  dao.retornarDadosDb(camposBanco,"query_dados_basicos_pf","03401711970");
 	}
-	
 }
