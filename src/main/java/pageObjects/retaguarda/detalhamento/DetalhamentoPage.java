@@ -1,7 +1,6 @@
 package pageObjects.retaguarda.detalhamento;
 
 import base.BasePage;
-import driver.DriverManager;
 import org.openqa.selenium.*;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 
@@ -63,7 +62,7 @@ public class DetalhamentoPage extends BasePage {
         clicar(botaoAccept);
         clicar(botaoExcluirDetalhamento);
         esperaAlert();
-    //  alterarRendaPage.apagarRegistro();
+        //  alterarRendaPage.apagarRegistro();
         return this;
 
     }
@@ -116,18 +115,5 @@ public class DetalhamentoPage extends BasePage {
         clicar(botaoNovoDetalhamento);
     }
 
-
-    public void excluirRegistroDetalhamento() {
-        clicar(botaoExcluirDetalhamento);
-
-        try {
-            esperaAlert();
-        } catch (InterruptedException e) {
-            LOGGER.error("Nâo esperou ou encontrou o ALERT.");
-        }
-
-        Alert alerta = DriverManager.getDriver().switchTo().alert();
-        alerta.accept();
-    }
 
 }

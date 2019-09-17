@@ -109,7 +109,7 @@ public class AlterarRendaPage extends BasePage {
         return this;
     }
 
-    private AlterarRendaPage apagarRegistro() {
+    public AlterarRendaPage apagarRegistro() {
         clicar(botaoApagar);
         try {
             BasePage.esperaAlert();

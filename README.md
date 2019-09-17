@@ -42,11 +42,26 @@ Diretório C: para baixar os arquivos do projeto
 
 ## Padrões
 - Para cada página terá um PageObjects com seus respectivos métodos criados.
+<<<<<<< Updated upstream
 - Nomes dos métodos e classes escritos em português. 
-## Classes  
+# Classes  
 1. Nome das classes Deve seguir o padrão [CamelCase](https://google.github.io/styleguide/javaguide.html#s5.2.2-class-names). 
 2. As classes do pacote PageObject, **devem** conter ao final do seu nome a palavra **Page**. 
 [PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)  
+=======
+- Exemplo: HomePage.java
+# Classes
+=======
+- Para executar todos os testes basta ir até o caminho: **SRC->Test->Resources->Suites**-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
+- [Suite] é um arquivo que agrupa todos os cenários de testes. (https://testng.org/doc/documentation-main.html#testng-xml)
+## Padrões
+- Para cada página terá um PageObjects com seus respectivos métodos criados.
+- Exemplo: **HomePage.java**
+
+## Classes  
+As classes do pacote PageObject, teram ao final do seu nome, as letras **Page**, que representa uma pageObject.
+E ter o nome do Página [PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)
+>>>>>>> Stashed changes
 Exemplos: 
 ````
 public class DadosBasicosPage{}
@@ -59,7 +74,7 @@ Exemplos:
  public class SolucoesFinanceirasTest{}
  ```` 
  
-### Metodos  
+## Métodos 
 
 1. Nome dos métodos **devem** seguir o padrão [camelCase](https://google.github.io/styleguide/javaguide.html#s5.2.3-method-names). 
 2. Os métodos dos testes, **devem** indicar o que de fato precisa ser feito (ação do objeto).
