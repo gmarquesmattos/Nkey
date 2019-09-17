@@ -99,14 +99,10 @@ public class DetalhamentoPage extends BasePage {
 
     }
 
-
     public void excluirRegistroDetalhamento() {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
 
-//
-//        Alert alerta = DriverManager.getDriver().switchTo().alert();
-//        alerta.accept();
     }
 
 }

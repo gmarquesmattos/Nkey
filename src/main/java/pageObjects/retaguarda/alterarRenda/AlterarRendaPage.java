@@ -6,6 +6,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.retaguarda.RetaguardaPage;
+
 import java.time.LocalDate;
 
 import static base.BasePage.*;
@@ -104,8 +105,6 @@ public class AlterarRendaPage extends BasePage {
         limparCampo(textoMesRenda);
         this.ano = localDate.getYear();
         escrever(textoAnoRenda, this.ano.toString());
-
-
         compararString(textoPopup, textoEsperado);
         clicar(botaoSalvarRenda);
         return this;
@@ -113,11 +112,7 @@ public class AlterarRendaPage extends BasePage {
 
     public AlterarRendaPage apagarRegistro() {
         clicar(botaoApagar);
-
-            esperaAceitarAlert();
-
-//        Alert alerta = DriverManager.getDriver().switchTo().alert();
-//        alerta.accept();
+        esperaAceitarAlert();
         return this;
     }
 }
