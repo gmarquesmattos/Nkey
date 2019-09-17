@@ -15,23 +15,25 @@ public class AlterarRendaTest extends BaseTest {
 
     @Test
     public void deveriaSalvarComMesMenorQueAtual() {
+        int mes = -2;
         new AlterarRendaPage(driver)
-                .alterarRendaValidaAnoMes(-2);
+                .ValidaAnoMes(mes);
 
     }
 
 
     @Test
-    public void naoDeveSalvarRendaMesAnoMaiorAtual() {
+    public void naoDeveSalvarComMesMaiorQueAtual() {
         new AlterarRendaPage(driver)
-                .naoSalvaraRendaMesAnoMaiorAtual(2,"O periodo informado é maior que a data atual.(SBL-EXL-00151)(SBL-EXL-00151)","O periodo informado é maior que a data atual.(SBL-EXL-00151)(SBL-EXL-00151)");
+                .validaAnoMaiorQueAtual();
 
     }
 
     @Test
     public void naoDeveSalvarNaoFinalizado() {
+
         new AlterarRendaPage(driver)
-       .anoNaofinalizado("Ano não fechado para lançamento de renda.(SBL-EXL-00151)(SBL-EXL-00151)","Ano não fechado para lançamento de renda.(SBL-EXL-00151)(SBL-EXL-00151)");
+                .anoNaofinalizado();
 
     }
 

@@ -1,7 +1,6 @@
 package pageObjects.retaguarda.detalhamento;
 
 import base.BasePage;
-import driver.DriverManager;
 import org.openqa.selenium.*;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 
@@ -9,20 +8,21 @@ public class DetalhamentoPage extends BasePage {
 
     private static final String OUTROS_TIPOS = "outros";
     private static final String MENSAL_PRIORIDADES = "mensal";
-    private final String VALOR_DETALHAMENTO = "1200";
+    private final String CAMPO_VALOR = "1200";
     private By botaoPesquisarDetalhamento = By.id("s_5_1_10_0_Ctrl");
     private By botaoIr = By.id("s_5_1_7_0_Ctrl");
     private By botaoNovoDetalhamento = By.id("s_5_1_11_0_Ctrl");
-    private By clicarComboDetalheTipo = By.id("1_s_5_l_Sicredi_Tipo");
-    private By campoValorDetalheTipo = By.id("1_Sicredi_Tipo");
-    private By clicarCampooDetalhePeriodicidade = By.id("1_s_5_l_Sicredi_Peridicidade");
-    private By valorComboDetalhePeriodicidade = By.id("1_Sicredi_Peridicidade");
+    private By comboDetalheTipo = By.id("1_s_5_l_Sicredi_Tipo");
+    private By seletorTipo = By.id("1_Sicredi_Tipo");
+    private By seletorPeriodicidade = By.id("1_s_5_l_Sicredi_Peridicidade");
+    private By textoPeriodicidade = By.id("1_Sicredi_Peridicidade");
     private By detalhamentoValor = By.id("1_Sicredi_Valor");
     private By botaoSalvarDetalhamento = By.id("s_5_1_24_0_Ctrl");
-    private By clicarCampoValor = By.id("1_s_5_l_Sicredi_Valor");
+    private By textoValor = By.id("1_s_5_l_Sicredi_Valor");
     private By botaoExcluirDetalhamento = By.id("s_5_1_5_0_Ctrl");
-    private By popup = By.id("_sweview_popup");
+    private By janelaDialogo = By.id("_sweview_popup");
     private By botaoAccept = By.id("btn-accept");
+    private By textoTipoRendaEnv = By.name("s_2_1_3_0");
 
     public DetalhamentoPage(WebDriver driver) {
         super(driver);
@@ -33,12 +33,12 @@ public class DetalhamentoPage extends BasePage {
         alterarRendaPage.editarAlterarRenda()
                 .editarAtendimento();
         clicar(botaoNovoDetalhamento);
-        clicar(clicarComboDetalheTipo);
-        escrever(campoValorDetalheTipo, (OUTROS_TIPOS));
-        clicarTab(campoValorDetalheTipo);
-        clicar(clicarCampooDetalhePeriodicidade);
-        escrever(valorComboDetalhePeriodicidade, (MENSAL_PRIORIDADES));
-        clicarTab(valorComboDetalhePeriodicidade);
+        clicar(comboDetalheTipo);
+        escrever(seletorTipo, (OUTROS_TIPOS));
+        clicarTab(seletorTipo);
+        clicar(seletorPeriodicidade);
+        escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
+        clicarTab(textoPeriodicidade);
         String valor = "2";
         escrever(detalhamentoValor, valor);
         clicar(botaoSalvarDetalhamento);
@@ -51,13 +51,14 @@ public class DetalhamentoPage extends BasePage {
         alterarRendaPage.editarAlterarRenda()
                 .editarAtendimento();
         clicar(botaoNovoDetalhamento);
-        clicar(clicarComboDetalheTipo);
-        String stringTextoTipoRendaEnv = obterValueElemento("s_2_1_3_0");
-        escrever(campoValorDetalheTipo, (stringTextoTipoRendaEnv));
-        clicarTab(campoValorDetalheTipo);
+        clicar(comboDetalheTipo);
+        String TipoRendaEnv = obterValueElemento(textoTipoRendaEnv);
+        escrever(seletorTipo, (TipoRendaEnv));
+        clicarTab(seletorTipo);
         clicar(botaoSalvarDetalhamento);
-        String Text = obterTexto(popup);
-        compararString(Text, Text);
+        String textoJanela = obterTexto(janelaDialogo);
+        String textoEsperado = "Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)";
+        compararString(textoJanela,textoEsperado );
         clicar(botaoAccept);
         excluirRegistroDetalhamento();
         alterarRendaPage.apagarRegistro();
@@ -67,14 +68,14 @@ public class DetalhamentoPage extends BasePage {
 
     public void TipoDuplicadoBotaoNovodetalhamento() {
         clicar(botaoNovoDetalhamento);
-        clicar(clicarComboDetalheTipo);
-        escrever(campoValorDetalheTipo, (OUTROS_TIPOS));
-        clicarTab(campoValorDetalheTipo);
-        clicar(clicarCampooDetalhePeriodicidade);
-        escrever(valorComboDetalhePeriodicidade, (MENSAL_PRIORIDADES));
-        clicarTab(valorComboDetalhePeriodicidade);
-        clicar(clicarCampoValor);
-        escrever(detalhamentoValor, (VALOR_DETALHAMENTO));
+        clicar(comboDetalheTipo);
+        escrever(seletorTipo, (OUTROS_TIPOS));
+        clicarTab(seletorTipo);
+        clicar(seletorPeriodicidade);
+        escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
+        clicarTab(textoPeriodicidade);
+        clicar(textoValor);
+        escrever(detalhamentoValor, (CAMPO_VALOR));
         clicar(botaoNovoDetalhamento);
     }
 
@@ -94,8 +95,9 @@ public class DetalhamentoPage extends BasePage {
                 .editarAtendimento();
         clicar(botaoNovoDetalhamento);
         clicar(botaoSalvarDetalhamento);
-        String Text = obterTexto(popup);
-        compararString(Text, Text);
+        String textoJanela = obterTexto(janelaDialogo);
+        String textoEsperado = "'Periodicidade' é um campo obrigatório. Informe um valor para o campo. (SBL-DAT-00498)";
+        compararString(textoJanela, textoEsperado);
 
     }
 

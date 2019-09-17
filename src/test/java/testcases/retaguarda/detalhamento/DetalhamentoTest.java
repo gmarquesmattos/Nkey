@@ -27,7 +27,7 @@ public class DetalhamentoTest extends BaseTest {
     }
 
     @Test
-    public void naoDeveSalvarComTiposDuplicado() throws InterruptedException {
+    public void naoDeveSalvarComTiposDuplicado(){
         new DetalhamentoPage(driver)
                .novoDetalhamentoDuplicado();
 

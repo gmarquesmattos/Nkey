@@ -28,8 +28,13 @@ public class AlterarRendaPage extends BasePage {
     private By textoMesRenda = By.xpath("//input[@name='s_6_1_2_0']");
     private By botaoAccept = By.id("btn-accept");
     private By botaoCancelar = By.id("s_6_1_11_0_Ctrl");
-
-
+    private By textoAnoAltRenda = By.name("s_3_1_1_0");
+    private By textoAnoRendaEnv = By.name("s_2_1_0_0");
+    private By textoMesAlterarRenda = By.name("s_3_1_2_0");
+    private By textoMesRendaEnv = By.name("s_2_1_1_0");
+    private By textoTipoDetalhamento = By.id("1_s_5_l_Sicredi_Tipo");
+    private By textoTipoRendaEnv = By.name("s_2_1_3_0");
+    private By janelaDialogo = By.id("_sweview_popup");
     public AlterarRendaPage editarAlterarRenda() {
         RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
         retaguardaPage
@@ -46,19 +51,20 @@ public class AlterarRendaPage extends BasePage {
         }
         clicar(botaoEditar);
         clicar(botaoSalvarRenda);
-        String textoAnoAltRenda = obterValueElemento("s_3_1_1_0");
-        String textoAnoRendaEnv = obterValueElemento("s_2_1_0_0");
-        compararString(textoAnoAltRenda, textoAnoRendaEnv);
-        String textoMesAlterarRenda = obterValueElemento("s_3_1_2_0");
-        String textoMesRendaEnv = obterValueElemento("s_2_1_1_0");
-        compararString(textoMesAlterarRenda, textoMesRendaEnv);
-        String textoTipoDetalhamento = obterTexto(By.id("1_s_5_l_Sicredi_Tipo"));
-        String textoTipoRendaEnv = obterValueElemento("s_2_1_3_0");
-        compararString(textoTipoDetalhamento, textoTipoRendaEnv);
+        String anoAlterarRenda = obterValueElemento(textoAnoAltRenda);
+        String anoRendaEnv = obterValueElemento(textoAnoRendaEnv);
+        compararString(anoAlterarRenda, anoRendaEnv);
+        String mesAlterarRenda = obterValueElemento(textoMesAlterarRenda);
+        String mesRendaEnv = obterValueElemento(textoMesRendaEnv);
+        compararString(mesAlterarRenda, mesRendaEnv);
+        String tipoDetalhamento;
+        tipoDetalhamento = obterTexto((textoTipoDetalhamento));
+        String tipoRendaEnv = obterValueElemento(textoTipoRendaEnv);
+        compararString(tipoDetalhamento, tipoRendaEnv);
         return this;
     }
 
-    public AlterarRendaPage alterarRendaValidaAnoMes(int mes) {
+    public AlterarRendaPage ValidaAnoMes(int mes) {
 
         assumirAtendimento();
         clicar(botaoEditar);
@@ -73,17 +79,21 @@ public class AlterarRendaPage extends BasePage {
         return this;
     }
 
-    public AlterarRendaPage naoSalvaraRendaMesAnoMaiorAtual(int mes2, String textoPopup, String textoEsperado) {
+    public AlterarRendaPage validaAnoMaiorQueAtual() {
+        int mes = 2;
         assumirAtendimento();
         clicar(botaoEditar);
         clicar(textoAnoRenda);
         ano = localDate.getYear();
         escrever(textoAnoRenda, ano.toString());
         clicar(textoMesRenda);
-        this.mes = (localDate.getMonthValue() + mes2);
+        this.mes = (localDate.getMonthValue() + mes);
         escrever(textoMesRenda, this.mes.toString());
         clicar(botaoSalvarRenda);
-        compararString(textoPopup, textoEsperado);
+
+        String textoEsperado = "O periodo informado é maior que a data atual.(SBL-EXL-00151)(SBL-EXL-00151)";
+        String textoJanela = obterTexto(janelaDialogo);
+        compararString(textoEsperado, textoJanela);
         clicar(botaoAccept);
         clicar(botaoCancelar);
         return this;
@@ -98,15 +108,17 @@ public class AlterarRendaPage extends BasePage {
         }
     }
 
-    public AlterarRendaPage anoNaofinalizado(String textoPopup, String textoEsperado) {
+    public AlterarRendaPage anoNaofinalizado() {
         assumirAtendimento();
         clicar(botaoEditar);
         clicar(textoMesRenda);
         limparCampo(textoMesRenda);
         this.ano = localDate.getYear();
         escrever(textoAnoRenda, this.ano.toString());
-        compararString(textoPopup, textoEsperado);
         clicar(botaoSalvarRenda);
+        String texto = obterTexto(janelaDialogo);
+        String texto2 = "Ano não fechado para lançamento de renda.(SBL-EXL-00151)(SBL-EXL-00151)";
+        compararString(texto2, texto);
         return this;
     }
 

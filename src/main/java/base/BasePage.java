@@ -51,9 +51,8 @@ public class BasePage {
         return elemento.getText();
     }
 
-    public String obterValueElemento(String id) {
-        return getDriver().findElement(By.name(id)).getAttribute("value");
-
+    public String obterValueElemento(By by) {
+        return getDriver().findElement(by).getAttribute("value");
     }
 
 
@@ -84,6 +83,7 @@ public class BasePage {
 
     public void compararString(String texto1, String texto2) {
         Assert.assertEquals(texto1, texto2);
+
     }
 
 
