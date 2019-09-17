@@ -64,8 +64,8 @@ public class AlterarRendaPage extends BasePage {
         return this;
     }
 
-    public AlterarRendaPage ValidaAnoMes(int mes) {
-
+    public AlterarRendaPage ValidaAnoMes() {
+        int mes = -2;
         assumirAtendimento();
         clicar(botaoEditar);
         clicar(textoAnoRenda);

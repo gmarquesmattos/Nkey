@@ -15,9 +15,9 @@ public class AlterarRendaTest extends BaseTest {
 
     @Test
     public void deveriaSalvarComMesMenorQueAtual() {
-        int mes = -2;
+
         new AlterarRendaPage(driver)
-                .ValidaAnoMes(mes);
+                .ValidaAnoMes();
 
     }
 
