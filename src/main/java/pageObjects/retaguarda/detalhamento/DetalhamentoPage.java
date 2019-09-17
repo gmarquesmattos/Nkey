@@ -19,7 +19,6 @@ public class DetalhamentoPage extends BasePage {
     private By valorComboDetalhePeriodicidade = By.id("1_Sicredi_Peridicidade");
     private By detalhamentoValor = By.id("1_Sicredi_Valor");
     private By botaoSalvarDetalhamento = By.id("s_5_1_24_0_Ctrl");
-    private By botaoSalvarRenda = By.id("s_6_1_13_0_Ctrl");
     private By clicarCampoValor = By.id("1_s_5_l_Sicredi_Valor");
     private By botaoExcluirDetalhamento = By.id("s_5_1_5_0_Ctrl");
     private By popup = By.id("_sweview_popup");
@@ -36,10 +35,10 @@ public class DetalhamentoPage extends BasePage {
         clicar(botaoNovoDetalhamento);
         clicar(clicarComboDetalheTipo);
         escrever(campoValorDetalheTipo, (OUTROS_TIPOS));
-        tab(campoValorDetalheTipo);
+        clicarTab(campoValorDetalheTipo);
         clicar(clicarCampooDetalhePeriodicidade);
         escrever(valorComboDetalhePeriodicidade, (MENSAL_PRIORIDADES));
-        tab(valorComboDetalhePeriodicidade);
+        clicarTab(valorComboDetalhePeriodicidade);
         String valor = "2";
         escrever(detalhamentoValor, valor);
         clicar(botaoSalvarDetalhamento);
@@ -47,7 +46,7 @@ public class DetalhamentoPage extends BasePage {
         return this;
     }
 
-    public DetalhamentoPage novoDetalhamentoDuplicado() throws InterruptedException {
+    public DetalhamentoPage novoDetalhamentoDuplicado() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage.editarAlterarRenda()
                 .editarAtendimento();
@@ -55,7 +54,7 @@ public class DetalhamentoPage extends BasePage {
         clicar(clicarComboDetalheTipo);
         String stringTextoTipoRendaEnv = obterValueElemento("s_2_1_3_0");
         escrever(campoValorDetalheTipo, (stringTextoTipoRendaEnv));
-        tab(campoValorDetalheTipo);
+        clicarTab(campoValorDetalheTipo);
         clicar(botaoSalvarDetalhamento);
         String Text = obterTexto(popup);
         compararString(Text, Text);
@@ -66,6 +65,18 @@ public class DetalhamentoPage extends BasePage {
 
     }
 
+    public void TipoDuplicadoBotaoNovodetalhamento() {
+        clicar(botaoNovoDetalhamento);
+        clicar(clicarComboDetalheTipo);
+        escrever(campoValorDetalheTipo, (OUTROS_TIPOS));
+        clicarTab(campoValorDetalheTipo);
+        clicar(clicarCampooDetalhePeriodicidade);
+        escrever(valorComboDetalhePeriodicidade, (MENSAL_PRIORIDADES));
+        clicarTab(valorComboDetalhePeriodicidade);
+        clicar(clicarCampoValor);
+        escrever(detalhamentoValor, (VALOR_DETALHAMENTO));
+        clicar(botaoNovoDetalhamento);
+    }
 
     public DetalhamentoPage pesquisarDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
@@ -88,44 +99,14 @@ public class DetalhamentoPage extends BasePage {
 
     }
 
-    public void novoDetalhamentoTipoDuplicado() {
-        clicar(botaoNovoDetalhamento);
-        clicar(clicarComboDetalheTipo);
-        escrever(campoValorDetalheTipo, (OUTROS_TIPOS));
-        tab(campoValorDetalheTipo);
-        clicar(clicarCampooDetalhePeriodicidade);
-        escrever(valorComboDetalhePeriodicidade, (MENSAL_PRIORIDADES));
-        tab(valorComboDetalhePeriodicidade);
-        clicar(clicarCampoValor);
-        escrever(detalhamentoValor, (VALOR_DETALHAMENTO));
-        clicar(botaoSalvarDetalhamento);
-    }
-
-    public void TipoDuplicadoBotaoNovodetalhamento() {
-        clicar(botaoNovoDetalhamento);
-        clicar(clicarComboDetalheTipo);
-        escrever(campoValorDetalheTipo, (OUTROS_TIPOS));
-        tab(campoValorDetalheTipo);
-        clicar(clicarCampooDetalhePeriodicidade);
-        escrever(valorComboDetalhePeriodicidade, (MENSAL_PRIORIDADES));
-        tab(valorComboDetalhePeriodicidade);
-        clicar(clicarCampoValor);
-        escrever(detalhamentoValor, (VALOR_DETALHAMENTO));
-        clicar(botaoNovoDetalhamento);
-    }
-
 
     public void excluirRegistroDetalhamento() {
         clicar(botaoExcluirDetalhamento);
+        esperaAceitarAlert();
 
-        try {
-            esperaAlert();
-        } catch (InterruptedException e) {
-            LOGGER.error("Nâo esperou ou encontrou o ALERT.");
-        }
-
-        Alert alerta = DriverManager.getDriver().switchTo().alert();
-        alerta.accept();
+//
+//        Alert alerta = DriverManager.getDriver().switchTo().alert();
+//        alerta.accept();
     }
 
 }

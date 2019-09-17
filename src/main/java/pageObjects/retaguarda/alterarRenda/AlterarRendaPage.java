@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.retaguarda.RetaguardaPage;
 import java.time.LocalDate;
 
+import static base.BasePage.*;
+
 public class AlterarRendaPage extends BasePage {
 
     public AlterarRendaPage(WebDriver driver) {
@@ -43,15 +45,15 @@ public class AlterarRendaPage extends BasePage {
         }
         clicar(botaoEditar);
         clicar(botaoSalvarRenda);
-        String stringTextoAnoAltRenda = obterValueElemento("s_3_1_1_0");
-        String stringTextoAnoRendaEnv = obterValueElemento("s_2_1_0_0");
-        compararString(stringTextoAnoAltRenda, stringTextoAnoRendaEnv);
-        String stringTextoMesAlterarRenda = obterValueElemento("s_3_1_2_0");
-        String stringTextoMesRendaEnv = obterValueElemento("s_2_1_1_0");
-        compararString(stringTextoMesAlterarRenda, stringTextoMesRendaEnv);
-        String stringTextoTipoDetalhamento = obterTexto(By.id("1_s_5_l_Sicredi_Tipo"));
-        String stringTextoTipoRendaEnv = obterValueElemento("s_2_1_3_0");
-        compararString(stringTextoTipoDetalhamento, stringTextoTipoRendaEnv);
+        String textoAnoAltRenda = obterValueElemento("s_3_1_1_0");
+        String textoAnoRendaEnv = obterValueElemento("s_2_1_0_0");
+        compararString(textoAnoAltRenda, textoAnoRendaEnv);
+        String textoMesAlterarRenda = obterValueElemento("s_3_1_2_0");
+        String textoMesRendaEnv = obterValueElemento("s_2_1_1_0");
+        compararString(textoMesAlterarRenda, textoMesRendaEnv);
+        String textoTipoDetalhamento = obterTexto(By.id("1_s_5_l_Sicredi_Tipo"));
+        String textoTipoRendaEnv = obterValueElemento("s_2_1_3_0");
+        compararString(textoTipoDetalhamento, textoTipoRendaEnv);
         return this;
     }
 
@@ -99,7 +101,7 @@ public class AlterarRendaPage extends BasePage {
         assumirAtendimento();
         clicar(botaoEditar);
         clicar(textoMesRenda);
-        delete(textoMesRenda);
+        limparCampo(textoMesRenda);
         this.ano = localDate.getYear();
         escrever(textoAnoRenda, this.ano.toString());
 
@@ -111,13 +113,11 @@ public class AlterarRendaPage extends BasePage {
 
     public AlterarRendaPage apagarRegistro() {
         clicar(botaoApagar);
-        try {
-            BasePage.esperaAlert();
-        } catch (InterruptedException e) {
-            LOGGER.error("Nâo esperou ou encontrou o ALERT.");
-        }
-        Alert alerta = DriverManager.getDriver().switchTo().alert();
-        alerta.accept();
+
+            esperaAceitarAlert();
+
+//        Alert alerta = DriverManager.getDriver().switchTo().alert();
+//        alerta.accept();
         return this;
     }
 }

@@ -58,13 +58,13 @@ public class BasePage {
         elemento.sendKeys(Keys.ENTER);
     }
 
-    public void tab(By by) {
+    public void clicarTab(By by) {
 
         waitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.TAB);
     }
 
-    public void delete(By by) {
+    public void limparCampo(By by) {
 
         waitAux.waitJQueryAndLoadPage();
         elemento.clear();
@@ -82,19 +82,10 @@ public class BasePage {
     }
 
 
-    public static void esperaAlert() throws InterruptedException {
-        int i = 0;
-        while (i++ < 5) {
-            try {
-                Alert alert = DriverManager.getDriver().switchTo().alert();
-
-                break;
-            } catch (NoAlertPresentException e) {
-                Thread.sleep(1000);
-                continue;
-            }
-        }
-
+    public void esperaAceitarAlert() {
+        wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = DriverManager.getDriver().switchTo().alert();
+        alert.accept();
 
     }
 }
