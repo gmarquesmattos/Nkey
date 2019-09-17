@@ -10,11 +10,6 @@ public class DetalhamentoPage extends BasePage {
     private static final String OUTROS_TIPOS = "outros";
     private static final String MENSAL_PRIORIDADES = "mensal";
     private final String VALOR_DETALHAMENTO = "1200";
-
-    public DetalhamentoPage(WebDriver driver) {
-        super(driver);
-    }
-
     private By botaoPesquisarDetalhamento = By.id("s_5_1_10_0_Ctrl");
     private By botaoIr = By.id("s_5_1_7_0_Ctrl");
     private By botaoNovoDetalhamento = By.id("s_5_1_11_0_Ctrl");
@@ -29,6 +24,10 @@ public class DetalhamentoPage extends BasePage {
     private By botaoExcluirDetalhamento = By.id("s_5_1_5_0_Ctrl");
     private By popup = By.id("_sweview_popup");
     private By botaoAccept = By.id("btn-accept");
+
+    public DetalhamentoPage(WebDriver driver) {
+        super(driver);
+    }
 
     public DetalhamentoPage novoDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
@@ -61,9 +60,8 @@ public class DetalhamentoPage extends BasePage {
         String Text = obterTexto(popup);
         compararString(Text, Text);
         clicar(botaoAccept);
-        clicar(botaoExcluirDetalhamento);
-        esperaAlert();
-    //  alterarRendaPage.apagarRegistro();
+        excluirRegistroDetalhamento();
+        alterarRendaPage.apagarRegistro();
         return this;
 
     }
