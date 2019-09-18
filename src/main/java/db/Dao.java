@@ -64,8 +64,7 @@ public class Dao {
             resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                //dadosDb.add(resultSet.getString(resultSet.getMetaData().getColumnName(i)));
-                resultadoConsulta = resultSet.getString(String.valueOf(camposBanco));
+                   resultadoConsulta = resultSet.getString(String.valueOf(camposBanco));
             }
 
 

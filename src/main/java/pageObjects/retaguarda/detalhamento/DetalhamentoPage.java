@@ -1,27 +1,32 @@
 package pageObjects.retaguarda.detalhamento;
 
 import base.BasePage;
-import driver.DriverManager;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
+import org.openqa.selenium.*;
 import pageObjects.retaguarda.RetaguardaPage;
-import utils.SeleniumUtil;
+import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 
 public class DetalhamentoPage extends BasePage {
 
-    private By botaoAssumirAtendimento = By.id("s_1_1_1_0_Ctrl");
-    private By botaoEditar = By.id("s_3_1_13_0_Ctrl");
-    private By botaoApagar = By.id("s_3_1_11_0_Ctrl");
+
+    private static final String OUTROS_TIPOS = "outros";
+    private static final String MENSAL_PRIORIDADES = "mensal";
+    private By botaoPesquisarDetalhamento = By.id("s_5_1_10_0_Ctrl");
+    private By botaoIr = By.id("s_5_1_7_0_Ctrl");
+    private By botaoNovoDetalhamento = By.id("s_5_1_11_0_Ctrl");
+    private By comboDetalheTipo = By.id("1_s_5_l_Sicredi_Tipo");
+    private By seletorTipo = By.id("1_Sicredi_Tipo");
+    private By seletorPeriodicidade = By.id("1_s_5_l_Sicredi_Peridicidade");
+    private By textoPeriodicidade = By.id("1_Sicredi_Peridicidade");
+    private By detalhamentoValor = By.id("1_Sicredi_Valor");
+    private By botaoSalvarDetalhamento = By.id("s_5_1_24_0_Ctrl");
+    private By botaoExcluirDetalhamento = By.id("s_5_1_5_0_Ctrl");
+    private By janelaDialogo = By.id("_sweview_popup");
+    private By botaoAccept = By.id("btn-accept");
+    private By textoTipoRendaEnv = By.name("s_2_1_3_0");
 
     public DetalhamentoPage(WebDriver driver) {
         super(driver);
     }
-
-
 
     public DetalhamentoPage preencherDetalhamento() {
         RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
@@ -30,31 +35,78 @@ public class DetalhamentoPage extends BasePage {
                 .preencherCooperativa();
         return this;
     }
-
-    public DetalhamentoPage editarAtendimento() {
-        if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
-            clicar(botaoAssumirAtendimento);
-        }
-        clicar(botaoEditar);
+    public DetalhamentoPage novoDetalhamento() {
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage.editarAlterarRenda()
+                .editarAtendimento();
+        clicar(botaoNovoDetalhamento);
+        clicar(comboDetalheTipo);
+        escrever(seletorTipo, (OUTROS_TIPOS));
+        clicarTab(seletorTipo);
+        clicar(seletorPeriodicidade);
+        escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
+        clicarTab(textoPeriodicidade);
+        String valor = "2";
+        escrever(detalhamentoValor, valor);
+        clicar(botaoSalvarDetalhamento);
+        alterarRendaPage.apagarRegistro();
         return this;
     }
 
-    public DetalhamentoPage apagarRegistro() {
+    public String novoDetalhamentoDuplicado() {
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage.editarAlterarRenda()
+                .editarAtendimento();
+        clicar(botaoNovoDetalhamento);
+        clicar(comboDetalheTipo);
+        String TipoRendaEnviada = obterValueElemento(textoTipoRendaEnv);
+        escrever(seletorTipo, (TipoRendaEnviada));
+        clicarTab(seletorTipo);
+        clicar(botaoSalvarDetalhamento);
+        String textoJanela = obterTexto(janelaDialogo);
+        clicar(botaoAccept);
+        excluirRegistroDetalhamento();
+        alterarRendaPage.apagarRegistro();
+        return textoJanela;
 
-        clicar(botaoApagar);
-        try {
-            SeleniumUtil.esperaAlert();
-        } catch (InterruptedException e) {
-            LOGGER.error("Nâo esperou ou encontrou o ALERT.");
-        }
+    }
 
-        Alert alerta = DriverManager.getDriver().switchTo().alert();
-        alerta.accept();
+    public String TipoDuplicadoBotaoNovodetalhamento() {
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage.editarAlterarRenda()
+                .editarAtendimento();
+        clicar(botaoNovoDetalhamento);
+        clicar(comboDetalheTipo);
+        String TipoRendaEnviada = obterValueElemento(textoTipoRendaEnv);
+        escrever(seletorTipo, (TipoRendaEnviada));
+        clicarTab(seletorTipo);
+        String textoJanela = obterTexto(janelaDialogo);
+        clicar(botaoAccept);
+        excluirRegistroDetalhamento();
+        alterarRendaPage.apagarRegistro();
+        return textoJanela;
+    }
+
+    public DetalhamentoPage pesquisarDetalhamento() {
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage
+                .editarAlterarRenda()
+                .editarAtendimento();
+        clicar(botaoPesquisarDetalhamento);
+        clicar(botaoIr);
         return this;
     }
 
-    public DetalhamentoPage verificarTextoDoDetalhamento() {
-        Assert.assertEquals(1, 1);
-        return this;
+    public String salvarSemDetalhamento() {
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage.editarAlterarRenda().editarAtendimento();
+        clicar(botaoNovoDetalhamento);
+        clicar(botaoSalvarDetalhamento);
+        return obterTexto(janelaDialogo);
+    }
+
+    private void excluirRegistroDetalhamento() {
+        clicar(botaoExcluirDetalhamento);
+        esperaAceitarAlert();
     }
 }
