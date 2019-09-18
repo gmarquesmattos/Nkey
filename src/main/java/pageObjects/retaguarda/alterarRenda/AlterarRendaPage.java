@@ -4,6 +4,7 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.retaguarda.RetaguardaPage;
+
 import java.time.LocalDate;
 
 public class AlterarRendaPage extends BasePage {
@@ -75,7 +76,7 @@ public class AlterarRendaPage extends BasePage {
         return this;
     }
 
-    public AlterarRendaPage validaAnoMaiorQueAtual() {
+    public String validaAnoMaiorQueAtual() {
         int mes = 2;
         assumirAtendimento();
         clicar(botaoEditar);
@@ -86,13 +87,11 @@ public class AlterarRendaPage extends BasePage {
         this.mes = (localDate.getMonthValue() + mes);
         escrever(textoMesRenda, this.mes.toString());
         clicar(botaoSalvarRenda);
-
-        String textoEsperado = "O periodo informado é maior que a data atual.(SBL-EXL-00151)(SBL-EXL-00151)";
-        String textoJanela = obterTexto(janelaDialogo);
-        compararString(textoEsperado, textoJanela);
+        String texto = obterTexto(janelaDialogo);
         clicar(botaoAccept);
         clicar(botaoCancelar);
-        return this;
+        return texto;
+
     }
 
     private void assumirAtendimento() {
@@ -104,7 +103,7 @@ public class AlterarRendaPage extends BasePage {
         }
     }
 
-    public AlterarRendaPage anoNaofinalizado() {
+    public String anoNaofinalizado() {
         assumirAtendimento();
         clicar(botaoEditar);
         clicar(textoMesRenda);
@@ -112,10 +111,7 @@ public class AlterarRendaPage extends BasePage {
         this.ano = localDate.getYear();
         escrever(textoAnoRenda, this.ano.toString());
         clicar(botaoSalvarRenda);
-        String texto = obterTexto(janelaDialogo);
-        String texto2 = "Ano não fechado para lançamento de renda.(SBL-EXL-00151)(SBL-EXL-00151)";
-        compararString(texto2, texto);
-        return this;
+        return obterTexto(janelaDialogo);
     }
 
     public AlterarRendaPage apagarRegistro() {
