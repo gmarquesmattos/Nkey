@@ -6,14 +6,9 @@ import db.DadosBasicosDb;
 import org.apache.logging.log4j.util.SystemPropertiesPropertySource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import pageObjects.home.MenuLateralPage;
+import org.testng.Assert;import pageObjects.home.MenuLateralPage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
-import static org.testng.AssertJUnit.assertEquals;
 
 public class DadosBasicosAssociadoPage extends BasePage {
 
@@ -28,9 +23,10 @@ public class DadosBasicosAssociadoPage extends BasePage {
 
     public DadosBasicosAssociadoPage(WebDriver driver) {
         super(driver);
+        acessarDadosBasicosAssociado();
     }
 
-    public DadosBasicosAssociadoPage acessarDadosBasicosAssociado() {
+    private DadosBasicosAssociadoPage acessarDadosBasicosAssociado() {
         MenuLateralPage menuLateralPage = new MenuLateralPage(driver);
         menuLateralPage.acessarPessoaFisica();
 
@@ -40,12 +36,30 @@ public class DadosBasicosAssociadoPage extends BasePage {
         return this;
     }
 
-
-    public DadosBasicosAssociadoPage verificarNomeCompleto() throws IOException, SQLException {
-        DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
-        String resultadoConsulta = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.NOME_COMPLETO);
-        String textoTela = obterTexto(rotuloNomeCompleto).trim();
-        assertEquals(resultadoConsulta, textoTela);
-        return this;
+    public String obterNomeCompleto(){
+         return  obterTexto(rotuloNomeCompleto).trim();
     }
+    public String obterDataNascimento(){
+        return  obterTexto(rotuloDataNascimento).trim();
+    }
+    public String obterEstadoCivil(){
+        return  obterTexto(rotuloEstadoCivil).trim();
+    }
+    public String obterCpf(){
+        return  obterTexto(rotuloCpf).trim();
+    }
+    public String obterRg(){
+        return  obterTexto(rotuloRg).trim();
+    }
+    public String obterAssociadoDesde(){
+        return  obterTexto(rotuloAssociadoDesde).trim();
+    }
+    public String obterGrupoEconomico(){
+        return  obterTexto(rotuloGrupoEconomico).trim();
+    }
+    public String obterCbo(){
+        return  obterTexto(rotuloCbo).trim();
+    }
+
+
 }

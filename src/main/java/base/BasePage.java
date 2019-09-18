@@ -70,7 +70,7 @@ public class BasePage {
     }
 
 
-    public void enter() {
+    public void entrar() {
 
         waitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.ENTER);
