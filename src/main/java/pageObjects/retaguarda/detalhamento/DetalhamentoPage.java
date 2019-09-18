@@ -29,6 +29,13 @@ public class DetalhamentoPage extends BasePage {
     }
 
     public DetalhamentoPage novoDetalhamento() {
+        AlterarRendaPage alterarRendaPage = preencherDetalhamento(2);
+
+        alterarRendaPage.apagarRegistro();
+        return this;
+    }
+
+    private AlterarRendaPage preencherDetalhamento(Integer valor) {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage.editarAlterarRenda()
                 .editarAtendimento();
@@ -39,11 +46,9 @@ public class DetalhamentoPage extends BasePage {
         clicar(seletorPeriodicidade);
         escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
         clicarTab(textoPeriodicidade);
-        String valor = "2";
-        escrever(detalhamentoValor, valor);
+        escrever(detalhamentoValor, valor.toString());
         clicar(botaoSalvarDetalhamento);
-        alterarRendaPage.apagarRegistro();
-        return this;
+        return alterarRendaPage;
     }
 
     public String novoDetalhamentoDuplicado() {
@@ -101,5 +106,17 @@ public class DetalhamentoPage extends BasePage {
     private void excluirRegistroDetalhamento() {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
+    }
+
+    public String naoDeveSalvarValorIgualZero() {
+
+        AlterarRendaPage alterarRendaPage = preencherDetalhamento(0);
+        String textoJanela = obterTexto(janelaDialogo);
+        clicar(botaoAccept);
+        excluirRegistroDetalhamento();
+        alterarRendaPage.apagarRegistro();
+        return textoJanela;
+
+
     }
 }

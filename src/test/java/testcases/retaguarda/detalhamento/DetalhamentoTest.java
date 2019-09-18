@@ -48,12 +48,13 @@ public class DetalhamentoTest extends BaseTest {
 
     }
 
-//    @Test
-//    public void naoDeveSalvarValorIgualZero() {
-//        RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
-//        retaguardaPage.preencherDetalhamento(valorDetalhamentoValorZero);
-//        retaguardaPage.textValidacao("[1]Valor ou tipo de valor incorreto detectado no campo Valor. Informe os valores do campo novamente. Se necessitar de assistência adicional, consulte a documentação.(SBL-UIF-00299) [2]O valor informado é inválido.: SBL-DAT-00521");
-//    }
+   @Test
+   public void naoDeveSalvarValorIgualZero() {
+     String textoEsperado = "[1]Valor ou tipo de valor incorreto detectado no campo Valor. Informe os valores do campo novamente. Se necessitar de assistência adicional, consulte a documentação.(SBL-UIF-00299) [2]O valor informado é inválido.: SBL-DAT-00521";
+       DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
+       String textoObtido = detalhamentoPage.naoDeveSalvarValorIgualZero();
+       assertEquals(textoEsperado, textoObtido);
+  }
 
 }
 
