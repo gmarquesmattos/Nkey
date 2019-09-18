@@ -46,23 +46,21 @@ public class DetalhamentoPage extends BasePage {
         return this;
     }
 
-    public DetalhamentoPage novoDetalhamentoDuplicado() {
+    public String novoDetalhamentoDuplicado() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage.editarAlterarRenda()
                 .editarAtendimento();
         clicar(botaoNovoDetalhamento);
         clicar(comboDetalheTipo);
-        String TipoRendaEnv = obterValueElemento(textoTipoRendaEnv);
-        escrever(seletorTipo, (TipoRendaEnv));
+        String TipoRendaEnviada = obterValueElemento(textoTipoRendaEnv);///////////////////////////////////////////////////
+        escrever(seletorTipo, (TipoRendaEnviada));
         clicarTab(seletorTipo);
         clicar(botaoSalvarDetalhamento);
         String textoJanela = obterTexto(janelaDialogo);
-        String textoEsperado = "Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)";
-        compararString(textoJanela,textoEsperado );
         clicar(botaoAccept);
         excluirRegistroDetalhamento();
         alterarRendaPage.apagarRegistro();
-        return this;
+        return textoJanela;
 
     }
 
@@ -89,22 +87,16 @@ public class DetalhamentoPage extends BasePage {
         return this;
     }
 
-    public void salvarSemDetalhamento() {
+    public String salvarSemDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editarAlterarRenda()
-                .editarAtendimento();
+        alterarRendaPage.editarAlterarRenda().editarAtendimento();
         clicar(botaoNovoDetalhamento);
         clicar(botaoSalvarDetalhamento);
-        String textoJanela = obterTexto(janelaDialogo);
-        String textoEsperado = "'Periodicidade' é um campo obrigatório. Informe um valor para o campo. (SBL-DAT-00498)";
-        compararString(textoJanela, textoEsperado);
-
+        return obterTexto(janelaDialogo);
     }
 
-    public void excluirRegistroDetalhamento() {
+    private void excluirRegistroDetalhamento() {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
-
     }
-
 }

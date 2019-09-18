@@ -1,15 +1,10 @@
 package pageObjects.retaguarda.alterarRenda;
 
 import base.BasePage;
-import driver.DriverManager;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.retaguarda.RetaguardaPage;
-
 import java.time.LocalDate;
-
-import static base.BasePage.*;
 
 public class AlterarRendaPage extends BasePage {
 
@@ -35,6 +30,7 @@ public class AlterarRendaPage extends BasePage {
     private By textoTipoDetalhamento = By.id("1_s_5_l_Sicredi_Tipo");
     private By textoTipoRendaEnv = By.name("s_2_1_3_0");
     private By janelaDialogo = By.id("_sweview_popup");
+
     public AlterarRendaPage editarAlterarRenda() {
         RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
         retaguardaPage

@@ -4,6 +4,8 @@ import base.BaseTest;
 import org.testng.annotations.Test;
 import pageObjects.retaguarda.detalhamento.DetalhamentoPage;
 
+import static org.testng.AssertJUnit.assertEquals;
+
 public class DetalhamentoTest extends BaseTest {
 
     @Test
@@ -21,16 +23,20 @@ public class DetalhamentoTest extends BaseTest {
 
     @Test
     public void naoDeveSalvarSemDetalhamento() {
-        new DetalhamentoPage(driver)
-                .salvarSemDetalhamento();
+        String textoEsperado = "'Periodicidade' é um campo obrigatório. Informe um valor para o campo. (SBL-DAT-00498)";
+        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
+        String textoObtido = detalhamentoPage.salvarSemDetalhamento();
 
+        assertEquals(textoEsperado, textoObtido);
     }
 
     @Test
-    public void naoDeveSalvarComTiposDuplicado(){
-        new DetalhamentoPage(driver)
-               .novoDetalhamentoDuplicado();
+    public void naoDeveSalvarComTiposDuplicado() {
+        String textoEsperado = "Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)";
+        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
+        String textoObtido = detalhamentoPage.novoDetalhamentoDuplicado();
 
+        assertEquals(textoEsperado, textoObtido);
     }
 
 }
