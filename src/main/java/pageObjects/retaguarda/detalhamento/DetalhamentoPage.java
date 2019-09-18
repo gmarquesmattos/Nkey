@@ -64,17 +64,20 @@ public class DetalhamentoPage extends BasePage {
 
     }
 
-    public void TipoDuplicadoBotaoNovodetalhamento() {
+    public String TipoDuplicadoBotaoNovodetalhamento() {
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage.editarAlterarRenda()
+                .editarAtendimento();
         clicar(botaoNovoDetalhamento);
         clicar(comboDetalheTipo);
-        escrever(seletorTipo, (OUTROS_TIPOS));
+        String TipoRendaEnviada = obterValueElemento(textoTipoRendaEnv);///////////////////////////////////////////////////
+        escrever(seletorTipo, (TipoRendaEnviada));
         clicarTab(seletorTipo);
-        clicar(seletorPeriodicidade);
-        escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
-        clicarTab(textoPeriodicidade);
-        clicar(textoValor);
-        escrever(detalhamentoValor, (CAMPO_VALOR));
-        clicar(botaoNovoDetalhamento);
+        String textoJanela = obterTexto(janelaDialogo);
+        clicar(botaoAccept);
+        excluirRegistroDetalhamento();
+        alterarRendaPage.apagarRegistro();
+        return textoJanela;
     }
 
     public DetalhamentoPage pesquisarDetalhamento() {
