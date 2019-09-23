@@ -17,7 +17,7 @@ public class PessoaFisicaPage extends BasePage {
     public PessoaFisicaPage pesquisarPessoa() {
         clicar(botaoPesquisar);
         escrever(textoCpf, "03401711970");
-        enter();
+        entrar();
         return  this;
     }
 
