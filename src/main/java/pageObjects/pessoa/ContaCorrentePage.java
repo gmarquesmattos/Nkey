@@ -1,22 +1,25 @@
 package pageObjects.pessoa;
 
 import base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class ContaCorrentePFPO extends BasePage {
+public class ContaCorrentePage extends BasePage {
 
-    public ContaCorrentePFPO(WebDriver driver) {
+
+    private By textoNrConta = By.name("s_1_1_17_0");
+
+    public ContaCorrentePage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(how = How.NAME, using = "s_1_1_17_0")
-    WebElement numeroConta;
 
     public String obterNumeroConta() {
-        return numeroConta.getAttribute("value");
+        return obterValueElemento(textoNrConta);
+
     }
 
 }
