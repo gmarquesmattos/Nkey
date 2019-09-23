@@ -2,6 +2,7 @@ stages:
   - suite-funcional-web
 
 siebel-hom:
+  stage: suite-funcional-web
   script:
     - mvn clean test -PsuiteFuncional -DtestSuite=SuiteSiebelWeb.xml -Denv=hom
   tags:
