@@ -23,16 +23,6 @@ public class DadosBasicosAssociadoPage extends BasePage {
         acessarDadosBasicosAssociado();
     }
 
-    private DadosBasicosAssociadoPage acessarDadosBasicosAssociado() {
-       HomePage pessoaFisica = new HomePage(driver);
-        pessoaFisica.acessarPessoaFisica();
-
-        PessoaFisicaPage pessoaFisicaPage = new PessoaFisicaPage(driver);
-        pessoaFisicaPage.pesquisarPessoa()
-                .acessarNomeCompleto();
-        return this;
-    }
-
     public String obterNomeCompleto(){
          return  obterTexto(rotuloNomeCompleto).trim();
     }
@@ -58,5 +48,14 @@ public class DadosBasicosAssociadoPage extends BasePage {
         return  obterTexto(rotuloCbo).trim();
     }
 
+    private DadosBasicosAssociadoPage acessarDadosBasicosAssociado() {
+        HomePage pessoaFisica = new HomePage(driver);
+        pessoaFisica.acessarPessoaFisica();
+
+        PessoaFisicaPage pessoaFisicaPage = new PessoaFisicaPage(driver);
+        pessoaFisicaPage.pesquisarPessoa()
+                .acessarNomeCompleto();
+        return this;
+    }
 
 }
