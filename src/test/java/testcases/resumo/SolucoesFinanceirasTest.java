@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.ContaCorrentePage;
 import pageObjects.pessoa.PessoaFisicaPage;
-import pageObjects.pessoa.SolucoesFinanceirasPO;
+import pageObjects.pessoa.SolucoesFinanceirasPage;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -15,7 +15,7 @@ public class SolucoesFinanceirasTest extends BaseTest {
     public void testLinkSaldoContaPrincipalPF() {
 
         HomePage pessoaFisica = new HomePage(driver);
-        SolucoesFinanceirasPO solucoesFinanceirasPage = new SolucoesFinanceirasPO(driver);
+        SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage(driver);
         PessoaFisicaPage pessoaFisicaPage = new PessoaFisicaPage(driver);
         pessoaFisica.acessarPessoaFisica();
         pessoaFisicaPage.pesquisarPessoa().acessarNomeCompleto();
