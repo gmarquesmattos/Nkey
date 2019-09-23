@@ -1,12 +1,9 @@
 package pageObjects.resumo;
 
 import base.BasePage;
-import db.CamposBanco;
-import db.DadosBasicosDb;
-import org.apache.logging.log4j.util.SystemPropertiesPropertySource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;import pageObjects.home.MenuLateralPage;
+import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
 
@@ -27,8 +24,8 @@ public class DadosBasicosAssociadoPage extends BasePage {
     }
 
     private DadosBasicosAssociadoPage acessarDadosBasicosAssociado() {
-        MenuLateralPage menuLateralPage = new MenuLateralPage(driver);
-        menuLateralPage.acessarPessoaFisica();
+       HomePage pessoaFisica = new HomePage(driver);
+        pessoaFisica.acessarPessoaFisica();
 
         PessoaFisicaPage pessoaFisicaPage = new PessoaFisicaPage(driver);
         pessoaFisicaPage.pesquisarPessoa()

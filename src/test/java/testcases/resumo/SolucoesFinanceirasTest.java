@@ -2,7 +2,7 @@ package testcases.resumo;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-import pageObjects.home.MenuLateralPage;
+import pageObjects.home.HomePage;
 import pageObjects.pessoa.ContaCorrentePFPO;
 import pageObjects.pessoa.PessoaFisicaPage;
 import pageObjects.pessoa.SolucoesFinanceirasPO;
@@ -14,10 +14,10 @@ public class SolucoesFinanceirasTest extends BaseTest {
     @Test
     public void testLinkSaldoContaPrincipalPF() {
 
-        MenuLateralPage menuLateralPage = new MenuLateralPage(driver);
+        HomePage pessoaFisica = new HomePage(driver);
         SolucoesFinanceirasPO solucoesFinanceirasPage = new SolucoesFinanceirasPO(driver);
         PessoaFisicaPage pessoaFisicaPage = new PessoaFisicaPage(driver);
-        menuLateralPage.acessarPessoaFisica();
+        pessoaFisica.acessarPessoaFisica();
         pessoaFisicaPage.pesquisarPessoa().acessarNomeCompleto();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
         ContaCorrentePFPO contaCorrentePFPage = new ContaCorrentePFPO(driver);
