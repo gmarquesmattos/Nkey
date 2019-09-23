@@ -1,14 +1,9 @@
 stages:
   - suite-funcional-web
 
-siebel-dev:
-  stage: suite-funcional-web
-  before_script:
-    - sh grid/start-zalenium.sh
+siebel-hom:
   script:
     - mvn clean test -PsuiteFuncional -DtestSuite=SuiteSiebelWeb.xml -Denv=hom
-  after_script:
-    - sh grid/stop-zalenium.sh
   tags:
     - docker-images-cds
   artifacts:
