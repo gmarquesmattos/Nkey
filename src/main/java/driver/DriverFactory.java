@@ -1,6 +1,8 @@
 package driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,11 +11,9 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariOptions;
-import org.testcontainers.containers.BrowserWebDriverContainer;
 
-import java.io.File;
+import java.net.URL;
 
-import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.SKIP;
 import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 
 public enum DriverFactory implements IDriverType {
@@ -34,8 +34,7 @@ public enum DriverFactory implements IDriverType {
 
     CHROME {
         @Override
-        public MutableCapabilities returnDriver() {
-            return defaultChromeOptions();
+        public MutableCapabilities returnDriver() { return defaultChromeOptions();
         }
     },
 
@@ -60,6 +59,7 @@ public enum DriverFactory implements IDriverType {
         }
     };
 
+    private static final Logger LOGGER = LogManager.getLogger();
 
     private static MutableCapabilities defaultChromeOptions() {
         ChromeOptions capabilities = new ChromeOptions();
@@ -69,11 +69,11 @@ public enum DriverFactory implements IDriverType {
         return capabilities;
     }
 
-
     public static WebDriver criarInstancia(String browser) throws Exception {
         WebDriver driver;
+        RemoteWebDriver remoteWebDriver;
 
-        switch (retornarValorArquivoConfiguracao("execucao")) {
+        switch(retornarValorArquivoConfiguracao("execucao")){
 
             case "local-mac":
                 System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/mac/chromedriver"); // path of chromedriver
@@ -90,12 +90,22 @@ public enum DriverFactory implements IDriverType {
                 driver = new ChromeDriver();
                 break;
 
-            case "test-container":
-                driver = getChromeContainer();
+            case "grid":
+                String gridURL = retornarValorArquivoConfiguracao("grid.url") + ":" + retornarValorArquivoConfiguracao("grid.port") + "/wd/hub";
+                remoteWebDriver = new RemoteWebDriver(new URL(gridURL), retornaCapacidade(browser));
+
+                driver = remoteWebDriver;
+                break;
+
+            case "zalenium":
+                String zaleniumURL = retornarValorArquivoConfiguracao("zalenium.url") + ":" + retornarValorArquivoConfiguracao("zalenium.port") + "/wd/hub";
+                remoteWebDriver = new RemoteWebDriver(new URL(zaleniumURL), retornaCapacidade(browser));
+
+                driver = remoteWebDriver;
                 break;
 
             default:
-                throw new Exception("Browser no encontrado: " + browser);
+                throw new Exception("Browser no encontrado: " +  browser);
         }
 
         return driver;
@@ -104,21 +114,6 @@ public enum DriverFactory implements IDriverType {
     private static MutableCapabilities retornaCapacidade(String browser) {
         return valueOf(browser.toUpperCase()).returnDriver();
     }
-
-    public static BrowserWebDriverContainer setupSeleniumContainer() {
-        BrowserWebDriverContainer chromeContainer = new BrowserWebDriverContainer().withCapabilities(new ChromeOptions())
-                .withRecordingMode(SKIP,new File("./target/"));
-        chromeContainer.start();
-        return chromeContainer;
-    }
-
-    private static WebDriver getChromeContainer() {
-        return setupSeleniumContainer().getWebDriver();
-    }
-
-
-
-
 
     @Override
     public String toString() {

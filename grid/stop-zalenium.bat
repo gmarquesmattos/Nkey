@@ -1,0 +1,1 @@
+cmd /C start/MIN docker stop zalenium
