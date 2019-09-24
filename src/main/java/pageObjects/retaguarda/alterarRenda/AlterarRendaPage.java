@@ -4,6 +4,7 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.retaguarda.RetaguardaPage;
+import pageObjects.retaguarda.rendaEnviada.RendaEnviadaPage;
 
 import java.time.LocalDate;
 
@@ -25,11 +26,8 @@ public class AlterarRendaPage extends BasePage {
     private By botaoAccept = By.id("btn-accept");
     private By botaoCancelar = By.id("s_6_1_11_0_Ctrl");
     private By textoAnoAltRenda = By.name("s_3_1_1_0");
-    private By textoAnoRendaEnv = By.name("s_2_1_0_0");
     private By textoMesAlterarRenda = By.name("s_3_1_2_0");
-    private By textoMesRendaEnv = By.name("s_2_1_1_0");
     private By textoTipoDetalhamento = By.id("1_s_5_l_Sicredi_Tipo");
-    private By textoTipoRendaEnv = By.name("s_2_1_3_0");
     private By janelaDialogo = By.id("_sweview_popup");
 
     public AlterarRendaPage editarAlterarRenda() {
@@ -43,20 +41,21 @@ public class AlterarRendaPage extends BasePage {
     }
 
     public AlterarRendaPage editarAtendimento() {
+        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
         if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
             clicar(botaoAssumirAtendimento);
         }
         clicar(botaoEditar);
         clicar(botaoSalvarRenda);
         String anoAlterarRenda = obterValueElemento(textoAnoAltRenda);
-        String anoRendaEnv = obterValueElemento(textoAnoRendaEnv);
+        String anoRendaEnv = obterValueElemento(rendaEnviadaPage.anoRendaEnviada());
         compararString(anoAlterarRenda, anoRendaEnv);
         String mesAlterarRenda = obterValueElemento(textoMesAlterarRenda);
-        String mesRendaEnv = obterValueElemento(textoMesRendaEnv);
+        String mesRendaEnv = obterValueElemento(rendaEnviadaPage.mesRendaEnviada());
         compararString(mesAlterarRenda, mesRendaEnv);
         String tipoDetalhamento;
         tipoDetalhamento = obterTexto((textoTipoDetalhamento));
-        String tipoRendaEnv = obterValueElemento(textoTipoRendaEnv);
+        String tipoRendaEnv = obterValueElemento(rendaEnviadaPage.tipoRendaEnviada());
         compararString(tipoDetalhamento, tipoRendaEnv);
         return this;
     }

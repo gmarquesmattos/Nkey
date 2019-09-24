@@ -3,7 +3,6 @@ package testcases.retaguarda.alterarRenda;
 import base.BaseTest;
 import org.testng.annotations.Test;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AlterarRendaTest extends BaseTest {

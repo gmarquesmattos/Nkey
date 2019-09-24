@@ -3,6 +3,7 @@ package pageObjects.retaguarda.detalhamento;
 import base.BasePage;
 import org.openqa.selenium.*;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
+import pageObjects.retaguarda.rendaEnviada.RendaEnviadaPage;
 
 public class DetalhamentoPage extends BasePage {
 
@@ -18,11 +19,9 @@ public class DetalhamentoPage extends BasePage {
     private By textoPeriodicidade = By.id("1_Sicredi_Peridicidade");
     private By detalhamentoValor = By.id("1_Sicredi_Valor");
     private By botaoSalvarDetalhamento = By.id("s_5_1_24_0_Ctrl");
-    private By textoValor = By.id("1_s_5_l_Sicredi_Valor");
     private By botaoExcluirDetalhamento = By.id("s_5_1_5_0_Ctrl");
     private By janelaDialogo = By.id("_sweview_popup");
     private By botaoAccept = By.id("btn-accept");
-    private By textoTipoRendaEnv = By.name("s_2_1_3_0");
 
     public DetalhamentoPage(WebDriver driver) {
         super(driver);
@@ -53,11 +52,12 @@ public class DetalhamentoPage extends BasePage {
 
     public String novoDetalhamentoDuplicado() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
         alterarRendaPage.editarAlterarRenda()
                 .editarAtendimento();
         clicar(botaoNovoDetalhamento);
         clicar(comboDetalheTipo);
-        String TipoRendaEnviada = obterValueElemento(textoTipoRendaEnv);///////////////////////////////////////////////////
+        String TipoRendaEnviada = obterValueElemento(rendaEnviadaPage.tipoRendaEnviada());
         escrever(seletorTipo, (TipoRendaEnviada));
         clicarTab(seletorTipo);
         clicar(botaoSalvarDetalhamento);
@@ -71,13 +71,14 @@ public class DetalhamentoPage extends BasePage {
 
     public String TipoDuplicadoBotaoNovodetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
         alterarRendaPage.editarAlterarRenda()
                 .editarAtendimento();
         clicar(botaoNovoDetalhamento);
         clicar(comboDetalheTipo);
-        String TipoRendaEnviada = obterValueElemento(textoTipoRendaEnv);///////////////////////////////////////////////////
+        String TipoRendaEnviada = obterValueElemento(rendaEnviadaPage.tipoRendaEnviada());
         escrever(seletorTipo, (TipoRendaEnviada));
-        clicarTab(seletorTipo);
+        clicar(botaoNovoDetalhamento);
         String textoJanela = obterTexto(janelaDialogo);
         clicar(botaoAccept);
         excluirRegistroDetalhamento();
@@ -109,14 +110,11 @@ public class DetalhamentoPage extends BasePage {
     }
 
     public String naoDeveSalvarValorIgualZero() {
-
         AlterarRendaPage alterarRendaPage = preencherDetalhamento(0);
         String textoJanela = obterTexto(janelaDialogo);
         clicar(botaoAccept);
         excluirRegistroDetalhamento();
         alterarRendaPage.apagarRegistro();
         return textoJanela;
-
-
     }
 }

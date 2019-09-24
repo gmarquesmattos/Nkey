@@ -27,7 +27,7 @@ public class DetalhamentoTest extends BaseTest {
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
         String textoObtido = detalhamentoPage.salvarSemDetalhamento();
 
-        assertEquals(textoEsperado, textoObtido);
+        assertEquals(textoEsperado,textoObtido);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class DetalhamentoTest extends BaseTest {
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
         String textoObtido = detalhamentoPage.novoDetalhamentoDuplicado();
 
-        assertEquals(textoEsperado, textoObtido);
+        assertEquals(textoEsperado,textoObtido);
     }
 
     @Test
@@ -44,16 +44,17 @@ public class DetalhamentoTest extends BaseTest {
         String textoEsperado = "Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)";
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
         String textoObtido = detalhamentoPage.TipoDuplicadoBotaoNovodetalhamento();
-        assertEquals(textoEsperado, textoObtido);
+        assertEquals(textoEsperado,textoObtido);
 
     }
 
    @Test
    public void naoDeveSalvarValorIgualZero() {
-     String textoEsperado = "[1]Valor ou tipo de valor incorreto detectado no campo Valor. Informe os valores do campo novamente. Se necessitar de assistência adicional, consulte a documentação.(SBL-UIF-00299) [2]O valor informado é inválido.: SBL-DAT-00521";
+     String textoEsperado = "[1]Valor ou tipo de valor incorreto detectado no campo Valor. Informe os valores do campo novamente. " +
+             "Se necessitar de assistência adicional, consulte a documentação.(SBL-UIF-00299) [2]O valor informado é inválido.: SBL-DAT-00521";
        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
        String textoObtido = detalhamentoPage.naoDeveSalvarValorIgualZero();
-       assertEquals(textoEsperado, textoObtido);
+       assertEquals(textoEsperado,textoObtido);
   }
 
 }
