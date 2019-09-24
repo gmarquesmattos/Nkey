@@ -34,10 +34,6 @@ public class CommonUtils {
             Path configPath = Paths.get("conf" + separadorArquivo + env + separadorArquivo + "config.properties");
 
             properties.load(classloader.getResourceAsStream(configPath.toString()));
-//            properties.load(new FileReader(
-//                    new File(classLoader.
-//                            getResource("conf" + separadorArquivo + env + separadorArquivo + "config.properties").getFile())));
-
             return properties.getProperty(propriedade);
         } catch (IOException | NullPointerException e) {
             LOGGER.error("Propriedade " + propriedade + " não foi encontrada nos arquivos de configuração", e);

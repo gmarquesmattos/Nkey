@@ -37,22 +37,16 @@ public class DadosBasicosAssociadoPage extends BasePage {
                 return rotuloDataNascimento;
             case ESTADO_CIVIL:
                 return rotuloEstadoCivil;
-
             case CPF:
                 return rotuloCpf;
-
             case RG:
                 return rotuloRg;
-
             case ASSOCIADO_DESDE:
                 return rotuloAssociadoDesde;
-
             case GRUPO_ECONOMICO:
                 return rotuloGrupoEconomico;
-
             case CBO:
                 return rotuloCbo;
-
             default:
                 By naoDefinido = null;
                 return naoDefinido;
@@ -61,7 +55,6 @@ public class DadosBasicosAssociadoPage extends BasePage {
         }
 
     }
-
 
     private DadosBasicosAssociadoPage acessarDadosBasicosAssociado() {
         HomePage pessoaFisica = new HomePage(driver);
