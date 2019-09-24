@@ -22,9 +22,6 @@ public class AlterarRendaPage extends BasePage {
     private By textoMesRenda = By.xpath("//input[@name='s_6_1_2_0']");
     private By botaoAccept = By.id("btn-accept");
     private By botaoCancelar = By.id("s_6_1_11_0_Ctrl");
-    private By textoAnoAltRenda = By.name("s_3_1_1_0");
-    private By textoMesAlterarRenda = By.name("s_3_1_2_0");
-    private By textoTipoDetalhamento = By.id("1_s_5_l_Sicredi_Tipo");
     private By janelaDialogo = By.id("_sweview_popup");
 
     public AlterarRendaPage(WebDriver driver) {
@@ -51,10 +48,10 @@ public class AlterarRendaPage extends BasePage {
             clicar(botaoAssumirAtendimento);
         }
         clicar(botaoEditar);
-      return this;
+        return this;
     }
 
-    public void salvar(){
+    public void salvar() {
         clicar(botaoSalvarRenda);
 
         apagarRegistro();
