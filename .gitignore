@@ -82,6 +82,8 @@ local.properties
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+siebel-web.iml
+
 
 # Generated files
 .idea/**/contentModel.xml

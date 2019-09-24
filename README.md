@@ -101,4 +101,4 @@ WebElement menuRetaguarda; // Para Menus
 Exemplo: saldo_conta_pf
 
 # Dúvidas
- Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme):</br><br>
+ Procurar Time de Qualidade para suporte (@adelar_vieira, @dimitrius_santana, @guilherme_mattos  )
