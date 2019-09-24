@@ -11,6 +11,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import org.testcontainers.containers.BrowserWebDriverContainer;
 
+import java.io.File;
+
+import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.SKIP;
 import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 
 public enum DriverFactory implements IDriverType {
@@ -69,7 +72,6 @@ public enum DriverFactory implements IDriverType {
 
     public static WebDriver criarInstancia(String browser) throws Exception {
         WebDriver driver;
-        RemoteWebDriver remoteWebDriver;
 
         switch (retornarValorArquivoConfiguracao("execucao")) {
 
@@ -89,7 +91,7 @@ public enum DriverFactory implements IDriverType {
                 break;
 
             case "test-container":
-                driver = setupSeleniumContainer();
+                driver = getChromeContainer();
                 break;
 
             default:
@@ -103,11 +105,20 @@ public enum DriverFactory implements IDriverType {
         return valueOf(browser.toUpperCase()).returnDriver();
     }
 
-    private static RemoteWebDriver setupSeleniumContainer() {
-        BrowserWebDriverContainer chromeContainer = new BrowserWebDriverContainer().withCapabilities(new ChromeOptions());
+    public static BrowserWebDriverContainer setupSeleniumContainer() {
+        BrowserWebDriverContainer chromeContainer = new BrowserWebDriverContainer().withCapabilities(new ChromeOptions())
+                .withRecordingMode(SKIP,new File("./target/"));
         chromeContainer.start();
-        return chromeContainer.getWebDriver();
+        return chromeContainer;
     }
+
+    private static WebDriver getChromeContainer() {
+        return setupSeleniumContainer().getWebDriver();
+    }
+
+
+
+
 
     @Override
     public String toString() {
