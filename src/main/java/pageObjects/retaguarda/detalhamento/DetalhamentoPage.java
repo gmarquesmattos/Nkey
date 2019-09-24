@@ -9,7 +9,6 @@ public class DetalhamentoPage extends BasePage {
 
     private static final String OUTROS_TIPOS = "outros";
     private static final String MENSAL_PRIORIDADES = "mensal";
-    private final String CAMPO_VALOR = "1200";
     private By botaoPesquisarDetalhamento = By.id("s_5_1_10_0_Ctrl");
     private By botaoIr = By.id("s_5_1_7_0_Ctrl");
     private By botaoNovoDetalhamento = By.id("s_5_1_11_0_Ctrl");
@@ -36,7 +35,7 @@ public class DetalhamentoPage extends BasePage {
 
     private AlterarRendaPage preencherDetalhamento(Integer valor) {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editarAlterarRenda()
+        alterarRendaPage.editar()
                 .editarAtendimento();
         clicar(botaoNovoDetalhamento);
         clicar(comboDetalheTipo);
@@ -53,43 +52,39 @@ public class DetalhamentoPage extends BasePage {
     public String novoDetalhamentoDuplicado() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
-        alterarRendaPage.editarAlterarRenda()
+        alterarRendaPage.editar()
                 .editarAtendimento();
+        String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoSalvarDetalhamento);
+        return textoJanela;
+
+    }
+
+    public String preencheTipoDuplicado(AlterarRendaPage alterarRendaPage, RendaEnviadaPage rendaEnviadaPage, By botaoSalvarDetalhamento) {
         clicar(botaoNovoDetalhamento);
         clicar(comboDetalheTipo);
         String TipoRendaEnviada = obterValueElemento(rendaEnviadaPage.tipoRendaEnviada());
         escrever(seletorTipo, (TipoRendaEnviada));
-        clicarTab(seletorTipo);
         clicar(botaoSalvarDetalhamento);
         String textoJanela = obterTexto(janelaDialogo);
         clicar(botaoAccept);
         excluirRegistroDetalhamento();
         alterarRendaPage.apagarRegistro();
         return textoJanela;
-
     }
 
     public String TipoDuplicadoBotaoNovodetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
-        alterarRendaPage.editarAlterarRenda()
+        alterarRendaPage.editar()
                 .editarAtendimento();
-        clicar(botaoNovoDetalhamento);
-        clicar(comboDetalheTipo);
-        String TipoRendaEnviada = obterValueElemento(rendaEnviadaPage.tipoRendaEnviada());
-        escrever(seletorTipo, (TipoRendaEnviada));
-        clicar(botaoNovoDetalhamento);
-        String textoJanela = obterTexto(janelaDialogo);
-        clicar(botaoAccept);
-        excluirRegistroDetalhamento();
-        alterarRendaPage.apagarRegistro();
+        String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoNovoDetalhamento);
         return textoJanela;
     }
 
     public DetalhamentoPage pesquisarDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage
-                .editarAlterarRenda()
+                .editar()
                 .editarAtendimento();
         clicar(botaoPesquisarDetalhamento);
         clicar(botaoIr);
@@ -98,7 +93,7 @@ public class DetalhamentoPage extends BasePage {
 
     public String salvarSemDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editarAlterarRenda().editarAtendimento();
+        alterarRendaPage.editar().editarAtendimento();
         clicar(botaoNovoDetalhamento);
         clicar(botaoSalvarDetalhamento);
         return obterTexto(janelaDialogo);

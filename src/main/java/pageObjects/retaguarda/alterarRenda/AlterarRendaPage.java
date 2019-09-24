@@ -10,9 +10,6 @@ import java.time.LocalDate;
 
 public class AlterarRendaPage extends BasePage {
 
-    public AlterarRendaPage(WebDriver driver) {
-        super(driver);
-    }
 
     private LocalDate localDate = LocalDate.now();
     private Integer ano;
@@ -30,34 +27,37 @@ public class AlterarRendaPage extends BasePage {
     private By textoTipoDetalhamento = By.id("1_s_5_l_Sicredi_Tipo");
     private By janelaDialogo = By.id("_sweview_popup");
 
-    public AlterarRendaPage editarAlterarRenda() {
+    public AlterarRendaPage(WebDriver driver) {
+        super(driver);
+        acessar();
+
+    }
+
+
+    public void acessar() {
         RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
-        retaguardaPage
-                .acessarCadastroCanais()
-                .preencherCooperativa();
+        retaguardaPage.acessarCadastroCanais().preencherCooperativa();
+
+    }
+
+    public AlterarRendaPage editar() {
         editarAtendimento();
-        apagarRegistro();
+
         return this;
     }
 
     public AlterarRendaPage editarAtendimento() {
-        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
         if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
             clicar(botaoAssumirAtendimento);
         }
         clicar(botaoEditar);
+      return this;
+    }
+
+    public void salvar(){
         clicar(botaoSalvarRenda);
-        String anoAlterarRenda = obterValueElemento(textoAnoAltRenda);
-        String anoRendaEnv = obterValueElemento(rendaEnviadaPage.anoRendaEnviada());
-        compararString(anoAlterarRenda, anoRendaEnv);
-        String mesAlterarRenda = obterValueElemento(textoMesAlterarRenda);
-        String mesRendaEnv = obterValueElemento(rendaEnviadaPage.mesRendaEnviada());
-        compararString(mesAlterarRenda, mesRendaEnv);
-        String tipoDetalhamento;
-        tipoDetalhamento = obterTexto((textoTipoDetalhamento));
-        String tipoRendaEnv = obterValueElemento(rendaEnviadaPage.tipoRendaEnviada());
-        compararString(tipoDetalhamento, tipoRendaEnv);
-        return this;
+
+        apagarRegistro();
     }
 
     public AlterarRendaPage ValidaAnoMes() {
@@ -96,7 +96,7 @@ public class AlterarRendaPage extends BasePage {
     private void assumirAtendimento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage
-                .editarAlterarRenda();
+                .editar();
         if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
             clicar(botaoAssumirAtendimento);
         }
@@ -118,4 +118,6 @@ public class AlterarRendaPage extends BasePage {
         esperaAceitarAlert();
         return this;
     }
+
+
 }

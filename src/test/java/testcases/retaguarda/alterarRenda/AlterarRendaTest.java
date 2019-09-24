@@ -3,6 +3,7 @@ package testcases.retaguarda.alterarRenda;
 import base.BaseTest;
 import org.testng.annotations.Test;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
+
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AlterarRendaTest extends BaseTest {
@@ -10,8 +11,8 @@ public class AlterarRendaTest extends BaseTest {
     @Test
     public void deveriaEditarRenda() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage
-                .editarAlterarRenda();
+        alterarRendaPage.editar();
+        alterarRendaPage.salvar();
     }
 
     @Test
@@ -24,8 +25,10 @@ public class AlterarRendaTest extends BaseTest {
     @Test
     public void naoDeveSalvarComMesMaiorQueAtual() {
         String textoEsperado = "O periodo informado é maior que a data atual.(SBL-EXL-00151)(SBL-EXL-00151)";
+
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         String textoObtido = alterarRendaPage.validaAnoMaiorQueAtual();
+
         assertEquals(textoEsperado, textoObtido);
     }
 
