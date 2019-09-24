@@ -1,11 +1,11 @@
 package pageObjects.resumo;
 
 import base.BasePage;
+import db.CamposBanco;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
-
 
 public class DadosBasicosAssociadoPage extends BasePage {
 
@@ -23,30 +23,45 @@ public class DadosBasicosAssociadoPage extends BasePage {
         acessarDadosBasicosAssociado();
     }
 
-    public String obterNomeCompleto(){
-         return  obterTexto(rotuloNomeCompleto).trim();
+    public String obterValor(CamposBanco campo) {
+
+        return obterTexto(retornarValorBy(campo)).trim();
     }
-    public String obterDataNascimento(){
-        return  obterTexto(rotuloDataNascimento).trim();
+
+    private By retornarValorBy(CamposBanco campo) {
+
+        switch (campo) {
+            case NOME_COMPLETO:
+                return rotuloNomeCompleto;
+            case DATA_NASCIMENTO:
+                return rotuloDataNascimento;
+            case ESTADO_CIVIL:
+                return rotuloEstadoCivil;
+
+            case CPF:
+                return rotuloCpf;
+
+            case RG:
+                return rotuloRg;
+
+            case ASSOCIADO_DESDE:
+                return rotuloAssociadoDesde;
+
+            case GRUPO_ECONOMICO:
+                return rotuloGrupoEconomico;
+
+            case CBO:
+                return rotuloCbo;
+
+            default:
+                By naoDefinido = null;
+                return naoDefinido;
+
+
+        }
+
     }
-    public String obterEstadoCivil(){
-        return  obterTexto(rotuloEstadoCivil).trim();
-    }
-    public String obterCpf(){
-        return  obterTexto(rotuloCpf).trim();
-    }
-    public String obterRg(){
-        return  obterTexto(rotuloRg).trim();
-    }
-    public String obterAssociadoDesde(){
-        return  obterTexto(rotuloAssociadoDesde).trim();
-    }
-    public String obterGrupoEconomico(){
-        return  obterTexto(rotuloGrupoEconomico).trim();
-    }
-    public String obterCbo(){
-        return  obterTexto(rotuloCbo).trim();
-    }
+
 
     private DadosBasicosAssociadoPage acessarDadosBasicosAssociado() {
         HomePage pessoaFisica = new HomePage(driver);

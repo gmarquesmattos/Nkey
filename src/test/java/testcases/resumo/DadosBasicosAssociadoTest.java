@@ -17,7 +17,7 @@ public class DadosBasicosAssociadoTest extends BaseTest {
     @Test
     public void deveriaVerificarNomeCompletoAssociado() throws IOException, SQLException {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
-        String textoTela = dadosBasicosPage.obterNomeCompleto();
+        String textoTela = dadosBasicosPage.obterValor(CamposBanco.NOME_COMPLETO);
 
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         String resultadoConsulta = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.NOME_COMPLETO);
@@ -26,7 +26,7 @@ public class DadosBasicosAssociadoTest extends BaseTest {
     @Test
     public void deveriaVerificarDataNascimento() throws IOException, SQLException {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
-        String textoTela = dadosBasicosPage.obterDataNascimento();
+        String textoTela = dadosBasicosPage.obterValor(CamposBanco.DATA_NASCIMENTO);
 
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         String resultadoConsulta = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.DATA_NASCIMENTO);
@@ -35,7 +35,7 @@ public class DadosBasicosAssociadoTest extends BaseTest {
     @Test
     public void deveriaVerificarEstadoCivil() throws IOException, SQLException {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
-        String textoTela = dadosBasicosPage.obterEstadoCivil();
+        String textoTela = dadosBasicosPage.obterValor(CamposBanco.ESTADO_CIVIL);
 
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         String resultadoConsulta = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.ESTADO_CIVIL);
@@ -44,7 +44,7 @@ public class DadosBasicosAssociadoTest extends BaseTest {
     @Test
     public void deveriaVerificarCpf() throws IOException, SQLException {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
-        String textoTela = dadosBasicosPage.obterCpf();
+        String textoTela = dadosBasicosPage.obterValor(CamposBanco.CPF);
 
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         String resultadoConsulta = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.CPF);
@@ -53,7 +53,7 @@ public class DadosBasicosAssociadoTest extends BaseTest {
     @Test
     public void deveriaVerificarRg() throws IOException, SQLException {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
-        String textoTela = dadosBasicosPage.obterRg();
+        String textoTela = dadosBasicosPage.obterValor(CamposBanco.RG);
 
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         String resultadoConsulta = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.RG);
@@ -62,23 +62,25 @@ public class DadosBasicosAssociadoTest extends BaseTest {
     @Test
     public void deveriaVerificarAssociadoDesde() throws IOException, SQLException {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
-        String textoTela = dadosBasicosPage.obterAssociadoDesde();
+        String textoTela = dadosBasicosPage.obterValor(CamposBanco.ASSOCIADO_DESDE);
 
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         String resultadoConsulta = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.ASSOCIADO_DESDE);
         assertEquals(resultadoConsulta, textoTela);
     }
+    @Test
     public void deveriaVerificarGrupoEconomico() throws IOException, SQLException {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
-        String textoTela = dadosBasicosPage.obterGrupoEconomico();
+        String textoTela = dadosBasicosPage.obterValor(CamposBanco.GRUPO_ECONOMICO);
 
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         String resultadoConsulta = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.GRUPO_ECONOMICO);
         assertEquals(resultadoConsulta, textoTela);
     }
+    @Test
     public void deveriaVerificarCbo() throws IOException, SQLException {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
-        String textoTela = dadosBasicosPage.obterCbo();
+        String textoTela = dadosBasicosPage.obterValor(CamposBanco.CBO);
 
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         String resultadoConsulta = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.CBO);

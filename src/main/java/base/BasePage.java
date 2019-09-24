@@ -49,6 +49,12 @@ public class BasePage {
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return elemento.getText();
     }
+    public String obterTexto(String valor) {
+
+        waitAux.waitJQueryAndLoadPage();
+        elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(valor)));
+        return elemento.getText();
+    }
 
     public String obterValueElemento(By by) {
         return getDriver().findElement(by).getAttribute("value");

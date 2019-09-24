@@ -1,5 +1,6 @@
 package db;
 
+
 public enum CamposBanco {
 
     NOME_COMPLETO,
@@ -10,4 +11,5 @@ public enum CamposBanco {
     ASSOCIADO_DESDE,
     GRUPO_ECONOMICO,
     CBO
+
 }
