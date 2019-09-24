@@ -17,4 +17,3 @@ siebel-hom:
     expire_in: 1 week
     paths:
       - target/relatorio/*.html
-
