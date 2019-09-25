@@ -28,7 +28,7 @@ public abstract class BaseTest extends ListenerTest {
     protected static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
     public WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
     public void preCondition(@Optional("chrome") String browser, Method method) throws Exception {
 
@@ -47,7 +47,7 @@ public abstract class BaseTest extends ListenerTest {
         DriverManager.quit();
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void updateReport() {
         try {
 
