@@ -30,10 +30,7 @@ public class BasePage {
     }
 
     public void clicar(By by) {
-        waitAux.waitJQueryAndLoadPage();
-        elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-        elemento.click();
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by)).click();
     }
 
     public void escrever(By by, String texto) {
