@@ -105,11 +105,7 @@ public enum DriverFactory implements IDriverType {
                 break;
 
             default:
-<<<<<<< HEAD
-                throw new Exception("Browser nao encontrado: " + browser);
-=======
                 throw new Exception("Browser no encontrado: " +  browser);
->>>>>>> ab2df958b9a66d74fb9127e2ce27c55439f15ceb
         }
 
 

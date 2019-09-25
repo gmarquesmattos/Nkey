@@ -3,9 +3,12 @@ package testcases.resumo;
 import base.BaseTest;
 import db.CamposBanco;
 import db.DadosBasicosDb;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.resumo.DadosBasicosAssociadoPage;
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -31,8 +34,8 @@ public class DadosBasicosAssociadoTest extends BaseTest {
 
     @BeforeTest
     public void deveriaPegarAlgoTela() {
-
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
+
         nomeCompletoTela = dadosBasicosPage.obterValor(CamposBanco.NOME_COMPLETO);
         dataNascimentoTela = dadosBasicosPage.obterValor(CamposBanco.DATA_NASCIMENTO);
         estadoCivilTela = dadosBasicosPage.obterValor(CamposBanco.ESTADO_CIVIL);
