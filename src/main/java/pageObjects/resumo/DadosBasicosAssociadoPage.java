@@ -29,30 +29,34 @@ public class DadosBasicosAssociadoPage extends BasePage {
     }
 
     private By retornarValorBy(CamposBanco campo) {
-
+        By elemento = null;
         switch (campo) {
             case NOME_COMPLETO:
-                return rotuloNomeCompleto;
+                elemento = rotuloNomeCompleto;
+                break;
             case DATA_NASCIMENTO:
-                return rotuloDataNascimento;
+                elemento = rotuloDataNascimento;
+                break;
             case ESTADO_CIVIL:
-                return rotuloEstadoCivil;
+                elemento = rotuloEstadoCivil;
+                break;
             case CPF:
-                return rotuloCpf;
+                elemento = rotuloCpf;
+                break;
             case RG:
-                return rotuloRg;
+                elemento= rotuloRg;
+                break;
             case ASSOCIADO_DESDE:
-                return rotuloAssociadoDesde;
+                elemento = rotuloAssociadoDesde;
+                break;
             case GRUPO_ECONOMICO:
-                return rotuloGrupoEconomico;
+                elemento =  rotuloGrupoEconomico;
+                break;
             case CBO:
-                return rotuloCbo;
-            default:
-                By naoDefinido = null;
-                return naoDefinido;
-
-
+                elemento =  rotuloCbo;
+                break;
         }
+        return  elemento;
 
     }
 

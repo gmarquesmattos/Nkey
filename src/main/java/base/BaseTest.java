@@ -19,13 +19,15 @@ import java.util.regex.Pattern;
 
 import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 
+
 @Listeners({ListenerTest.class, ExtentITestListenerClassAdapter.class})
 public abstract class BaseTest extends ListenerTest {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     protected static final String SENHA_TESTE = "teste123";
     protected static final String USUARIO_TESTE = "karine_bonjour";
-    protected static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
+    static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
+
     public WebDriver driver;
 
     @BeforeMethod

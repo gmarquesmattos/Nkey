@@ -49,6 +49,7 @@ public class BasePage {
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return elemento.getText();
     }
+
     public String obterTexto(String valor) {
 
         waitAux.waitJQueryAndLoadPage();
@@ -90,7 +91,6 @@ public class BasePage {
         Assert.assertEquals(texto1, texto2);
 
     }
-
 
     public void esperaAceitarAlert() {
         wait.until(ExpectedConditions.alertIsPresent());
