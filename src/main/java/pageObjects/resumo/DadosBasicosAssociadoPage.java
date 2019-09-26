@@ -64,9 +64,8 @@ public class DadosBasicosAssociadoPage extends BasePage {
         HomePage pessoaFisica = new HomePage(driver);
         pessoaFisica.acessarPessoaFisica();
 
-        PessoaFisicaPage pessoaFisicaPage = new PessoaFisicaPage(driver);
-        pessoaFisicaPage.pesquisarPessoa()
-                .acessarNomeCompleto();
+        new PessoaFisicaPage(driver);
+
         return this;
     }
 

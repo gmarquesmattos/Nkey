@@ -12,18 +12,20 @@ public class PessoaFisicaPage extends BasePage {
 
     public PessoaFisicaPage(WebDriver driver) {
         super(driver);
+        pesquisarPessoa();
+        acessarNomeCompleto();
     }
 
-    public PessoaFisicaPage pesquisarPessoa() {
+    private void pesquisarPessoa() {
         clicar(botaoPesquisar);
         escrever(textoCpf, "03401711970");
         entrar();
-        return  this;
+
     }
 
-    public PessoaFisicaPage acessarNomeCompleto() {
+    private void acessarNomeCompleto() {
         clicar(textoNomeCompleto);
-        return this;
+
     }
 
 }

@@ -3,6 +3,7 @@ package pageObjects.home;
 import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pageObjects.login.LoginPage;
 
 public class HomePage extends BasePage {
 
@@ -12,7 +13,9 @@ public class HomePage extends BasePage {
     private By menuLateralPessoaFisica = By.id("ui-id-99");
 
     public HomePage(WebDriver driver) {
+
         super(driver);
+        new LoginPage(driver);
     }
 
     public void selecionarMenuHome() {

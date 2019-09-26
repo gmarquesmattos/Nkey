@@ -15,10 +15,13 @@ public class SolucoesFinanceirasTest extends BaseTest {
     public void testLinkSaldoContaPrincipalPF() {
 
         HomePage pessoaFisica = new HomePage(driver);
-        SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage(driver);
-        PessoaFisicaPage pessoaFisicaPage = new PessoaFisicaPage(driver);
+
         pessoaFisica.acessarPessoaFisica();
-        pessoaFisicaPage.pesquisarPessoa().acessarNomeCompleto();
+
+        SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage(driver);
+       new PessoaFisicaPage(driver);
+
+
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
         ContaCorrentePage contaCorrentePFPage = new ContaCorrentePage(driver);
         assertEquals(solucoesFinanceirasPage.obterContaPrincipal().substring(1, 7), contaCorrentePFPage.obterNumeroConta());

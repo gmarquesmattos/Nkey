@@ -24,8 +24,6 @@ import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 public abstract class BaseTest extends ListenerTest {
 
     protected static final Logger LOGGER = LogManager.getLogger();
-    protected static final String SENHA_TESTE = "teste123";
-    protected static final String USUARIO_TESTE = "karine_bonjour";
     static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
 
     public WebDriver driver;
@@ -40,7 +38,6 @@ public abstract class BaseTest extends ListenerTest {
         DriverManager.getDriver().get(URL_BASE);
         driver.manage().window().maximize();
 
-        realizarLogin();
 
     }
 
@@ -82,8 +79,5 @@ public abstract class BaseTest extends ListenerTest {
         }
     }
 
-    private void realizarLogin() {
-        LoginPage loginPO = new LoginPage(driver);
-        loginPO.realizaLoginPortal(USUARIO_TESTE, SENHA_TESTE);
-    }
+
 }
