@@ -44,56 +44,56 @@ public class DadosBasicosAssociadoTest extends BaseTest {
 
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void deveriaVerificarNomeCompletoAssociado() throws IOException, SQLException {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         nomeCompletoBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.NOME_COMPLETO);
         assertEquals(nomeCompletoBanco, nomeCompletoTela);
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void deveriaVerificarDataNascimento() throws IOException, SQLException {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         dataNascimentoBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.DATA_NASCIMENTO);
         assertEquals(dataNascimentoBanco, dataNascimentoTela);
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void deveriaVerificarEstadoCivil() throws IOException, SQLException {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         estadoCivilBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.ESTADO_CIVIL);
         assertEquals(estadoCivilBanco, estadoCivilTela);
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void deveriaVerificarCpf() throws IOException, SQLException {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         cpfBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.CPF);
         assertEquals(cpfBanco, cpfTela);
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void deveriaVerificarRg() throws IOException, SQLException {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         rgBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.RG);
         assertEquals(rgBanco, rgTela);
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void deveriaVerificarAssociadoDesde() throws IOException, SQLException {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         associadoDesdeBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.ASSOCIADO_DESDE);
         assertEquals(associadoDesdeBanco, associadoDesdeTela);
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void deveriaVerificarGrupoEconomico() throws IOException, SQLException {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         grupoEconomicoBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.GRUPO_ECONOMICO);
         assertEquals(grupoEconomicoBanco, grupoEconomicoTela);
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void deveriaVerificarCbo() throws IOException, SQLException {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         cboBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.CBO);
