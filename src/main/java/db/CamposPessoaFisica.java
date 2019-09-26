@@ -1,7 +1,7 @@
 package db;
 
 
-public enum CamposBanco {
+public enum CamposPessoaFisica {
 
     NOME_COMPLETO("nomeCompleto"),
     DATA_NASCIMENTO("dataNascimento"),
@@ -14,7 +14,7 @@ public enum CamposBanco {
 
     private String campo;
 
-    CamposBanco(String campo) {
+    CamposPessoaFisica(String campo) {
         this.campo = campo;
     }
 

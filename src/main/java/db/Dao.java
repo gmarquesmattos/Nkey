@@ -7,8 +7,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 public class Dao {
@@ -53,7 +51,7 @@ public class Dao {
             return null;
     }
 
-    public String retornarDadosDb(CamposBanco camposBanco, String... parametrosConsulta) {
+    public String retornarDadosDb(CamposPessoaFisica camposBanco, String... parametrosConsulta) {
         String resultadoConsulta = null;
         try {
             prop.load(retornarArquivoPropriedades("query"));

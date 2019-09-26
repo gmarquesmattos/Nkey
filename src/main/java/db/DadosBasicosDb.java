@@ -9,7 +9,7 @@ public class DadosBasicosDb {
 	
     Dao dao = new Dao();
    	
-	public String retornarDadosBasicosDb(CamposBanco camposBanco) throws IOException, SQLException {
+	public String retornarDadosBasicosDb(CamposPessoaFisica camposBanco) throws IOException, SQLException {
 		return  dao.retornarDadosDb(camposBanco,"query_dados_basicos_pf","03401711970");
 	}
 }

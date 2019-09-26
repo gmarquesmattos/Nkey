@@ -1,7 +1,7 @@
 package pageObjects.resumo;
 
 import base.BasePage;
-import db.CamposBanco;
+import db.CamposPessoaFisica;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
@@ -23,12 +23,12 @@ public class DadosBasicosAssociadoPage extends BasePage {
         acessarDadosBasicosAssociado();
     }
 
-    public String obterValor(CamposBanco campo) {
+    public String obterValor(CamposPessoaFisica campo) {
 
         return obterTexto(retornarValorBy(campo)).trim();
     }
 
-    private By retornarValorBy(CamposBanco campo) {
+    private By retornarValorBy(CamposPessoaFisica campo) {
         By elemento = null;
         switch (campo) {
             case NOME_COMPLETO:

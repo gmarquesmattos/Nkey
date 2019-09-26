@@ -1,7 +1,7 @@
 package testcases.resumo;
 
 import base.BaseTest;
-import db.CamposBanco;
+import db.CamposPessoaFisica;
 import db.DadosBasicosDb;
 import org.testng.annotations.*;
 import pageObjects.resumo.DadosBasicosAssociadoPage;
@@ -12,91 +12,83 @@ import java.sql.SQLException;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class DadosBasicosAssociadoTest extends BaseTest {
-    String nomeCompletoTela;
-    String dataNascimentoTela;
-    String estadoCivilTela;
-    String cpfTela;
-    String rgTela;
-    String associadoDesdeTela;
-    String grupoEconomicoTela;
-    String cboTela;
-    String nomeCompletoBanco;
-    String dataNascimentoBanco;
-    String estadoCivilBanco;
-    String cpfBanco;
-    String rgBanco;
-    String associadoDesdeBanco;
-    String grupoEconomicoBanco;
-    String cboBanco;
 
     @Test
     public void deveriaPegarAlgoTela() {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
-
-        nomeCompletoTela = dadosBasicosPage.obterValor(CamposBanco.NOME_COMPLETO);
-        dataNascimentoTela = dadosBasicosPage.obterValor(CamposBanco.DATA_NASCIMENTO);
-        estadoCivilTela = dadosBasicosPage.obterValor(CamposBanco.ESTADO_CIVIL);
-        cpfTela = dadosBasicosPage.obterValor(CamposBanco.CPF);
-        rgTela = dadosBasicosPage.obterValor(CamposBanco.RG);
-        associadoDesdeTela = dadosBasicosPage.obterValor(CamposBanco.ASSOCIADO_DESDE);
-        grupoEconomicoTela = dadosBasicosPage.obterValor(CamposBanco.GRUPO_ECONOMICO);
-        cboTela = dadosBasicosPage.obterValor(CamposBanco.CBO);
-
+        for (CamposPessoaFisica campo : CamposPessoaFisica.values()) {
+            campo.setCampo(dadosBasicosPage.obterValor(campo));
+        }
     }
 
     @AfterTest(alwaysRun = true)
     public void deveriaVerificarNomeCompletoAssociado() throws IOException, SQLException {
+        String nomeCompletoTela = CamposPessoaFisica.NOME_COMPLETO.getCampo();
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
-        nomeCompletoBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.NOME_COMPLETO);
+        String nomeCompletoBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposPessoaFisica.NOME_COMPLETO);
+
         assertEquals(nomeCompletoBanco, nomeCompletoTela);
     }
 
     @AfterTest(alwaysRun = true)
     public void deveriaVerificarDataNascimento() throws IOException, SQLException {
+        String dataNascimentoTela = CamposPessoaFisica.DATA_NASCIMENTO.getCampo();
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
-        dataNascimentoBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.DATA_NASCIMENTO);
+        String dataNascimentoBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposPessoaFisica.DATA_NASCIMENTO);
+
         assertEquals(dataNascimentoBanco, dataNascimentoTela);
     }
 
     @AfterTest(alwaysRun = true)
     public void deveriaVerificarEstadoCivil() throws IOException, SQLException {
+        String estadoCivilTela = CamposPessoaFisica.ESTADO_CIVIL.getCampo();
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
-        estadoCivilBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.ESTADO_CIVIL);
+        String estadoCivilBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposPessoaFisica.ESTADO_CIVIL);
+
         assertEquals(estadoCivilBanco, estadoCivilTela);
     }
 
     @AfterTest(alwaysRun = true)
     public void deveriaVerificarCpf() throws IOException, SQLException {
+        String cpfTela = CamposPessoaFisica.CPF.getCampo();
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
-        cpfBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.CPF);
+        String cpfBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposPessoaFisica.CPF);
+
         assertEquals(cpfBanco, cpfTela);
     }
 
     @AfterTest(alwaysRun = true)
     public void deveriaVerificarRg() throws IOException, SQLException {
+        String rgTela = CamposPessoaFisica.RG.getCampo();
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
-        rgBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.RG);
+        String rgBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposPessoaFisica.RG);
         assertEquals(rgBanco, rgTela);
     }
 
     @AfterTest(alwaysRun = true)
     public void deveriaVerificarAssociadoDesde() throws IOException, SQLException {
+        String associadoDesdeTela = CamposPessoaFisica.ASSOCIADO_DESDE.getCampo();
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
-        associadoDesdeBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.ASSOCIADO_DESDE);
+        String associadoDesdeBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposPessoaFisica.ASSOCIADO_DESDE);
+
         assertEquals(associadoDesdeBanco, associadoDesdeTela);
     }
 
     @AfterTest(alwaysRun = true)
     public void deveriaVerificarGrupoEconomico() throws IOException, SQLException {
+        String grupoEconomicoTela = CamposPessoaFisica.GRUPO_ECONOMICO.getCampo();
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
-        grupoEconomicoBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.GRUPO_ECONOMICO);
+        String grupoEconomicoBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposPessoaFisica.GRUPO_ECONOMICO);
+
         assertEquals(grupoEconomicoBanco, grupoEconomicoTela);
     }
 
     @AfterTest(alwaysRun = true)
     public void deveriaVerificarCbo() throws IOException, SQLException {
+        String cboTela = CamposPessoaFisica.CBO.getCampo();
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
-        cboBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposBanco.CBO);
+        String cboBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposPessoaFisica.CBO);
+
         assertEquals(cboBanco, cboTela);
     }
 
