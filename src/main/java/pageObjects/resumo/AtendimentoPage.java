@@ -8,9 +8,8 @@ import pageObjects.pessoa.PessoaFisicaPage;
 
 public class AtendimentoPage extends BasePage {
 
-    private By linkSaldoContaPrincipal = By.id("s_2_1_32_0");
-    private By rotuloContaPrincipal = By.id("s_2_1_12_0");
     private By botaoIrParaAtendimento = By.id("s_16_1_2_0_Ctrl");
+    private By botaoNovoAtendimento = By.id("s_1_1_11_0_Ctrl");
 
     public AtendimentoPage(WebDriver driver) {
         super(driver);
@@ -28,4 +27,11 @@ public class AtendimentoPage extends BasePage {
 
         clicar(botaoIrParaAtendimento);
     }
+
+    public void clicarNovoAtendimento() {
+        clicar(botaoNovoAtendimento);
+
+    }
+
+
 }
