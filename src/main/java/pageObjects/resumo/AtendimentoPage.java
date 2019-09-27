@@ -20,15 +20,11 @@ public class AtendimentoPage extends BasePage {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
         new PessoaFisicaPage(driver);
+        clicar(botaoIrParaAtendimento);
         return this;
     }
 
-    public void clicarIrAtendimento() {
-
-        clicar(botaoIrParaAtendimento);
-    }
-
-    public void clicarNovoAtendimento() {
+     public void clicarNovoAtendimento() {
         clicar(botaoNovoAtendimento);
 
     }
