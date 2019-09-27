@@ -20,7 +20,7 @@ public class DadosBasicosAssociadoPage extends BasePage {
 
     public DadosBasicosAssociadoPage(WebDriver driver) {
         super(driver);
-        acessarDadosBasicosAssociado();
+        acessar();
     }
 
     public String obterValor(CamposPessoaFisica campo) {
@@ -60,12 +60,10 @@ public class DadosBasicosAssociadoPage extends BasePage {
 
     }
 
-    private DadosBasicosAssociadoPage acessarDadosBasicosAssociado() {
-        HomePage pessoaFisica = new HomePage(driver);
-        pessoaFisica.acessarPessoaFisica();
-
+    private DadosBasicosAssociadoPage acessar() {
+        HomePage homePage = new HomePage(driver);
+        homePage.acessarPessoaFisica();
         new PessoaFisicaPage(driver);
-
         return this;
     }
 

@@ -62,6 +62,7 @@ public class DadosBasicosAssociadoTest extends BaseTest {
         String rgTela = CamposPessoaFisica.RG.getCampo();
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         String rgBanco = dadosBasicosDb.retornarDadosBasicosDb(CamposPessoaFisica.RG);
+
         assertEquals(rgBanco, rgTela);
     }
 

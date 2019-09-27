@@ -10,6 +10,7 @@ public class ContaCorrentePage extends BasePage {
     private By textoNrConta = By.name("s_1_1_17_0");
 
     public ContaCorrentePage(WebDriver driver) {
+
         super(driver);
     }
 
