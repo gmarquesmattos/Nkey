@@ -6,17 +6,17 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-public class CriarAtendimentoPage extends BasePage {
-
+public class AtendimentoPage extends BasePage {
 
     private By linkSaldoContaPrincipal = By.id("s_2_1_32_0");
     private By rotuloContaPrincipal = By.id("s_2_1_12_0");
 
-    public CriarAtendimentoPage(WebDriver driver) {
+    public AtendimentoPage(WebDriver driver) {
         super(driver);
         acessar();
     }
-    private CriarAtendimentoPage acessar(){
+
+    private AtendimentoPage acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
         new PessoaFisicaPage(driver);

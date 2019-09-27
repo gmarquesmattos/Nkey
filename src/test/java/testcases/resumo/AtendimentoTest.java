@@ -2,23 +2,14 @@ package testcases.resumo;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-import pageObjects.resumo.CriarAtendimentoPage;
+import pageObjects.resumo.AtendimentoPage;
 
 
 public class AtendimentoTest extends BaseTest {
 
     @Test
-            public void deveCriaAtendimentoPf(){
-
-        CriarAtendimentoPage criarAtendimentoPage = new CriarAtendimentoPage(driver);
-
-
-
-
+    public void deveCriaAtendimentoPf() {
+        AtendimentoPage atendimentoPage = new AtendimentoPage(driver);
 
     }
-
-    CriarAtendimentoPage criarAtendimentoPage = new CriarAtendimentoPage(driver);
-
-
 }
