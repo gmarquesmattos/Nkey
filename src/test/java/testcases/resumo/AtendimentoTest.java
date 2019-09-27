@@ -10,6 +10,7 @@ public class AtendimentoTest extends BaseTest {
     @Test
     public void deveCriaAtendimentoPf() {
         AtendimentoPage atendimentoPage = new AtendimentoPage(driver);
+        atendimentoPage.clicarIrAtendimento();
 
     }
 }
