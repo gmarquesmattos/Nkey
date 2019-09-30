@@ -11,6 +11,7 @@ public class AlterarRendaTest extends BaseTest {
     @Test
     public void deveriaEditarRenda() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage.acessar();
         alterarRendaPage.editar();
         alterarRendaPage.salvar();
     }
@@ -18,8 +19,11 @@ public class AlterarRendaTest extends BaseTest {
     @Test
     public void deveriaSalvarComMesMenorQueAtual() {
 
-        new AlterarRendaPage(driver)
-                .ValidaAnoMes();
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
+        alterarRendaPage.acessar();
+        alterarRendaPage.editar();
+        alterarRendaPage.insereMes(-2);
+        alterarRendaPage.salvar();
     }
 
     @Test

@@ -4,7 +4,6 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.retaguarda.RetaguardaPage;
-import pageObjects.retaguarda.rendaEnviada.RendaEnviadaPage;
 
 import java.time.LocalDate;
 
@@ -26,24 +25,19 @@ public class AlterarRendaPage extends BasePage {
 
     public AlterarRendaPage(WebDriver driver) {
         super(driver);
-        acessar();
-
     }
-
 
     public void acessar() {
         RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
         retaguardaPage.acessarCadastroCanais().preencherCooperativa();
-
     }
 
     public AlterarRendaPage editar() {
-        editarAtendimento();
-
+        verificaBotaoAssumirAtendimentoDisponivel();
         return this;
     }
 
-    public AlterarRendaPage editarAtendimento() {
+    public AlterarRendaPage verificaBotaoAssumirAtendimentoDisponivel() {
         if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
             clicar(botaoAssumirAtendimento);
         }
@@ -53,24 +47,17 @@ public class AlterarRendaPage extends BasePage {
 
     public void salvar() {
         clicar(botaoSalvarRenda);
-
         apagarRegistro();
     }
 
-    public AlterarRendaPage ValidaAnoMes() {
-        int mes = -2;
-        assumirAtendimento();
-        clicar(botaoEditar);
-        clicar(textoAnoRenda);
-        ano = localDate.getYear();
-        escrever(textoAnoRenda, ano.toString());
+    public AlterarRendaPage insereMes(int mes) {
         clicar(textoMesRenda);
         this.mes = (localDate.getMonthValue() + mes);
         escrever(textoMesRenda, this.mes.toString());
-        clicar(botaoSalvarRenda);
-        apagarRegistro();
+
         return this;
     }
+
 
     public String validaAnoMaiorQueAtual() {
         int mes = 2;

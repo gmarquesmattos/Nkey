@@ -36,7 +36,7 @@ public class DetalhamentoPage extends BasePage {
     private AlterarRendaPage preencherDetalhamento(Integer valor) {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage.editar()
-                .editarAtendimento();
+                .verificaBotaoAssumirAtendimentoDisponivel();
         clicar(botaoNovoDetalhamento);
         clicar(comboDetalheTipo);
         escrever(seletorTipo, (OUTROS_TIPOS));
@@ -53,7 +53,7 @@ public class DetalhamentoPage extends BasePage {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
         alterarRendaPage.editar()
-                .editarAtendimento();
+                .verificaBotaoAssumirAtendimentoDisponivel();
         String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoSalvarDetalhamento);
         return textoJanela;
 
@@ -76,7 +76,7 @@ public class DetalhamentoPage extends BasePage {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
         alterarRendaPage.editar()
-                .editarAtendimento();
+                .verificaBotaoAssumirAtendimentoDisponivel();
         String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoNovoDetalhamento);
         return textoJanela;
     }
@@ -85,7 +85,7 @@ public class DetalhamentoPage extends BasePage {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage
                 .editar()
-                .editarAtendimento();
+                .verificaBotaoAssumirAtendimentoDisponivel();
         clicar(botaoPesquisarDetalhamento);
         clicar(botaoIr);
         return this;
@@ -93,7 +93,7 @@ public class DetalhamentoPage extends BasePage {
 
     public String salvarSemDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editar().editarAtendimento();
+        alterarRendaPage.editar().verificaBotaoAssumirAtendimentoDisponivel();
         clicar(botaoNovoDetalhamento);
         clicar(botaoSalvarDetalhamento);
         return obterTexto(janelaDialogo);
