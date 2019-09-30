@@ -7,7 +7,7 @@ import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AlterarRendaTest extends BaseTest {
-    int mes ;
+
 
     @Test
     public void deveriaEditarRenda() {
@@ -20,36 +20,38 @@ public class AlterarRendaTest extends BaseTest {
 
     @Test
     public void deveriaSalvarComMesMenorQueAtual() {
-        mes = -2;
+        int mesmMnorQueAtual = -2;
         new AlterarRendaPage(driver)
                 .acessar()
                 .editar()
-                .insereMes(mes)
+                .insereMes(mesmMnorQueAtual)
                 .salvar()
                 .apagarRenda();
     }
 
     @Test
     public void naoDeveSalvarComMesMaiorQueAtual() {
-        mes = 2;
+        int mesMaiorQueAtual = 2;
+        String textoObtido = new AlterarRendaPage(driver)
+                .acessar()
+                .editar()
+                .insereMes(mesMaiorQueAtual)
+                .salvar()
+                .pegarMensagemJanelaDeErro();
+
         String textoEsperado = "O periodo informado é maior que a data atual.(SBL-EXL-00151)(SBL-EXL-00151)";
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.acessar();
-        alterarRendaPage.editar();
-        alterarRendaPage.insereMes(mes);
-        alterarRendaPage.salvar();
-        String textoObtido = alterarRendaPage.pegarMensagemJanelaDeErro();
         assertEquals(textoEsperado, textoObtido);
     }
 
     @Test
     public void naoDeveSalvarNaoFinalizado() {
+
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver)
+                .acessar()
+                .editar()
+                .insereAno()
+                .salvar();
         String textoEsperado = "Ano não fechado para lançamento de renda.(SBL-EXL-00151)(SBL-EXL-00151)";
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.acessar();
-        alterarRendaPage.editar();
-        alterarRendaPage.insereAno();
-        alterarRendaPage.salvar();
         String textoObtido = alterarRendaPage.pegarMensagemJanelaDeErro();
         assertEquals(textoEsperado, textoObtido);
     }

@@ -42,6 +42,8 @@ public class RetaguardaPage extends BasePage {
     }
 
 
+    public void apagarRegistro() {
+    }
 }
 
 

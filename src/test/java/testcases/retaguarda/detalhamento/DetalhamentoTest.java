@@ -11,10 +11,7 @@ public class DetalhamentoTest extends BaseTest {
 
     @Test
     public void deveriaCriarNovoDetalhamento() {
-        new AlterarRendaPage(driver)
-                .acessar()
-                .editar()
-                .salvar();
+
         new DetalhamentoPage(driver)
                 .novoDetalhamento();
     }

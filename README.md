@@ -42,26 +42,20 @@ Diretório C: para baixar os arquivos do projeto
 
 ## Padrões
 - Para cada página terá um PageObjects com seus respectivos métodos criados.
-<<<<<<< Updated upstream
-- Nomes dos métodos e classes escritos em português. 
+- Nomes das classes e métodos escritos em português. 
+
 # Classes  
 1. Nome das classes Deve seguir o padrão [CamelCase](https://google.github.io/styleguide/javaguide.html#s5.2.2-class-names). 
 2. As classes do pacote PageObject, **devem** conter ao final do seu nome a palavra **Page**. 
 [PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)  
-=======
-- Exemplo: HomePage.java
-# Classes
-=======
+
+- Exemplo: **HomePage.java**
+
 - Para executar todos os testes basta ir até o caminho: **SRC->Test->Resources->Suites**-> botão direito no arquivo SuiteSiebelWeb.xml na opção "Run"
 - [Suite] é um arquivo que agrupa todos os cenários de testes. (https://testng.org/doc/documentation-main.html#testng-xml)
 ## Padrões
-- Para cada página terá um PageObjects com seus respectivos métodos criados.
-- Exemplo: **HomePage.java**
 
-## Classes  
-As classes do pacote PageObject, teram ao final do seu nome, as letras **Page**, que representa uma pageObject.
-E ter o nome do Página [PageObjects](https://github.com/SeleniumHQ/selenium/wiki/PageObjects)
->>>>>>> Stashed changes
+
 Exemplos: 
 ````
 public class DadosBasicosPage{}
@@ -100,5 +94,11 @@ WebElement selectTipoPessoa; // Para seletores
 WebElement alerta; // Para alertas
 WebElement menuRetaguarda; // Para Menus
 ````
+## Git
+
+## Padrões
+1. A nomenclatura das branchs criadas devem ter o nome da funcionalidade. 
+Exemplo: saldo_conta_pf
+
 # Dúvidas
- Procurar Time de Qualidade para suporte (Adelar, Dimi, Guilherme):</br><br>
+ Procurar Time de Qualidade para suporte (@adelar_vieira, @dimitrius_santana, @guilherme_mattos  )

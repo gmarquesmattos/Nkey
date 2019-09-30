@@ -1,17 +1,11 @@
 package db;
 
+public class DadosBasicosDb {
 
-
-import java.util.List;
-
-public class DadosBasicosDb {		
-	
-    Dao dao = new Dao();
    	
-	public List<String> retornarDadosBasicosDb()  {
-		
-		
-		return dao.retornarDadosDb("query_dados_basicos_pf","03401711970");
+	public String retornarDadosBasicosDb(CamposPessoaFisica camposBanco)  {
+		Dao dao = new Dao();
+		String cpf = "03401711970";
+		return  dao.retornarDadosDb(camposBanco,"query_dados_basicos_pf",cpf);
 	}
-	
 }

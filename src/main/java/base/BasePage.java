@@ -1,6 +1,5 @@
 package base;
 
-
 import driver.DriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,7 +33,6 @@ public class BasePage {
         waitAux.waitJQueryAndLoadPage();
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
-
     }
 
     public void escrever(By by, String texto) {
@@ -48,6 +46,13 @@ public class BasePage {
 
         waitAux.waitJQueryAndLoadPage();
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        return elemento.getText();
+    }
+
+    public String obterTexto(String valor) {
+
+        waitAux.waitJQueryAndLoadPage();
+        elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(valor)));
         return elemento.getText();
     }
 
@@ -70,7 +75,7 @@ public class BasePage {
     }
 
 
-    public void Enter() {
+    public void entrar() {
 
         waitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.ENTER);
@@ -85,7 +90,6 @@ public class BasePage {
         Assert.assertEquals(texto1, texto2);
 
     }
-
 
     public void esperaAceitarAlert() {
         wait.until(ExpectedConditions.alertIsPresent());

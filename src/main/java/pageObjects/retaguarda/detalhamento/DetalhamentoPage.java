@@ -96,20 +96,4 @@ public class DetalhamentoPage extends BasePage {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
     }
-
-    public String naoDeveSalvarValorIgualZero() {
-        AlterarRendaPage alterarRendaPage = preencherDetalhamento(0);
-        String textoJanela = obterTexto(janelaDialogo);
-        clicar(botaoAccept);
-        excluirRegistroDetalhamento();
-        alterarRendaPage.apagarRenda();
-        return textoJanela;
-    }
-    public String pegarMensagemJanelaDeErro() {
-        String texto = obterTexto(janelaDialogo);
-        clicar(botaoAccept);
-      //  clicar(botaoCancelar);
-        return texto;
-    }
-
 }

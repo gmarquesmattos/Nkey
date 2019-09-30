@@ -8,7 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import pageObjects.login.LoginPO;
+import pageObjects.login.LoginPage;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -19,16 +19,16 @@ import java.util.regex.Pattern;
 
 import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 
+
 @Listeners({ListenerTest.class, ExtentITestListenerClassAdapter.class})
 public abstract class BaseTest extends ListenerTest {
 
     protected static final Logger LOGGER = LogManager.getLogger();
-    protected static final String SENHA_TESTE = "teste123";
-    protected static final String USUARIO_TESTE = "karine_bonjour";
-    protected static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
+    static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
+
     public WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
     public void preCondition(@Optional("chrome") String browser, Method method) throws Exception {
 
@@ -38,7 +38,6 @@ public abstract class BaseTest extends ListenerTest {
         DriverManager.getDriver().get(URL_BASE);
         driver.manage().window().maximize();
 
-        realizarLogin();
 
     }
 
@@ -47,7 +46,7 @@ public abstract class BaseTest extends ListenerTest {
         DriverManager.quit();
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void updateReport() {
         try {
 
@@ -80,8 +79,5 @@ public abstract class BaseTest extends ListenerTest {
         }
     }
 
-    private void realizarLogin() {
-        LoginPO loginPO = new LoginPO();
-        loginPO.realizaLoginPortal(USUARIO_TESTE, SENHA_TESTE);
-    }
+
 }
