@@ -21,22 +21,20 @@ public class DetalhamentoPage extends BasePage {
     private By botaoExcluirDetalhamento = By.id("s_5_1_5_0_Ctrl");
     private By janelaDialogo = By.id("_sweview_popup");
     private By botaoAccept = By.id("btn-accept");
-
+    private By botaoCancelar = By.id("s_6_1_11_0_Ctrl");
     public DetalhamentoPage(WebDriver driver) {
         super(driver);
     }
 
     public DetalhamentoPage novoDetalhamento() {
-        AlterarRendaPage alterarRendaPage = preencherDetalhamento(2);
-
+        AlterarRendaPage alterarRendaPage =
+        preencherDetalhamento(2);
         alterarRendaPage.apagarRenda();
         return this;
     }
 
     private AlterarRendaPage preencherDetalhamento(Integer valor) {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editar();
-
         clicar(botaoNovoDetalhamento);
         clicar(comboDetalheTipo);
         escrever(seletorTipo, (OUTROS_TIPOS));
@@ -82,24 +80,19 @@ public class DetalhamentoPage extends BasePage {
     }
 
     public DetalhamentoPage pesquisarDetalhamento() {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage
-                .editar();
-
         clicar(botaoPesquisarDetalhamento);
         clicar(botaoIr);
         return this;
     }
 
     public String salvarSemDetalhamento() {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editar();
+
         clicar(botaoNovoDetalhamento);
         clicar(botaoSalvarDetalhamento);
         return obterTexto(janelaDialogo);
     }
 
-    private void excluirRegistroDetalhamento() {
+    public void excluirRegistroDetalhamento() {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
     }
@@ -112,4 +105,11 @@ public class DetalhamentoPage extends BasePage {
         alterarRendaPage.apagarRenda();
         return textoJanela;
     }
+    public String pegarMensagemJanelaDeErro() {
+        String texto = obterTexto(janelaDialogo);
+        clicar(botaoAccept);
+      //  clicar(botaoCancelar);
+        return texto;
+    }
+
 }

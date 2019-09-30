@@ -7,7 +7,7 @@ import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AlterarRendaTest extends BaseTest {
-    int mes;
+    int mes ;
 
     @Test
     public void deveriaEditarRenda() {
