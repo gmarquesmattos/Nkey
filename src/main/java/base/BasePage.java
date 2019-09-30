@@ -19,7 +19,6 @@ public class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
     public static final Logger LOGGER = LogManager.getLogger();
-
     WaitAux waitAux = new WaitAux();
     WebElement elemento;
 
@@ -73,7 +72,6 @@ public class BasePage {
         elemento.clear();
 
     }
-
 
     public void entrar() {
 

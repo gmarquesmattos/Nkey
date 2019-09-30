@@ -19,6 +19,7 @@ public class HomePage extends BasePage {
     }
 
     public void selecionarMenuHome() {
+
         clicar(tabelaMeusAtendimentosDeRetaguarda);
     }
 

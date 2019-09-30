@@ -2,10 +2,10 @@ package db;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import utils.CommonUtils;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 
@@ -14,59 +14,37 @@ public class Dao {
     private Properties prop = new Properties();
     private ResultSet resultSet;
     private Statement statement;
-   // private  final String ORACLE_CONEXAO
+    private final String DRIVER_ORACLE = CommonUtils.retornarValorArquivoConfiguracao("oracle.driver");
+    private final String TNS_ORACLE = CommonUtils.retornarValorArquivoConfiguracao("oracle.tns");
+    private final String USER_ORACLE = CommonUtils.retornarValorArquivoConfiguracao("oracle.user");
+    private final String PASS_ORACLE = CommonUtils.retornarValorArquivoConfiguracao("oracle.pass");
 
-	public Connection retornarConexaoBaseDados() {
-
-        try {
-            prop.load(retornarArquivoPropriedades("conexao"));
-        } catch (FileNotFoundException e1) {
-            LOGGER.error("Arquivo de propriedades conexão não encontrado!",e1);
-         } catch (IOException e1) {
-            LOGGER.error("Problemas de conexão com DB",e1);
-        }
-        Connection conexao = null;
-        try {
-            Class.forName(prop.getProperty("driverCRMHML"));
-            conexao = DriverManager.getConnection(prop.getProperty("urlCRMHML"), prop.getProperty("userCRHML"),
-                    prop.getProperty("pwdCRMHML"));
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return conexao;
-    }
-
-    public static FileInputStream retornarArquivoPropriedades(String file) throws FileNotFoundException {
-
-        String nome_file = file;
-        if (nome_file.equalsIgnoreCase("query")) {
-            FileInputStream arquivoConexao = new FileInputStream("./src/test/resources/querys.properties");
-            return arquivoConexao;
-        } else if (nome_file.equalsIgnoreCase("conexao")) {
-            FileInputStream arquivoConexao = new FileInputStream("./src/test/resources/conexoes.properties");
-            return arquivoConexao;
-        } else
-            return null;
-    }
 
     public String retornarDadosDb(CamposPessoaFisica camposBanco, String... parametrosConsulta) {
         String resultadoConsulta = null;
         try {
-            prop.load(retornarArquivoPropriedades("query"));
+            prop.load(retornarArquivoPropriedades());
             String query = (
                     prop.getProperty(parametrosConsulta[0]).replace("CPF_PESSOA", parametrosConsulta[1]));
             statement = retornarConexaoBaseDados().createStatement();
             resultSet = statement.executeQuery(query);
-
             while (resultSet.next()) {
-                     resultadoConsulta = resultSet.getString(String.valueOf(camposBanco));
+                resultadoConsulta = resultSet.getString(String.valueOf(camposBanco));
             }
 
-        }catch (Exception e){
-        	LOGGER.error(e);
-		}
-		return resultadoConsulta;
+        } catch (Exception e) {
+            LOGGER.error(e);
+        }
+        return resultadoConsulta;
+    }
+
+    private Connection retornarConexaoBaseDados() throws ClassNotFoundException, SQLException {
+        Class.forName(DRIVER_ORACLE);
+        return DriverManager.getConnection(TNS_ORACLE, USER_ORACLE, PASS_ORACLE);
+    }
+
+    private static FileInputStream retornarArquivoPropriedades() throws FileNotFoundException {
+        return new FileInputStream("./src/test/resources/querys.properties");
+
     }
 }
