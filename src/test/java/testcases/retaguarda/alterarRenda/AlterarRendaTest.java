@@ -3,13 +3,9 @@ package testcases.retaguarda.alterarRenda;
 import base.BaseTest;
 import org.testng.annotations.Test;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AlterarRendaTest extends BaseTest {
-
-
-    public static final int INT = -2;
 
     @Test
     public void deveriaEditarRenda() {
@@ -17,7 +13,7 @@ public class AlterarRendaTest extends BaseTest {
         alterarRendaPage.acessar();
         alterarRendaPage.editar();
         alterarRendaPage.salvar();
-        alterarRendaPage.apagarRegistro();
+        alterarRendaPage.apagarRenda();
     }
 
     @Test
@@ -28,7 +24,7 @@ public class AlterarRendaTest extends BaseTest {
         alterarRendaPage.editar();
         alterarRendaPage.insereMes(mes);
         alterarRendaPage.salvar();
-        alterarRendaPage.apagarRegistro();
+        alterarRendaPage.apagarRenda();
     }
 
     @Test
@@ -50,7 +46,9 @@ public class AlterarRendaTest extends BaseTest {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage.acessar();
         alterarRendaPage.editar();
-        String textoObtido = alterarRendaPage.anoNaofinalizado();
+        alterarRendaPage.insereAno();
+        alterarRendaPage.salvar();
+        String textoObtido = alterarRendaPage.pegarMensagemJanelaDeErro();
         assertEquals(textoEsperado, textoObtido);
     }
 }

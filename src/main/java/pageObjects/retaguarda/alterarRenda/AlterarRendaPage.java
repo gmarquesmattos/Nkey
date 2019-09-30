@@ -9,7 +9,6 @@ import java.time.LocalDate;
 
 public class AlterarRendaPage extends BasePage {
 
-
     private LocalDate localDate = LocalDate.now();
     private Integer ano;
     private Integer mes;
@@ -66,27 +65,15 @@ public class AlterarRendaPage extends BasePage {
 
     }
 
-    private void assumirAtendimento() {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage
-                .editar();
-        if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
-            clicar(botaoAssumirAtendimento);
-        }
-    }
-
-    public String anoNaofinalizado() {
-
-        clicar(botaoEditar);
+    public AlterarRendaPage insereAno() {
         clicar(textoMesRenda);
         limparCampo(textoMesRenda);
         this.ano = localDate.getYear();
         escrever(textoAnoRenda, this.ano.toString());
-        clicar(botaoSalvarRenda);
-        return obterTexto(janelaDialogo);
+        return this;
     }
 
-    public AlterarRendaPage apagarRegistro() {
+    public AlterarRendaPage apagarRenda() {
         clicar(botaoApagar);
         esperaAceitarAlert();
         return this;

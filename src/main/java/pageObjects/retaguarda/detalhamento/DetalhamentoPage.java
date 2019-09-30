@@ -29,7 +29,7 @@ public class DetalhamentoPage extends BasePage {
     public DetalhamentoPage novoDetalhamento() {
         AlterarRendaPage alterarRendaPage = preencherDetalhamento(2);
 
-        alterarRendaPage.apagarRegistro();
+        alterarRendaPage.apagarRenda();
         return this;
     }
 
@@ -68,7 +68,7 @@ public class DetalhamentoPage extends BasePage {
         String textoJanela = obterTexto(janelaDialogo);
         clicar(botaoAccept);
         excluirRegistroDetalhamento();
-        alterarRendaPage.apagarRegistro();
+        alterarRendaPage.apagarRenda();
         return textoJanela;
     }
 
@@ -109,7 +109,7 @@ public class DetalhamentoPage extends BasePage {
         String textoJanela = obterTexto(janelaDialogo);
         clicar(botaoAccept);
         excluirRegistroDetalhamento();
-        alterarRendaPage.apagarRegistro();
+        alterarRendaPage.apagarRenda();
         return textoJanela;
     }
 }
