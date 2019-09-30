@@ -35,8 +35,8 @@ public class DetalhamentoPage extends BasePage {
 
     private AlterarRendaPage preencherDetalhamento(Integer valor) {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editar()
-                .verificaBotaoAssumirAtendimentoDisponivel();
+        alterarRendaPage.editar();
+
         clicar(botaoNovoDetalhamento);
         clicar(comboDetalheTipo);
         escrever(seletorTipo, (OUTROS_TIPOS));
@@ -52,8 +52,8 @@ public class DetalhamentoPage extends BasePage {
     public String novoDetalhamentoDuplicado() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
-        alterarRendaPage.editar()
-                .verificaBotaoAssumirAtendimentoDisponivel();
+        alterarRendaPage.editar();
+
         String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoSalvarDetalhamento);
         return textoJanela;
 
@@ -75,8 +75,8 @@ public class DetalhamentoPage extends BasePage {
     public String TipoDuplicadoBotaoNovodetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
-        alterarRendaPage.editar()
-                .verificaBotaoAssumirAtendimentoDisponivel();
+        alterarRendaPage.editar();
+
         String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoNovoDetalhamento);
         return textoJanela;
     }
@@ -84,8 +84,8 @@ public class DetalhamentoPage extends BasePage {
     public DetalhamentoPage pesquisarDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage
-                .editar()
-                .verificaBotaoAssumirAtendimentoDisponivel();
+                .editar();
+
         clicar(botaoPesquisarDetalhamento);
         clicar(botaoIr);
         return this;
@@ -93,7 +93,7 @@ public class DetalhamentoPage extends BasePage {
 
     public String salvarSemDetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editar().verificaBotaoAssumirAtendimentoDisponivel();
+        alterarRendaPage.editar();
         clicar(botaoNovoDetalhamento);
         clicar(botaoSalvarDetalhamento);
         return obterTexto(janelaDialogo);
