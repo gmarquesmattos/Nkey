@@ -50,7 +50,7 @@ public class DetalhamentoPage extends BasePage {
     public String novoDetalhamentoDuplicado() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
-        alterarRendaPage.editar();
+
 
         String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoSalvarDetalhamento);
         return textoJanela;
@@ -80,6 +80,10 @@ public class DetalhamentoPage extends BasePage {
     }
 
     public DetalhamentoPage pesquisarDetalhamento() {
+//        new AlterarRendaPage(driver)
+//                .acessar()
+//                .editar()
+//                .salvar();
         clicar(botaoPesquisarDetalhamento);
         clicar(botaoIr);
         return this;
@@ -95,5 +99,11 @@ public class DetalhamentoPage extends BasePage {
     public void excluirRegistroDetalhamento() {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
+    }
+    public String pegarMensagemJanelaDeErro() {
+        String texto = obterTexto(janelaDialogo);
+        clicar(botaoAccept);
+      //  clicar(botaoCancelar);
+        return texto;
     }
 }
