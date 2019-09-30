@@ -24,28 +24,31 @@ public class AlterarRendaPage extends BasePage {
         super(driver);
     }
 
-    public void acessar() {
+    public AlterarRendaPage acessar() {
         RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
         retaguardaPage.acessarCadastroCanais().preencherCooperativa();
+        return this;
     }
 
-    public void editar() {
+    public AlterarRendaPage editar() {
         if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
             clicar(botaoAssumirAtendimento);
         }
         clicar(botaoEditar);
+        return this;
 
     }
 
-    public void salvar() {
+    public AlterarRendaPage salvar() {
         clicar(botaoSalvarRenda);
+        return this;
     }
 
-    public void insereMes(int mes) {
+    public AlterarRendaPage insereMes(int mes) {
         clicar(textoMesRenda);
         Integer obterMes = (localDate.getMonthValue() + mes);
         escrever(textoMesRenda, obterMes.toString());
-
+        return this;
     }
 
     public String pegarMensagemJanelaDeErro() {
