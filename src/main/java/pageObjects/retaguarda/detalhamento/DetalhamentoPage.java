@@ -21,14 +21,14 @@ public class DetalhamentoPage extends BasePage {
     private By botaoExcluirDetalhamento = By.id("s_5_1_5_0_Ctrl");
     private By janelaDialogo = By.id("_sweview_popup");
     private By botaoAccept = By.id("btn-accept");
-    private By botaoCancelar = By.id("s_6_1_11_0_Ctrl");
+
     public DetalhamentoPage(WebDriver driver) {
         super(driver);
     }
 
-    public DetalhamentoPage novoDetalhamento() {
+    public DetalhamentoPage novoDetalhamento(int valor) {
         AlterarRendaPage alterarRendaPage =
-        preencherDetalhamento(2);
+                preencherDetalhamento(valor);
         alterarRendaPage.apagarRenda();
         return this;
     }
@@ -73,17 +73,12 @@ public class DetalhamentoPage extends BasePage {
     public String TipoDuplicadoBotaoNovodetalhamento() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
-        alterarRendaPage.editar();
-
         String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoNovoDetalhamento);
         return textoJanela;
     }
 
     public DetalhamentoPage pesquisarDetalhamento() {
-//        new AlterarRendaPage(driver)
-//                .acessar()
-//                .editar()
-//                .salvar();
+
         clicar(botaoPesquisarDetalhamento);
         clicar(botaoIr);
         return this;
@@ -100,10 +95,15 @@ public class DetalhamentoPage extends BasePage {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
     }
+
     public String pegarMensagemJanelaDeErro() {
         String texto = obterTexto(janelaDialogo);
         clicar(botaoAccept);
-      //  clicar(botaoCancelar);
         return texto;
+    }
+
+    public DetalhamentoPage naoDeveSalvarValorIgualZero(int valor) {
+        preencherDetalhamento(valor);
+        return this;
     }
 }

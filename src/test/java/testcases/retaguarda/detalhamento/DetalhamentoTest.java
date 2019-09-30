@@ -11,9 +11,13 @@ public class DetalhamentoTest extends BaseTest {
 
     @Test
     public void deveriaCriarNovoDetalhamento() {
-
+        int valor = 200;
+        new AlterarRendaPage(driver)
+                .acessar()
+                .editar()
+                .salvar();
         new DetalhamentoPage(driver)
-                .novoDetalhamento();
+                .novoDetalhamento(valor);
     }
 
     @Test
@@ -57,20 +61,30 @@ public class DetalhamentoTest extends BaseTest {
 
     @Test
     public void naoDeveSalvarComTiposDuplicadoBotaoDetalhamentoNovo() {
-        String textoEsperado = "Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)";
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
+        new AlterarRendaPage(driver)
+                .acessar()
+                .editar()
+                .salvar();
         String textoObtido = detalhamentoPage.TipoDuplicadoBotaoNovodetalhamento();
+        String textoEsperado = "Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)";
         assertEquals(textoEsperado, textoObtido);
 
     }
 
     @Test
     public void naoDeveSalvarValorIgualZero() {
+        int valor = 0;
+        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
+        new AlterarRendaPage(driver)
+                .acessar()
+                .editar()
+                .salvar();
+        detalhamentoPage.naoDeveSalvarValorIgualZero(valor);
+        String textoObtido = detalhamentoPage.pegarMensagemJanelaDeErro();
         String textoEsperado = "[1]Valor ou tipo de valor incorreto detectado no campo Valor. Informe os valores do campo novamente. " +
                 "Se necessitar de assistência adicional, consulte a documentação.(SBL-UIF-00299) [2]O valor informado é inválido.: SBL-DAT-00521";
-        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
-     //   String textoObtido = detalhamentoPage.naoDeveSalvarValorIgualZero();
-       // assertEquals(textoEsperado, textoObtido);
+        assertEquals(textoEsperado, textoObtido);
     }
 
 }
