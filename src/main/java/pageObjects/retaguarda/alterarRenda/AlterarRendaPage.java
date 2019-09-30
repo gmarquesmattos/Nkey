@@ -47,7 +47,6 @@ public class AlterarRendaPage extends BasePage {
 
     public void salvar() {
         clicar(botaoSalvarRenda);
-        apagarRegistro();
     }
 
     public AlterarRendaPage insereMes(int mes) {
@@ -59,17 +58,7 @@ public class AlterarRendaPage extends BasePage {
     }
 
 
-    public String validaAnoMaiorQueAtual() {
-        int mes = 2;
-        assumirAtendimento();
-        clicar(botaoEditar);
-        clicar(textoAnoRenda);
-        ano = localDate.getYear();
-        escrever(textoAnoRenda, ano.toString());
-        clicar(textoMesRenda);
-        this.mes = (localDate.getMonthValue() + mes);
-        escrever(textoMesRenda, this.mes.toString());
-        clicar(botaoSalvarRenda);
+    public String pegarMensagemJanelaDeErro() {
         String texto = obterTexto(janelaDialogo);
         clicar(botaoAccept);
         clicar(botaoCancelar);
@@ -87,7 +76,7 @@ public class AlterarRendaPage extends BasePage {
     }
 
     public String anoNaofinalizado() {
-        assumirAtendimento();
+
         clicar(botaoEditar);
         clicar(textoMesRenda);
         limparCampo(textoMesRenda);
