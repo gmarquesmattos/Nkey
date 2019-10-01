@@ -49,13 +49,6 @@ public class BasePage {
         return elemento.getText();
     }
 
-    public String obterTexto(String valor) {
-
-        waitAux.waitJQueryAndLoadPage();
-        elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(valor)));
-        return elemento.getText();
-    }
-
     public String obterValueElemento(By by) {
         return getDriver().findElement(by).getAttribute("value");
     }
@@ -74,7 +67,6 @@ public class BasePage {
 
     }
 
-
     public void entrar() {
 
         waitAux.waitJQueryAndLoadPage();
@@ -84,11 +76,6 @@ public class BasePage {
     public boolean verificarSeEstaAtivo(By by) {
         elemento = getDriver().findElement(by);
         return elemento.isEnabled();
-    }
-
-    public void compararString(String texto1, String texto2) {
-        Assert.assertEquals(texto1, texto2);
-
     }
 
     public void esperaAceitarAlert() {
