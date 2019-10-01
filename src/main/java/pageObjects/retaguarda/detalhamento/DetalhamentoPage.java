@@ -107,9 +107,10 @@ public class DetalhamentoPage extends BasePage {
         return this;
     }
 
-    public void excluirRegistroDetalhamento() {
+    public DetalhamentoPage excluirRegistroDetalhamento() {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
+        return this;
     }
 
     public String pegarMensagemJanelaDeErro() {
