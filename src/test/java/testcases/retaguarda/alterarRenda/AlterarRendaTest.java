@@ -20,11 +20,11 @@ public class AlterarRendaTest extends BaseTest {
 
     @Test
     public void deveriaSalvarComMesMenorQueAtual() {
-        int mesmMnorQueAtual = -2;
+        int mesMenorQueAtual = -2;
         new AlterarRendaPage(driver)
                 .acessar()
                 .editar()
-                .insereMes(mesmMnorQueAtual)
+                .insereMes(mesMenorQueAtual)
                 .salvar()
                 .apagarRenda();
     }

@@ -84,11 +84,11 @@ public class DetalhamentoPage extends BasePage {
         return this;
     }
 
-    public String salvarSemDetalhamento() {
+    public DetalhamentoPage salvarSemDetalhamento() {
 
         clicar(botaoNovoDetalhamento);
         clicar(botaoSalvarDetalhamento);
-        return obterTexto(janelaDialogo);
+        return this;
     }
 
     public void excluirRegistroDetalhamento() {
@@ -102,7 +102,7 @@ public class DetalhamentoPage extends BasePage {
         return texto;
     }
 
-    public DetalhamentoPage naoDeveSalvarValorIgualZero(int valor) {
+    public DetalhamentoPage inserirvalor(int valor) {
         preencherDetalhamento(valor);
         return this;
     }
