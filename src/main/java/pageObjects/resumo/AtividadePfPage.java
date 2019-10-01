@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-public class AtividadadePfPage extends BasePage {
+public class AtividadePfPage extends BasePage {
 
     private By botaoIrParaAtividade = By.id("s_13_1_0_0_Ctrl");
     private By botaoNovaAtividade = By.id("s_1_1_15_0_Ctrl");
@@ -15,37 +15,38 @@ public class AtividadadePfPage extends BasePage {
     private By botaoSalvarAtividade = By.id("s_1_1_20_0_Ctrl");
     private By BotaoExcluirAtividade = By.id("s_1_1_4_0_Ctrl");
 
-    public AtividadadePfPage(WebDriver driver) {
+    public AtividadePfPage(WebDriver driver) {
         super(driver);
         acessar();
     }
 
-    public AtividadadePfPage adicionarNovaAtividade() {
+    public AtividadePfPage adicionarNovaAtividade() {
         clicar(botaoNovaAtividade);
         return this;
     }
 
-    public AtividadadePfPage escreverDescricaoAtividade() {
+    public AtividadePfPage escreverDescricaoAtividade() {
         clicar(tabelaDescricaoAtividade);
         escrever(textoDescricaoAtividade, "Nova Atividade Automacao");
         return this;
     }
 
-    public AtividadadePfPage salvarAtividade() {
+    public AtividadePfPage salvarAtividade() {
         clicar(botaoSalvarAtividade);
         return this;
     }
 
-    public AtividadadePfPage excluirAtividade() {
+    public AtividadePfPage excluirAtividade() {
         clicar(BotaoExcluirAtividade);
         esperaAceitarAlert();
         return this;
     }
-    public String pesquisarAtividade() {
 
+    public String pesquisarAtividade() {
         return obterTexto(tabelaDescricaoAtividade);
     }
-    private AtividadadePfPage acessar() {
+
+    private AtividadePfPage acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
         new PessoaFisicaPage(driver);

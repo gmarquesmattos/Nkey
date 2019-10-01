@@ -2,7 +2,7 @@ package testcases.resumo;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-import pageObjects.resumo.AtividadadePfPage;
+import pageObjects.resumo.AtividadePfPage;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -10,16 +10,16 @@ public class AtividadePfTest extends BaseTest {
 
     @Test
     public void deveCriarAtividadePf() {
-        AtividadadePfPage atividadadePfPage = new AtividadadePfPage(driver);
-        atividadadePfPage.adicionarNovaAtividade();
-        atividadadePfPage.escreverDescricaoAtividade();
-        atividadadePfPage.salvarAtividade();
-        String textoDescricaoAtividadeTela = atividadadePfPage.pesquisarAtividade();
+        AtividadePfPage atividadePfPage = new AtividadePfPage(driver);
+        atividadePfPage.adicionarNovaAtividade();
+        atividadePfPage.escreverDescricaoAtividade();
+        atividadePfPage.salvarAtividade();
+        String textoDescricaoAtividadeTela = atividadePfPage.pesquisarAtividade();
         String descricaoEsperada = "Nova Atividade Automacao";
 
         assertEquals(descricaoEsperada, textoDescricaoAtividadeTela);
 
-        atividadadePfPage.excluirAtividade();
+        atividadePfPage.excluirAtividade();
 
     }
 

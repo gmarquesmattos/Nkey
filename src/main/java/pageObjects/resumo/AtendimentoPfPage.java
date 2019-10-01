@@ -25,7 +25,6 @@ public class AtendimentoPfPage extends BasePage {
         return this;
     }
 
-
     public AtendimentoPfPage escreverDescricaoAtendimento() {
         clicar(tabelaDescricaoAtendimento);
         escrever(textoDescricaoAtendimento, "Novo Atendimento Automacao");
@@ -42,10 +41,11 @@ public class AtendimentoPfPage extends BasePage {
         esperaAceitarAlert();
         return this;
     }
-    public String pesquisarAtendimento() {
 
+    public String pesquisarAtendimento() {
         return obterTexto(tabelaDescricaoAtendimento);
     }
+
     private AtendimentoPfPage acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
