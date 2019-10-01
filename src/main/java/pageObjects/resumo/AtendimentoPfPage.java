@@ -23,8 +23,8 @@ public class AtendimentoPfPage extends BasePage {
     public AtendimentoPfPage realizarNovoAtendimento() {
         clicar(botaoNovoAtendimento);
         return this;
-
     }
+
 
     public AtendimentoPfPage escreverDescricaoAtendimento() {
         clicar(tabelaDescricaoAtendimento);
@@ -37,16 +37,15 @@ public class AtendimentoPfPage extends BasePage {
         return this;
     }
 
-    public String pesquisarAtendimento() {
-        return obterTexto(tabelaDescricaoAtendimento);
-    }
-
     public AtendimentoPfPage excluirAtendimento() {
         clicar(botaoExcluirAtendimento);
         esperaAceitarAlert();
         return this;
     }
+    public String pesquisarAtendimento() {
 
+        return obterTexto(tabelaDescricaoAtendimento);
+    }
     private AtendimentoPfPage acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();

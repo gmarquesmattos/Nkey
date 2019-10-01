@@ -18,6 +18,7 @@ public class AtendimentoPfTest extends BaseTest {
         atendimentoPage.salvarAtendimento();
         String textoDescricaoAtendimentoTela = atendimentoPage.pesquisarAtendimento();
         String descricaoEsperada = "Novo Atendimento Automacao";
+
         assertEquals(descricaoEsperada, textoDescricaoAtendimentoTela);
 
         atendimentoPage.excluirAtendimento();
