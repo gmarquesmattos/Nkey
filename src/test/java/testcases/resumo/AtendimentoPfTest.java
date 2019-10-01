@@ -1,10 +1,8 @@
 package testcases.resumo;
 
 import base.BaseTest;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
-import pageObjects.resumo.AtendimentoPage;
+import pageObjects.resumo.AtendimentoPfPage;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -14,7 +12,7 @@ public class AtendimentoPfTest extends BaseTest {
 
     @Test
     public void deveCriarAtendimentoPf() {
-        AtendimentoPage atendimentoPage = new AtendimentoPage(driver);
+        AtendimentoPfPage atendimentoPage = new AtendimentoPfPage(driver);
         atendimentoPage.realizarNovoAtendimento();
         atendimentoPage.escreverDescricaoAtendimento();
         atendimentoPage.salvarAtendimento();
