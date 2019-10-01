@@ -20,7 +20,7 @@ public class AtendimentoPage extends BasePage {
         acessar();
     }
 
-    public AtendimentoPage clicarNovoAtendimento() {
+    public AtendimentoPage realizarNovoAtendimento() {
         clicar(botaoNovoAtendimento);
         return this;
 

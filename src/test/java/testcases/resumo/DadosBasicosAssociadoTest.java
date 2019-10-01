@@ -14,7 +14,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class DadosBasicosAssociadoTest extends BaseTest {
 
     @Test
-    public void deveriaretornarAlgoTela() {
+    public void deveriaRetornarRotulosAssociadoTela() {
         DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
         for (CamposPessoaFisica campo : CamposPessoaFisica.values()) {
             campo.setCampo(dadosBasicosPage.obterValor(campo));
