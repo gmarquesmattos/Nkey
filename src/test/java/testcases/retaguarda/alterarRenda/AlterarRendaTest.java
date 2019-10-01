@@ -15,7 +15,7 @@ public class AlterarRendaTest extends BaseTest {
                 .acessar()
                 .editar()
                 .salvar()
-                .apagarRenda();
+                .deletarRenda();
     }
 
     @Test
@@ -26,7 +26,7 @@ public class AlterarRendaTest extends BaseTest {
                 .editar()
                 .insereMes(mesMenorQueAtual)
                 .salvar()
-                .apagarRenda();
+                .deletarRenda();
     }
 
     @Test

@@ -66,7 +66,7 @@ public class AlterarRendaPage extends BasePage {
         return this;
     }
 
-    public void apagarRenda() {
+    public void deletarRenda() {
         clicar(botaoApagar);
         esperaAceitarAlert();
     }
