@@ -30,7 +30,7 @@ public class BasePage {
 
     public void clicar(By by) {
         waitAux.waitJQueryAndLoadPage();
-        elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        elemento = wait.until(ExpectedConditions.presenceOfElementLocated(by));
         elemento.click();
     }
 
