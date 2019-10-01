@@ -24,6 +24,7 @@ public enum CamposPessoaFisica {
 
 
     public String getCampo() {
+
         return campo;
     }
 }

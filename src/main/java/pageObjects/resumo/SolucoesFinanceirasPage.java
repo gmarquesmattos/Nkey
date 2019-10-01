@@ -15,7 +15,6 @@ public class SolucoesFinanceirasPage extends BasePage {
 		super(driver);
 		acessar();
 
-
 	}
 	private SolucoesFinanceirasPage acessar(){
 		HomePage homePage = new HomePage(driver);
