@@ -12,7 +12,6 @@ public class AlterarRendaTest extends BaseTest {
     @Test
     public void deveriaEditarRenda() {
         new AlterarRendaPage(driver)
-                .acessar()
                 .editar()
                 .salvar()
                 .deletarRenda();
@@ -22,7 +21,6 @@ public class AlterarRendaTest extends BaseTest {
     public void deveriaSalvarComMesMenorQueAtual() {
         int mesMenorQueAtual = -2;
         new AlterarRendaPage(driver)
-                .acessar()
                 .editar()
                 .insereMes(mesMenorQueAtual)
                 .salvar()
@@ -33,7 +31,6 @@ public class AlterarRendaTest extends BaseTest {
     public void naoDeveSalvarComMesMaiorQueAtual() {
         int mesMaiorQueAtual = 2;
         String textoObtido = new AlterarRendaPage(driver)
-                .acessar()
                 .editar()
                 .insereMes(mesMaiorQueAtual)
                 .salvar()
@@ -45,9 +42,7 @@ public class AlterarRendaTest extends BaseTest {
 
     @Test
     public void naoDeveSalvarNaoFinalizado() {
-
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver)
-                .acessar()
                 .editar()
                 .insereAno()
                 .salvar();

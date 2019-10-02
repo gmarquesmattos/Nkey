@@ -4,8 +4,6 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.retaguarda.RetaguardaPage;
-import pageObjects.retaguarda.rendaEnviada.RendaEnviadaPage;
-
 import java.time.LocalDate;
 
 public class AlterarRendaPage extends BasePage {
@@ -23,15 +21,12 @@ public class AlterarRendaPage extends BasePage {
 
     public AlterarRendaPage(WebDriver driver) {
         super(driver);
+
     }
 
-    public AlterarRendaPage acessar() {
-        RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
-        retaguardaPage.acessarCadastroCanais().preencherCooperativa();
-        return this;
-    }
 
     public AlterarRendaPage editar() {
+        acessar();
         if (verificarSeEstaAtivo(botaoAssumirAtendimento)) {
             clicar(botaoAssumirAtendimento);
         }
@@ -72,5 +67,11 @@ public class AlterarRendaPage extends BasePage {
         esperaAceitarAlert();
     }
 
+    private void acessar() {
+        RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
+        retaguardaPage.acessarCadastroCanais().preencherCooperativa();
+
     }
+
+}
 
