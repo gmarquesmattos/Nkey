@@ -9,6 +9,7 @@ public class DetalhamentoPage extends BasePage {
 
     private static final String OUTROS_TIPOS = "outros";
     private static final String MENSAL_PRIORIDADES = "mensal";
+
     private By botaoPesquisarDetalhamento = By.id("s_5_1_10_0_Ctrl");
     private By botaoIr = By.id("s_5_1_7_0_Ctrl");
     private By botaoNovoDetalhamento = By.id("s_5_1_11_0_Ctrl");
@@ -26,54 +27,76 @@ public class DetalhamentoPage extends BasePage {
         super(driver);
     }
 
-    public DetalhamentoPage novoDetalhamento(int valor) {
+    public DetalhamentoPage novoDetalhamento(Integer valor) {
         editarRenda();
         preencherDetalhamento(valor);
-        new AlterarRendaPage(driver).deletarRenda();
         return this;
     }
 
     private void preencherDetalhamento(Integer valor) {
+        adicionarDetalhamento();
+        inserirTipo();
+        inserirPeriodicidade();
+        inserirValor(valor);
+        salvarDetalhamento();
+
+    }
+
+    public void adicionarDetalhamento() {
         clicar(botaoNovoDetalhamento);
+    }
+
+    private void inserirTipo() {
         clicar(comboDetalheTipo);
         escrever(seletorTipo, (OUTROS_TIPOS));
+    }
+
+    public void inserirPeriodicidade() {
         clicarTab(seletorTipo);
         clicar(seletorPeriodicidade);
         escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
         clicarTab(textoPeriodicidade);
-        escrever(detalhamentoValor, valor.toString());
-        clicar(botaoSalvarDetalhamento);
+    }
 
+    public void inserirValor(Integer valor){
+        escrever(detalhamentoValor, valor.toString());
+
+    }
+
+    public void salvarDetalhamento(){
+        clicar(botaoSalvarDetalhamento);
     }
 
     public String novoDetalhamentoDuplicado() {
         editarRenda();
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
-        String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoSalvarDetalhamento);
-        return textoJanela;
+        return preencheTipoDuplicado();
 
     }
 
-    public String preencheTipoDuplicado(AlterarRendaPage alterarRendaPage, RendaEnviadaPage rendaEnviadaPage, By botaoSalvarDetalhamento) {
-        clicar(botaoNovoDetalhamento);
+    private String preencheTipoDuplicado() {
+        incluirNovoDetalhamento();
         clicar(comboDetalheTipo);
+        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
         String TipoRendaEnviada = obterValueElemento(rendaEnviadaPage.tipoRendaEnviada());
         escrever(seletorTipo, (TipoRendaEnviada));
-        clicar(botaoSalvarDetalhamento);
+        salvarDetalhamento();
         String textoJanela = obterTexto(janelaDialogo);
         clicar(botaoAccept);
         excluirRegistroDetalhamento();
+
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
         alterarRendaPage.deletarRenda();
         return textoJanela;
     }
 
-    public String TipoDuplicadoBotaoNovodetalhamento() {
+    public void incluirNovoDetalhamento() {
+        clicar(botaoNovoDetalhamento);
+
+    }
+
+      public String tipoDuplicadoBotaoNovodetalhamento() {
         editarRenda();
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
-        String textoJanela = preencheTipoDuplicado(alterarRendaPage, rendaEnviadaPage, botaoNovoDetalhamento);
-        return textoJanela;
+        return preencheTipoDuplicado();
     }
 
     public DetalhamentoPage pesquisarDetalhamento() {
@@ -100,12 +123,6 @@ public class DetalhamentoPage extends BasePage {
         String texto = obterTexto(janelaDialogo);
         clicar(botaoAccept);
         return texto;
-    }
-
-    public DetalhamentoPage inserirValor(int valor) {
-        editarRenda();
-        preencherDetalhamento(valor);
-        return this;
     }
 
     private void editarRenda() {

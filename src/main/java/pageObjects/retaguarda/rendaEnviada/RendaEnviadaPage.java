@@ -16,9 +16,5 @@ public class RendaEnviadaPage extends BasePage {
 
     public By tipoRendaEnviada() {return textoTipoRendaEnv;}
 
-    public By anoRendaEnviada() {return textoAnoRendaEnv;}
-
-    public By mesRendaEnviada() {return textoMesRendaEnv;}
-
 
 }
