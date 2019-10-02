@@ -4,6 +4,7 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.retaguarda.RetaguardaPage;
+import pageObjects.retaguarda.rendaEnviada.RendaEnviadaPage;
 
 import java.time.LocalDate;
 
@@ -44,9 +45,9 @@ public class AlterarRendaPage extends BasePage {
         return this;
     }
 
-    public AlterarRendaPage insereMes(int mes) {
+    public AlterarRendaPage insereMes(int mesInserido) {
         clicar(textoMesRenda);
-        Integer obterMes = (localDate.getMonthValue() + mes);
+        Integer obterMes = (localDate.getMonthValue() + mesInserido);
         escrever(textoMesRenda, obterMes.toString());
         return this;
     }
@@ -61,8 +62,8 @@ public class AlterarRendaPage extends BasePage {
     public AlterarRendaPage insereAno() {
         clicar(textoMesRenda);
         limparCampo(textoMesRenda);
-        Integer ano = localDate.getYear();
-        escrever(textoAnoRenda, ano.toString());
+        Integer anoInserido = localDate.getYear();
+        escrever(textoAnoRenda, anoInserido.toString());
         return this;
     }
 
@@ -70,4 +71,6 @@ public class AlterarRendaPage extends BasePage {
         clicar(botaoApagar);
         esperaAceitarAlert();
     }
-}
+
+    }
+
