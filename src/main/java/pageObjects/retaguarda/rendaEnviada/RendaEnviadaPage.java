@@ -14,7 +14,9 @@ public class RendaEnviadaPage extends BasePage {
         super(driver);
     }
 
-    public By tipoRendaEnviada() {return textoTipoRendaEnv;}
+    public String obterTipo() {
 
+        return obterValueElemento(textoTipoRendaEnv);
+    }
 
 }

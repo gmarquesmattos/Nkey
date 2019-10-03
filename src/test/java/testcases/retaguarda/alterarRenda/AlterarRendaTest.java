@@ -14,7 +14,7 @@ public class AlterarRendaTest extends BaseTest {
         new AlterarRendaPage(driver)
                 .editar()
                 .salvar()
-                .deletarRenda();
+                .excluirRenda();
     }
 
     @Test
@@ -24,7 +24,7 @@ public class AlterarRendaTest extends BaseTest {
                 .editar()
                 .insereMes(mesMenorQueAtual)
                 .salvar()
-                .deletarRenda();
+                .excluirRenda();
     }
 
     @Test
