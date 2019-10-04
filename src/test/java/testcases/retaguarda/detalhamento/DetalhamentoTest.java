@@ -13,19 +13,28 @@ public class DetalhamentoTest extends BaseTest {
     @Test
     public void deveriaCriarNovoDetalhamento() {
         int valor = 200;
-        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
-        detalhamentoPage.novoDetalhamento();
-        detalhamentoPage.inserirTipo("outros");
-        detalhamentoPage.inserirPeriodicidade();
-        detalhamentoPage.inserirValor(valor);
-        detalhamentoPage.salvarDetalhamento();
-        new AlterarRendaPage(driver).excluirRenda();
+        new DetalhamentoPage(driver)
+                .novoDetalhamento()
+                .inserirTipo("outros")
+                .inserirPeriodicidade()
+                .inserirValor(valor)
+                .salvarDetalhamento();
+        new AlterarRendaPage(driver)
+                .excluirRenda();
     }
 
     @Test
-    public void devePesquisarDetalhamento() {
+    public void deveriaPesquisarDetalhamento() {
+        int valor = 200;
         new DetalhamentoPage(driver)
+                .novoDetalhamento()
+                .inserirTipo("outros")
+                .inserirPeriodicidade()
+                .inserirValor(valor)
+                .salvarDetalhamento()
                 .pesquisarDetalhamento();
+        new AlterarRendaPage(driver)
+                .excluirRenda();
     }
 
     @Test

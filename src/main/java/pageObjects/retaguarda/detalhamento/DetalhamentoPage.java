@@ -37,21 +37,25 @@ public class DetalhamentoPage extends BasePage {
         return this;
     }
 
-    public void inserirTipo(String tipoDetalhamento) {
+    public DetalhamentoPage inserirTipo(String tipoDetalhamento) {
         clicar(comboDetalheTipo);
         escrever(seletorTipo, tipoDetalhamento);
+        return this;
     }
 
-    public void inserirPeriodicidade() {
+    public DetalhamentoPage inserirPeriodicidade() {
         clicarTab(seletorTipo);
         clicar(seletorPeriodicidade);
         escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
         clicarTab(textoPeriodicidade);
+
+        return this;
     }
 
-    public void inserirValor(Integer valor) {
+    public DetalhamentoPage inserirValor(Integer valor) {
         escrever(detalhamentoValor, valor.toString());
 
+        return this;
     }
 
     public DetalhamentoPage salvarDetalhamento() {
