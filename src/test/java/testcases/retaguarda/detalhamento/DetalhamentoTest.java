@@ -54,7 +54,7 @@ public class DetalhamentoTest extends BaseTest {
         detalhamentoPage.novoDetalhamento();
         RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
         detalhamentoPage.inserirTipo(rendaEnviadaPage.obterTipo());
-        detalhamentoPage.adicionarDetalhamento();
+        detalhamentoPage.salvarDetalhamento();
         String textoObtido = detalhamentoPage.pegarMensagemJanelaDeErro();
         String textoEsperado = "Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)";
 
