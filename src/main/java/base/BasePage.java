@@ -51,6 +51,7 @@ public class BasePage {
     }
 
     public String obterValueElemento(By by) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return getDriver().findElement(by).getAttribute("value");
     }
 

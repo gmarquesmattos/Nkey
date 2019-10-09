@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.login.LoginPage;
 
+import java.util.concurrent.TimeUnit;
+
 public class HomePage extends BasePage {
 
     private By tabelaMeusAtendimentosDeRetaguarda = By.id("s_10_1_9_0");
@@ -23,6 +25,8 @@ public class HomePage extends BasePage {
     }
 
     public HomePage acessarPessoaFisica() {
+
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         obterTexto(rotuloBemVindo);
         clicar(menuLateralPaginaInicial);
         clicar(menuLateralPessoaFisica);
