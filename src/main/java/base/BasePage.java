@@ -23,7 +23,7 @@ public class BasePage {
     public static final Logger LOGGER = LogManager.getLogger();
     WaitAux waitAux = new WaitAux();
     WebElement elemento;
-    int tempo = 30;
+    int tempo = 35;
 
     public BasePage(WebDriver driver) {
         this.driver = DriverManager.getDriver();
