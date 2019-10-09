@@ -10,6 +10,7 @@ public class AtividadePfTest extends BaseTest {
 
     @Test
     public void deveCriarAtividadePf() {
+
         AtividadePfPage atividadePfPage = new AtividadePfPage(driver);
         atividadePfPage.adicionarNovaAtividade();
         atividadePfPage.escreverDescricaoAtividade();

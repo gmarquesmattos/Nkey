@@ -1,11 +1,12 @@
 package pageObjects.resumo;
 
 import base.BasePage;
-import db.CamposPessoaFisica;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
+
+import java.util.ArrayList;
 
 public class DadosBasicosAssociadoPage extends BasePage {
 
@@ -23,41 +24,19 @@ public class DadosBasicosAssociadoPage extends BasePage {
         acessar();
     }
 
-    public String obterValor(CamposPessoaFisica campo) {
+    public ArrayList<String> obterValor() {
 
-        return obterTexto(retornarValorBy(campo)).trim();
-    }
+        ArrayList<String> informacoesResumoAssociado = new ArrayList<String>();
+        informacoesResumoAssociado.add(obterTexto(rotuloNomeCompleto).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloDataNascimento).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloEstadoCivil).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloCpf).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloRg).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloAssociadoDesde).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloGrupoEconomico).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloCbo).trim());
 
-    private By retornarValorBy(CamposPessoaFisica campo) {
-        By elemento = null;
-        switch (campo) {
-            case NOME_COMPLETO:
-                elemento = rotuloNomeCompleto;
-                break;
-            case DATA_NASCIMENTO:
-                elemento = rotuloDataNascimento;
-                break;
-            case ESTADO_CIVIL:
-                elemento = rotuloEstadoCivil;
-                break;
-            case CPF:
-                elemento = rotuloCpf;
-                break;
-            case RG:
-                elemento= rotuloRg;
-                break;
-            case ASSOCIADO_DESDE:
-                elemento = rotuloAssociadoDesde;
-                break;
-            case GRUPO_ECONOMICO:
-                elemento =  rotuloGrupoEconomico;
-                break;
-            case CBO:
-                elemento =  rotuloCbo;
-                break;
-        }
-        return  elemento;
-
+        return informacoesResumoAssociado;
     }
 
     private DadosBasicosAssociadoPage acessar() {

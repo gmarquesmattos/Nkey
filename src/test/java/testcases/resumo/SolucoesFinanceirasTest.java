@@ -13,6 +13,7 @@ public class SolucoesFinanceirasTest extends BaseTest {
 
     @Test
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePage() {
+
         SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage(driver);
         String contaPrincipalAssociado = solucoesFinanceirasPage.obterContaPrincipal();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
