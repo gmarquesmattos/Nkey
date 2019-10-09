@@ -14,6 +14,7 @@ public class WaitAux {
     private static final Logger LOGGER = LogManager.getLogger();
 
     WaitAux() {
+
         waitJQueryAndLoadPage();
     }
 

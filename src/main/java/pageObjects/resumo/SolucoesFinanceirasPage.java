@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-import java.util.concurrent.TimeUnit;
-
 public class SolucoesFinanceirasPage extends BasePage {
 
 	private By linkSaldoContaPrincipal = By.id("s_2_1_32_0");
