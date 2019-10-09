@@ -24,7 +24,6 @@ public class HomePage extends BasePage {
     }
 
     public HomePage acessarPessoaFisica() {
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         obterTexto(rotuloBemVindo);
         clicar(menuLateralPaginaInicial);
         clicar(menuLateralPessoaFisica);

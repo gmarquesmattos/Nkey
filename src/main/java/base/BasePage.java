@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
+import java.util.concurrent.TimeUnit;
+
 import static driver.DriverManager.getDriver;
 
 public class BasePage {
@@ -21,10 +23,10 @@ public class BasePage {
     public static final Logger LOGGER = LogManager.getLogger();
     WaitAux waitAux = new WaitAux();
     WebElement elemento;
+    int tempo = 30;
 
     public BasePage(WebDriver driver) {
         this.driver = DriverManager.getDriver();
-        int tempo = 30;
         wait = new WebDriverWait(getDriver(), tempo);
     }
 
@@ -43,12 +45,14 @@ public class BasePage {
     }
 
     public String obterTexto(By by) {
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         waitAux.waitJQueryAndLoadPage();
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return elemento.getText();
     }
 
     public String obterValueElemento(By by) {
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return getDriver().findElement(by).getAttribute("value");
     }
