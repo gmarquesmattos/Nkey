@@ -20,12 +20,10 @@ public class HomePage extends BasePage {
     }
 
     public void selecionarMenuHome() {
-
         clicar(tabelaMeusAtendimentosDeRetaguarda);
     }
 
     public HomePage acessarPessoaFisica() {
-
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         obterTexto(rotuloBemVindo);
         clicar(menuLateralPaginaInicial);

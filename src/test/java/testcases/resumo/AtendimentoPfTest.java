@@ -12,7 +12,6 @@ public class AtendimentoPfTest extends BaseTest {
 
     @Test
     public void deveCriarAtendimentoPf() {
-
         AtendimentoPfPage atendimentoPage = new AtendimentoPfPage(driver);
         atendimentoPage.realizarNovoAtendimento();
         atendimentoPage.escreverDescricaoAtendimento();
@@ -23,7 +22,6 @@ public class AtendimentoPfTest extends BaseTest {
         assertEquals(descricaoEsperada, textoDescricaoAtendimentoTela);
 
         atendimentoPage.excluirAtendimento();
-
     }
 
 

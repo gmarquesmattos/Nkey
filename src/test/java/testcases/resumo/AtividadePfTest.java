@@ -10,7 +10,6 @@ public class AtividadePfTest extends BaseTest {
 
     @Test
     public void deveCriarAtividadePf() {
-
         AtividadePfPage atividadePfPage = new AtividadePfPage(driver);
         atividadePfPage.adicionarNovaAtividade();
         atividadePfPage.escreverDescricaoAtividade();
@@ -21,7 +20,6 @@ public class AtividadePfTest extends BaseTest {
         assertEquals(descricaoEsperada, textoDescricaoAtividadeTela);
 
         atividadePfPage.excluirAtividade();
-
     }
 
 

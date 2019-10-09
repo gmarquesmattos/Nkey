@@ -25,8 +25,7 @@ public class DadosBasicosAssociadoPage extends BasePage {
     }
 
     public ArrayList<String> obterValor() {
-
-        ArrayList<String> informacoesResumoAssociado = new ArrayList<String>();
+        ArrayList<String> informacoesResumoAssociado = new ArrayList<>();
         informacoesResumoAssociado.add(obterTexto(rotuloNomeCompleto).trim());
         informacoesResumoAssociado.add(obterTexto(rotuloDataNascimento).trim());
         informacoesResumoAssociado.add(obterTexto(rotuloEstadoCivil).trim());

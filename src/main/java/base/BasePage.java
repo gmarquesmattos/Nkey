@@ -35,7 +35,6 @@ public class BasePage {
     }
 
     public void escrever(By by, String texto) {
-
         waitAux.waitJQueryAndLoadPage();
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
@@ -44,7 +43,6 @@ public class BasePage {
     }
 
     public String obterTexto(By by) {
-
         waitAux.waitJQueryAndLoadPage();
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return elemento.getText();
@@ -55,22 +53,17 @@ public class BasePage {
         return getDriver().findElement(by).getAttribute("value");
     }
 
-
     public void clicarTab(By by) {
-
         waitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.TAB);
     }
 
     public void limparCampo(By by) {
-
         waitAux.waitJQueryAndLoadPage();
         elemento.clear();
-
     }
 
     public void entrar() {
-
         waitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.ENTER);
     }

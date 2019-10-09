@@ -16,44 +16,37 @@ public class AtendimentoPfPage extends BasePage {
     private By botaoExcluirAtendimento = By.id("s_1_1_5_0_Ctrl");
 
     public AtendimentoPfPage(WebDriver driver) {
-
         super(driver);
         acessar();
     }
 
     public AtendimentoPfPage realizarNovoAtendimento() {
-
         clicar(botaoNovoAtendimento);
         return this;
     }
 
     public AtendimentoPfPage escreverDescricaoAtendimento() {
-
         clicar(tabelaDescricaoAtendimento);
         escrever(textoDescricaoAtendimento, "Novo Atendimento Automacao");
         return this;
     }
 
     public AtendimentoPfPage salvarAtendimento() {
-
         clicar(botaoSalvarAtendimento);
         return this;
     }
 
     public AtendimentoPfPage excluirAtendimento() {
-
         clicar(botaoExcluirAtendimento);
         esperaAceitarAlert();
         return this;
     }
 
     public String pesquisarAtendimento() {
-
         return obterTexto(tabelaDescricaoAtendimento);
     }
 
     private AtendimentoPfPage acessar() {
-
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
         new PessoaFisicaPage(driver);

@@ -12,27 +12,22 @@ public class SolucoesFinanceirasPage extends BasePage {
 	private By rotuloContaPrincipal = By.id("s_2_1_12_0");
 
 	public SolucoesFinanceirasPage(WebDriver driver) {
-
 		super(driver);
 		acessar();
-
 	}
-	private SolucoesFinanceirasPage acessar(){
 
+	private SolucoesFinanceirasPage acessar(){
 		HomePage homePage = new HomePage(driver);
 		homePage.acessarPessoaFisica();
 		new PessoaFisicaPage(driver);
 		return this;
 	}
 
-
 	public void clicarLinkSaldoContaPrincipal() {
-		
 		clicar(linkSaldoContaPrincipal);
 	}
 	
 	public String obterContaPrincipal() {
-		
 		return obterTexto(rotuloContaPrincipal).substring(1, 7);
 	}
 	

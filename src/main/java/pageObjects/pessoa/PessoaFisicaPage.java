@@ -20,12 +20,10 @@ public class PessoaFisicaPage extends BasePage {
         clicar(botaoPesquisar);
         escrever(textoCpf, "03401711970");
         entrar();
-
     }
 
     private void acessarNomeCompleto() {
         clicar(textoNomeCompleto);
-
     }
 
 }
