@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
-
 import java.util.ArrayList;
 
 public class DadosBasicosAssociadoPage extends BasePage {
