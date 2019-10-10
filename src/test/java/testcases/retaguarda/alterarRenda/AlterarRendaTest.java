@@ -46,6 +46,7 @@ public class AlterarRendaTest extends BaseTest {
                 .editar()
                 .insereAno()
                 .salvar();
+
         String textoEsperado = "Ano não fechado para lançamento de renda.(SBL-EXL-00151)(SBL-EXL-00151)";
         String textoObtido = alterarRendaPage.pegarMensagemJanelaDeErro();
         assertEquals(textoEsperado, textoObtido);
