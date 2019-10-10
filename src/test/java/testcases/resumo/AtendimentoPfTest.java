@@ -26,5 +26,4 @@ public class AtendimentoPfTest extends BaseTest {
 
     }
 
-
 }
