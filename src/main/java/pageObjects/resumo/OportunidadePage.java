@@ -19,7 +19,6 @@ public class OportunidadePage extends BasePage {
     public OportunidadePage(WebDriver driver) {
         super(driver);
         acessar();
-
     }
 
     public void clicarNovaOportunidade() {
@@ -30,18 +29,15 @@ public class OportunidadePage extends BasePage {
     public void preencherGrupoProduto() {
         escrever(campoGrupoDeProduto, "Conta - Corrente");
         clicarTab(campoGrupoDeProduto);
-
     }
 
     public void preencherDescricao() {
         clicar(campoTextoDescricao);
         escrever(campoDescriaoProduto, "Novo oportunidade Automacao");
-
     }
 
     public void salvarOportunidade() {
         clicar(botaoSalvarOportunidade);
-
     }
 
     public String pesquisarAtendimento() {
@@ -51,7 +47,6 @@ public class OportunidadePage extends BasePage {
     public void clicarExcluirOportunidade() {
         clicar(botaoExcluirOportunidade);
         esperaAceitarAlert();
-
     }
 
     private void acessar() {
@@ -59,7 +54,5 @@ public class OportunidadePage extends BasePage {
         homePage.acessarPessoaFisica();
         new PessoaFisicaPage(driver);
         clicar(botaoIrParaAtividade);
-
     }
-
 }
