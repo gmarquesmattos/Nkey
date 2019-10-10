@@ -23,11 +23,11 @@ public class BasePage {
     public static final Logger LOGGER = LogManager.getLogger();
     WaitAux waitAux = new WaitAux();
     WebElement elemento;
-    private int tempo = 30;
+    private int tempo_espera = 30;
 
     public BasePage(WebDriver driver) {
         this.driver = DriverManager.getDriver();
-        wait = new WebDriverWait(getDriver(), tempo);
+        wait = new WebDriverWait(getDriver(), tempo_espera);
     }
 
     public void clicar(By by) {
@@ -51,6 +51,7 @@ public class BasePage {
     }
 
     public String obterValueElemento(By by) {
+        WaitAux.waitJQueryAndLoadPage();
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return getDriver().findElement(by).getAttribute("value");
     }
@@ -66,11 +67,12 @@ public class BasePage {
     }
 
     public void entrar() {
-        waitAux.waitJQueryAndLoadPage();
+        WaitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.ENTER);
     }
 
     public boolean verificarSeEstaAtivo(By by) {
+        WaitAux.waitJQueryAndLoadPage();
         elemento = getDriver().findElement(by);
         return elemento.isEnabled();
     }

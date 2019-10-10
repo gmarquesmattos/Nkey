@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 public class Dao {
+
     protected static final Logger LOGGER = LogManager.getLogger();
     private Properties prop = new Properties();
     private ResultSet resultSet;
