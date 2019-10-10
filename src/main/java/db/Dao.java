@@ -3,13 +3,14 @@ package db;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.CommonUtils;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class Dao {
+
     protected static final Logger LOGGER = LogManager.getLogger();
     private Properties prop = new Properties();
     private ResultSet resultSet;
@@ -20,8 +21,8 @@ public class Dao {
     private final String PASS_ORACLE = CommonUtils.retornarValorArquivoConfiguracao("oracle.pass");
 
 
-    public String retornarDadosDb(CamposPessoaFisica camposBanco, String... parametrosConsulta) {
-        String resultadoConsulta = null;
+    public ArrayList<String> retornarDadosDb(String... parametrosConsulta) {
+        ArrayList<String> resultadoConsulta = new ArrayList<>();
         try {
             prop.load(retornarArquivoPropriedades());
             String query = (
@@ -29,7 +30,9 @@ public class Dao {
             statement = retornarConexaoBaseDados().createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
-                resultadoConsulta = resultSet.getString(String.valueOf(camposBanco));
+                for (int i = 1; i <= resultSet.getMetaData().getColumnCount(); i++) {
+                    resultadoConsulta.add(resultSet.getString(resultSet.getMetaData().getColumnName(i)));
+                }
             }
 
         } catch (Exception e) {

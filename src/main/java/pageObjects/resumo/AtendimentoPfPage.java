@@ -20,27 +20,23 @@ public class AtendimentoPfPage extends BasePage {
         acessar();
     }
 
-    public AtendimentoPfPage realizarNovoAtendimento() {
+    public void realizarNovoAtendimento() {
         clicar(botaoNovoAtendimento);
-        return this;
-    }
+     }
 
-    public AtendimentoPfPage escreverDescricaoAtendimento() {
+    public void escreverDescricaoAtendimento() {
         clicar(tabelaDescricaoAtendimento);
         escrever(textoDescricaoAtendimento, "Novo Atendimento Automacao");
-        return this;
     }
 
-    public AtendimentoPfPage salvarAtendimento() {
+    public void salvarAtendimento() {
         clicar(botaoSalvarAtendimento);
-        return this;
-    }
+     }
 
-    public AtendimentoPfPage excluirAtendimento() {
+    public void excluirAtendimento() {
         clicar(botaoExcluirAtendimento);
         esperaAceitarAlert();
-        return this;
-    }
+     }
 
     public String pesquisarAtendimento() {
         return obterTexto(tabelaDescricaoAtendimento);

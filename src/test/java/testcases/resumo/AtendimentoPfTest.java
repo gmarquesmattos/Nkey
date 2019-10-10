@@ -22,7 +22,6 @@ public class AtendimentoPfTest extends BaseTest {
         assertEquals(descricaoEsperada, textoDescricaoAtendimentoTela);
 
         atendimentoPage.excluirAtendimento();
-
     }
 
 

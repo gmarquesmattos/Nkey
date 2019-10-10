@@ -20,26 +20,22 @@ public class AtividadePfPage extends BasePage {
         acessar();
     }
 
-    public AtividadePfPage adicionarNovaAtividade() {
+    public void adicionarNovaAtividade() {
         clicar(botaoNovaAtividade);
-        return this;
     }
 
-    public AtividadePfPage escreverDescricaoAtividade() {
+    public void escreverDescricaoAtividade() {
         clicar(tabelaDescricaoAtividade);
         escrever(textoDescricaoAtividade, "Nova Atividade Automacao");
-        return this;
     }
 
-    public AtividadePfPage salvarAtividade() {
+    public void salvarAtividade() {
         clicar(botaoSalvarAtividade);
-        return this;
     }
 
-    public AtividadePfPage excluirAtividade() {
+    public void excluirAtividade() {
         clicar(BotaoExcluirAtividade);
         esperaAceitarAlert();
-        return this;
     }
 
     public String pesquisarAtividade() {

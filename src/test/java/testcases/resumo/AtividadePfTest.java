@@ -20,7 +20,6 @@ public class AtividadePfTest extends BaseTest {
         assertEquals(descricaoEsperada, textoDescricaoAtividadeTela);
 
         atividadePfPage.excluirAtividade();
-
     }
 
 
