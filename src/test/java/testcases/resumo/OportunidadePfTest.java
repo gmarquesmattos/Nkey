@@ -10,13 +10,13 @@ public class OportunidadePfTest extends BaseTest {
 
     @Test
     public void deveriaCriarOportunidade() {
-      OportunidadePage oportunidadePage=  new OportunidadePage(driver).
-                clicarNovaOportunidade().
-                preencherGrupoProduto().
-                preencherDescricao().
-                salvarOportunidade();
+        OportunidadePage oportunidadePage = new OportunidadePage(driver);
+        oportunidadePage.clicarNovaOportunidade();
+        oportunidadePage.preencherGrupoProduto();
+        oportunidadePage.preencherDescricao();
+        oportunidadePage.salvarOportunidade();
 
-        String textoDescricaoAtendimentoTela =oportunidadePage.pesquisarAtendimento();
+        String textoDescricaoAtendimentoTela = oportunidadePage.pesquisarAtendimento();
         String descricaoEsperada = "Novo oportunidade Automacao";
         assertEquals(descricaoEsperada, textoDescricaoAtendimentoTela);
 
