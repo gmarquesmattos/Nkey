@@ -7,17 +7,15 @@ import org.openqa.selenium.WebDriver;
 public class ContaCorrentePage extends BasePage {
 
 
-    private By textoNrConta = By.name("s_1_1_17_0");
+    private By textoNumeroConta = By.name("s_1_1_18_0");
 
     public ContaCorrentePage(WebDriver driver) {
-
         super(driver);
     }
 
-
     public String obterNumeroConta() {
-        return obterValueElemento(textoNrConta);
 
+        return obterValueElemento(textoNumeroConta);
     }
 
 }

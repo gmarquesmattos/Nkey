@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-public class AtendimentoPage extends BasePage {
+public class AtendimentoPfPage extends BasePage {
 
     private By botaoIrParaAtendimento = By.id("s_16_1_2_0_Ctrl");
     private By botaoNovoAtendimento = By.id("s_1_1_11_0_Ctrl");
@@ -15,39 +15,34 @@ public class AtendimentoPage extends BasePage {
     private By tabelaDescricaoAtendimento = By.id("1_s_1_l_Description");
     private By botaoExcluirAtendimento = By.id("s_1_1_5_0_Ctrl");
 
-    public AtendimentoPage(WebDriver driver) {
+    public AtendimentoPfPage(WebDriver driver) {
         super(driver);
         acessar();
     }
 
-    public AtendimentoPage clicarNovoAtendimento() {
+    public void realizarNovoAtendimento() {
         clicar(botaoNovoAtendimento);
-        return this;
+     }
 
-    }
-
-    public AtendimentoPage escreverDescricaoAtendimento() {
+    public void escreverDescricaoAtendimento() {
         clicar(tabelaDescricaoAtendimento);
         escrever(textoDescricaoAtendimento, "Novo Atendimento Automacao");
-        return this;
     }
 
-    public AtendimentoPage salvarAtendimento() {
+    public void salvarAtendimento() {
         clicar(botaoSalvarAtendimento);
-        return this;
-    }
+     }
+
+    public void excluirAtendimento() {
+        clicar(botaoExcluirAtendimento);
+        esperaAceitarAlert();
+     }
 
     public String pesquisarAtendimento() {
         return obterTexto(tabelaDescricaoAtendimento);
     }
 
-    public AtendimentoPage excluirAtendimento() {
-        clicar(botaoExcluirAtendimento);
-        esperaAceitarAlert();
-        return this;
-    }
-
-    private AtendimentoPage acessar() {
+    private AtendimentoPfPage acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
         new PessoaFisicaPage(driver);

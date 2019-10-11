@@ -2,14 +2,13 @@ package pageObjects.retaguarda.detalhamento;
 
 import base.BasePage;
 import org.openqa.selenium.*;
-import pageObjects.retaguarda.RetaguardaPage;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
+
 
 public class DetalhamentoPage extends BasePage {
 
-
-    private static final String OUTROS_TIPOS = "outros";
     private static final String MENSAL_PRIORIDADES = "mensal";
+
     private By botaoPesquisarDetalhamento = By.id("s_5_1_10_0_Ctrl");
     private By botaoIr = By.id("s_5_1_7_0_Ctrl");
     private By botaoNovoDetalhamento = By.id("s_5_1_11_0_Ctrl");
@@ -22,91 +21,72 @@ public class DetalhamentoPage extends BasePage {
     private By botaoExcluirDetalhamento = By.id("s_5_1_5_0_Ctrl");
     private By janelaDialogo = By.id("_sweview_popup");
     private By botaoAccept = By.id("btn-accept");
-    private By textoTipoRendaEnv = By.name("s_2_1_3_0");
 
     public DetalhamentoPage(WebDriver driver) {
         super(driver);
+        editarRenda();
     }
 
-    public DetalhamentoPage preencherDetalhamento() {
-        RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
-        retaguardaPage
-                .acessarCadastroCanais()
-                .preencherCooperativa();
+    public DetalhamentoPage novoDetalhamento() {
+        adicionarDetalhamento();
         return this;
     }
-    public DetalhamentoPage novoDetalhamento() {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editarAlterarRenda()
-                .editarAtendimento();
+
+    public DetalhamentoPage adicionarDetalhamento() {
         clicar(botaoNovoDetalhamento);
+        return this;
+    }
+
+    public DetalhamentoPage inserirTipo(String tipoDetalhamento) {
         clicar(comboDetalheTipo);
-        escrever(seletorTipo, (OUTROS_TIPOS));
+        escrever(seletorTipo, tipoDetalhamento);
+        return this;
+    }
+
+    public DetalhamentoPage inserirPeriodicidade() {
         clicarTab(seletorTipo);
         clicar(seletorPeriodicidade);
         escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
         clicarTab(textoPeriodicidade);
-        String valor = "2";
-        escrever(detalhamentoValor, valor);
-        clicar(botaoSalvarDetalhamento);
-        alterarRendaPage.apagarRegistro();
+
         return this;
     }
 
-    public String novoDetalhamentoDuplicado() {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editarAlterarRenda()
-                .editarAtendimento();
-        clicar(botaoNovoDetalhamento);
-        clicar(comboDetalheTipo);
-        String TipoRendaEnviada = obterValueElemento(textoTipoRendaEnv);
-        escrever(seletorTipo, (TipoRendaEnviada));
-        clicarTab(seletorTipo);
+    public DetalhamentoPage inserirValor(Integer valor) {
+        escrever(detalhamentoValor, valor.toString());
+
+        return this;
+    }
+
+    public DetalhamentoPage salvarDetalhamento() {
         clicar(botaoSalvarDetalhamento);
-        String textoJanela = obterTexto(janelaDialogo);
-        clicar(botaoAccept);
-        excluirRegistroDetalhamento();
-        alterarRendaPage.apagarRegistro();
-        return textoJanela;
-
+        return this;
     }
 
-    public String TipoDuplicadoBotaoNovodetalhamento() {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editarAlterarRenda()
-                .editarAtendimento();
-        clicar(botaoNovoDetalhamento);
-        clicar(comboDetalheTipo);
-        String TipoRendaEnviada = obterValueElemento(textoTipoRendaEnv);
-        escrever(seletorTipo, (TipoRendaEnviada));
-        clicarTab(seletorTipo);
-        String textoJanela = obterTexto(janelaDialogo);
-        clicar(botaoAccept);
-        excluirRegistroDetalhamento();
-        alterarRendaPage.apagarRegistro();
-        return textoJanela;
-    }
 
     public DetalhamentoPage pesquisarDetalhamento() {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage
-                .editarAlterarRenda()
-                .editarAtendimento();
+
         clicar(botaoPesquisarDetalhamento);
         clicar(botaoIr);
         return this;
     }
 
-    public String salvarSemDetalhamento() {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver);
-        alterarRendaPage.editarAlterarRenda().editarAtendimento();
-        clicar(botaoNovoDetalhamento);
-        clicar(botaoSalvarDetalhamento);
-        return obterTexto(janelaDialogo);
-    }
-
-    private void excluirRegistroDetalhamento() {
+    public DetalhamentoPage excluirRegistroDetalhamento() {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
+        return this;
+    }
+
+    public String pegarMensagemJanelaDeErro() {
+        String texto = obterTexto(janelaDialogo);
+        clicar(botaoAccept);
+        return texto;
+    }
+
+    private void editarRenda() {
+        new AlterarRendaPage(driver)
+                .editar()
+                .salvar();
+
     }
 }

@@ -19,7 +19,7 @@ public class RetaguardaPage extends BasePage {
     private By opcaoTodosMeusAtendimentos = By.xpath("//div[@id='_swecontent']//option[2]");
     private By botaoPesquisar = By.id("s_2_1_12_0_Ctrl");
     private By textoCooperativa = By.id("1_Sicredi_Organization");
-    private By tabelaCategoria = By.id("2_s_2_l_SR_Type_New_");
+    private By tabelaCategoria = By.id("1_s_2_l_SR_Type_New_");
     private By botaoRetaguardaIr = By.id("s_2_1_9_0_Ctrl");
 
     public RetaguardaPage acessarCadastroCanais() {
@@ -40,10 +40,5 @@ public class RetaguardaPage extends BasePage {
         return this;
 
     }
-
-
-    public void apagarRegistro() {
-    }
 }
-
 

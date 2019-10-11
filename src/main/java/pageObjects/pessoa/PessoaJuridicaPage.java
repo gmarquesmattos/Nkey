@@ -11,6 +11,7 @@ public class PessoaJuridicaPage extends BasePage {
     private By seletorTodasasPessoasPj = By.xpath("//option[contains(text(),'Todas as pessoas jurídicas')]");
     private By textoPj = By.id("1_Sicredi_CNPJ_Mascara");
     private By textoNomePj = By.name("Name");
+    private By botaoirPj = By.id("s_1_1_5_0_Ctrl");
 
     public PessoaJuridicaPage(WebDriver driver) {
         super(driver);
@@ -30,8 +31,7 @@ public class PessoaJuridicaPage extends BasePage {
 
         clicar(botaoPesquisarPj);
         escrever(textoPj, "09514327000156");
-        entrar();
-
+        clicar(botaoirPj);
     }
 
     public void acessarRazaoSocial() {

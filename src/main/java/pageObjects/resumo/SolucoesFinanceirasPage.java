@@ -14,8 +14,8 @@ public class SolucoesFinanceirasPage extends BasePage {
 	public SolucoesFinanceirasPage(WebDriver driver) {
 		super(driver);
 		acessar();
-
 	}
+
 	private SolucoesFinanceirasPage acessar(){
 		HomePage homePage = new HomePage(driver);
 		homePage.acessarPessoaFisica();
@@ -23,14 +23,11 @@ public class SolucoesFinanceirasPage extends BasePage {
 		return this;
 	}
 
-
 	public void clicarLinkSaldoContaPrincipal() {
-		
 		clicar(linkSaldoContaPrincipal);
 	}
 	
 	public String obterContaPrincipal() {
-		
 		return obterTexto(rotuloContaPrincipal).substring(1, 7);
 	}
 	

@@ -10,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
+
+import java.util.concurrent.TimeUnit;
 
 import static driver.DriverManager.getDriver;
 
@@ -21,11 +23,11 @@ public class BasePage {
     public static final Logger LOGGER = LogManager.getLogger();
     WaitAux waitAux = new WaitAux();
     WebElement elemento;
+    private int tempo_espera = 30;
 
     public BasePage(WebDriver driver) {
         this.driver = DriverManager.getDriver();
-        int tempo = 30;
-        wait = new WebDriverWait(getDriver(), tempo);
+        wait = new WebDriverWait(getDriver(), tempo_espera);
     }
 
     public void clicar(By by) {
@@ -37,56 +39,42 @@ public class BasePage {
     public void escrever(By by, String texto) {
         waitAux.waitJQueryAndLoadPage();
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        elemento.click();
         elemento.clear();
         elemento.sendKeys(texto);
     }
 
     public String obterTexto(By by) {
-
         waitAux.waitJQueryAndLoadPage();
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return elemento.getText();
     }
 
-    public String obterTexto(String valor) {
-
-        waitAux.waitJQueryAndLoadPage();
-        elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(valor)));
-        return elemento.getText();
-    }
-
     public String obterValueElemento(By by) {
+        WaitAux.waitJQueryAndLoadPage();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return getDriver().findElement(by).getAttribute("value");
     }
 
-
     public void clicarTab(By by) {
-
         waitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.TAB);
     }
 
     public void limparCampo(By by) {
-
         waitAux.waitJQueryAndLoadPage();
         elemento.clear();
-
     }
 
     public void entrar() {
-
-        waitAux.waitJQueryAndLoadPage();
+        WaitAux.waitJQueryAndLoadPage();
         elemento.sendKeys(Keys.ENTER);
     }
 
     public boolean verificarSeEstaAtivo(By by) {
+        WaitAux.waitJQueryAndLoadPage();
         elemento = getDriver().findElement(by);
         return elemento.isEnabled();
-    }
-
-    public void compararString(String texto1, String texto2) {
-        Assert.assertEquals(texto1, texto2);
-
     }
 
     public void esperaAceitarAlert() {
