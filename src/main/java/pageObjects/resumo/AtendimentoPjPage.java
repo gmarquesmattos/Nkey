@@ -20,12 +20,10 @@ public class AtendimentoPjPage extends BasePage {
     public AtendimentoPjPage(WebDriver driver) {
         super(driver);
         acessar();
-
     }
 
-    public void clicarNovoAtendimento() {
+    public void criarNovoAtendimento() {
         clicar(botaoNovoAtendimentoPj);
-
     }
 
     public void escreverDescricaoAtendimento() {
@@ -40,22 +38,19 @@ public class AtendimentoPjPage extends BasePage {
 
     public void salvarAtendimento() {
         clicar(botaoSalvarAtendimentoPj);
-
     }
 
-    public String pesquisaAtendimentoPj() {
+    public String pesquisarAtendimentoPj() {
         return obterTexto(tabelaDescricaoAtendimentoPj);
     }
 
     public void excluirAtedimentoPj() {
         clicar(botaoExcluirAtendimentoPj);
         esperaAceitarAlert();
-
     }
 
     private void acessar() {
-        HomePage homePage = new HomePage(driver);
-        homePage.acessarPessoaJuridica();
+        new HomePage(driver).acessarPessoaJuridica();
         new PessoaJuridicaPage(driver);
         clicar(botaoIrParaAtendimentoPj);
     }

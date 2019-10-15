@@ -11,11 +11,11 @@ public class AtendimentoPjTest extends BaseTest {
     @Test
     public void deveCriarAtendimentoPj() {
         AtendimentoPjPage atendimentoPjPage = new AtendimentoPjPage(driver);
-        atendimentoPjPage.clicarNovoAtendimento();
+        atendimentoPjPage.criarNovoAtendimento();
         atendimentoPjPage.escreverDescricaoAtendimento();
         atendimentoPjPage.selecionarAgenciaAtendimento();
         atendimentoPjPage.salvarAtendimento();
-        String textoDescricaoAtendimentoPj = atendimentoPjPage.pesquisaAtendimentoPj();
+        String textoDescricaoAtendimentoPj = atendimentoPjPage.pesquisarAtendimentoPj();
         assertEquals("Novo Atendimento Automacao PJ", textoDescricaoAtendimentoPj);
         atendimentoPjPage.excluirAtedimentoPj();
     }

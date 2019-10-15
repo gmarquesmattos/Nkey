@@ -31,10 +31,8 @@ public class HomePage extends BasePage {
         return  this;
     }
 
-    public HomePage acessarPessoaJuridica(){
-
+    public void acessarPessoaJuridica(){
         clicar(menuLateralPaginaInicial);
         clicar(menulateralPessoaJuridica);
-        return this;
     }
 }
