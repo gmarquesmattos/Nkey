@@ -23,7 +23,6 @@ public class OportunidadePage extends BasePage {
 
     public void clicarNovaOportunidade() {
         clicar(botaoNovaOportunidade);
-
     }
 
     public void preencherGrupoProduto() {
