@@ -24,5 +24,4 @@ public class AtendimentoPfTest extends BaseTest {
         atendimentoPage.excluirAtendimento();
     }
 
-
 }
