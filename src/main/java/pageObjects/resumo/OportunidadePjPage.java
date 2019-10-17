@@ -1,11 +1,8 @@
 package pageObjects.resumo;
 
 import base.BasePage;
-import driver.DriverManager;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class OportunidadePjPage extends BasePage {
     private By botaoNovaOportunidadePj = By.id("s_1_1_8_0_Ctrl");
