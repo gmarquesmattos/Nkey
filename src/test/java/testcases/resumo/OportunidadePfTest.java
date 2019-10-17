@@ -2,14 +2,14 @@ package testcases.resumo;
 
 import base.BaseTest;
 import org.testng.annotations.Test;
-import pageObjects.resumo.OportunidadePage;
+import pageObjects.resumo.OportunidadePfPage;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class OportunidadePfTest extends BaseTest {
 
     @Test
     public void deveriaCriarOportunidade() {
-        OportunidadePage oportunidadePage = new OportunidadePage(driver);
+        OportunidadePfPage oportunidadePage = new OportunidadePfPage(driver);
         oportunidadePage.clicarNovaOportunidade();
         oportunidadePage.preencherGrupoProduto();
         oportunidadePage.preencherDescricao();

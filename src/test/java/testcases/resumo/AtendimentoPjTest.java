@@ -11,6 +11,7 @@ public class AtendimentoPjTest extends BaseTest {
     @Test
     public void deveCriarAtendimentoPj() {
         AtendimentoPjPage atendimentoPjPage = new AtendimentoPjPage(driver);
+        atendimentoPjPage.irParaAtendimentoPJ();
         atendimentoPjPage.criarNovoAtendimento();
         atendimentoPjPage.escreverDescricaoAtendimento();
         atendimentoPjPage.selecionarAgenciaAtendimento();

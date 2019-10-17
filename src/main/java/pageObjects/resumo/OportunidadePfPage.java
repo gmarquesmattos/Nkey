@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-public class OportunidadePage extends BasePage {
+public class OportunidadePfPage extends BasePage {
 
     private By botaoIrParaAtividade = By.id("s_18_1_1_0_Ctrl");
     private By botaoNovaOportunidade = By.id("s_1_1_8_0_Ctrl");
@@ -16,7 +16,7 @@ public class OportunidadePage extends BasePage {
     private By botaoSalvarOportunidade = By.id("s_1_1_11_0_Ctrl");
     private By botaoExcluirOportunidade = By.id("s_1_1_3_0_Ctrl");
 
-    public OportunidadePage(WebDriver driver) {
+    public OportunidadePfPage(WebDriver driver) {
         super(driver);
         acessar();
     }

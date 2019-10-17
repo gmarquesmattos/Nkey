@@ -16,6 +16,8 @@ public class AtendimentoPjPage extends BasePage {
     private By botaoSalvarAtendimentoPj = By.id("s_1_1_24_0_Ctrl");
     private By campoDescricaoPj = By.id("1_Sicredi_Division");
     private By botaoExcluirAtendimentoPj = By.id("s_1_1_5_0_Ctrl");
+    private By botaoOportunidadePj = By.id("s_10_1_1_0_Ctrl");
+
 
     public AtendimentoPjPage(WebDriver driver) {
         super(driver);
@@ -47,13 +49,25 @@ public class AtendimentoPjPage extends BasePage {
     public void excluirAtedimentoPj() {
         clicar(botaoExcluirAtendimentoPj);
         esperaAceitarAlert();
+
+    }
+
+    public void irParaAtendimentoPJ() {
+        clicar(botaoIrParaAtendimentoPj);
+    }
+
+    public void irParaOportunidade() {
+        clicar(botaoOportunidadePj);
+
     }
 
     private void acessar() {
         new HomePage(driver).acessarPessoaJuridica();
         new PessoaJuridicaPage(driver);
-        clicar(botaoIrParaAtendimentoPj);
+
     }
+
+
 }
 
 
