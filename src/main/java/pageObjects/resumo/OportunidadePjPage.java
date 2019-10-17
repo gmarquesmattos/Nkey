@@ -39,7 +39,7 @@ public class OportunidadePjPage extends BasePage {
         return obterTexto(tabelaDescricaoOportunidade);
     }
 
-    public void excluirOportuniadePj() {
+    public void excluirOportunidadePj() {
         clicar(botaoExcluirOportunidade);
         esperaAceitarAlert();
     }
