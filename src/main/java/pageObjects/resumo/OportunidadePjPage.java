@@ -47,11 +47,6 @@ public class OportunidadePjPage extends BasePage {
         esperaAceitarAlert();
     }
 
-    public void esperaAceitarAlert() {
-        wait.until(ExpectedConditions.alertIsPresent());
-        Alert alert = DriverManager.getDriver().switchTo().alert();
-        alert.accept();
 
-    }
 
 }
