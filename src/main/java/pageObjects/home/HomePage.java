@@ -8,7 +8,7 @@ import pageObjects.login.LoginPage;
 
 public class HomePage extends BasePage {
 
-    private By tabelaMeusAtendimentosDeRetaguarda = By.id("s_10_1_9_0");
+    private By tabelaMeusAtendimentosDeRetaguarda = By.cssSelector("#s_3_1_9_0_mb");
     private By menuLateralPaginaInicial = By.cssSelector("button[title='Primeiro nível da barra de visualização']");
     private By menuLateralPessoaFisica = By.id("ui-id-99");
     private By menulateralPessoaJuridica = By.id("ui-id-100");

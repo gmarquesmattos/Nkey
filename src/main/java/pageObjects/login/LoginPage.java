@@ -13,7 +13,7 @@ public class LoginPage extends BasePage {
     private By textoUsuario = By.id("fieldUser");
     private By textoSenha = By.id("fieldPassword");
     private By botaoEntrar = By.id("btnSubmit");
-    protected static final String USUARIO_TESTE = "karine_bonjour";
+    protected static final String USUARIO_TESTE = "ADRIANO_MUCCILLO";
     protected static final String SENHA_TESTE = "teste123";
 
 

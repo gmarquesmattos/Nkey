@@ -69,7 +69,7 @@ public class AlterarRendaPage extends BasePage {
 
     private void acessar() {
         RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
-        retaguardaPage.acessarCadastroCanais().preencherCooperativa();
+        retaguardaPage.acessarCadastroCanais().entrarRetarguarda();
 
     }
 

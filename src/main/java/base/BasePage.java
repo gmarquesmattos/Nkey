@@ -4,15 +4,8 @@ import driver.DriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-import java.util.concurrent.TimeUnit;
 
 import static driver.DriverManager.getDriver;
 
@@ -31,7 +24,7 @@ public class BasePage {
     }
 
     public void clicar(By by) {
-        waitAux.waitJQueryAndLoadPage();
+       // waitAux.waitJQueryAndLoadPage();
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
     }
