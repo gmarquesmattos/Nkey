@@ -35,6 +35,7 @@ public class BasePage {
         elemento.click();
         elemento.clear();
         elemento.sendKeys(texto);
+
     }
 
     public String obterTexto(By by) {
@@ -74,6 +75,6 @@ public class BasePage {
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = DriverManager.getDriver().switchTo().alert();
         alert.accept();
-
     }
+
 }
