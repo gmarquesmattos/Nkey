@@ -45,7 +45,8 @@ public class AtividadePfPage extends BasePage {
     private AtividadePfPage acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
-        new PessoaFisicaPage(driver);
+        String CPF = "03401711970";
+        new PessoaFisicaPage(driver,CPF);
         clicar(botaoIrParaAtividade);
         return this;
     }

@@ -8,6 +8,7 @@ import pageObjects.pessoa.PessoaFisicaPage;
 
 public class OportunidadePfPage extends BasePage {
 
+
     private By botaoIrParaAtividade = By.id("s_18_1_1_0_Ctrl");
     private By botaoNovaOportunidade = By.id("s_1_1_8_0_Ctrl");
     private By campoGrupoDeProduto = By.id("1_Sicredi_Op_Prod_Produto");
@@ -51,7 +52,8 @@ public class OportunidadePfPage extends BasePage {
     private void acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
-        new PessoaFisicaPage(driver);
+        String CPF = "03401711970";
+        new PessoaFisicaPage(driver, CPF);
         clicar(botaoIrParaAtividade);
     }
 }

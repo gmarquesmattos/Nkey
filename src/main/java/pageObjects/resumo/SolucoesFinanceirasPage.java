@@ -19,7 +19,8 @@ public class SolucoesFinanceirasPage extends BasePage {
 	private SolucoesFinanceirasPage acessar(){
 		HomePage homePage = new HomePage(driver);
 		homePage.acessarPessoaFisica();
-		new PessoaFisicaPage(driver);
+		String CPF = "03401711970";
+		new PessoaFisicaPage(driver,CPF);
 		return this;
 	}
 
