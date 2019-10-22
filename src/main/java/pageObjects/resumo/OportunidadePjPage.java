@@ -23,7 +23,7 @@ public class OportunidadePjPage extends BasePage {
 
     public void preencherAgenciaOportunidade() {
         clicar(tabelaAgenciaOportuniade);
-        escrever(campoAgenciaOportunidade, "UA FORTALEZA DOS VALOS");
+        escrever(campoAgenciaOportunidade, "UA MANDAGUAÇU");
     }
 
     public void preencherDescriçãoOportunidade() {

@@ -10,8 +10,8 @@ public class HomePage extends BasePage {
 
     private By tabelaMeusAtendimentosDeRetaguarda = By.cssSelector("#s_3_1_9_0_mb");
     private By menuLateralPaginaInicial = By.cssSelector("button[title='Primeiro nível da barra de visualização']");
-    private By menuLateralPessoaFisica = By.id("ui-id-99");
-    private By menulateralPessoaJuridica = By.id("ui-id-100");
+    private By menuLateralPessoaFisica = By.xpath("//div[@id='s_sctrl']//li[2]");
+    private By menulateralPessoaJuridica = By.xpath("//div[@id='s_sctrl']//li[3]");
     private By rotuloBemVindo = By.className("Welcome");
 
 

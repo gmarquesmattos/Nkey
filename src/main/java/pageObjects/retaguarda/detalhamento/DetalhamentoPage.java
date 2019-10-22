@@ -48,13 +48,11 @@ public class DetalhamentoPage extends BasePage {
         clicar(seletorPeriodicidade);
         escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
         clicarTab(textoPeriodicidade);
-
         return this;
     }
 
     public DetalhamentoPage inserirValor(Integer valor) {
         escrever(detalhamentoValor, valor.toString());
-
         return this;
     }
 

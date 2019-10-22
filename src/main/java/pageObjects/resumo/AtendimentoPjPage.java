@@ -35,7 +35,7 @@ public class AtendimentoPjPage extends BasePage {
 
     public void selecionarAgenciaAtendimento() {
         clicar(tabelaDescricaoAgencia);
-        escrever(campoDescricaoPj, "UA FORTALEZA DOS VALOS");
+        escrever(campoDescricaoPj, "UA MANDAGUAÇU");
     }
 
     public void salvarAtendimento() {
