@@ -12,6 +12,7 @@ public class DigitalPfRecomendarPage extends BasePage {
     private By botaoRecomendarPS = By.cssSelector("button[class='siebui-ctrl-btn siebui-icon-launchtask s_2_1_13_0 appletButton']");
     private By janelaErroRecomendar = By.cssSelector("#_sweview_popup");
     private By textoRecomendadadosbasicos = By.cssSelector("div[class='siebui-applet-taskui-h']");
+    private By linkEsteiraPS = By.cssSelector("#S_A14_tile_2");
 
     public DigitalPfRecomendarPage(WebDriver driver) {
         super(driver);
@@ -34,6 +35,17 @@ public class DigitalPfRecomendarPage extends BasePage {
 
     public String mensagemPaginaRecomendaDadosBasicos() {
         return obterTexto(textoRecomendadadosbasicos);
+    }
+
+    public void clicarlinkEsteiraPS() {
+        clicar(linkEsteiraPS);
+
+    }
+
+    public String esperaAceitarAlertRecomendar() {
+
+        return esperaAceitarAlert();
+
     }
 
     private void acessar() {

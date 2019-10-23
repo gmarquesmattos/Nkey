@@ -71,10 +71,11 @@ public class BasePage {
         return elemento.isEnabled();
     }
 
-    public void esperaAceitarAlert() {
+    public String esperaAceitarAlert() {
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = DriverManager.getDriver().switchTo().alert();
+        String textoAlerta = alert.getText();
         alert.accept();
+        return textoAlerta;
     }
-
-}
+  }
