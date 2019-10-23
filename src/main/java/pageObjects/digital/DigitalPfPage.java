@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-public class DigitalPf extends BasePage {
+public class DigitalPfPage extends BasePage {
 
     private By textoPlataformaDigital = By.id("SectionDigitalInfo");
 
-    public DigitalPf(WebDriver driver) {
+    public DigitalPfPage(WebDriver driver) {
         super(driver);
         acessar();
     }
