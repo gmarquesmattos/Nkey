@@ -11,7 +11,8 @@ public class PfDigitalTest extends BaseTest {
     @Test
     public void pessoaDigitalTelaDeRelacionamento() {
         DigitalPfPage digitalPfPage = new DigitalPfPage(driver);
-        digitalPfPage.insereCpf("03334856020");
+        String pfDigital ="03334856020";
+        digitalPfPage.insereCpf(pfDigital);
         String textoObtido = digitalPfPage.indicativoPfDigital();
         String textoEsperado = "Este associado utiliza a Plataforma Digital. Para realizar o atendimento acesse a Salesforce.";
 
@@ -22,7 +23,8 @@ public class PfDigitalTest extends BaseTest {
     @Test
     public void pessoaNaoDigitalTelaRelacionamento() {
         DigitalPfPage digitalPfPage = new DigitalPfPage(driver);
-        digitalPfPage.insereCpf("97452874820");
+        String pFNaoDigital = "97452874820";
+        digitalPfPage.insereCpf(pFNaoDigital);
         String textoObtido = digitalPfPage.indicativoPfDigital();
         String textoEsperado = "";
 
