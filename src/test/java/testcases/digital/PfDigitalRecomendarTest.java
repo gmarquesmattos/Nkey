@@ -11,7 +11,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class PfDigitalRecomendarTest extends BaseTest {
 
     @Test
-    public void pfDigitalNaoDeveAcessarRecomendarPS() {
+    public void pDigitalNaoDeveAcessarRecomendarPS() {
         DigitalPfRecomendarPage digitalPfRecomendarPage = new DigitalPfRecomendarPage(driver);
         String pfDigital = "03334856020";
         digitalPfRecomendarPage.pesquisarPessoa(pfDigital);
@@ -57,4 +57,19 @@ public class PfDigitalRecomendarTest extends BaseTest {
 
         assertEquals(textoEsperado, textoObtido);
     }
+
+    @Test
+    public void pjDeveAcessarRecomendarPSTelaRelacionamento() {
+        DigitalPjRecomendarPage digitalPjRecomendarPage = new DigitalPjRecomendarPage(driver);
+        String cnpj = "09514327000156";
+        digitalPjRecomendarPage.pesquisarPj(cnpj);
+        digitalPjRecomendarPage.acessarRazaoSocial();
+        digitalPjRecomendarPage.clicarlinkEsteiraPS();
+        String textoObtido = digitalPjRecomendarPage.mensagemPaginaRecomendaDadosBasicos();
+        String textoEsperado = "Sicredi RecomendaDados básicos";
+
+        assertEquals(textoEsperado, textoObtido);
+   }
+
+
 }
