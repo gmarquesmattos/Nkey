@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 
-public class DigitalPfRecomendarPage extends BasePage {
+public class TelaDeRelacionamentoPfPage extends BasePage {
 
     private By botaoPesquisar = By.id("s_1_1_11_0_Ctrl");
     private By textoCpf = By.id("1_Social_Security_Number");
@@ -14,7 +14,7 @@ public class DigitalPfRecomendarPage extends BasePage {
     private By textoRecomendadadosbasicos = By.cssSelector("div[class='siebui-applet-taskui-h']");
     private By linkEsteiraPS = By.cssSelector("#S_A14_tile_2");
 
-    public DigitalPfRecomendarPage(WebDriver driver) {
+    public TelaDeRelacionamentoPfPage(WebDriver driver) {
         super(driver);
         acessar();
     }
@@ -25,7 +25,7 @@ public class DigitalPfRecomendarPage extends BasePage {
         entrar();
     }
 
-    public void clicarBotaorecomendarPS() {
+    public void clicarBotaoRecomendarPS() {
         clicar(botaoRecomendarPS);
     }
 
@@ -44,7 +44,7 @@ public class DigitalPfRecomendarPage extends BasePage {
 
     public String esperaAceitarAlertRecomendar() {
 
-        return esperaAceitarAlert();
+        return esperaAceitarRetornarTextoAlert();
 
     }
 

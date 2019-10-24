@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 
-public class DigitalPjRecomendarPage extends BasePage {
+public class TelaDeRelacionamentoPjPage extends BasePage {
 
     private By botaoPesquisarPj = By.id("s_1_1_6_0_Ctrl");
     private By textoPj = By.id("1_Sicredi_CNPJ_Mascara");
@@ -15,7 +15,7 @@ public class DigitalPjRecomendarPage extends BasePage {
     private By textoRazaoSocialPj = By.name("Name");
     private By linkEsteiraPS = By.cssSelector("div[id = S_A4_tile_2]");
 
-    public DigitalPjRecomendarPage(WebDriver driver) {
+    public TelaDeRelacionamentoPjPage(WebDriver driver) {
         super(driver);
         acessar();
     }
