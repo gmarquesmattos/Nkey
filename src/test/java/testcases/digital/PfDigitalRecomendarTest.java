@@ -1,10 +1,9 @@
 package testcases.digital;
 
 import base.BaseTest;
-import javafx.application.Application;
-import javafx.stage.Stage;
 import org.testng.annotations.Test;
 import pageObjects.digital.DigitalPfRecomendarPage;
+import pageObjects.digital.DigitalPjRecomendarPage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
 import static org.testng.AssertJUnit.assertEquals;
@@ -47,4 +46,15 @@ public class PfDigitalRecomendarTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
     }
 
+    @Test
+    public void pJDeveAcessarRecomendarPS() {
+        DigitalPjRecomendarPage digitalPjRecomendarPage = new DigitalPjRecomendarPage(driver);
+        String cnpj = "09514327000156";
+        digitalPjRecomendarPage.pesquisarPj(cnpj);
+        digitalPjRecomendarPage.clicarBotaoRecomendarPs();
+        String textoObtido = digitalPjRecomendarPage.mensagemPaginaRecomendaDadosBasicos();
+        String textoEsperado = "Sicredi RecomendaDados básicos";
+
+        assertEquals(textoEsperado, textoObtido);
+    }
 }

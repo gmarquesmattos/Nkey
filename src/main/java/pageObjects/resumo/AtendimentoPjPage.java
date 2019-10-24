@@ -62,7 +62,8 @@ public class AtendimentoPjPage extends BasePage {
     }
 
     private void acessar() {
-        new HomePage(driver).acessarPessoaJuridica();
+        new HomePage(driver)
+                .acessarPessoaJuridica();
         new PessoaJuridicaPage(driver);
 
     }
