@@ -13,7 +13,7 @@ public class PessoaFisicaPage extends BasePage {
     public PessoaFisicaPage(WebDriver driver, String cpf) {
         super(driver);
         pesquisarPessoa(cpf);
-        acessarNomeCompleto();
+
     }
 
     private void pesquisarPessoa(String cpf) {
@@ -22,7 +22,7 @@ public class PessoaFisicaPage extends BasePage {
         entrar();
     }
 
-    private void acessarNomeCompleto() {
+    public void acessarNomeCompleto() {
         clicar(textoNomeCompleto);
     }
 }

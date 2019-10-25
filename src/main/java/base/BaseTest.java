@@ -78,5 +78,18 @@ public abstract class BaseTest extends ListenerTest {
         }
     }
 
+    @DataProvider(name = "cpfNaoDigital")
+    public Object[][] createData() {
+        return new Object[][]{new Object[]{"97452874820"}};
+    }
 
+    @DataProvider(name = "cpfDigital")
+    public Object[][] createDataDigital() {
+        return new Object[][]{new Object[]{"03334856020"}};
+    }
+
+    @DataProvider(name = "cnpjDigital")
+    public Object[][] cnpjDigital() {
+        return new Object[][]{new Object[]{"09514327000156"}};
+    }
 }

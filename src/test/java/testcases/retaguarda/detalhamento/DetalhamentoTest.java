@@ -1,6 +1,7 @@
 package testcases.retaguarda.detalhamento;
 
 import base.BaseTest;
+import base.MyRetry;
 import org.testng.annotations.Test;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 import pageObjects.retaguarda.detalhamento.DetalhamentoPage;
@@ -10,7 +11,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class DetalhamentoTest extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void deveriaCriarNovoDetalhamento() {
         int valor = 200;
         new DetalhamentoPage(driver)
@@ -23,7 +24,7 @@ public class DetalhamentoTest extends BaseTest {
                 .excluirRenda();
     }
 
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void deveriaPesquisarDetalhamento() {
         int valor = 200;
         new DetalhamentoPage(driver)
@@ -37,7 +38,7 @@ public class DetalhamentoTest extends BaseTest {
                 .excluirRenda();
     }
 
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarSemDetalhamento() {
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver)
                 .adicionarDetalhamento().salvarDetalhamento();
@@ -48,7 +49,7 @@ public class DetalhamentoTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
     }
 
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarComTiposDuplicado() {
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
         detalhamentoPage.novoDetalhamento();
@@ -64,7 +65,7 @@ public class DetalhamentoTest extends BaseTest {
 
     }
 
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarComTiposDuplicadoBotaoDetalhamentoNovo() {
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
         detalhamentoPage.novoDetalhamento();
@@ -80,7 +81,7 @@ public class DetalhamentoTest extends BaseTest {
         new AlterarRendaPage(driver).excluirRenda();
     }
 
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarValorIgualZero() {
         int valor = 00;
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);

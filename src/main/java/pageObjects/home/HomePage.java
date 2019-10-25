@@ -24,7 +24,7 @@ public class HomePage extends BasePage {
         clicar(tabelaMeusAtendimentosDeRetaguarda);
     }
 
-    public HomePage acessarPessoaFisica() {
+    public HomePage acessarPessoaFisica( ) {
         obterTexto(rotuloBemVindo);
         clicar(menuLateralPaginaInicial);
         clicar(menuLateralPessoaFisica);

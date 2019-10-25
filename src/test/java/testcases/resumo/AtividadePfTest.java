@@ -1,6 +1,7 @@
 package testcases.resumo;
 
 import base.BaseTest;
+import base.MyRetry;
 import org.testng.annotations.Test;
 import pageObjects.resumo.AtividadePfPage;
 
@@ -8,7 +9,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class AtividadePfTest extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void deveCriarAtividadePf() {
         AtividadePfPage atividadePfPage = new AtividadePfPage(driver);
         atividadePfPage.adicionarNovaAtividade();

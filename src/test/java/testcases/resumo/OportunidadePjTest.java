@@ -1,6 +1,7 @@
 package testcases.resumo;
 
 import base.BaseTest;
+import base.MyRetry;
 import org.testng.annotations.Test;
 import pageObjects.resumo.AtendimentoPjPage;
 import pageObjects.resumo.OportunidadePjPage;
@@ -9,7 +10,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class OportunidadePjTest extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void deveriaCriarOportunidadePj() {
         AtendimentoPjPage atendimentoPjPage = new AtendimentoPjPage(driver);
         atendimentoPjPage.irParaOportunidade();

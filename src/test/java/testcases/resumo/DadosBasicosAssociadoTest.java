@@ -1,6 +1,7 @@
 package testcases.resumo;
 
 import base.BaseTest;
+import base.MyRetry;
 import db.DadosBasicosDb;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public class DadosBasicosAssociadoTest extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = MyRetry.class)
     public void deveriaRetornarRotulosAssociadoTela() {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         ArrayList<String> informacoesAssociadoBancoResumo = dadosBasicosDb.retornarDadosBasicosDb();
