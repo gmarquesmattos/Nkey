@@ -12,12 +12,23 @@ public class AtividadePfPage extends BasePage {
     private By botaoNovaAtividade = By.id("s_1_1_15_0_Ctrl");
     private By tabelaDescricaoAtividade = By.id("1_s_1_l_Description");
     private By textoDescricaoAtividade = By.id("1_Description");
+    private By tabelaDescricaoAgencia = By.id("1_s_1_l_Sicredi_Division");
+    private By textoAgencia = By.id("s_1_2_38_0_icon");
+    private By botaoOk = By.id("s_3_1_63_0_Ctrl");
     private By botaoSalvarAtividade = By.id("s_1_1_20_0_Ctrl");
     private By BotaoExcluirAtividade = By.id("s_1_1_4_0_Ctrl");
 
     public AtividadePfPage(WebDriver driver) {
         super(driver);
         acessar();
+    }
+
+    public void pesquisarPessoaFisica(String cpf) {
+        new PessoaFisicaPage(driver, cpf).acessarNomeCompleto();
+    }
+
+    public void acessarAtividade() {
+        clicar(botaoIrParaAtividade);
     }
 
     public void adicionarNovaAtividade() {
@@ -28,7 +39,11 @@ public class AtividadePfPage extends BasePage {
         clicar(tabelaDescricaoAtividade);
         escrever(textoDescricaoAtividade, "Nova Atividade Automacao");
     }
-
+    public void selecionarAgenciaAtividade() {
+        clicar(tabelaDescricaoAgencia);
+        clicar(textoAgencia);
+        clicar(botaoOk);
+    }
     public void salvarAtividade() {
         clicar(botaoSalvarAtividade);
     }
@@ -42,12 +57,8 @@ public class AtividadePfPage extends BasePage {
         return obterTexto(tabelaDescricaoAtividade);
     }
 
-    private AtividadePfPage acessar() {
+    private void acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
-        String CPF = "03401711970";
-        new PessoaFisicaPage(driver,CPF);
-        clicar(botaoIrParaAtividade);
-        return this;
     }
 }

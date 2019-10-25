@@ -10,7 +10,6 @@ public class TelaDeRelacionamentoPage extends BasePage {
 
     private By botaoPesquisar = By.id("s_1_1_11_0_Ctrl");
     private By textoCpf = By.id("1_Social_Security_Number");
-
     private By linkEsteiraPS = By.cssSelector("#S_A14_tile_2");
     private By textoPlataformaDigital = By.id("SectionDigitalInfo");
 
@@ -24,9 +23,6 @@ public class TelaDeRelacionamentoPage extends BasePage {
         escrever(textoCpf, cpf);
         entrar();
     }
-
-
-
 
     public void clicarlinkEsteiraPS() {
         clicar(linkEsteiraPS);

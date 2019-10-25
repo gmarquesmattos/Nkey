@@ -18,17 +18,16 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
         new LoginPage(driver);
+        obterTexto(rotuloBemVindo);
     }
 
     public void selecionarMenuHome() {
         clicar(tabelaMeusAtendimentosDeRetaguarda);
     }
 
-    public HomePage acessarPessoaFisica( ) {
-        obterTexto(rotuloBemVindo);
+    public void acessarPessoaFisica( ) {
         clicar(menuLateralPaginaInicial);
         clicar(menuLateralPessoaFisica);
-        return  this;
     }
 
     public void acessarPessoaJuridica(){

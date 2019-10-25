@@ -23,6 +23,10 @@ public class DadosBasicosAssociadoPage extends BasePage {
         acessar();
     }
 
+    public void pesquisarPessoaFisica(String cpf) {
+        new PessoaFisicaPage(driver, cpf).acessarNomeCompleto();
+    }
+
     public ArrayList<String> obterValor() {
         ArrayList<String> informacoesResumoAssociado = new ArrayList<>();
         informacoesResumoAssociado.add(obterTexto(rotuloNomeCompleto).trim());
@@ -37,12 +41,10 @@ public class DadosBasicosAssociadoPage extends BasePage {
         return informacoesResumoAssociado;
     }
 
-    private DadosBasicosAssociadoPage acessar() {
+    private void acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
-        String CPF = "03401711970";
-        new PessoaFisicaPage(driver,CPF);
-        return this;
     }
+
 
 }

@@ -13,7 +13,6 @@ public class OportunidadePjTest extends BaseTest {
     @Test(retryAnalyzer = MyRetry.class)
     public void deveriaCriarOportunidadePj() {
         AtendimentoPjPage atendimentoPjPage = new AtendimentoPjPage(driver);
-        atendimentoPjPage.irParaOportunidade();
         OportunidadePjPage oportunidadePjPage = new OportunidadePjPage(driver);
         oportunidadePjPage.criarNovoOportunidade();
         oportunidadePjPage.preencherAgenciaOportunidade();

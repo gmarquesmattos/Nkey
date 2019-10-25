@@ -11,6 +11,9 @@ public class AtendimentoPfPage extends BasePage {
     private By botaoIrParaAtendimento = By.id("s_16_1_2_0_Ctrl");
     private By botaoNovoAtendimento = By.id("s_1_1_11_0_Ctrl");
     private By textoDescricaoAtendimento = By.id("1_Description");
+    private By tabelaDescricaoAgencia = By.id("1_s_1_l_Sicredi_Division");
+    private By textoAgencia = By.id("s_1_2_35_0_icon");
+    private By botaoOk = By.id("s_3_1_80_0_Ctrl");
     private By botaoSalvarAtendimento = By.id("s_1_1_24_0_Ctrl");
     private By tabelaDescricaoAtendimento = By.id("1_s_1_l_Description");
     private By botaoExcluirAtendimento = By.id("s_1_1_5_0_Ctrl");
@@ -20,13 +23,30 @@ public class AtendimentoPfPage extends BasePage {
         acessar();
     }
 
+    public void pesquisarPessoaFisica(String cpf) {
+        new PessoaFisicaPage(driver, cpf).acessarNomeCompleto();
+    }
+
+    public void acessarAtendimento(){
+        clicar(botaoIrParaAtendimento);
+    }
     public void realizarNovoAtendimento() {
         clicar(botaoNovoAtendimento);
      }
 
+    public String pesquisarAtendimento() {
+        return obterTexto(tabelaDescricaoAtendimento);
+    }
+
     public void escreverDescricaoAtendimento() {
         clicar(tabelaDescricaoAtendimento);
         escrever(textoDescricaoAtendimento, "Novo Atendimento Automacao");
+    }
+
+    public void selecionarAgenciaAtendimento() {
+        clicar(tabelaDescricaoAgencia);
+        clicar(textoAgencia);
+        clicar(botaoOk);
     }
 
     public void salvarAtendimento() {
@@ -38,17 +58,10 @@ public class AtendimentoPfPage extends BasePage {
         esperaAceitarAlert();
      }
 
-    public String pesquisarAtendimento() {
-        return obterTexto(tabelaDescricaoAtendimento);
-    }
-
-    private AtendimentoPfPage acessar() {
+    private void acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
-        String CPF = "03401711970";
-        new PessoaFisicaPage(driver, CPF);
-        clicar(botaoIrParaAtendimento);
-        return this;
+
     }
 
 }

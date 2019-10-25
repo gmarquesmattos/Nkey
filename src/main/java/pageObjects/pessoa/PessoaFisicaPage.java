@@ -13,7 +13,6 @@ public class PessoaFisicaPage extends BasePage {
     public PessoaFisicaPage(WebDriver driver, String cpf) {
         super(driver);
         pesquisarPessoa(cpf);
-
     }
 
     private void pesquisarPessoa(String cpf) {

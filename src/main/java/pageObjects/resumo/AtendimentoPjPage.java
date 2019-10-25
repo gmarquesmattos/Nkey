@@ -17,11 +17,18 @@ public class AtendimentoPjPage extends BasePage {
     private By botaoOk = By.id("s_3_1_80_0_Ctrl");
     private By botaoSalvarAtendimentoPj = By.id("s_1_1_24_0_Ctrl");
     private By botaoExcluirAtendimentoPj = By.id("s_1_1_5_0_Ctrl");
-    private By botaoOportunidadePj = By.id("s_10_1_1_0_Ctrl");
 
     public AtendimentoPjPage(WebDriver driver) {
         super(driver);
         acessar();
+    }
+
+    public void pesquisarPessoaJuridica(String cnpj) {
+        new PessoaJuridicaPage(driver, cnpj).acessarRazaoSocial();
+    }
+
+    public void acessarAtendimento(){
+        clicar(botaoIrParaAtendimentoPj);
     }
 
     public void criarNovoAtendimento() {
@@ -39,7 +46,6 @@ public class AtendimentoPjPage extends BasePage {
         clicar(botaoOk);
     }
 
-
     public void salvarAtendimento() {
         clicar(botaoSalvarAtendimentoPj);
     }
@@ -51,22 +57,10 @@ public class AtendimentoPjPage extends BasePage {
     public void excluirAtedimentoPj() {
         clicar(botaoExcluirAtendimentoPj);
         esperaAceitarAlert();
-
-    }
-
-    public void irParaAtendimentoPJ() {
-        clicar(botaoIrParaAtendimentoPj);
-    }
-
-    public void irParaOportunidade() {
-        clicar(botaoOportunidadePj);
-
     }
 
     private void acessar() {
-        new HomePage(driver)
-                .acessarPessoaJuridica();
-
+        new HomePage(driver).acessarPessoaJuridica();
 
     }
 
