@@ -28,6 +28,7 @@ public class ListenerTest implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
+        reportPrint(Status.PASS, "");
     }
 
     @Override
@@ -37,7 +38,7 @@ public class ListenerTest implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
-        report(Status.SKIP, "SKIP Test");
+        reportPrint(Status.SKIP, "");
     }
 
     @Override
@@ -79,6 +80,7 @@ public class ListenerTest implements ITestListener {
     }
 
     public void reportPass(String log) {
+
         report(Status.PASS, log);
     }
 
