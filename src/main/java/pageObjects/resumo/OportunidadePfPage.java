@@ -10,12 +10,14 @@ public class OportunidadePfPage extends BasePage {
 
     private By botaoIrParaOportunidade = By.id("s_18_1_1_0_Ctrl");
     private By botaoNovaOportunidade = By.id("s_1_1_8_0_Ctrl");
-    private By textoGrupoDeProduto = By.id("1_Sicredi_Op_Prod_Produto");
-    private By TextoDescricao = By.id("1_s_1_l_Name");
-    private By textoDescriaoProduto = By.id("1_Name");
     private By tabelaDescricaoAgencia = By.id("1_s_1_l_Sicredi_Agencia");
     private By textoAgencia = By.id("s_1_2_14_0_icon");
-    private By botaoOk = By.id("s_3_1_45_0_Ctrl");
+    private By botaoOkAgencia = By.id("s_3_1_45_0_Ctrl");
+    private By tabelaDescricaoOportunidade = By.id("1_s_1_l_Name");
+    private By tabelaTextoDescricao = By.id("1_s_1_l_Name");
+    private By TextoDescricao = By.id("1_Name");
+    private By tabelaGrupoProduto = By.id("1_s_1_l_Sicredi_Op_Prod_Produto");
+    private By textoGrupoProduto = By.id("1_Sicredi_Op_Prod_Produto");
     private By botaoSalvarOportunidade = By.id("s_1_1_11_0_Ctrl");
     private By botaoExcluirOportunidade = By.id("s_1_1_3_0_Ctrl");
 
@@ -35,27 +37,28 @@ public class OportunidadePfPage extends BasePage {
         clicar(botaoNovaOportunidade);
     }
 
-    public void preencherGrupoProduto() {
-        escrever(textoGrupoDeProduto, "Conta - Corrente");
-        clicarTab(textoGrupoDeProduto);
-    }
-
-    public void preencherDescricao() {
-        clicar(TextoDescricao);
-        escrever(textoDescriaoProduto, "Novo oportunidade Automacao");
-    }
-
     public void selecionarAgenciaAtendimento() {
         clicar(tabelaDescricaoAgencia);
         clicar(textoAgencia);
-        clicar(botaoOk);
+        clicar(botaoOkAgencia);
     }
+
+    public void preencherDescricao() {
+        clicar(tabelaDescricaoOportunidade);
+        escrever(TextoDescricao, "Nova oportunidade Automacao");
+    }
+
+    public void preencherGrupoProduto() {
+       clicar(tabelaGrupoProduto);
+       escrever(textoGrupoProduto,"Capital Social");
+    }
+
     public void salvarOportunidade() {
         clicar(botaoSalvarOportunidade);
     }
 
-    public String pesquisarOportunidade() {
-        return obterTexto(TextoDescricao);
+    public String pesquisarTextoDescricaoOportunidade() {
+        return obterTexto(tabelaTextoDescricao);
     }
 
     public void ExcluirOportunidade() {

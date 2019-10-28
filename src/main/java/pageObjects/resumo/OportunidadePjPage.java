@@ -10,9 +10,10 @@ public class OportunidadePjPage extends BasePage {
 
     private By botaoIrParaAOportunidadePj = By.id("");
     private By botaoNovaOportunidadePj = By.id("s_1_1_8_0_Ctrl");
-    private By tabelaAgenciaOportuniade = By.id("1_s_1_l_Sicredi_Agencia");
-    private By textoAgenciaOportunidade = By.id("1_Sicredi_Agencia");
     private By tabelaDescricaoOportunidade = By.id("1_s_1_l_Name");
+    private By tabelaDescricaoAgencia = By.id("1_s_1_l_Sicredi_Agencia");
+    private By textoAgencia = By.id("s_1_2_14_0_icon");
+    private By botaoOk = By.id("s_3_1_45_0_Ctrl");
     private By textoDescricaoOportunidade = By.id("1_Name");
     private By botaoSalvarOportunidade = By.id("s_1_1_11_0_Ctrl");
     private By botaoExcluirOportunidade = By.id("s_1_1_3_0_Ctrl");
@@ -26,8 +27,9 @@ public class OportunidadePjPage extends BasePage {
     }
 
     public void preencherAgenciaOportunidade() {
-        clicar(tabelaAgenciaOportuniade);
-        escrever(textoAgenciaOportunidade, "UA MANDAGUAÇU");
+        clicar(tabelaDescricaoAgencia);
+        clicar(textoAgencia);
+        clicar(botaoOk);
     }
 
     public void preencherDescriçãoOportunidade() {

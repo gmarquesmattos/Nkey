@@ -14,12 +14,12 @@ public class OportunidadePfTest extends BaseTest {
         oportunidadePage.pesquisarPessoaFisica(cpf);
         oportunidadePage.acessarOportunidade();
         oportunidadePage.adicionarNovaOportunidade();
-        oportunidadePage.preencherGrupoProduto();
-        oportunidadePage.preencherDescricao();
         oportunidadePage.selecionarAgenciaAtendimento();
+        oportunidadePage.preencherDescricao();
+        oportunidadePage.preencherGrupoProduto();
         oportunidadePage.salvarOportunidade();
-        String textoDescricaoAtendimentoTela = oportunidadePage.pesquisarOportunidade();
-        String descricaoEsperada = "Novo oportunidade Automacao";
+        String textoDescricaoAtendimentoTela = oportunidadePage.pesquisarTextoDescricaoOportunidade();
+        String descricaoEsperada = "Nova oportunidade Automacao";
 
         assertEquals(descricaoEsperada, textoDescricaoAtendimentoTela);
 
