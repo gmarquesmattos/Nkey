@@ -18,19 +18,6 @@ import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 
 public enum DriverFactory implements IDriverType {
 
-    FIREFOX {
-        public MutableCapabilities returnDriver() {
-            return new FirefoxOptions();
-        }
-    },
-
-    FIREFOX_HEADLESS {
-        public MutableCapabilities returnDriver() {
-            FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.setHeadless(true);
-            return firefoxOptions;
-        }
-    },
 
     CHROME {
         @Override
@@ -42,20 +29,6 @@ public enum DriverFactory implements IDriverType {
         @Override
         public MutableCapabilities returnDriver() {
             return ((ChromeOptions) defaultChromeOptions()).addArguments("headless");
-        }
-    },
-
-    SAFARI {
-        @Override
-        public MutableCapabilities returnDriver() {
-            return new SafariOptions();
-        }
-    },
-
-    EDGE {
-        @Override
-        public MutableCapabilities returnDriver() {
-            return new EdgeOptions();
         }
     };
 
@@ -75,12 +48,7 @@ public enum DriverFactory implements IDriverType {
 
         switch(retornarValorArquivoConfiguracao("execucao")){
 
-            case "local-mac":
-                System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/mac/chromedriver"); // path of chromedriver
-                driver = new ChromeDriver();
-                break;
-
-            case "local":
+             case "local":
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
@@ -97,12 +65,6 @@ public enum DriverFactory implements IDriverType {
                 driver = remoteWebDriver;
                 break;
 
-            case "zalenium":
-                String zaleniumURL = retornarValorArquivoConfiguracao("zalenium.url") + ":" + retornarValorArquivoConfiguracao("zalenium.port") + "/wd/hub";
-                remoteWebDriver = new RemoteWebDriver(new URL(zaleniumURL), retornaCapacidade(browser));
-
-                driver = remoteWebDriver;
-                break;
 
             default:
                 throw new Exception("Browser no encontrado: " +  browser);

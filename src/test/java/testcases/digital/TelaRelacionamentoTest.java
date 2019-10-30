@@ -7,7 +7,7 @@ import pageObjects.digital.TelaDeRelacionamentoPage;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class TetaRelacionamentoTest extends BaseTest {
+public class TelaRelacionamentoTest extends BaseTest {
 
     @Test(dataProvider = "cpfDigital",retryAnalyzer = MyRetry.class)
     public void deveraCompararMensagemPessoaDigital(String cpfDigital) {

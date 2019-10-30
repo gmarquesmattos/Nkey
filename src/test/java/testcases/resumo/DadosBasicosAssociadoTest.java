@@ -2,7 +2,7 @@ package testcases.resumo;
 
 import base.BaseTest;
 import base.MyRetry;
-import db.DadosBasicosDb;
+import database.DadosBasicosDb;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 import pageObjects.resumo.DadosBasicosAssociadoPage;
