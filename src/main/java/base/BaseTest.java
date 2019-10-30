@@ -93,5 +93,10 @@ public abstract class BaseTest extends ListenerTest {
         return new Object[][]{new Object[]{"09514327000156"}};
     }
 
+    @DataProvider(name = "cpfResumo")
+    public Object[][] cpfResumo() {
+        return new Object[][]{new Object[]{"22661551808"}};
+    }
+
 
 }

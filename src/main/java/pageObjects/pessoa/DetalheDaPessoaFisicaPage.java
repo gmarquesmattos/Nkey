@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 
 public class DetalheDaPessoaFisicaPage extends BasePage {
-    private By botaoRecomendarPS = By.name("s_2_1_13_0");
+    private By botaoRecomendarPS = By.cssSelector("button[title='Detalhes do contato:Recomendar P&S']");
     private By janelaErroRecomendar = By.cssSelector("#_sweview_popup");
     public DetalheDaPessoaFisicaPage(WebDriver driver) {
         super(driver);

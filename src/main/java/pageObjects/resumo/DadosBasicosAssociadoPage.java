@@ -34,8 +34,8 @@ public class DadosBasicosAssociadoPage extends BasePage {
         informacoesResumoAssociado.add(obterTexto(rotuloEstadoCivil).trim());
         informacoesResumoAssociado.add(obterTexto(rotuloCpf).trim());
         informacoesResumoAssociado.add(obterTexto(rotuloRg).trim());
-        informacoesResumoAssociado.add(obterTexto(rotuloAssociadoDesde).trim());
-        informacoesResumoAssociado.add(obterTexto(rotuloGrupoEconomico).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloAssociadoDesde));
+        informacoesResumoAssociado.add(obterTexto(rotuloGrupoEconomico));
         informacoesResumoAssociado.add(obterTexto(rotuloCbo).trim());
 
         return informacoesResumoAssociado;

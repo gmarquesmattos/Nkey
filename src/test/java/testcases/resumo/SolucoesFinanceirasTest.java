@@ -10,9 +10,10 @@ import static org.testng.AssertJUnit.assertEquals;
 public class SolucoesFinanceirasTest extends BaseTest {
 
 
-    @Test(retryAnalyzer = MyRetry.class)
-    public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePage() {
+    @Test(retryAnalyzer = MyRetry.class, dataProvider = "cpfResumo")
+    public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePage(String cpf) {
         SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage(driver);
+        solucoesFinanceirasPage.pesquisarPessoaFisica(cpf);
         String contaPrincipalAssociado = solucoesFinanceirasPage.obterContaPrincipal();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
 

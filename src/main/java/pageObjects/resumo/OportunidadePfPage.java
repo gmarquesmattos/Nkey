@@ -33,6 +33,7 @@ public class OportunidadePfPage extends BasePage {
     public void acessarOportunidade(){
         clicar(botaoIrParaOportunidade);
     }
+
     public void adicionarNovaOportunidade() {
         clicar(botaoNovaOportunidade);
     }

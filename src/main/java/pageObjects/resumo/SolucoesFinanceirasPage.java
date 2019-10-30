@@ -16,12 +16,8 @@ public class SolucoesFinanceirasPage extends BasePage {
 		acessar();
 	}
 
-	private SolucoesFinanceirasPage acessar(){
-		HomePage homePage = new HomePage(driver);
-		homePage.acessarPessoaFisica();
-		String CPF = "03401711970";
-		new PessoaFisicaPage(driver,CPF);
-		return this;
+	public void pesquisarPessoaFisica(String cpf) {
+		new PessoaFisicaPage(driver, cpf).acessarNomeCompleto();
 	}
 
 	public void clicarLinkSaldoContaPrincipal() {
@@ -31,6 +27,10 @@ public class SolucoesFinanceirasPage extends BasePage {
 	public String obterContaPrincipal() {
 		return obterTexto(rotuloContaPrincipal).substring(1, 7);
 	}
-	
+
+	private void acessar(){
+		HomePage homePage = new HomePage(driver);
+		homePage.acessarPessoaFisica();
+	}
 
 }

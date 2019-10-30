@@ -6,15 +6,13 @@ import org.openqa.selenium.WebDriver;
 
 public class ContaCorrentePage extends BasePage {
 
-
-    private By textoNumeroConta = By.name("s_1_1_18_0");
+    private By textoNumeroConta = By.cssSelector("input[aria-label='Nº da conta']");
 
     public ContaCorrentePage(WebDriver driver) {
         super(driver);
     }
 
     public String obterNumeroConta() {
-
         return obterValueElemento(textoNumeroConta);
     }
 
