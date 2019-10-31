@@ -18,7 +18,7 @@ public class WaitAux {
     }
 
     public static void waitJQueryAndLoadPage() {
-        (new WebDriverWait(DriverManager.getDriver(), 30)).until(new ExpectedCondition<Boolean>() {
+        (new WebDriverWait(DriverManager.getDriver(), 35)).until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver d) {
                 JavascriptExecutor js = (JavascriptExecutor) d;
                 String readyState = js.executeScript("return document.readyState").toString();

@@ -29,25 +29,16 @@ public class AtividadePjPage extends BasePage {
         escrever(textoDescricaoAtividade,"Nova Atividade Automação Pj");
 
     }
-    public void selecionarCoopAtividade(){
-
-
-
-    }
 
     public void salvarAtividade() {
 
         clicar(botaoSalvarAtividade);
     }
-    public void excluirAtividade(){
 
-        clicar(botaoExcluirAtividade);
-
-    }
     private void acessar() {
        HomePage homePage = new HomePage(driver);
        homePage.acessarPessoaJuridica();
        PessoaJuridicaPage pessoaJuridicaPage  = new PessoaJuridicaPage(driver);
-       pessoaJuridicaPage.acessarAtividadePj();
+      // pessoaJuridicaPage.acessarAtividadePj();
     }
 }

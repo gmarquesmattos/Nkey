@@ -23,6 +23,10 @@ public class DadosBasicosAssociadoPage extends BasePage {
         acessar();
     }
 
+    public void pesquisarPessoaFisica(String cpf) {
+        new PessoaFisicaPage(driver, cpf).acessarNomeCompleto();
+    }
+
     public ArrayList<String> obterValor() {
         ArrayList<String> informacoesResumoAssociado = new ArrayList<>();
         informacoesResumoAssociado.add(obterTexto(rotuloNomeCompleto).trim());
@@ -30,18 +34,17 @@ public class DadosBasicosAssociadoPage extends BasePage {
         informacoesResumoAssociado.add(obterTexto(rotuloEstadoCivil).trim());
         informacoesResumoAssociado.add(obterTexto(rotuloCpf).trim());
         informacoesResumoAssociado.add(obterTexto(rotuloRg).trim());
-        informacoesResumoAssociado.add(obterTexto(rotuloAssociadoDesde).trim());
-        informacoesResumoAssociado.add(obterTexto(rotuloGrupoEconomico).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloAssociadoDesde));
+        informacoesResumoAssociado.add(obterTexto(rotuloGrupoEconomico));
         informacoesResumoAssociado.add(obterTexto(rotuloCbo).trim());
 
         return informacoesResumoAssociado;
     }
 
-    private DadosBasicosAssociadoPage acessar() {
+    private void acessar() {
         HomePage homePage = new HomePage(driver);
         homePage.acessarPessoaFisica();
-        new PessoaFisicaPage(driver);
-        return this;
     }
+
 
 }

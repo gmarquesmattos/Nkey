@@ -4,15 +4,8 @@ import driver.DriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-import java.util.concurrent.TimeUnit;
 
 import static driver.DriverManager.getDriver;
 
@@ -42,6 +35,7 @@ public class BasePage {
         elemento.click();
         elemento.clear();
         elemento.sendKeys(texto);
+
     }
 
     public String obterTexto(By by) {
@@ -83,4 +77,13 @@ public class BasePage {
         alert.accept();
 
     }
+
+    public String esperaAceitarRetornarTextoAlert() {
+        wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = DriverManager.getDriver().switchTo().alert();
+        String textoAlerta = alert.getText();
+        alert.accept();
+        return textoAlerta;
+    }
+
 }

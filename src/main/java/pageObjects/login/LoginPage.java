@@ -13,7 +13,7 @@ public class LoginPage extends BasePage {
     private By textoUsuario = By.id("fieldUser");
     private By textoSenha = By.id("fieldPassword");
     private By botaoEntrar = By.id("btnSubmit");
-    protected static final String USUARIO_TESTE = "angelica_adamatti";
+    protected static final String USUARIO_TESTE = "adriano_muccillo";
     protected static final String SENHA_TESTE = "teste123";
 
 
@@ -29,5 +29,7 @@ public class LoginPage extends BasePage {
         clicar(botaoEntrar);
 
     }
+
+
 
 }
