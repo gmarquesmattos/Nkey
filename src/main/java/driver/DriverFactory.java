@@ -37,7 +37,6 @@ public enum DriverFactory implements IDriverType {
     private static MutableCapabilities defaultChromeOptions() {
         ChromeOptions capabilities = new ChromeOptions();
         capabilities.addArguments("start-maximized");
-        capabilities.setCapability("screen-resolution","1280x1024");
         capabilities.addArguments("lang=pt-BR");
         capabilities.setExperimentalOption("useAutomationExtension", false);
         return capabilities;
@@ -61,7 +60,7 @@ public enum DriverFactory implements IDriverType {
 
             case "grid":
                 String gridURL = retornarValorArquivoConfiguracao("grid.url") + ":" + retornarValorArquivoConfiguracao("grid.port") + "/wd/hub";
-                remoteWebDriver = new RemoteWebDriver(new URL(gridURL), retornaCapacidade(browser));
+                remoteWebDriver = new RemoteWebDriver(new URL(gridURL), defaultChromeOptions());
 
                 driver = remoteWebDriver;
                 break;

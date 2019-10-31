@@ -25,7 +25,8 @@ public class TelaDeRelacionamentoPage extends BasePage {
     }
 
     public void clicarlinkEsteiraPS() {
-        clicar(linkEsteiraPS);
+
+        clicarSemEsperar(linkEsteiraPS);
     }
 
     public String esperaAceitarAlertRecomendar() {
