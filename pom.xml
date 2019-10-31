@@ -20,7 +20,7 @@
         <extendreporttestng.version>1.0.3</extendreporttestng.version>
         <webdrivermanager.version>3.2.0</webdrivermanager.version>
         <oracle.version>12.1.0.1</oracle.version>
-        <surefire.version>2.19.1</surefire.version>
+        <surefire.version>2.22.0</surefire.version>
     </properties>
 
 
@@ -106,12 +106,9 @@
                             <suiteXmlFiles>
                                 <suiteXmlFile>./src/test/resources/suites/${testSuite}</suiteXmlFile>
                             </suiteXmlFiles>
-                            <argLine>-Xmx2048m</argLine>
-                            <testfailignore>false</testfailignore>
-                            <useSystemClassLoader>false</useSystemClassLoader>
+                            <testFailureIgnore>false</testFailureIgnore>
                         </configuration>
                     </plugin>
-
                 </plugins>
             </build>
         </profile>
