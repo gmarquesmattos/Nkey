@@ -37,6 +37,7 @@ public enum DriverFactory implements IDriverType {
     private static MutableCapabilities defaultChromeOptions() {
         ChromeOptions capabilities = new ChromeOptions();
         capabilities.addArguments("start-maximized");
+        capabilities.setCapability("screen-resolution","1280x1024");
         capabilities.addArguments("lang=pt-BR");
         capabilities.setExperimentalOption("useAutomationExtension", false);
         return capabilities;

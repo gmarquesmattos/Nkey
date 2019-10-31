@@ -107,6 +107,7 @@
                                 <suiteXmlFile>./src/test/resources/suites/${testSuite}</suiteXmlFile>
                             </suiteXmlFiles>
                             <argLine>-Xmx2048m</argLine>
+                            <testfailignore>false</testfailignore>
                             <useSystemClassLoader>false</useSystemClassLoader>
                         </configuration>
                     </plugin>
