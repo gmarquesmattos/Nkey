@@ -12,11 +12,19 @@ public class PessoaJuridicaPage extends BasePage {
     private By textoRazaoSocialPj = By.name("Name");
     private By botaoIrPj = By.id("s_1_1_5_0_Ctrl");
 
+    private By botaoIrParaAtividades = By.cssSelector("button[title='Atividades:Ir para']");
+
     public PessoaJuridicaPage(WebDriver driver) {
         super(driver);
         selecionarPessoasJuridicas();
         pesquisarPessoa();
         acessarRazaoSocial();
+    }
+
+    public void acessarAtividadePj(){
+
+        clicar(botaoIrParaAtividades);
+
     }
 
     public void selecionarPessoasJuridicas() {
@@ -33,4 +41,5 @@ public class PessoaJuridicaPage extends BasePage {
     public void acessarRazaoSocial() {
         clicar(textoRazaoSocialPj);
     }
+
 }
