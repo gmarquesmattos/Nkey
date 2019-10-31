@@ -46,6 +46,7 @@ public class DetalhamentoTest extends BaseTest {
         String textoObtido = detalhamentoPage.pegarMensagemJanelaDeErro();
         detalhamentoPage.excluirRegistroDetalhamento();
         String textoEsperado = "'Periodicidade' é um campo obrigatório. Informe um valor para o campo. (SBL-DAT-00498)";
+
         assertEquals(textoEsperado, textoObtido);
     }
 
@@ -60,6 +61,7 @@ public class DetalhamentoTest extends BaseTest {
         String textoEsperado = "Já existe uma renda do mesmo tipo informada para o atendimento. (SBL-APS-00802)";
 
         assertEquals(textoEsperado, textoObtido);
+
         detalhamentoPage.excluirRegistroDetalhamento();
         new AlterarRendaPage(driver).excluirRenda();
 
@@ -93,6 +95,7 @@ public class DetalhamentoTest extends BaseTest {
         String textoObtido = detalhamentoPage.pegarMensagemJanelaDeErro();
         String textoEsperado = "[1]Valor ou tipo de valor incorreto detectado no campo Valor. Informe os valores do campo novamente. " +
                 "Se necessitar de assistência adicional, consulte a documentação.(SBL-UIF-00299) [2]O valor informado é inválido.: SBL-DAT-00521";
+
         assertEquals(textoEsperado, textoObtido);
 
     }

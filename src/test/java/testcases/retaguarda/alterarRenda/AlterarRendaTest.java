@@ -38,6 +38,7 @@ public class AlterarRendaTest extends BaseTest {
                 .pegarMensagemJanelaDeErro();
 
         String textoEsperado = "O periodo informado é maior que a data atual.(SBL-EXL-00151)(SBL-EXL-00151)";
+
         assertEquals(textoEsperado, textoObtido);
     }
 
@@ -50,6 +51,7 @@ public class AlterarRendaTest extends BaseTest {
 
         String textoEsperado = "Ano não fechado para lançamento de renda.(SBL-EXL-00151)(SBL-EXL-00151)";
         String textoObtido = alterarRendaPage.pegarMensagemJanelaDeErro();
+
         assertEquals(textoEsperado, textoObtido);
     }
 }
