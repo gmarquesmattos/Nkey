@@ -10,7 +10,7 @@ stages:
 siebel-dev:
   stage: suite-funcional-web
   script:
-    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteSiebelWeb.xml -Denv=hom -X
+    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteSiebelWeb.xml -Denv=hom
   tags:
     - docker-images-cds
   artifacts:
