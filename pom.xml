@@ -20,7 +20,7 @@
         <extendreporttestng.version>1.0.3</extendreporttestng.version>
         <webdrivermanager.version>3.2.0</webdrivermanager.version>
         <oracle.version>12.1.0.1</oracle.version>
-        <surefire.version>2.22.0</surefire.version>
+        <surefire.version>2.20.0</surefire.version>
     </properties>
 
 
@@ -109,7 +109,6 @@
                             <reuseForks>true</reuseForks>
                             <argLine>-Xmx2024m -XX:MaxPermSize=256m</argLine>
                             <testfailignore>false</testfailignore>
-                            <useSystemClassLoader>false</useSystemClassLoader>
                         </configuration>
                     </plugin>
 
