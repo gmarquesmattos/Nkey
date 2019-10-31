@@ -108,6 +108,7 @@
                             </suiteXmlFiles>
                             <testFailureIgnore>false</testFailureIgnore>
                             <useSystemClassLoader>false</useSystemClassLoader>
+                            <reuseForks>false</reuseForks>
                         </configuration>
                     </plugin>
                 </plugins>
