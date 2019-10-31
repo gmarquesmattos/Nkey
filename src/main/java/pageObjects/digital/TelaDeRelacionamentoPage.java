@@ -1,8 +1,11 @@
 package pageObjects.digital;
 
 import base.BasePage;
+import base.WaitAux;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
@@ -25,7 +28,10 @@ public class TelaDeRelacionamentoPage extends BasePage {
     }
 
     public void clicarlinkEsteiraPS() {
-        clicar(linkEsteiraPS);
+        new WaitAux();
+        WebElement element = driver.findElement(linkEsteiraPS);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", element);
     }
 
     public String esperaAceitarAlertRecomendar() {

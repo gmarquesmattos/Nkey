@@ -13,7 +13,7 @@ public class WaitAux {
     private static final int DEFAULT_WAIT_PAGE = 35;
     private static final Logger LOGGER = LogManager.getLogger();
 
-    WaitAux() {
+    public WaitAux() {
         waitJQueryAndLoadPage();
     }
 
