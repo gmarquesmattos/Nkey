@@ -21,12 +21,6 @@ public class TelaDeRelacionamentoPage extends BasePage {
         acessar();
     }
 
-    public void pesquisarPessoa(String cpf) {
-        clicar(botaoPesquisar);
-        escrever(textoCpf, cpf);
-        entrar();
-    }
-
     public void clicarlinkEsteiraPS() {
         new WaitAux();
         WebElement element = driver.findElement(linkEsteiraPS);
