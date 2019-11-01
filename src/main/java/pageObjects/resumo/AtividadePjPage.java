@@ -8,37 +8,61 @@ import pageObjects.pessoa.PessoaJuridicaPage;
 
 public class AtividadePjPage extends BasePage {
 
+    private By botaoIrParaAtividade =By.cssSelector("button[title='Atividades:Ir para']");
     private By botaoCriarAtividade =By.cssSelector("button[title='Atividades:Novo']");
-    private By tabelaDescricaoatividade = By.id("1_s_1_l_Description");
-    private By textoDescricaoAtividade = By.cssSelector("tr[role ='row'] input[class='siebui-list-ctrl siebui-ctrl-input siebui-align-left siebui-input-align-left s_1_2_44_0']");
-    private By botaoSalvarAtividade = By.id("s_1_1_20_0_Ctrl");
-    private By botaoExcluirAtividade = By.cssSelector("button[title='Atividades:Excluir']");
+    private By tabelaDescricaoAtividade =By.id("1_s_1_l_Description");
+    private By textoDescricaoAtividade =By.id("1_Description");
+
+    private By  tabelaDescricaoAgencia=By.id("1_s_1_l_Sicredi_Division");
+    private By textoDescricaoAgencia =By.id("1_Sicredi_Division");
+    private By botaoSalvarAtividade =By.cssSelector("button[title='Atividades:Salvar']");
+    private By botaoExcluirAtividade =By.cssSelector("button[title='Atividades:Excluir']");
 
     public AtividadePjPage(WebDriver driver) {
         super(driver);
         acessar();
+        clicar(botaoIrParaAtividade);
 
     }
     public void criarAtividade(){
 
         clicar(botaoCriarAtividade);
-    }
-    public void escreverAtividade(){
-
-        clicar(tabelaDescricaoatividade);
-        escrever(textoDescricaoAtividade,"Nova Atividade Automação Pj");
 
     }
+    public void escreverAtividade() {
 
-    public void salvarAtividade() {
+       clicar(tabelaDescricaoAtividade);
+       escrever(textoDescricaoAtividade,"Nova Atividade Automacao PJ");
+
+    }
+    public void selecionarAgenciaAtividade(){
+
+        clicar(tabelaDescricaoAgencia);
+        escrever(textoDescricaoAgencia,"UA MANDAGUAÇU");
+
+    }
+    public void salvarAtividade(){
 
         clicar(botaoSalvarAtividade);
+
+    }
+
+    public String pesquisarAtividade() {
+        return obterTexto(tabelaDescricaoAtividade);
+    }
+    public void excluirAtividade(){
+
+        clicar(botaoExcluirAtividade);
+        esperaAceitarAlert();
     }
 
     private void acessar() {
        HomePage homePage = new HomePage(driver);
        homePage.acessarPessoaJuridica();
-       PessoaJuridicaPage pessoaJuridicaPage  = new PessoaJuridicaPage(driver);
-      // pessoaJuridicaPage.acessarAtividadePj();
+       PessoaJuridicaPage pessoaJuridicaPage = new PessoaJuridicaPage(driver,"09514327000156");
+       pessoaJuridicaPage.acessarRazaoSocial();
+
     }
+
+
 }
