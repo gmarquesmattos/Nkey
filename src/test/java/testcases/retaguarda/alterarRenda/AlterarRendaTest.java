@@ -30,7 +30,7 @@ public class AlterarRendaTest extends BaseTest {
 
     @Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarComMesMaiorQueAtual() {
-        int mesMaiorQueAtual = 2;
+        int mesMaiorQueAtual = 1;
         String textoObtido = new AlterarRendaPage(driver)
                 .editar()
                 .insereMes(mesMaiorQueAtual)

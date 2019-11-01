@@ -25,7 +25,7 @@ public class BasePage {
     }
 
     public void clicar(By by) {
-        //waitAux.waitJQueryAndLoadPage();
+        waitAux.waitJQueryAndLoadPage();
         elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
     }
