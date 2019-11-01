@@ -14,7 +14,8 @@ public class AtividadePjPage extends BasePage {
     private By textoDescricaoAtividade =By.id("1_Description");
 
     private By  tabelaDescricaoAgencia=By.id("1_s_1_l_Sicredi_Division");
-    private By textoDescricaoAgencia =By.id("1_Sicredi_Division");
+    private By botaopiclistAgencia =By.id("s_1_2_38_0_icon");
+    private By botaoOkAgencia =By.cssSelector("button[title='Agência:OK']");
     private By botaoSalvarAtividade =By.cssSelector("button[title='Atividades:Salvar']");
     private By botaoExcluirAtividade =By.cssSelector("button[title='Atividades:Excluir']");
 
@@ -38,8 +39,8 @@ public class AtividadePjPage extends BasePage {
     public void selecionarAgenciaAtividade(){
 
         clicar(tabelaDescricaoAgencia);
-        escrever(textoDescricaoAgencia,"UA MANDAGUAÇU");
-
+        clicar(botaopiclistAgencia);
+        clicar(botaoOkAgencia);
     }
     public void salvarAtividade(){
 
