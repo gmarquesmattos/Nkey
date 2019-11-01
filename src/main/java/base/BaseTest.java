@@ -6,7 +6,7 @@ import driver.DriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Dimension;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
@@ -25,13 +25,13 @@ public abstract class BaseTest extends ListenerTest {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
-
+    public static String nomeCenarioTeste;
     public WebDriver driver;
 
     @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
     public void preCondition(@Optional("chrome") String browser, Method method) throws Exception {
-
+        nomeCenarioTeste = method.getName();
         WebDriver driver = DriverFactory.criarInstancia(browser);
         DriverManager.setDriver(driver);
 

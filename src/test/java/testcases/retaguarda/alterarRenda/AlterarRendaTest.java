@@ -10,7 +10,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class AlterarRendaTest extends BaseTest {
 
 
-    @Test(retryAnalyzer = MyRetry.class)
+    // @Test(retryAnalyzer = MyRetry.class)
     public void deveriaEditarRenda() {
         new AlterarRendaPage(driver)
                 .editar()
@@ -18,7 +18,7 @@ public class AlterarRendaTest extends BaseTest {
                 .excluirRenda();
     }
 
-    @Test(retryAnalyzer = MyRetry.class)
+    //@Test(retryAnalyzer = MyRetry.class)
     public void deveriaSalvarComMesMenorQueAtual() {
         int mesMenorQueAtual = -2;
         new AlterarRendaPage(driver)
@@ -28,7 +28,7 @@ public class AlterarRendaTest extends BaseTest {
                 .excluirRenda();
     }
 
-    @Test(retryAnalyzer = MyRetry.class)
+    // @Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarComMesMaiorQueAtual() {
         int mesMaiorQueAtual = 1;
         String textoObtido = new AlterarRendaPage(driver)
@@ -42,7 +42,7 @@ public class AlterarRendaTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
     }
 
-    @Test(retryAnalyzer = MyRetry.class)
+    // @Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarNaoFinalizado() {
         AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver)
                 .editar()

@@ -10,7 +10,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class AtendimentoPfTest extends BaseTest {
 
 
-    @Test(retryAnalyzer = MyRetry.class,dataProvider = "cpfNaoDigital")
+    @Test(dataProvider = "cpfNaoDigital")
     public void deveCriarAtendimentoPf(String cpf) {
         AtendimentoPfPage atendimentoPage = new AtendimentoPfPage(driver);
         atendimentoPage.pesquisarPessoaFisica(cpf);

@@ -12,7 +12,6 @@ public class AtividadePjPage extends BasePage {
     private By botaoCriarAtividade =By.cssSelector("button[title='Atividades:Novo']");
     private By tabelaDescricaoAtividade =By.id("1_s_1_l_Description");
     private By textoDescricaoAtividade =By.id("1_Description");
-
     private By  tabelaDescricaoAgencia=By.id("1_s_1_l_Sicredi_Division");
     private By botaopiclistAgencia =By.id("s_1_2_38_0_icon");
     private By botaoOkAgencia =By.cssSelector("button[title='Agência:OK']");

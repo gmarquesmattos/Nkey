@@ -16,6 +16,7 @@ import org.testng.ITestResult;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.Base64;
 
 
@@ -24,6 +25,7 @@ public class ListenerTest implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
+       LOGGER.info("Está executando: " + BaseTest.nomeCenarioTeste);
     }
 
     @Override
@@ -36,17 +38,8 @@ public class ListenerTest implements ITestListener {
         reportPrintFail();
     }
 
-    @Override
-    public void onTestSkipped(ITestResult iTestResult) {
-        reportPrint(Status.SKIP, "");
-    }
-
-    @Override
+     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-    }
-
-    @Override
-    public void onStart(ITestContext iTestContext) {
     }
 
     @Override
@@ -55,9 +48,6 @@ public class ListenerTest implements ITestListener {
     }
 
 
-    public void reportPrintPass(String log) {
-        reportPrint(Status.PASS, log);
-    }
 
     public void reportPrintFail() {
         reportPrintFail("");
@@ -67,26 +57,8 @@ public class ListenerTest implements ITestListener {
         reportPrint(Status.FAIL, log);
     }
 
-    public void reportPrintInfo() {
-        reportPrintInfo("");
-    }
 
-    public void reportPrintInfo(String log) {
-        reportPrint(Status.INFO, log);
-    }
 
-    public void reportInfo(String log) {
-        report(Status.INFO, log);
-    }
-
-    public void reportPass(String log) {
-
-        report(Status.PASS, log);
-    }
-
-    public void reportFail(String log) {
-        report(Status.FAIL, log);
-    }
 
     private void reportPrint(Status status, String log) {
         try {
