@@ -37,7 +37,7 @@ public class AtividadePfPage extends BasePage {
 
     public void escreverDescricaoAtividade() {
         clicar(tabelaDescricaoAtividade);
-        escrever(textoDescricaoAtividade, "Nova Atividade Automacao");
+        escrever(textoDescricaoAtividade, "Nova Atividade Automacao PJ");
     }
     public void selecionarAgenciaAtividade() {
         clicar(tabelaDescricaoAgencia);
