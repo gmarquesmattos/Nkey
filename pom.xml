@@ -106,7 +106,7 @@
                                 <suiteXmlFile>./src/test/resources/suites/${testSuite}</suiteXmlFile>
                             </suiteXmlFiles>
                             <useSystemClassLoader>false</useSystemClassLoader>
-                            <testFailureIgnore>true</testFailureIgnore>
+                            <testFailureIgnore>false</testFailureIgnore>
                         </configuration>
                     </plugin>
                 </plugins>
