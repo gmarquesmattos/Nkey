@@ -4,7 +4,7 @@ docker rm zaleniumsiebel || true
 
 docker pull docker.sicredi.net/elgalu/selenium
 
-docker run --rm -d --name zaleniumsiebel -p 4444:4444 \
+docker run --rm -d --name zaleniumsiebel -p 4445:4444 \
 -v /var/run/docker.sock:/var/run/docker.sock \
 --privileged docker.sicredi.net/dosel/zalenium start --timeZone "America/Sao_Paulo" \
 --screenWidth 1280 --screenHeight 800 \
