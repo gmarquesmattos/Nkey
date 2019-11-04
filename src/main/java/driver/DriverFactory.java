@@ -63,6 +63,13 @@ public enum DriverFactory implements IDriverType {
                 driver = remoteWebDriver;
                 break;
 
+            case "zalenium":
+                String zaleniumURL = retornarValorArquivoConfiguracao("zalenium.url") + ":" + retornarValorArquivoConfiguracao("zalenium.port") + "/wd/hub";
+                remoteWebDriver = new RemoteWebDriver(new URL(zaleniumURL), retornaCapacidade(browser));
+
+                driver = remoteWebDriver;
+                break;
+
 
             default:
                 throw new Exception("Browser no encontrado: " +  browser);
