@@ -14,7 +14,7 @@ docker run --rm -d --name zaleniumsiebel -p 4445:4444 \
 #Garantir Grid Online
 contador=0
 sleep 5
-until curl -sSL http://localhost:4444/wd/hub/status | jq '.value.ready' | grep true
+until curl -sSL http://localhost:4445/wd/hub/status | jq '.value.ready' | grep true
 do
   if [ $contador = 5 ]; then
 	echo "Esgotado numero de tentativas!"

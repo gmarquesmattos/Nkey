@@ -6,6 +6,7 @@ siebel-dev:
   - sh grid/start-zalenium.sh
   stage: suite-funcional-web
   script:
+    - docker ps
     - mvn clean test -PsuiteFuncional -DtestSuite=SuiteSiebelWeb.xml -Denv=hom
   tags:
     - docker-images-cds
