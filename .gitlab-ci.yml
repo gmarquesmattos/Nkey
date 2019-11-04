@@ -3,7 +3,7 @@ stages:
 
 siebel-dev:
   before_script:
-  - docker kill $(docker ps -q)
+  - docker images
   - sh grid/start-zalenium.sh
   stage: suite-funcional-web
   script:
