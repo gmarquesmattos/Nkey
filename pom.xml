@@ -100,13 +100,15 @@
                         <!-- executes base with -Xmx option -->
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.19.1</version>
+                        <version>2.22.0</version>
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>./src/test/resources/suites/${testSuite}</suiteXmlFile>
                             </suiteXmlFiles>
+                            <forkCount>0</forkCount>
+                            <reuseForks>false</reuseForks>
+                            <argLine>-Xmx2048m</argLine>
                             <useSystemClassLoader>false</useSystemClassLoader>
-                            <testFailureIgnore>false</testFailureIgnore>
                         </configuration>
                     </plugin>
                 </plugins>
