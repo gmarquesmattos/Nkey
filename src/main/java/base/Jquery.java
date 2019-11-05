@@ -9,19 +9,18 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class WaitAux {
+public class Jquery {
     private static final int DEFAULT_WAIT_PAGE = 35;
-    private static final Logger LOGGER = LogManager.getLogger();
 
-    public WaitAux() {
-        waitJQueryAndLoadPage();
+    public Jquery() {
+        aguardarJqueryCarregarPágina();
     }
 
-    public static void waitJQueryAndLoadPage() {
-        (new WebDriverWait(DriverManager.getDriver(), 35)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                JavascriptExecutor js = (JavascriptExecutor) d;
-                String readyState = js.executeScript("return document.readyState").toString();
+    private  void aguardarJqueryCarregarPágina() {
+        new WebDriverWait(DriverManager.getDriver(), DEFAULT_WAIT_PAGE).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("return document.readyState");
                 return (Boolean) js.executeScript("return !!window.jQuery && window.jQuery.active == 0");
             }
         });

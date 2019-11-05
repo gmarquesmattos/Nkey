@@ -15,7 +15,7 @@ public class OportunidadePfPage extends BasePage {
     private By botaoOkAgencia = By.id("s_3_1_45_0_Ctrl");
     private By tabelaDescricaoOportunidade = By.id("1_s_1_l_Name");
     private By tabelaTextoDescricao = By.id("1_s_1_l_Name");
-    private By TextoDescricao = By.id("1_Name");
+    private By textoDescricao = By.id("1_Name");
     private By tabelaGrupoProduto = By.id("1_s_1_l_Sicredi_Op_Prod_Produto");
     private By textoGrupoProduto = By.id("1_Sicredi_Op_Prod_Produto");
     private By botaoSalvarOportunidade = By.id("s_1_1_11_0_Ctrl");
@@ -46,7 +46,7 @@ public class OportunidadePfPage extends BasePage {
 
     public void preencherDescricao() {
         clicar(tabelaDescricaoOportunidade);
-        escrever(TextoDescricao, "Nova oportunidade Automacao");
+        escrever(textoDescricao, "Nova oportunidade Automacao");
     }
 
     public void preencherGrupoProduto() {

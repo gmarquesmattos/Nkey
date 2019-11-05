@@ -1,7 +1,7 @@
 package pageObjects.digital;
 
 import base.BasePage;
-import base.WaitAux;
+import base.Jquery;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +22,7 @@ public class TelaDeRelacionamentoPage extends BasePage {
     }
 
     public void clicarlinkEsteiraPS() {
-        new WaitAux();
+        new Jquery();
         WebElement element = driver.findElement(linkEsteiraPS);
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("arguments[0].click();", element);

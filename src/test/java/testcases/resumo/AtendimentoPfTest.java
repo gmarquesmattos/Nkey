@@ -1,7 +1,6 @@
 package testcases.resumo;
 
 import base.BaseTest;
-import base.MyRetry;
 import org.testng.annotations.Test;
 import pageObjects.resumo.AtendimentoPfPage;
 import static org.testng.AssertJUnit.assertEquals;

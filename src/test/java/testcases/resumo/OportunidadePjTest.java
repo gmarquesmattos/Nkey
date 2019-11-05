@@ -1,16 +1,15 @@
 package testcases.resumo;
 
 import base.BaseTest;
-import base.MyRetry;
+import base.Tentativa;
 import org.testng.annotations.Test;
-import pageObjects.resumo.AtendimentoPjPage;
 import pageObjects.resumo.OportunidadePjPage;
 
 import static org.testng.AssertJUnit.assertEquals;
 
 public class OportunidadePjTest extends BaseTest {
 
-    @Test(retryAnalyzer = MyRetry.class, dataProvider = "cnpjDigital")
+    @Test(retryAnalyzer = Tentativa.class, dataProvider = "cnpjDigital")
     public void deveriaCriarOportunidadePj(String cnpj) {
         OportunidadePjPage oportunidadePjPage = new OportunidadePjPage(driver);
         oportunidadePjPage.pesquisarPessoaJuridica(cnpj);

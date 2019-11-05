@@ -1,8 +1,6 @@
 package testcases.digital;
 
 import base.BaseTest;
-import base.MyRetry;
-import org.testng.annotations.Test;
 import pageObjects.digital.RecomendaDadosBasicosPage;
 import pageObjects.pessoa.DetalheDaPessoaFisicaPage;
 

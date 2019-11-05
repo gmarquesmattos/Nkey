@@ -12,7 +12,6 @@ import java.util.Properties;
 public class Dao {
 
     protected static final Logger LOGGER = LogManager.getLogger();
-    private Properties prop = new Properties();
     private ResultSet resultSet;
     private Statement statement;
     private final String DRIVER_ORACLE = CommonUtils.retornarValorArquivoConfiguracao("oracle.driver");
@@ -22,11 +21,12 @@ public class Dao {
 
 
     public ArrayList<String> retornarDadosDb(String... parametrosConsulta) {
+        Properties propriedades = new Properties();
         ArrayList<String> resultadoConsulta = new ArrayList<>();
         try {
-            prop.load(retornarArquivoPropriedades());
+            propriedades.load(retornarArquivoPropriedades());
             String query = (
-                    prop.getProperty(parametrosConsulta[0]).replace("CPF_PESSOA", parametrosConsulta[1]));
+                    propriedades.getProperty(parametrosConsulta[0]).replace("CPF_PESSOA", parametrosConsulta[1]));
             statement = retornarConexaoBaseDados().createStatement();
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {

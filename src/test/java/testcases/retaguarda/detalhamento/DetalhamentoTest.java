@@ -1,8 +1,6 @@
 package testcases.retaguarda.detalhamento;
 
 import base.BaseTest;
-import base.MyRetry;
-import org.testng.annotations.Test;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 import pageObjects.retaguarda.detalhamento.DetalhamentoPage;
 import pageObjects.retaguarda.rendaEnviada.RendaEnviadaPage;

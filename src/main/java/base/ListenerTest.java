@@ -16,7 +16,6 @@ import org.testng.ITestResult;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.Base64;
 
 
@@ -47,8 +46,6 @@ public class ListenerTest implements ITestListener {
         ExtentService.getInstance().flush();
     }
 
-
-
     public void reportPrintFail() {
         reportPrintFail("");
     }
@@ -57,9 +54,6 @@ public class ListenerTest implements ITestListener {
         reportPrint(Status.FAIL, log);
     }
 
-
-
-
     private void reportPrint(Status status, String log) {
         try {
             ExtentTestManager.getTest().log(status, log,
@@ -67,10 +61,6 @@ public class ListenerTest implements ITestListener {
         } catch (IOException e) {
             LOGGER.error(e);
         }
-    }
-
-    private void report(Status status, String log) {
-        ExtentTestManager.getTest().log(status, log);
     }
 
     private String takeScreenshot() throws IOException {

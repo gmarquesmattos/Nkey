@@ -1,8 +1,6 @@
 package testcases.retaguarda.alterarRenda;
 
 import base.BaseTest;
-import base.MyRetry;
-import org.testng.annotations.Test;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 
 import static org.testng.AssertJUnit.assertEquals;

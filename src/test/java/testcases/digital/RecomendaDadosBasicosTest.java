@@ -1,7 +1,7 @@
 package testcases.digital;
 
 import base.BaseTest;
-import base.MyRetry;
+import base.Tentativa;
 import org.testng.annotations.Test;
 import pageObjects.digital.RecomendaDadosBasicosPage;
 import pageObjects.pessoa.DetalhesDaPessoajuridicaPage;
@@ -10,8 +10,8 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class RecomendaDadosBasicosTest extends BaseTest {
 
-    @Test(dataProvider = "cnpjDigital",retryAnalyzer = MyRetry.class)
-    public void deveraComprarMensagemRecomendarDadosBasicosPessoaJuridica(String cnpjDigital) {
+    @Test(dataProvider = "cnpjDigital",retryAnalyzer = Tentativa.class)
+    public void deveraCompararMensagemRecomendarDadosBasicosPessoaJuridica(String cnpjDigital) {
         DetalhesDaPessoajuridicaPage detalhesDaPessoajuridicaPage = new DetalhesDaPessoajuridicaPage(driver);
         detalhesDaPessoajuridicaPage.pesquisarPessoaJuridica(cnpjDigital);
         detalhesDaPessoajuridicaPage.clicarBotaoRecomendarPS();

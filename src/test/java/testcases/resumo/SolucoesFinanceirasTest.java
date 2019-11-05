@@ -1,7 +1,7 @@
 package testcases.resumo;
 
 import base.BaseTest;
-import base.MyRetry;
+import base.Tentativa;
 import org.testng.annotations.Test;
 import pageObjects.pessoa.ContaCorrentePage;
 import pageObjects.resumo.SolucoesFinanceirasPage;
@@ -10,7 +10,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class SolucoesFinanceirasTest extends BaseTest {
 
 
-    @Test(retryAnalyzer = MyRetry.class, dataProvider = "cpfResumo")
+    @Test(retryAnalyzer = Tentativa.class, dataProvider = "cpfResumo")
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePage(String cpf) {
         SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage(driver);
         solucoesFinanceirasPage.pesquisarPessoaFisica(cpf);
