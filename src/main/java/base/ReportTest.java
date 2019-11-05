@@ -13,18 +13,23 @@ import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterSuite;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
-public class ListenerTest implements ITestListener {
+public class ReportTest implements ITestListener {
     private static final Logger LOGGER = LogManager.getLogger();
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-       LOGGER.info("Está executando: " + BaseTest.nomeCenarioTeste);
+        LOGGER.info("Está executando: " + iTestResult.getName());
     }
 
     @Override
@@ -34,11 +39,7 @@ public class ListenerTest implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        reportPrintFail();
-    }
-
-     @Override
-    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+        reportPrintFail("");
     }
 
     @Override
@@ -46,11 +47,7 @@ public class ListenerTest implements ITestListener {
         ExtentService.getInstance().flush();
     }
 
-    public void reportPrintFail() {
-        reportPrintFail("");
-    }
-
-    public void reportPrintFail(String log) {
+    private void reportPrintFail(String log) {
         reportPrint(Status.FAIL, log);
     }
 
@@ -82,4 +79,31 @@ public class ListenerTest implements ITestListener {
 
         return "data:image/png;base64," + encodedString;
     }
+
+    @AfterSuite(alwaysRun = true)
+    public void updateReport() {
+        try {
+
+            String relatorioPath = "target/relatorio/execucao.html";
+            String htmlContent = FileUtils.readFileToString(new File(relatorioPath), "utf-8");
+            String pattern = "href='([^'].*)' data-featherlight";
+            Pattern r = Pattern.compile(pattern);
+            Matcher matcher = r.matcher(htmlContent);
+            Set<String> keyList = new HashSet();
+
+            while (matcher.find()) {
+                keyList.add(matcher.group(1));
+            }
+            for (String data : keyList) {
+                String oldString = data + "' data-featherlight='image'>";
+                htmlContent = htmlContent.replace(oldString, oldString + "<img src='" + data + "' style=\"width:150px\">");
+            }
+            htmlContent = htmlContent.replace("<span class='label grey badge white-text text-white'>base64-img</span>", "");
+            FileUtils.writeStringToFile(new File(relatorioPath), htmlContent, "utf-8");
+        } catch (Exception e) {
+            LOGGER.error("Erro ao atualizar miniaturas no report html", e);
+        }
+    }
+
+
 }

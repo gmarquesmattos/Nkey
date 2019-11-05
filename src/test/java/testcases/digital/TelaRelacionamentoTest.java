@@ -31,7 +31,7 @@ public class TelaRelacionamentoTest extends BaseTest {
 
     }
     @Test(dataProvider = "cpfDigital",retryAnalyzer = Tentativa.class)
-    public void deveraCompararMensagemPessoaDigitalTelaRelacionamento(String cpfDigital) {
+    public void deveraRetornarMensagemPessoaDigitalTelaRelacionamento(String cpfDigital) {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage(driver);
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfDigital);
         telaDeRelacionamentoPage.clicarlinkEsteiraPS();

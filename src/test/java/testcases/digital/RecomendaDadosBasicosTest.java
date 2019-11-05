@@ -11,7 +11,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class RecomendaDadosBasicosTest extends BaseTest {
 
     @Test(dataProvider = "cnpjDigital",retryAnalyzer = Tentativa.class)
-    public void deveraCompararMensagemRecomendarDadosBasicosPessoaJuridica(String cnpjDigital) {
+    public void deveraRetornarMensagemRecomendarDadosBasicosPessoaJuridica(String cnpjDigital) {
         DetalhesDaPessoajuridicaPage detalhesDaPessoajuridicaPage = new DetalhesDaPessoajuridicaPage(driver);
         detalhesDaPessoajuridicaPage.pesquisarPessoaJuridica(cnpjDigital);
         detalhesDaPessoajuridicaPage.clicarBotaoRecomendarPS();

@@ -9,7 +9,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class DetalhesDaPessoaTest extends BaseTest {
 
     //  @Test(dataProvider = "cpfDigital",retryAnalyzer = MyRetry.class)
-    public void deveraCompararMensagemDigitalDetalhePessoa(String cpfDigital ) {
+    public void deveraRetornarMensagemDigitalDetalhePessoa(String cpfDigital ) {
         DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage(driver);
         detalheDaPessoaFisicaPage.pesquisarPessoaFisica(cpfDigital);
         detalheDaPessoaFisicaPage.clicarBotaoRecomendarPS();
@@ -20,7 +20,7 @@ public class DetalhesDaPessoaTest extends BaseTest {
     }
 
     // @Test(dataProvider = "cpfNaoDigital",retryAnalyzer = MyRetry.class)
-    public void deveraCompararMensagemNaoDigitalDetalhePessoa(String cpfNaoDigital ) {
+    public void deveraRetornarNaoDigitalDetalhePessoa(String cpfNaoDigital ) {
         DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage(driver);
         detalheDaPessoaFisicaPage.pesquisarPessoaFisica(cpfNaoDigital);
         detalheDaPessoaFisicaPage.clicarBotaoRecomendarPS();

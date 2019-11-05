@@ -29,7 +29,7 @@ public class TelaDeRelacionamentoPage extends BasePage {
     }
 
     public String esperaAceitarAlertRecomendar() {
-        return esperaAceitarRetornarTextoAlert();
+        return esperaAceitarAlert();
     }
 
     public String indicativoPfDigital() {

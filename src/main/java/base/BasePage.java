@@ -4,10 +4,6 @@ import driver.DriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-import java.util.PrimitiveIterator;
-
 import static driver.DriverManager.getDriver;
 
 public class BasePage {
@@ -72,19 +68,13 @@ public class BasePage {
         return elemento.isEnabled();
     }
 
-    public void esperaAceitarAlert() {
-        AGUARDAR.until(ExpectedConditions.alertIsPresent());
-        Alert alert = DriverManager.getDriver().switchTo().alert();
-        alert.accept();
-
-    }
-
-    public String esperaAceitarRetornarTextoAlert() {
+    public String esperaAceitarAlert() {
         AGUARDAR.until(ExpectedConditions.alertIsPresent());
         Alert alert = DriverManager.getDriver().switchTo().alert();
         String textoAlerta = alert.getText();
         alert.accept();
         return textoAlerta;
     }
+
 
 }
