@@ -12,33 +12,33 @@ public class DetalhamentoTest extends BaseTest {
     // @Test(retryAnalyzer = MyRetry.class)
     public void deveriaCriarNovoDetalhamento() {
         int valor = 200;
-        new DetalhamentoPage(driver)
+        new DetalhamentoPage()
                 .novoDetalhamento()
                 .inserirTipo("outros")
                 .inserirPeriodicidade()
                 .inserirValor(valor)
                 .salvarDetalhamento();
-        new AlterarRendaPage(driver)
+        new AlterarRendaPage()
                 .excluirRenda();
     }
 
     //@Test(retryAnalyzer = MyRetry.class)
     public void deveriaPesquisarDetalhamento() {
         int valor = 200;
-        new DetalhamentoPage(driver)
+        new DetalhamentoPage()
                 .novoDetalhamento()
                 .inserirTipo("outros")
                 .inserirPeriodicidade()
                 .inserirValor(valor)
                 .salvarDetalhamento()
                 .pesquisarDetalhamento();
-        new AlterarRendaPage(driver)
+        new AlterarRendaPage()
                 .excluirRenda();
     }
 
     // @Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarSemDetalhamento() {
-        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver)
+        DetalhamentoPage detalhamentoPage = new DetalhamentoPage()
                 .adicionarDetalhamento().salvarDetalhamento();
 
         String textoObtido = detalhamentoPage.pegarMensagemJanelaDeErro();
@@ -50,9 +50,9 @@ public class DetalhamentoTest extends BaseTest {
 
     // @Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarComTiposDuplicado() {
-        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
+        DetalhamentoPage detalhamentoPage = new DetalhamentoPage();
         detalhamentoPage.novoDetalhamento();
-        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
+        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage();
         detalhamentoPage.inserirTipo(rendaEnviadaPage.obterTipo());
         detalhamentoPage.salvarDetalhamento();
         String textoObtido = detalhamentoPage.pegarMensagemJanelaDeErro();
@@ -61,15 +61,15 @@ public class DetalhamentoTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
 
         detalhamentoPage.excluirRegistroDetalhamento();
-        new AlterarRendaPage(driver).excluirRenda();
+        new AlterarRendaPage().excluirRenda();
 
     }
 
     //@Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarComTiposDuplicadoBotaoDetalhamentoNovo() {
-        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
+        DetalhamentoPage detalhamentoPage = new DetalhamentoPage();
         detalhamentoPage.novoDetalhamento();
-        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage(driver);
+        RendaEnviadaPage rendaEnviadaPage = new RendaEnviadaPage();
         detalhamentoPage.inserirTipo(rendaEnviadaPage.obterTipo());
         detalhamentoPage.adicionarDetalhamento();
         String textoObtido = detalhamentoPage.pegarMensagemJanelaDeErro();
@@ -78,13 +78,13 @@ public class DetalhamentoTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
 
         detalhamentoPage.excluirRegistroDetalhamento();
-        new AlterarRendaPage(driver).excluirRenda();
+        new AlterarRendaPage().excluirRenda();
     }
 
     //@Test(retryAnalyzer = MyRetry.class)
     public void naoDeveSalvarValorIgualZero() {
         int valor = 00;
-        DetalhamentoPage detalhamentoPage = new DetalhamentoPage(driver);
+        DetalhamentoPage detalhamentoPage = new DetalhamentoPage();
         detalhamentoPage.novoDetalhamento();
         detalhamentoPage.inserirTipo("outros");
         detalhamentoPage.inserirPeriodicidade();

@@ -18,13 +18,12 @@ public class DadosBasicosAssociadoPage extends BasePage {
     private By rotuloGrupoEconomico = By.id("s_6_1_11_0");
     private By rotuloCbo = By.id("s_6_1_9_0");
 
-    public DadosBasicosAssociadoPage(WebDriver driver) {
-        super(driver);
-        acessar();
+    public DadosBasicosAssociadoPage() {
+           acessar();
     }
 
     public void pesquisarPessoaFisica(String cpf) {
-        new PessoaFisicaPage(driver, cpf).acessarNomeCompleto();
+        new PessoaFisicaPage(cpf).acessarNomeCompleto();
     }
 
     public ArrayList<String> obterValor() {
@@ -42,7 +41,7 @@ public class DadosBasicosAssociadoPage extends BasePage {
     }
 
     private void acessar() {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage();
         homePage.acessarPessoaFisica();
     }
 

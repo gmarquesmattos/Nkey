@@ -20,11 +20,9 @@ public class AlterarRendaPage extends BasePage {
     private By botaoCancelar = By.id("s_6_1_11_0_Ctrl");
     private By janelaDialogo = By.id("_sweview_popup");
 
-    public AlterarRendaPage(WebDriver driver) {
-        super(driver);
+    public AlterarRendaPage() {
 
     }
-
 
     public AlterarRendaPage editar() {
         acessar();
@@ -57,7 +55,7 @@ public class AlterarRendaPage extends BasePage {
 
     public AlterarRendaPage insereAno() {
         clicar(textoMesRenda);
-        limparCampo(textoMesRenda);
+        limparCampo();
         Integer anoInserido = localDate.getYear();
         escrever(textoAnoRenda, anoInserido.toString());
         return this;
@@ -69,7 +67,7 @@ public class AlterarRendaPage extends BasePage {
     }
 
     private void acessar() {
-        RetaguardaPage retaguardaPage = new RetaguardaPage(driver);
+        RetaguardaPage retaguardaPage = new RetaguardaPage();
         retaguardaPage.acessarCadastroCanais();
         retaguardaPage.pesquisarRetaguarda();
         retaguardaPage.entrarRetarguarda();

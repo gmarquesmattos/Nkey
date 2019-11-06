@@ -11,7 +11,7 @@ public class AtividadePjTest extends BaseTest {
 
     @Test
     public void deveCriarAtividadePj(){
-      AtividadePjPage atividadePjPage = new AtividadePjPage(driver);
+      AtividadePjPage atividadePjPage = new AtividadePjPage();
       atividadePjPage.criarAtividade();
       atividadePjPage.escreverAtividade();
       atividadePjPage.selecionarAgenciaAtividade();

@@ -12,12 +12,12 @@ public class SolucoesFinanceirasTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class, dataProvider = "cpfResumo")
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePage(String cpf) {
-        SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage(driver);
+        SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage();
         solucoesFinanceirasPage.pesquisarPessoaFisica(cpf);
         String contaPrincipalAssociado = solucoesFinanceirasPage.obterContaPrincipal();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
 
-        ContaCorrentePage contaCorrentePFPage = new ContaCorrentePage(driver);
+        ContaCorrentePage contaCorrentePFPage = new ContaCorrentePage();
         String contaAssociado = contaCorrentePFPage.obterNumeroConta();
 
         assertEquals(contaPrincipalAssociado, contaAssociado);

@@ -15,8 +15,8 @@ public class BasePage {
     public WebDriver driver;
 
 
-    public BasePage(WebDriver driver) {
-        this.driver = DriverManager.getDriver();
+    public BasePage() {
+        driver = DriverManager.getDriver();
         AGUARDAR = new WebDriverWait(getDriver(), TEMPO_ESPERA);
     }
 
@@ -47,12 +47,12 @@ public class BasePage {
         return getDriver().findElement(by).getAttribute("value");
     }
 
-    public void clicarTab(By by) {
+    public void clicarTab() {
         new Jquery();
         elemento.sendKeys(Keys.TAB);
     }
 
-    public void limparCampo(By by) {
+    public void limparCampo() {
         new Jquery();
         elemento.clear();
     }

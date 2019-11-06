@@ -11,7 +11,7 @@ public class AtividadePfTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class,dataProvider = "cpfNaoDigital")
     public void deveCriarAtividadePf(String cpf) {
-        AtividadePfPage atividadePfPage = new AtividadePfPage(driver);
+        AtividadePfPage atividadePfPage = new AtividadePfPage();
         atividadePfPage.pesquisarPessoaFisica(cpf);
         atividadePfPage.acessarAtividade();
         atividadePfPage.adicionarNovaAtividade();

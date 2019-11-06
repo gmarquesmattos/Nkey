@@ -10,7 +10,7 @@ public class DetalhesDaPessoaTest extends BaseTest {
 
     //  @Test(dataProvider = "cpfDigital",retryAnalyzer = MyRetry.class)
     public void deveraRetornarMensagemDigitalDetalhePessoa(String cpfDigital ) {
-        DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage(driver);
+        DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage();
         detalheDaPessoaFisicaPage.pesquisarPessoaFisica(cpfDigital);
         detalheDaPessoaFisicaPage.clicarBotaoRecomendarPS();
         String textoObtido = detalheDaPessoaFisicaPage.mensagemBotaoRecomendar();
@@ -21,10 +21,10 @@ public class DetalhesDaPessoaTest extends BaseTest {
 
     // @Test(dataProvider = "cpfNaoDigital",retryAnalyzer = MyRetry.class)
     public void deveraRetornarNaoDigitalDetalhePessoa(String cpfNaoDigital ) {
-        DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage(driver);
+        DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage();
         detalheDaPessoaFisicaPage.pesquisarPessoaFisica(cpfNaoDigital);
         detalheDaPessoaFisicaPage.clicarBotaoRecomendarPS();
-        RecomendaDadosBasicosPage recomendaDadosBasicosPage = new RecomendaDadosBasicosPage(driver);
+        RecomendaDadosBasicosPage recomendaDadosBasicosPage = new RecomendaDadosBasicosPage();
         String textoObtido = recomendaDadosBasicosPage.mensagemPaginaRecomendaDadosBasicos();
         String textoEsperado = "Sicredi RecomendaDados básicos";
 

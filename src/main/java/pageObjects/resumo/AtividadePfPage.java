@@ -18,13 +18,12 @@ public class AtividadePfPage extends BasePage {
     private By botaoSalvarAtividade = By.id("s_1_1_20_0_Ctrl");
     private By botaoExcluirAtividade = By.id("s_1_1_4_0_Ctrl");
 
-    public AtividadePfPage(WebDriver driver) {
-        super(driver);
-        acessar();
+    public AtividadePfPage() {
+            acessar();
     }
 
     public void pesquisarPessoaFisica(String cpf) {
-        new PessoaFisicaPage(driver, cpf).acessarNomeCompleto();
+        new PessoaFisicaPage(cpf).acessarNomeCompleto();
     }
 
     public void acessarAtividade() {
@@ -58,7 +57,7 @@ public class AtividadePfPage extends BasePage {
     }
 
     private void acessar() {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage();
         homePage.acessarPessoaFisica();
     }
 }

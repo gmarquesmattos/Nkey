@@ -12,10 +12,10 @@ public class RecomendaDadosBasicosTest extends BaseTest {
 
     @Test(dataProvider = "cnpjDigital",retryAnalyzer = Retentativa.class)
     public void deveraRetornarMensagemRecomendarDadosBasicosPessoaJuridica(String cnpjDigital) {
-        DetalhesDaPessoajuridicaPage detalhesDaPessoajuridicaPage = new DetalhesDaPessoajuridicaPage(driver);
+        DetalhesDaPessoajuridicaPage detalhesDaPessoajuridicaPage = new DetalhesDaPessoajuridicaPage();
         detalhesDaPessoajuridicaPage.pesquisarPessoaJuridica(cnpjDigital);
         detalhesDaPessoajuridicaPage.clicarBotaoRecomendarPS();
-        RecomendaDadosBasicosPage recomendaDadosBasicosPage = new RecomendaDadosBasicosPage(driver);
+        RecomendaDadosBasicosPage recomendaDadosBasicosPage = new RecomendaDadosBasicosPage();
         String textoObtido = recomendaDadosBasicosPage.mensagemPaginaRecomendaDadosBasicos();
         String textoEsperado = "Sicredi RecomendaDados básicos";
 

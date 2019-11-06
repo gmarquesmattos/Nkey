@@ -18,13 +18,12 @@ public class AtendimentoPjPage extends BasePage {
     private By botaoSalvarAtendimentoPj = By.id("s_1_1_24_0_Ctrl");
     private By botaoExcluirAtendimentoPj = By.id("s_1_1_5_0_Ctrl");
 
-    public AtendimentoPjPage(WebDriver driver) {
-        super(driver);
-        acessar();
+    public AtendimentoPjPage() {
+            acessar();
     }
 
     public void pesquisarPessoaJuridica(String cnpj) {
-        new PessoaJuridicaPage(driver, cnpj).acessarRazaoSocial();
+        new PessoaJuridicaPage(cnpj).acessarRazaoSocial();
     }
 
     public void acessarAtendimento(){
@@ -60,7 +59,7 @@ public class AtendimentoPjPage extends BasePage {
     }
 
     private void acessar() {
-        new HomePage(driver).acessarPessoaJuridica();
+        new HomePage().acessarPessoaJuridica();
 
     }
 

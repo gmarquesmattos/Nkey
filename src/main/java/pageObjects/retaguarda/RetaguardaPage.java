@@ -16,12 +16,12 @@ public class RetaguardaPage extends BasePage {
     private By campoTipoRetaguarda = By.xpath("//td[@id='1_s_2_l_SR_Sub_Type']");
     private By textoTipoRetaguarda = By.xpath("//input[@id='1_SR_Sub_Type']");
 
-    public RetaguardaPage(WebDriver driver) {
-        super(driver);
+    public RetaguardaPage() {
+
     }
 
     public RetaguardaPage acessarCadastroCanais() {
-        HomePage homePO = new HomePage(driver);
+        HomePage homePO = new HomePage();
         homePO.selecionarMenuHome();
         clicar(seletorVisibilidade);
         clicar(opcaoTodosMeusAtendimentos);

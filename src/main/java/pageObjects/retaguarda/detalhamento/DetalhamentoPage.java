@@ -22,9 +22,8 @@ public class DetalhamentoPage extends BasePage {
     private By janelaDialogo = By.id("_sweview_popup");
     private By botaoAccept = By.id("btn-accept");
 
-    public DetalhamentoPage(WebDriver driver) {
-        super(driver);
-        editarRenda();
+    public DetalhamentoPage() {
+              editarRenda();
     }
 
     public DetalhamentoPage novoDetalhamento() {
@@ -44,10 +43,10 @@ public class DetalhamentoPage extends BasePage {
     }
 
     public DetalhamentoPage inserirPeriodicidade() {
-        clicarTab(seletorTipo);
+        clicarTab();
         clicar(seletorPeriodicidade);
         escrever(textoPeriodicidade, (MENSAL_PRIORIDADES));
-        clicarTab(textoPeriodicidade);
+        clicarTab();
         return this;
     }
 
@@ -82,7 +81,7 @@ public class DetalhamentoPage extends BasePage {
     }
 
     private void editarRenda() {
-        new AlterarRendaPage(driver)
+        new AlterarRendaPage()
                 .editar()
                 .salvar();
 

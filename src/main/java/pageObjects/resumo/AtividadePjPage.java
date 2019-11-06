@@ -18,8 +18,7 @@ public class AtividadePjPage extends BasePage {
     private By botaoSalvarAtividade =By.cssSelector("button[title='Atividades:Salvar']");
     private By botaoExcluirAtividade =By.cssSelector("button[title='Atividades:Excluir']");
 
-    public AtividadePjPage(WebDriver driver) {
-        super(driver);
+    public AtividadePjPage() {
         acessar();
         clicar(botaoIrParaAtividade);
 
@@ -57,9 +56,9 @@ public class AtividadePjPage extends BasePage {
     }
 
     private void acessar() {
-       HomePage homePage = new HomePage(driver);
+       HomePage homePage = new HomePage();
        homePage.acessarPessoaJuridica();
-       PessoaJuridicaPage pessoaJuridicaPage = new PessoaJuridicaPage(driver,"09514327000156");
+       PessoaJuridicaPage pessoaJuridicaPage = new PessoaJuridicaPage("09514327000156");
        pessoaJuridicaPage.acessarRazaoSocial();
 
     }

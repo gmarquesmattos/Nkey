@@ -2,19 +2,17 @@ package pageObjects.pessoa;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 
 public class DetalheDaPessoaFisicaPage extends BasePage {
     private By botaoRecomendarPS = By.cssSelector("button[title='Detalhes do contato:Recomendar P&S']");
     private By janelaErroRecomendar = By.cssSelector("#_sweview_popup");
-    public DetalheDaPessoaFisicaPage(WebDriver driver) {
-        super(driver);
+    public DetalheDaPessoaFisicaPage() {
         acessar();
     }
 
     public void pesquisarPessoaFisica(String cpf) {
-        new PessoaFisicaPage(driver, cpf);
+        new PessoaFisicaPage(cpf);
     }
     public void clicarBotaoRecomendarPS() {
         clicar(botaoRecomendarPS);
@@ -26,7 +24,7 @@ public class DetalheDaPessoaFisicaPage extends BasePage {
     }
 
     private void acessar() {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage();
         homePage.acessarPessoaFisica();
     }
 }

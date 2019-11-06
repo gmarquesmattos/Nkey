@@ -15,7 +15,7 @@ public class DadosBasicosAssociadoTest extends BaseTest {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         ArrayList<String> informacoesAssociadoBancoResumo = dadosBasicosDb.retornarDadosBasicosDb(cpf);
 
-        DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage(driver);
+        DadosBasicosAssociadoPage dadosBasicosPage = new DadosBasicosAssociadoPage();
         dadosBasicosPage.pesquisarPessoaFisica(cpf);
         ArrayList<String> informacoesAssociadoTelaResumo = dadosBasicosPage.obterValor();
         SoftAssert softAssert = new SoftAssert();

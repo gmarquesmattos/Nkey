@@ -11,7 +11,7 @@ public class OportunidadePjTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class, dataProvider = "cnpjDigital")
     public void deveriaCriarOportunidadePj(String cnpj) {
-        OportunidadePjPage oportunidadePjPage = new OportunidadePjPage(driver);
+        OportunidadePjPage oportunidadePjPage = new OportunidadePjPage();
         oportunidadePjPage.pesquisarPessoaJuridica(cnpj);
         oportunidadePjPage.acessarOportunidade();
         oportunidadePjPage.adicionarNovaOportunidade();

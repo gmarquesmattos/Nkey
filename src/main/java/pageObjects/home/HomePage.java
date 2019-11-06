@@ -2,7 +2,6 @@ package pageObjects.home;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pageObjects.login.LoginPage;
 
 
@@ -15,9 +14,8 @@ public class HomePage extends BasePage {
     private By rotuloBemVindo = By.className("Welcome");
 
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-        new LoginPage(driver);
+    public HomePage() {
+         new LoginPage();
         obterTexto(rotuloBemVindo);
     }
 

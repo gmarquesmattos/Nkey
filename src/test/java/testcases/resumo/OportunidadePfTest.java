@@ -10,7 +10,7 @@ public class OportunidadePfTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class, dataProvider = "cpfNaoDigital")
     public void deveriaCriarOportunidade(String cpf) {
-        OportunidadePfPage oportunidadePage = new OportunidadePfPage(driver);
+        OportunidadePfPage oportunidadePage = new OportunidadePfPage();
         oportunidadePage.pesquisarPessoaFisica(cpf);
         oportunidadePage.acessarOportunidade();
         oportunidadePage.adicionarNovaOportunidade();

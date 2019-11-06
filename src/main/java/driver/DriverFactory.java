@@ -40,7 +40,7 @@ public enum DriverFactory implements IDriverType {
         return capabilities;
     }
 
-    public static WebDriver criarInstancia(String browser) throws Exception {
+    public static void criarInstancia(String browser) throws Exception {
         WebDriver driver;
         RemoteWebDriver remoteWebDriver;
 
@@ -76,7 +76,7 @@ public enum DriverFactory implements IDriverType {
         }
 
 
-        return driver;
+        DriverManager.setDriver(driver);
     }
 
     private static MutableCapabilities retornaCapacidade(String browser) {

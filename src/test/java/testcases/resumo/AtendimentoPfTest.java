@@ -11,7 +11,7 @@ public class AtendimentoPfTest extends BaseTest {
 
     @Test(dataProvider = "cpfNaoDigital")
     public void deveCriarAtendimentoPf(String cpf) {
-        AtendimentoPfPage atendimentoPage = new AtendimentoPfPage(driver);
+        AtendimentoPfPage atendimentoPage = new AtendimentoPfPage();
         atendimentoPage.pesquisarPessoaFisica(cpf);
         atendimentoPage.acessarAtendimento();
         atendimentoPage.realizarNovoAtendimento();

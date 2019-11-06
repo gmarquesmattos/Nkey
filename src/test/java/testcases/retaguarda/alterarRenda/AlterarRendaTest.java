@@ -1,6 +1,7 @@
 package testcases.retaguarda.alterarRenda;
 
 import base.BaseTest;
+import org.testng.annotations.Test;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 
 import static org.testng.AssertJUnit.assertEquals;
@@ -8,28 +9,28 @@ import static org.testng.AssertJUnit.assertEquals;
 public class AlterarRendaTest extends BaseTest {
 
 
-    // @Test(retryAnalyzer = MyRetry.class)
+     @Test
     public void deveriaEditarRenda() {
-        new AlterarRendaPage(driver)
+        new AlterarRendaPage()
                 .editar()
                 .salvar()
                 .excluirRenda();
     }
 
-    //@Test(retryAnalyzer = MyRetry.class)
+    @Test
     public void deveriaSalvarComMesMenorQueAtual() {
         int mesMenorQueAtual = -2;
-        new AlterarRendaPage(driver)
+        new AlterarRendaPage()
                 .editar()
                 .insereMes(mesMenorQueAtual)
                 .salvar()
                 .excluirRenda();
     }
 
-    // @Test(retryAnalyzer = MyRetry.class)
+     @Test
     public void naoDeveSalvarComMesMaiorQueAtual() {
         int mesMaiorQueAtual = 1;
-        String textoObtido = new AlterarRendaPage(driver)
+        String textoObtido = new AlterarRendaPage()
                 .editar()
                 .insereMes(mesMaiorQueAtual)
                 .salvar()
@@ -40,9 +41,9 @@ public class AlterarRendaTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
     }
 
-    // @Test(retryAnalyzer = MyRetry.class)
+     @Test
     public void naoDeveSalvarNaoFinalizado() {
-        AlterarRendaPage alterarRendaPage = new AlterarRendaPage(driver)
+        AlterarRendaPage alterarRendaPage = new AlterarRendaPage()
                 .editar()
                 .insereAno()
                 .salvar();

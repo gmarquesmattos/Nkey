@@ -11,9 +11,8 @@ public class PessoaJuridicaPage extends BasePage {
     private By textoRazaoSocialPj = By.name("Name");
     private By botaoIrPj = By.id("s_1_1_5_0_Ctrl");
 
-    public PessoaJuridicaPage(WebDriver driver, String cnpj) {
-        super(driver);
-        pesquisarPessoa(cnpj);
+    public PessoaJuridicaPage(String cnpj) {
+             pesquisarPessoa(cnpj);
 
     }
 

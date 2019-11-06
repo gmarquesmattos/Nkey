@@ -20,13 +20,12 @@ public class OportunidadePjPage extends BasePage {
     private By botaoSalvarOportunidade = By.id("s_1_1_11_0_Ctrl");
     private By botaoExcluirOportunidade = By.id("s_1_1_3_0_Ctrl");
 
-    public OportunidadePjPage(WebDriver driver) {
-        super(driver);
-        acessar();
+    public OportunidadePjPage() {
+             acessar();
     }
 
     public void pesquisarPessoaJuridica(String cnpj) {
-        new PessoaJuridicaPage(driver, cnpj).acessarRazaoSocial();
+        new PessoaJuridicaPage(cnpj).acessarRazaoSocial();
     }
 
     public void acessarOportunidade(){
@@ -66,7 +65,7 @@ public class OportunidadePjPage extends BasePage {
     }
 
     private void acessar() {
-        new HomePage(driver).acessarPessoaJuridica();
+        new HomePage().acessarPessoaJuridica();
       }
 
 

@@ -16,15 +16,13 @@ public abstract class BaseTest extends ReportTest {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
-    public WebDriver driver;
 
     @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
     public void preCondition(@Optional("chrome") String browser, Method method) throws Exception {
-        driver = DriverFactory.criarInstancia(browser);
-        DriverManager.setDriver(driver);
-        driver.get(URL_BASE);
-        driver.manage().window().maximize();
+        DriverFactory.criarInstancia(browser);
+        DriverManager.getDriver().get(URL_BASE);
+        DriverManager.getDriver().manage().window().maximize();
 
 
     }

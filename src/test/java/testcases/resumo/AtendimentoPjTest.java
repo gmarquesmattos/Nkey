@@ -11,7 +11,7 @@ public class AtendimentoPjTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class, dataProvider = "cnpjDigital")
     public void deveCriarAtendimentoPj(String cnpj) {
-        AtendimentoPjPage atendimentoPjPage = new AtendimentoPjPage(driver);
+        AtendimentoPjPage atendimentoPjPage = new AtendimentoPjPage();
         atendimentoPjPage.pesquisarPessoaJuridica(cnpj);
         atendimentoPjPage.acessarAtendimento();
         atendimentoPjPage.criarNovoAtendimento();

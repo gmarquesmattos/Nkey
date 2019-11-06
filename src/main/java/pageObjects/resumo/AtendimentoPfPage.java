@@ -2,7 +2,6 @@ package pageObjects.resumo;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
@@ -18,13 +17,12 @@ public class AtendimentoPfPage extends BasePage {
     private By tabelaDescricaoAtendimento = By.id("1_s_1_l_Description");
     private By botaoExcluirAtendimento = By.id("s_1_1_5_0_Ctrl");
 
-    public AtendimentoPfPage(WebDriver driver) {
-        super(driver);
-        acessar();
+    public AtendimentoPfPage() {
+             acessar();
     }
 
     public void pesquisarPessoaFisica(String cpf) {
-        new PessoaFisicaPage(driver, cpf).acessarNomeCompleto();
+        new PessoaFisicaPage(cpf).acessarNomeCompleto();
     }
 
     public void acessarAtendimento(){
@@ -59,7 +57,7 @@ public class AtendimentoPfPage extends BasePage {
      }
 
     private void acessar() {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage();
         homePage.acessarPessoaFisica();
 
     }

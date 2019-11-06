@@ -2,7 +2,6 @@ package pageObjects.resumo;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
@@ -11,13 +10,12 @@ public class SolucoesFinanceirasPage extends BasePage {
 	private By linkSaldoContaPrincipal = By.id("s_2_1_32_0");
 	private By rotuloContaPrincipal = By.id("s_2_1_12_0");
 
-	public SolucoesFinanceirasPage(WebDriver driver) {
-		super(driver);
+	public SolucoesFinanceirasPage() {
 		acessar();
 	}
 
 	public void pesquisarPessoaFisica(String cpf) {
-		new PessoaFisicaPage(driver, cpf).acessarNomeCompleto();
+		new PessoaFisicaPage(cpf).acessarNomeCompleto();
 	}
 
 	public void clicarLinkSaldoContaPrincipal() {
@@ -29,7 +27,7 @@ public class SolucoesFinanceirasPage extends BasePage {
 	}
 
 	private void acessar(){
-		HomePage homePage = new HomePage(driver);
+		HomePage homePage = new HomePage();
 		homePage.acessarPessoaFisica();
 	}
 

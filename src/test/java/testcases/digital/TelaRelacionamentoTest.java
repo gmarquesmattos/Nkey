@@ -11,7 +11,7 @@ public class TelaRelacionamentoTest extends BaseTest {
 
     @Test(dataProvider = "cpfDigital",retryAnalyzer = Retentativa.class)
     public void deveraCompararMensagemPessoaDigital(String cpfDigital) {
-        TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage(driver);
+        TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfDigital);
         String textoObtido = telaDeRelacionamentoPage.indicativoPfDigital();
         String textoEsperado = "Este associado utiliza a Plataforma Digital. Para realizar o atendimento acesse a Salesforce.";
@@ -22,7 +22,7 @@ public class TelaRelacionamentoTest extends BaseTest {
 
     @Test(dataProvider = "cpfNaoDigital",retryAnalyzer = Retentativa.class)
     public void deveraCompararMensagemPessoaNaoDigital(String cpfNaoDigital) {
-        TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage(driver);
+        TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfNaoDigital);
         String textoObtido = telaDeRelacionamentoPage.indicativoPfDigital();
         String textoEsperado = "";
@@ -32,7 +32,7 @@ public class TelaRelacionamentoTest extends BaseTest {
     }
     @Test(dataProvider = "cpfDigital",retryAnalyzer = Retentativa.class)
     public void deveraRetornarMensagemPessoaDigitalTelaRelacionamento(String cpfDigital) {
-        TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage(driver);
+        TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfDigital);
         telaDeRelacionamentoPage.clicarlinkEsteiraPS();
         String textoObtido = telaDeRelacionamentoPage.esperaAceitarAlertRecomendar();
