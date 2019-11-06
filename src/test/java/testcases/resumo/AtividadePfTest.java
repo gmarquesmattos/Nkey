@@ -1,7 +1,7 @@
 package testcases.resumo;
 
 import base.BaseTest;
-import base.Tentativa;
+import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.resumo.AtividadePfPage;
 
@@ -9,7 +9,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class AtividadePfTest extends BaseTest {
 
-    @Test(retryAnalyzer = Tentativa.class,dataProvider = "cpfNaoDigital")
+    @Test(retryAnalyzer = Retentativa.class,dataProvider = "cpfNaoDigital")
     public void deveCriarAtividadePf(String cpf) {
         AtividadePfPage atividadePfPage = new AtividadePfPage(driver);
         atividadePfPage.pesquisarPessoaFisica(cpf);

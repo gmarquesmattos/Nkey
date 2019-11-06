@@ -3,7 +3,6 @@ package base;
 import com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter;
 import driver.DriverFactory;
 import driver.DriverManager;
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +25,7 @@ public abstract class BaseTest extends ReportTest {
     public void preCondition(@Optional("chrome") String browser, Method method) throws Exception {
         driver = DriverFactory.criarInstancia(browser);
         DriverManager.setDriver(driver);
-        DriverManager.getDriver().get(URL_BASE);
+        driver.get(URL_BASE);
         driver.manage().window().maximize();
 
 

@@ -1,7 +1,7 @@
 package testcases.digital;
 
 import base.BaseTest;
-import base.Tentativa;
+import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.digital.RecomendaDadosBasicosPage;
 import pageObjects.pessoa.DetalhesDaPessoajuridicaPage;
@@ -10,7 +10,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class RecomendaDadosBasicosTest extends BaseTest {
 
-    @Test(dataProvider = "cnpjDigital",retryAnalyzer = Tentativa.class)
+    @Test(dataProvider = "cnpjDigital",retryAnalyzer = Retentativa.class)
     public void deveraRetornarMensagemRecomendarDadosBasicosPessoaJuridica(String cnpjDigital) {
         DetalhesDaPessoajuridicaPage detalhesDaPessoajuridicaPage = new DetalhesDaPessoajuridicaPage(driver);
         detalhesDaPessoajuridicaPage.pesquisarPessoaJuridica(cnpjDigital);

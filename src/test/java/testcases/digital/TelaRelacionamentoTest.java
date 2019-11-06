@@ -1,7 +1,7 @@
 package testcases.digital;
 
 import base.BaseTest;
-import base.Tentativa;
+import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.digital.TelaDeRelacionamentoPage;
 
@@ -9,7 +9,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class TelaRelacionamentoTest extends BaseTest {
 
-    @Test(dataProvider = "cpfDigital",retryAnalyzer = Tentativa.class)
+    @Test(dataProvider = "cpfDigital",retryAnalyzer = Retentativa.class)
     public void deveraCompararMensagemPessoaDigital(String cpfDigital) {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage(driver);
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfDigital);
@@ -20,7 +20,7 @@ public class TelaRelacionamentoTest extends BaseTest {
 
     }
 
-    @Test(dataProvider = "cpfNaoDigital",retryAnalyzer = Tentativa.class)
+    @Test(dataProvider = "cpfNaoDigital",retryAnalyzer = Retentativa.class)
     public void deveraCompararMensagemPessoaNaoDigital(String cpfNaoDigital) {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage(driver);
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfNaoDigital);
@@ -30,7 +30,7 @@ public class TelaRelacionamentoTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
 
     }
-    @Test(dataProvider = "cpfDigital",retryAnalyzer = Tentativa.class)
+    @Test(dataProvider = "cpfDigital",retryAnalyzer = Retentativa.class)
     public void deveraRetornarMensagemPessoaDigitalTelaRelacionamento(String cpfDigital) {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage(driver);
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfDigital);
