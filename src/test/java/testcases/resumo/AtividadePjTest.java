@@ -2,6 +2,7 @@ package testcases.resumo;
 
 
 import base.BaseTest;
+import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.resumo.AtividadePjPage;
 
@@ -9,7 +10,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class AtividadePjTest extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = Retentativa.class)
     public void deveCriarAtividadePj(){
       AtividadePjPage atividadePjPage = new AtividadePjPage();
       atividadePjPage.criarAtividade();
