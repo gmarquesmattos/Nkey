@@ -16,7 +16,7 @@ public class AtividadePfPage extends BasePage {
     private By textoAgencia = By.id("s_1_2_38_0_icon");
     private By botaoOk = By.id("s_3_1_63_0_Ctrl");
     private By botaoSalvarAtividade = By.id("s_1_1_20_0_Ctrl");
-    private By BotaoExcluirAtividade = By.id("s_1_1_4_0_Ctrl");
+    private By botaoExcluirAtividade = By.id("s_1_1_4_0_Ctrl");
 
     public AtividadePfPage(WebDriver driver) {
         super(driver);
@@ -49,7 +49,7 @@ public class AtividadePfPage extends BasePage {
     }
 
     public void excluirAtividade() {
-        clicar(BotaoExcluirAtividade);
+        clicar(botaoExcluirAtividade);
         esperaAceitarAlert();
     }
 

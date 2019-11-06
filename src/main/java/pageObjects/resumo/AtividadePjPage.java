@@ -12,8 +12,8 @@ public class AtividadePjPage extends BasePage {
     private By botaoCriarAtividade =By.cssSelector("button[title='Atividades:Novo']");
     private By tabelaDescricaoAtividade =By.id("1_s_1_l_Description");
     private By textoDescricaoAtividade =By.id("1_Description");
-    private By  tabelaDescricaoAgencia=By.id("1_s_1_l_Sicredi_Division");
-    private By botaopiclistAgencia =By.id("s_1_2_38_0_icon");
+    private By tabelaDescricaoAgencia=By.id("1_s_1_l_Sicredi_Division");
+    private By botaoPicListAgencia =By.id("s_1_2_38_0_icon");
     private By botaoOkAgencia =By.cssSelector("button[title='Agência:OK']");
     private By botaoSalvarAtividade =By.cssSelector("button[title='Atividades:Salvar']");
     private By botaoExcluirAtividade =By.cssSelector("button[title='Atividades:Excluir']");
@@ -24,25 +24,25 @@ public class AtividadePjPage extends BasePage {
         clicar(botaoIrParaAtividade);
 
     }
-    public void criarAtividade(){
 
+    public void criarAtividade(){
         clicar(botaoCriarAtividade);
 
     }
-    public void escreverAtividade() {
 
+    public void escreverAtividade() {
        clicar(tabelaDescricaoAtividade);
        escrever(textoDescricaoAtividade,"Nova Atividade Automacao PJ");
 
     }
-    public void selecionarAgenciaAtividade(){
 
+    public void selecionarAgenciaAtividade(){
         clicar(tabelaDescricaoAgencia);
-        clicar(botaopiclistAgencia);
+        clicar(botaoPicListAgencia);
         clicar(botaoOkAgencia);
     }
-    public void salvarAtividade(){
 
+    public void salvarAtividade(){
         clicar(botaoSalvarAtividade);
 
     }
@@ -50,8 +50,8 @@ public class AtividadePjPage extends BasePage {
     public String pesquisarAtividade() {
         return obterTexto(tabelaDescricaoAtividade);
     }
-    public void excluirAtividade(){
 
+    public void excluirAtividade(){
         clicar(botaoExcluirAtividade);
         esperaAceitarAlert();
     }

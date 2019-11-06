@@ -1,14 +1,11 @@
 package pageObjects.login;
 
 import base.BasePage;
-import driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+
 
 public class LoginPage extends BasePage {
-
 
     private By textoUsuario = By.id("fieldUser");
     private By textoSenha = By.id("fieldPassword");
@@ -18,7 +15,6 @@ public class LoginPage extends BasePage {
 
 
     public LoginPage(WebDriver driver) {
-
         super(driver);
         realizaLoginPortal();
     }

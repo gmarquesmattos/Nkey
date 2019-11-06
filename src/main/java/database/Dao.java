@@ -12,8 +12,7 @@ import java.util.Properties;
 public class Dao {
 
     protected static final Logger LOGGER = LogManager.getLogger();
-    private ResultSet resultSet;
-    private Statement statement;
+
     private final String DRIVER_ORACLE = CommonUtils.retornarValorArquivoConfiguracao("oracle.driver");
     private final String TNS_ORACLE = CommonUtils.retornarValorArquivoConfiguracao("oracle.tns");
     private final String USER_ORACLE = CommonUtils.retornarValorArquivoConfiguracao("oracle.user");
@@ -21,6 +20,8 @@ public class Dao {
 
 
     public ArrayList<String> retornarDadosDb(String... parametrosConsulta) {
+        ResultSet resultSet;
+        Statement statement;
         Properties propriedades = new Properties();
         ArrayList<String> resultadoConsulta = new ArrayList<>();
         try {
