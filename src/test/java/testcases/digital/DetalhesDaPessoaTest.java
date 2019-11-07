@@ -1,6 +1,8 @@
 package testcases.digital;
 
 import base.BaseTest;
+import base.Retentativa;
+import org.testng.annotations.Test;
 import pageObjects.digital.RecomendaDadosBasicosPage;
 import pageObjects.pessoa.DetalheDaPessoaFisicaPage;
 
@@ -8,7 +10,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class DetalhesDaPessoaTest extends BaseTest {
 
-    //  @Test(dataProvider = "cpfDigital",retryAnalyzer = MyRetry.class)
+      @Test(dataProvider = "cpfDigital",retryAnalyzer = Retentativa.class)
     public void deveraRetornarMensagemDigitalDetalhePessoa(String cpfDigital ) {
         DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage();
         detalheDaPessoaFisicaPage.pesquisarPessoaFisica(cpfDigital);
@@ -19,7 +21,7 @@ public class DetalhesDaPessoaTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
     }
 
-    // @Test(dataProvider = "cpfNaoDigital",retryAnalyzer = MyRetry.class)
+     @Test(dataProvider = "cpfNaoDigital",retryAnalyzer = Retentativa.class)
     public void deveraRetornarNaoDigitalDetalhePessoa(String cpfNaoDigital ) {
         DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage();
         detalheDaPessoaFisicaPage.pesquisarPessoaFisica(cpfNaoDigital);

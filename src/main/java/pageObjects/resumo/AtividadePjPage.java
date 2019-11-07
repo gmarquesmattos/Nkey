@@ -58,7 +58,7 @@ public class AtividadePjPage extends BasePage {
     private void acessar() {
        HomePage homePage = new HomePage();
        homePage.acessarPessoaJuridica();
-       PessoaJuridicaPage pessoaJuridicaPage = new PessoaJuridicaPage("09514327000156");
+       PessoaJuridicaPage pessoaJuridicaPage = new PessoaJuridicaPage("19226515000132");
        pessoaJuridicaPage.acessarRazaoSocial();
 
     }
