@@ -39,6 +39,7 @@ public class ReportTest implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
+        LOGGER.info(iTestResult.getThrowable());
         reportPrintFail("");
     }
 

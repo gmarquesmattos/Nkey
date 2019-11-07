@@ -47,6 +47,15 @@ public abstract class BaseTest extends ReportTest {
         return new Object[][]{new Object[]{"09514327000156"}};
 
     }
+    @DataProvider(name = "cnpjSolucaoFinanceira")
+    public Object[][] cnpjSolucaoFinanceira() {
+        return new Object[][]{new Object[]{"24712637000179"}};
+    }
+
+    @DataProvider(name = "cpfSolucaoFinanceira")
+    public Object[][] cpfSolucaoFinanceira() {
+        return new Object[][]{new Object[]{"97452874820"}};
+    }
 
     @DataProvider(name = "cpfResumo")
     public Object[][] cpfResumo() {
