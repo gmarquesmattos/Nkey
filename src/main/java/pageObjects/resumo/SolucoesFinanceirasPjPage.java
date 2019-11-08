@@ -10,7 +10,6 @@ public class SolucoesFinanceirasPjPage extends BasePage {
     private By rotuloContaPrincipal = By.id("s_15_1_19_0");
 
     public SolucoesFinanceirasPjPage(String cnpj) {
-
         acessar(cnpj);
     }
 
@@ -19,7 +18,6 @@ public class SolucoesFinanceirasPjPage extends BasePage {
     }
 
     public String obterContaPrincipal() {
-
         return obterTexto(rotuloContaPrincipal).substring(1, 7);
     }
 
