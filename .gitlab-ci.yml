@@ -7,7 +7,7 @@ resumo:
   stage: Resumo
   when: always
   script:
-    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteResumo.xml -Denv=hom
+    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteResumo.xml -Denv=pipeline
   tags:
     - docker-images-cds
   after_script:
@@ -24,7 +24,7 @@ digital:
   stage: Digital
   when: always
   script:
-    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteDigital.xml -Denv=hom
+    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteDigital.xml -Denv=pipeline
   tags:
     - docker-images-cds
   after_script:

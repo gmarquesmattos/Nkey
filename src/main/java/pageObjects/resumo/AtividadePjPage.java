@@ -18,10 +18,16 @@ public class AtividadePjPage extends BasePage {
     private By botaoSalvarAtividade =By.cssSelector("button[title='Atividades:Salvar']");
     private By botaoExcluirAtividade =By.cssSelector("button[title='Atividades:Excluir']");
 
-    public AtividadePjPage() {
+    public AtividadePjPage(){
         acessar();
-        clicar(botaoIrParaAtividade);
+    }
 
+    public void pesquisarPessoaJuridica(String cnpj) {
+        new PessoaJuridicaPage(cnpj).acessarRazaoSocial();
+    }
+
+    public void acessarAtividade(){
+        clicar(botaoIrParaAtividade);
     }
 
     public void criarAtividade(){
@@ -43,7 +49,6 @@ public class AtividadePjPage extends BasePage {
 
     public void salvarAtividade(){
         clicar(botaoSalvarAtividade);
-
     }
 
     public String pesquisarAtividade() {
@@ -56,11 +61,7 @@ public class AtividadePjPage extends BasePage {
     }
 
     private void acessar() {
-       HomePage homePage = new HomePage();
-       homePage.acessarPessoaJuridica();
-       PessoaJuridicaPage pessoaJuridicaPage = new PessoaJuridicaPage("19226515000132");
-       pessoaJuridicaPage.acessarRazaoSocial();
-
+        new HomePage().acessarPessoaJuridica();
     }
 
 

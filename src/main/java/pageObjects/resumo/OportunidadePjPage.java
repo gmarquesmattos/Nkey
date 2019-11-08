@@ -21,7 +21,7 @@ public class OportunidadePjPage extends BasePage {
     private By botaoExcluirOportunidade = By.id("s_1_1_3_0_Ctrl");
 
     public OportunidadePjPage() {
-             acessar();
+        acessar();
     }
 
     public void pesquisarPessoaJuridica(String cnpj) {

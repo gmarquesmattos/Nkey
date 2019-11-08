@@ -18,7 +18,8 @@ public class AtendimentoPfPage extends BasePage {
     private By botaoExcluirAtendimento = By.id("s_1_1_5_0_Ctrl");
 
     public AtendimentoPfPage() {
-             acessar();
+        acessar();
+
     }
 
     public void pesquisarPessoaFisica(String cpf) {
@@ -28,6 +29,7 @@ public class AtendimentoPfPage extends BasePage {
     public void acessarAtendimento(){
         clicar(botaoIrParaAtendimento);
     }
+
     public void realizarNovoAtendimento() {
         clicar(botaoNovoAtendimento);
      }
