@@ -9,8 +9,8 @@ import pageObjects.resumo.SolucoesFinanceirasPjPage;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class SoluçoesFinanceirasPJTest extends BaseTest {
-    @Test(dataProvider = "cnpjSolucaoFinanceira", retryAnalyzer = Retentativa.class)
+public class SolucoesFinanceirasPJTest extends BaseTest {
+    @Test(dataProvider = "cnpjSolucaoFinanceiraCoop0718", retryAnalyzer = Retentativa.class)
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePJPage(String cnpj) {
         SolucoesFinanceirasPjPage solucoesFinanceirasPjPage = new SolucoesFinanceirasPjPage(cnpj);
         String contaPrincipalAssociado = solucoesFinanceirasPjPage.obterContaPrincipal();
