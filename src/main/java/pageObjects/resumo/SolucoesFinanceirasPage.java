@@ -26,6 +26,10 @@ public class SolucoesFinanceirasPage extends BasePage {
 		return obterTexto(rotuloContaPrincipal).substring(1, 7);
 	}
 
+	public String obterTipoContaPrincipal(){
+		return obterTexto(rotuloContaPrincipal).substring(9,17).toLowerCase();
+	}
+
 	private void acessar(){
 		HomePage homePage = new HomePage();
 		homePage.acessarPessoaFisica();

@@ -41,7 +41,7 @@ public class BasePage {
         return elemento.getText();
     }
 
-    public String obterValueElemento(By by) {
+    public String obterValorElemento(By by) {
         new Jquery();
         AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         return getDriver().findElement(by).getAttribute("value");

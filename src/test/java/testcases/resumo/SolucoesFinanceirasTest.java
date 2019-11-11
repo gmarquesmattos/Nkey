@@ -15,12 +15,15 @@ public class SolucoesFinanceirasTest extends BaseTest {
         SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage();
         solucoesFinanceirasPage.pesquisarPessoaFisica(cpf);
         String contaPrincipalAssociado = solucoesFinanceirasPage.obterContaPrincipal();
+        String tipoContaPrincipalAssociado = solucoesFinanceirasPage.obterTipoContaPrincipal();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
 
         ContaCorrentePage contaCorrentePFPage = new ContaCorrentePage();
         String contaAssociado = contaCorrentePFPage.obterNumeroConta();
+        String tipoContaAssociado = contaCorrentePFPage.obterTipoConta();
 
         assertEquals(contaPrincipalAssociado, contaAssociado);
+        assertEquals(tipoContaPrincipalAssociado,tipoContaAssociado);
     }
 
 }

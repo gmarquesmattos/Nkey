@@ -13,7 +13,7 @@ public class RendaEnviadaPage extends BasePage {
 
     public String obterTipo() {
 
-        return obterValueElemento(textoTipoRendaEnv);
+        return obterValorElemento(textoTipoRendaEnv);
     }
 
 }
