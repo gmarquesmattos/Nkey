@@ -1,8 +1,8 @@
 package servicos.geral;
 
-import utils.ParametroXML;
-import utils.Payload;
-import utils.PayloadBuilder;
+import utils.servicos.ParametroXML;
+import utils.servicos.Payload;
+import utils.servicos.PayloadBuilder;
 
 import static utils.CommonUtils.getProperty;
 

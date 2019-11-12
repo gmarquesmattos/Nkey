@@ -1,9 +1,9 @@
 package testcases.healthcheck;
 
-import custom.requests.CustomRestAssured;
-import geral.service.RestritivoService;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
+import servicos.custom.requests.CustomRestAssured;
+import servicos.geral.RestritivoService;
 
 public class RestritivoServiceHealthcheckTest extends RestritivoService {
     @Test

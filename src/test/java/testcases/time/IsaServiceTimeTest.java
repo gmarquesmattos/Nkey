@@ -1,9 +1,9 @@
 package testcases.time;
 
-import custom.requests.CustomRestAssured;
-import geral.service.IsaService;
 import org.hamcrest.Matchers;
 import org.junit.Test;
+import servicos.custom.requests.CustomRestAssured;
+import servicos.geral.IsaService;
 
 public class IsaServiceTimeTest extends IsaService {
 

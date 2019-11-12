@@ -5,8 +5,8 @@ import org.junit.Test;
 import servicos.custom.requests.CustomRestAssured;
 import servicos.geral.GiroService;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static servicos.custom.requests.XsdInClasspath.matchesXsdInClasspath;
 
-import static custom.requests.XsdInClasspath.matchesXsdInClasspath;
 public class GiroServiceContractTest extends GiroService {
 
     @Test

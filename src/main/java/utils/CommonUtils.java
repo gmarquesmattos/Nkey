@@ -1,5 +1,7 @@
 package utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,8 +12,35 @@ import java.util.Properties;
 
 public class CommonUtils {
 
+    private static final Logger LOGGER = LogManager.getLogger();
+
     private CommonUtils() {
 
+    }
+
+    /**
+     * Retorna o valor da propriedade contida no arquivo conf/config.properties
+     * @param propriedade uma propriedade existente no arquivo config/config.properties
+     * @return o valor da propriedade informada
+     */
+    public static String retornarValorArquivoConfiguracao(String propriedade) {
+        Properties properties;
+
+        try {
+            properties = new Properties();
+
+            String env = null == System.getProperty("env") ? "local" : System.getProperty("env");
+
+            String separadorArquivo = System.getProperty("file.separator");
+            ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+            Path configPath = Paths.get("conf" + separadorArquivo + env + separadorArquivo + "config.properties");
+
+            properties.load(classloader.getResourceAsStream(configPath.toString()));
+            return properties.getProperty(propriedade);
+        } catch (IOException | NullPointerException e) {
+            LOGGER.error("Propriedade " + propriedade + " não foi encontrada nos arquivos de configuração", e);
+        }
+        return null;
     }
 
     public static String getProperty(String propertyName) {
@@ -24,7 +53,7 @@ public class CommonUtils {
 
             String separadorArquivo = System.getProperty("file.separator");
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-            Path configPath = Paths.get("env" + separadorArquivo + env + separadorArquivo + "config.properties");
+            Path configPath = Paths.get("conf" + separadorArquivo + env + separadorArquivo + "config.properties");
 
             properties.load(classloader.getResourceAsStream(configPath.toString()));
 
@@ -35,23 +64,22 @@ public class CommonUtils {
 
         return null;
     }
-
     /**
-     * Obtém um arquivo do resource
-     * @param fileName Caminho do arquivo dentro do resources
-     * @return File
-     */
-    public static File getFileFromResources(String fileName) {
+         * Obtém um arquivo do resource
+         * @param fileName Caminho do arquivo dentro do resources
+         * @return File
+         */
+        public static File getFileFromResources (String fileName){
 
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
-        URL resource = classLoader.getResource(fileName);
+            URL resource = classLoader.getResource(fileName);
 
-        if (resource == null) {
-            throw new IllegalArgumentException("file is not found!");
-        } else {
-            return new File(resource.getFile());
+            if (resource == null) {
+                throw new IllegalArgumentException("file is not found!");
+            } else {
+                return new File(resource.getFile());
+            }
+
         }
-
     }
-}

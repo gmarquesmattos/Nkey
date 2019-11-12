@@ -1,9 +1,9 @@
 package testcases.healthcheck;
 
-import custom.requests.CustomRestAssured;
-import geral.service.IsaService;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
+import servicos.custom.requests.CustomRestAssured;
+import servicos.geral.IsaService;
 
 public class IsaServiceHealthcheckTest extends IsaService {
 

@@ -1,9 +1,10 @@
 package testcases.time;
 
-import custom.requests.CustomRestAssured;
-import geral.service.RestritivoService;
+
 import org.hamcrest.Matchers;
 import org.junit.Test;
+import servicos.custom.requests.CustomRestAssured;
+import servicos.geral.RestritivoService;
 
 public class RestritivoServiceTimeTest extends RestritivoService {
     @Test

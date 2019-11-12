@@ -1,9 +1,9 @@
 package testcases.time;
 
-import custom.requests.CustomRestAssured;
-import geral.service.GiroService;
 import org.hamcrest.Matchers;
 import org.junit.Test;
+import servicos.custom.requests.CustomRestAssured;
+import servicos.geral.GiroService;
 
 public class GiroServiceTimeTest extends GiroService {
 
