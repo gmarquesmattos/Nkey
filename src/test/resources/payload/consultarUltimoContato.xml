@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:giro="http://www.sicredi.com.br/osb-crm-giro/ws/v1/giro">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <giro:consultarUltimoContato>
+            <giro:inConsultarUltimoContato>
+                <giro:codCooperativa>#(codCooperativa)</giro:codCooperativa>
+                <giro:numDocumento>#(numDocumento)</giro:numDocumento>
+            </giro:inConsultarUltimoContato>
+        </giro:consultarUltimoContato>
+    </soapenv:Body>
+</soapenv:Envelope>
