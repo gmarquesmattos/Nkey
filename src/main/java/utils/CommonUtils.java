@@ -49,11 +49,11 @@ public class CommonUtils {
         try {
             properties = new Properties();
 
-            String env = null == System.getProperty("env") ? "dev" : System.getProperty("env");
+            String conf = null == System.getProperty("conf") ? "local" : System.getProperty("conf");
 
             String separadorArquivo = System.getProperty("file.separator");
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-            Path configPath = Paths.get("conf" + separadorArquivo + env + separadorArquivo + "config.properties");
+            Path configPath = Paths.get("conf" + separadorArquivo + conf + separadorArquivo + "config.properties");
 
             properties.load(classloader.getResourceAsStream(configPath.toString()));
 

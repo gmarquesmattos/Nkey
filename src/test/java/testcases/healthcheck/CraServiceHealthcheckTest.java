@@ -6,7 +6,6 @@ import servicos.custom.requests.CustomRestAssured;
 import servicos.geral.CraService;
 
 
-
 public class CraServiceHealthcheckTest  extends CraService {
     @Test
     public void testConsultarUltimoContatoStatus() {
