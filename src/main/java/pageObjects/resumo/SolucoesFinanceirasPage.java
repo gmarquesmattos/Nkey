@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
+import java.util.ArrayList;
+
 public class SolucoesFinanceirasPage extends BasePage {
 
 	private By linkSaldoContaPrincipal = By.id("s_2_1_32_0");
@@ -21,13 +23,12 @@ public class SolucoesFinanceirasPage extends BasePage {
 	public void clicarLinkSaldoContaPrincipal() {
 		clicar(linkSaldoContaPrincipal);
 	}
-	
-	public String obterContaPrincipal() {
-		return obterTexto(rotuloContaPrincipal).substring(1, 7);
-	}
 
-	public String obterTipoContaPrincipal(){
-		return obterTexto(rotuloContaPrincipal).substring(9,17).toLowerCase();
+	public ArrayList<String> obterDadosContaPrincipalAssociado(){
+		ArrayList<String>dadosContaPrincipalAssociado = new ArrayList<>();
+		dadosContaPrincipalAssociado.add(obterTexto(rotuloContaPrincipal).substring(1, 7));
+		dadosContaPrincipalAssociado.add(obterTexto(rotuloContaPrincipal).substring(9,17).toLowerCase());
+		return dadosContaPrincipalAssociado;
 	}
 
 	private void acessar(){

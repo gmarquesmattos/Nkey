@@ -4,6 +4,7 @@ import base.BasePage;
 import org.openqa.selenium.By;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaJuridicaPage;
+import java.util.ArrayList;
 
 
 public class SolucoesFinanceirasPjPage extends BasePage {
@@ -22,12 +23,11 @@ public class SolucoesFinanceirasPjPage extends BasePage {
         clicar(linkSaldoContaPrincipal);
     }
 
-    public String obterContaPrincipal() {
-        return obterTexto(rotuloContaPrincipal).substring(1, 7);
-    }
-
-    public String obterTipoContaPrincipal(){
-        return obterTexto(rotuloContaPrincipal).substring(9,17).toLowerCase();
+    public ArrayList<String> obterDadosContaPrincipalAssociado(){
+        ArrayList<String>dadosContaPrincipalAssociado = new ArrayList<>();
+        dadosContaPrincipalAssociado.add(obterTexto(rotuloContaPrincipal).substring(1, 7));
+        dadosContaPrincipalAssociado.add(obterTexto(rotuloContaPrincipal).substring(9,17).toLowerCase());
+        return dadosContaPrincipalAssociado;
     }
 
     private void acessar() {
