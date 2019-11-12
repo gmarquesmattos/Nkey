@@ -30,7 +30,7 @@ public class AtendimentoPjPage extends BasePage {
         clicar(botaoIrParaAtendimentoPj);
     }
 
-    public void criarNovoAtendimento() {
+    public void criarNovoAtendimento(){
         clicar(botaoNovoAtendimentoPj);
     }
 

@@ -26,7 +26,7 @@ public class AtividadePfPage extends BasePage {
         new PessoaFisicaPage(cpf).acessarNomeCompleto();
     }
 
-    public void acessarAtividade() {
+    public void acessarAtividade(){
         clicar(botaoIrParaAtividade);
     }
 

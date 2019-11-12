@@ -7,7 +7,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+
 import java.lang.reflect.Method;
+
 import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 
 
@@ -23,12 +25,10 @@ public abstract class BaseTest extends ReportTest {
         DriverFactory.criarInstancia(browser);
         DriverManager.getDriver().get(URL_BASE);
         DriverManager.getDriver().manage().window().maximize();
-
-
     }
 
     @AfterMethod(alwaysRun = true)
-    public void postCondition() {
+    public void aposTeste() {
         DriverManager.quit();
     }
 
@@ -42,16 +42,41 @@ public abstract class BaseTest extends ReportTest {
         return new Object[][]{new Object[]{"03334856020"}};
     }
 
-    @DataProvider(name = "cnpjDigital")
-    public Object[][] cnpjDigital() {
-        return new Object[][]{new Object[]{"09514327000156"}};
+    @DataProvider(name = "cnpjDigitalCoop0718")
+    public Object[][] cnpjDigitalCoop0718() {
+        return new Object[][]{new Object[]{"24712637000179"}};
 
+    }
+
+    @DataProvider(name = "cnpjDigitalCoop0101")
+    public Object[][] cnpjDigitalCopp0101() {
+        return new Object[][]{new Object[]{"30659721000179"}};
+
+    }
+
+
+    @DataProvider(name = "cnpjSolucaoFinanceiraCoop0101")
+    public Object[][] cnpjSolucaoFinanceiraCoop0101() {
+        return new Object[][]{new Object[]{"23848798000121"}};
+    }
+
+    @DataProvider(name = "cnpjSolucaoFinanceiraCoop0718")
+    public Object[][] cnpjSolucaoFinanceiraCopp0718() {
+        return new Object[][]{new Object[]{"24712637000179"}};
+    }
+
+    @DataProvider(name = "cpfSolucaoFinanceiraCoop0718")
+    public Object[][] cpfSolucaoFinanceiraCoop0718() {
+        return new Object[][]{new Object[]{"08150967982"}};
+    }
+
+    @DataProvider(name = "cpfSolucaoFinanceiraCoop0101")
+    public Object[][] cpfCoop0101() {
+        return new Object[][]{new Object[]{"01779085052"}};
     }
 
     @DataProvider(name = "cpfResumo")
     public Object[][] cpfResumo() {
         return new Object[][]{new Object[]{"22661551808"}};
     }
-
-
 }

@@ -1,6 +1,8 @@
 package testcases.retaguarda.detalhamento;
 
 import base.BaseTest;
+import base.Retentativa;
+import org.testng.annotations.Test;
 import pageObjects.retaguarda.alterarRenda.AlterarRendaPage;
 import pageObjects.retaguarda.detalhamento.DetalhamentoPage;
 import pageObjects.retaguarda.rendaEnviada.RendaEnviadaPage;
@@ -9,7 +11,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class DetalhamentoTest extends BaseTest {
 
-    // @Test(retryAnalyzer = MyRetry.class)
+     @Test(retryAnalyzer = Retentativa.class)
     public void deveriaCriarNovoDetalhamento() {
         int valor = 200;
         new DetalhamentoPage()
@@ -22,7 +24,7 @@ public class DetalhamentoTest extends BaseTest {
                 .excluirRenda();
     }
 
-    //@Test(retryAnalyzer = MyRetry.class)
+    @Test(retryAnalyzer = Retentativa.class)
     public void deveriaPesquisarDetalhamento() {
         int valor = 200;
         new DetalhamentoPage()
@@ -36,7 +38,7 @@ public class DetalhamentoTest extends BaseTest {
                 .excluirRenda();
     }
 
-    // @Test(retryAnalyzer = MyRetry.class)
+     @Test(retryAnalyzer = Retentativa.class)
     public void naoDeveSalvarSemDetalhamento() {
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage()
                 .adicionarDetalhamento().salvarDetalhamento();
@@ -48,7 +50,7 @@ public class DetalhamentoTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
     }
 
-    // @Test(retryAnalyzer = MyRetry.class)
+     @Test(retryAnalyzer = Retentativa.class)
     public void naoDeveSalvarComTiposDuplicado() {
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage();
         detalhamentoPage.novoDetalhamento();
@@ -65,7 +67,7 @@ public class DetalhamentoTest extends BaseTest {
 
     }
 
-    //@Test(retryAnalyzer = MyRetry.class)
+    @Test(retryAnalyzer = Retentativa.class)
     public void naoDeveSalvarComTiposDuplicadoBotaoDetalhamentoNovo() {
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage();
         detalhamentoPage.novoDetalhamento();
@@ -81,7 +83,7 @@ public class DetalhamentoTest extends BaseTest {
         new AlterarRendaPage().excluirRenda();
     }
 
-    //@Test(retryAnalyzer = MyRetry.class)
+    @Test(retryAnalyzer = Retentativa.class)
     public void naoDeveSalvarValorIgualZero() {
         int valor = 00;
         DetalhamentoPage detalhamentoPage = new DetalhamentoPage();
