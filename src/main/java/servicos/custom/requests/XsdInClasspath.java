@@ -43,6 +43,9 @@ public class XsdInClasspath extends TypeSafeMatcher<String> {
                 .replaceAll("(</)(\\w+:)(.*?>)", "$1$3")
                 .replaceAll(" >", ">").replaceAll(" />", "/>");
 
+            xmlResponse = xmlResponse.replace("\n", "");
+            xmlResponse = xmlResponse.replace(" ", "");
+
             Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(new StringReader(xmlResponse)));
 
             XPath xPath = XPathFactory.newInstance().newXPath();
@@ -56,6 +59,7 @@ public class XsdInClasspath extends TypeSafeMatcher<String> {
 
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
