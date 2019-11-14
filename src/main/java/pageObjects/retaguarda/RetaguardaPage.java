@@ -2,7 +2,6 @@ package pageObjects.retaguarda;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 
 
@@ -20,19 +19,16 @@ public class RetaguardaPage extends BasePage {
 
     }
 
-    public RetaguardaPage acessarCadastroCanais() {
+    public void acessarCadastroCanais() {
         HomePage homePO = new HomePage();
         homePO.selecionarMenuHome();
         clicar(seletorVisibilidade);
         clicar(opcaoTodosMeusAtendimentos);
-        return this;
-    }
+       }
 
-    public RetaguardaPage entrarRetarguarda() {
+    public void entrarRetarguarda() {
         clicar(tabelaCategoria);
-        return this;
-
-    }
+        }
 
     public void pesquisarRetaguarda() {
         clicar(botaoPesquisarRetaguarda);
