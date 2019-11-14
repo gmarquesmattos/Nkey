@@ -1,7 +1,8 @@
 package testcases.servicos.contract;
 
-import org.junit.Test;
+
 import org.apache.http.HttpStatus;
+import org.testng.annotations.Test;
 import servicos.custom.requests.CustomRestAssured;
 import servicos.geral.PrincipalidadeService;
 

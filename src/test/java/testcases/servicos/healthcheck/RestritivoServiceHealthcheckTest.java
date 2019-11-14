@@ -1,29 +1,29 @@
-package testcases.time;
+package testcases.servicos.healthcheck;
 
-
-import org.hamcrest.Matchers;
-import org.junit.Test;
+import org.apache.http.HttpStatus;
+import org.testng.annotations.Test;
 import servicos.custom.requests.CustomRestAssured;
 import servicos.geral.RestritivoService;
 
-public class RestritivoServiceTimeTest extends RestritivoService {
-    @Test
-    public void testConsultarSituacaoCadastralPJTime() {
+public class RestritivoServiceHealthcheckTest extends RestritivoService {
+
+    @Test(timeOut = 5000)
+    public void testConsultarSituacaoCadastralPJStatus() {
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_SITUACAO_CADASTRAL)
                 .body(this.getConsultarSituacaoCadastralPJPayload("92403112000101", "Tela de Relacionamento", "0116", "false", "karine_bonjour", "PLAINT"))
-            .when()
+                .when()
                 .post()
-            .then()
-                .time(Matchers.lessThan(TIME_LIMIT));
+                .then()
+                .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test
-    public void testConsultarSituacaoCadastralPFTime() {
+    @Test(timeOut = 5000)
+    public void testConsultarSituacaoCadastralPFStatus() {
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_SITUACAO_CADASTRAL)
                 .body(this.getConsultarSituacaoCadastralPFPayload("41684788072", "Tela de Relacionamento", "0116", "false", "karine_bonjour", "PLAINT"))
-            .when()
+                .when()
                 .post()
-            .then()
-                .time(Matchers.lessThan(TIME_LIMIT));
+                .then()
+                .statusCode(HttpStatus.SC_OK);
     }
 }

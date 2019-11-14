@@ -1,20 +1,19 @@
-package testcases.time;
+package testcases.servicos.healthcheck;
 
-
-import org.hamcrest.Matchers;
-import org.junit.Test;
+import org.apache.http.HttpStatus;
+import org.testng.annotations.Test;
 import servicos.custom.requests.CustomRestAssured;
 import servicos.geral.CraService;
 
-public class CraServiceTimeTest extends CraService {
 
-    @Test
-    public void testConsultarUltimoContatoTime() {
+public class CraServiceHealthcheckTest  extends CraService {
+    @Test(timeOut = 5000)
+    public void testConsultarUltimoContatoStatus() {
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_CRA)
                 .body(this.getConsultarCraPayload("0230", "99227401091"))
             .when()
                 .post()
             .then()
-                .time(Matchers.lessThan(TIME_LIMIT));
+                .statusCode(HttpStatus.SC_OK);
     }
 }

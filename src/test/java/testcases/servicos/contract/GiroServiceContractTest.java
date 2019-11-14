@@ -1,7 +1,7 @@
 package testcases.servicos.contract;
 
 import org.apache.http.HttpStatus;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import servicos.custom.requests.CustomRestAssured;
 import servicos.geral.GiroService;
 import static org.hamcrest.MatcherAssert.assertThat;

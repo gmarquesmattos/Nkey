@@ -1,19 +1,20 @@
-package testcases.healthcheck;
+package testcases.servicos.healthcheck;
 
 import org.apache.http.HttpStatus;
-import org.junit.Test;
+
+import org.testng.annotations.Test;
 import servicos.custom.requests.CustomRestAssured;
 import servicos.geral.GiroService;
 
 public class GiroServiceHealthcheckTest extends GiroService {
 
-    @Test
+    @Test(timeOut = 5000)
     public void testConsultarUltimoContatoStatus() {
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_ULTIMO_CONTATO)
                 .body(this.getConsultarUltimoContatoPayload("0179", "87060331000103"))
-            .when()
+                .when()
                 .post()
-            .then()
+                .then()
                 .statusCode(HttpStatus.SC_OK);
     }
 }
