@@ -1,6 +1,5 @@
 package servicos.geral;
 
-import org.testng.annotations.DataProvider;
 import utils.servicos.ParametroXML;
 import utils.servicos.Payload;
 import utils.servicos.PayloadBuilder;
@@ -10,7 +9,6 @@ import static utils.CommonUtils.getProperty;
 public class PrincipalidadeService {
 
     protected static final String URL_SERVICE = getProperty("service.principalidade");
-    protected static final Long TIME_LIMIT = 5000L;
     protected static final String ACTION_CONSULTAR_PRINCIPALIDADE = "consultarPrincipalidade";
 
 

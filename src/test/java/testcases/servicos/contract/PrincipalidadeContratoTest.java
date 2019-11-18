@@ -14,7 +14,7 @@ public class PrincipalidadeContratoTest extends PrincipalidadeService {
     @Test
     public void deveCompararContrato() throws Exception {
         String response = CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_PRINCIPALIDADE)
-                .body(this.consultarPrincipalidade("0903", "58321942172", "1"))
+              //  .body(this.consultarPrincipalidade("0903", "58321942172", "1"))
                 .when()
                 .post()
                 .then()
