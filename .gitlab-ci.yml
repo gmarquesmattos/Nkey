@@ -1,8 +1,8 @@
 stages:
-  - Resumo
-  - Digital
   - healthcheck
   - contract
+  - Resumo
+  - Digital
 
 healthcheck:
   stage: healthcheck
