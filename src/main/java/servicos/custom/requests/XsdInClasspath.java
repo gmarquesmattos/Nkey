@@ -66,7 +66,7 @@ public class XsdInClasspath extends TypeSafeMatcher<String> {
 
     @Override
     public void describeTo(Description description) {
-
+        description.appendText("Esperava que o XML (sem as tags Envelope, Header e Body) estivesse conforme designado no XSD " + xsdFile);
     }
 
     /**
