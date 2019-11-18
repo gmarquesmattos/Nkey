@@ -8,7 +8,7 @@ import servicos.geral.CraService;
 
 public class CraServiceHealthcheckTest  extends CraService {
     @Test(timeOut = 5000)
-    public void testConsultarUltimoContatoStatus() {
+    public void deveConsultarUltimoContatoStatus() {
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_CRA)
                 .body(this.getConsultarCraPayload("0230", "99227401091"))
             .when()
