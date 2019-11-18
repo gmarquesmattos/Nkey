@@ -20,12 +20,7 @@ public class PrincipalidadeContratoTest extends PrincipalidadeService {
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .extract().asString();
-      //  assertThat(response, matchesXsdInClasspath("consultaPrincipalidadeContrato.xsd"));
 
-        //   String var  ="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Header xmlns:prin=\"http://sicredi.com.br/crm/ws/v1/principalidade\"/><soapenv:Body xmlns:prin=\"http://sicredi.com.br/crm/ws/v1/principalidade\">\n        <princip:consultarPrincipalidadeResponse xmlns:princip=\"http://sicredi.com.br/crm/ws/v1/principalidade\"><princip:outConsultarPrincipalidade><princip:principalidades><princip:principalidade><princip:score>25.28</princip:score><princip:faixa_principalidade>Baixa</princip:faixa_principalidade><princip:i_pred>0</princip:i_pred><princip:datPeriodo>08/2019</princip:datPeriodo></princip:principalidade></princip:principalidades></princip:outConsultarPrincipalidade></princip:consultarPrincipalidadeResponse>\n    </soapenv:Body></soapenv:Envelope>";
-       // assertEquals(response, var);
-
-
+        assertThat(response, matchesXsdInClasspath("schema/consultaPrincipalidadeContrato.xsd"));
     }
-
 }

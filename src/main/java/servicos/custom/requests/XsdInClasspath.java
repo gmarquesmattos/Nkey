@@ -41,10 +41,9 @@ public class XsdInClasspath extends TypeSafeMatcher<String> {
                 .replaceAll("xmlns.*?(\"|\').*?(\"|\')", "")
                 .replaceAll("(<)(\\w+:)(.*?>)", "$1$3")
                 .replaceAll("(</)(\\w+:)(.*?>)", "$1$3")
-                .replaceAll(" >", ">").replaceAll(" />", "/>");
-
-            xmlResponse = xmlResponse.replace("\n", "");
-            xmlResponse = xmlResponse.replace(" ", "");
+                .replaceAll(" >", ">").replaceAll(" />", "/>")
+                .replaceAll("\n", "")
+                .replaceAll(">\\s*<", "><");
 
             Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(new StringReader(xmlResponse)));
 
@@ -52,9 +51,10 @@ public class XsdInClasspath extends TypeSafeMatcher<String> {
             Node result = (Node)xPath.evaluate("/Envelope/Body/child::node()", doc, XPathConstants.NODE);
 
             SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema = schemaFactory.newSchema(CommonUtils.getFileFromResources("schema/consultarUltimoContrato.xsd"));
+            Schema schema = schemaFactory.newSchema(CommonUtils.getFileFromResources(xsdFile));
 
             Validator validator = schema.newValidator();
+            System.out.println(nodeToString(result));
             validator.validate(new StreamSource(new StringReader(nodeToString(result))));
 
             return true;

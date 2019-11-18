@@ -19,6 +19,6 @@ public class GiroServiceContractTest extends GiroService {
             .statusCode(HttpStatus.SC_OK)
             .extract().asString();
 
-        assertThat(response, matchesXsdInClasspath("consultarUltimoContrato.xsd"));
+        assertThat(response, matchesXsdInClasspath("schema/consultarUltimoContrato.xsd"));
     }
 }
