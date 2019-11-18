@@ -9,7 +9,7 @@ import servicos.geral.GiroService;
 public class GiroServiceHealthcheckTest extends GiroService {
 
     @Test(timeOut = 5000)
-    public void testConsultarUltimoContatoStatus() {
+    public void deveConsultarUltimoContatoStatus() {
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_ULTIMO_CONTATO)
                 .body(this.getConsultarUltimoContatoPayload("0179", "87060331000103"))
                 .when()

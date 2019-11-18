@@ -8,7 +8,7 @@ import servicos.geral.PrincipalidadeService;
 public class PrincipalidadeServiceHealthcheckTest extends PrincipalidadeService {
 
     @Test(timeOut = 5000)
-    public void deveVerificarStatusDoServico(){
+    public void deveConsultarUltimoContatoStatus(){
 
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_PRINCIPALIDADE)
                 .body(this.consultarPrincipalidade("0903", "58321942172", "1"))
@@ -17,5 +17,4 @@ public class PrincipalidadeServiceHealthcheckTest extends PrincipalidadeService 
                 .then()
                 .statusCode(HttpStatus.SC_OK);
     }
-
 }

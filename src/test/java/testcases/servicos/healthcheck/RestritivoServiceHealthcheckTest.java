@@ -8,7 +8,7 @@ import servicos.geral.RestritivoService;
 public class RestritivoServiceHealthcheckTest extends RestritivoService {
 
     @Test(timeOut = 5000)
-    public void testConsultarSituacaoCadastralPJStatus() {
+    public void deveConsultarSituacaoCadastralPJStatus() {
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_SITUACAO_CADASTRAL)
                 .body(this.getConsultarSituacaoCadastralPJPayload("92403112000101", "Tela de Relacionamento", "0116", "false", "karine_bonjour", "PLAINT"))
                 .when()
@@ -18,7 +18,7 @@ public class RestritivoServiceHealthcheckTest extends RestritivoService {
     }
 
     @Test(timeOut = 5000)
-    public void testConsultarSituacaoCadastralPFStatus() {
+    public void deveConsultarSituacaoCadastralPFStatus() {
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_SITUACAO_CADASTRAL)
                 .body(this.getConsultarSituacaoCadastralPFPayload("41684788072", "Tela de Relacionamento", "0116", "false", "karine_bonjour", "PLAINT"))
                 .when()
