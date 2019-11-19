@@ -43,7 +43,7 @@ public class OportunidadePjPage extends BasePage {
 
     public void preencherDescricao() {
         clicar(tabelaDescricaoOportunidade);
-        escrever(textoDescricaoOportunidade, "Nova Oportunidade Automacao PJ");
+        escrever(textoDescricaoOportunidade, "[TESTE]-Nova Oportunidade Automacao PJ");
     }
 
     public void preencherGrupoProduto() {

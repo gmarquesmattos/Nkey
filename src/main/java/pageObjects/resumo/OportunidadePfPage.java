@@ -44,7 +44,7 @@ public class OportunidadePfPage extends BasePage {
 
     public void preencherDescricao() {
         clicar(tabelaDescricaoOportunidade);
-        escrever(textoDescricao, "Nova oportunidade Automacao");
+        escrever(textoDescricao, "[TESTE]-Nova oportunidade Automacao");
     }
 
     public void preencherGrupoProduto() {

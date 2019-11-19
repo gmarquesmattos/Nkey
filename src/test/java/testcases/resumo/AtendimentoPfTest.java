@@ -10,20 +10,22 @@ import static org.testng.AssertJUnit.assertEquals;
 public class AtendimentoPfTest extends BaseTest {
 
 
-    @Test(retryAnalyzer = Retentativa.class,dataProvider = "cpfSolucaoFinanceiraCoop0718")
-    public void deveCriarAtendimentoPf(String cpf) {
+    @Test(retryAnalyzer = Retentativa.class)
+    public void deveCriarAtendimentoPf() {
         AtendimentoPfPage atendimentoPage = new AtendimentoPfPage();
-        atendimentoPage.pesquisarPessoaFisica(cpf);
+        atendimentoPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
         atendimentoPage.acessarAtendimento();
         atendimentoPage.realizarNovoAtendimento();
         atendimentoPage.escreverDescricaoAtendimento();
         atendimentoPage.selecionarAgenciaAtendimento();
         atendimentoPage.salvarAtendimento();
-        String textoDescricaoAtendimentoTela = atendimentoPage.pesquisarAtendimento();
-        String descricaoEsperada = "Novo Atendimento Automacao";
+        String textoDescricaoAtendimentoTela = atendimentoPage.retornarTextoDescricaoAtendimento();
+        String descricaoEsperada = "[TESTE]-Novo Atendimento Automacao";
 
         assertEquals(descricaoEsperada, textoDescricaoAtendimentoTela);
 
+        atendimentoPage.pesquisarAtendimento();
+        atendimentoPage.selecionarResponsavelAtendimento();
         atendimentoPage.excluirAtendimento();
     }
 

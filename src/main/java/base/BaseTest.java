@@ -17,6 +17,9 @@ public abstract class BaseTest extends ReportTest {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
+    public static final String CNPJ_DIGITAL_0718 = retornarValorArquivoConfiguracao("cnpj.digital.0718");
+    public  static  final String CPF_SOLUCOES_0718 =retornarValorArquivoConfiguracao("cpf.solucoes.0718");
+
 
     @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
@@ -63,10 +66,6 @@ public abstract class BaseTest extends ReportTest {
         return new Object[][]{new Object[]{"24712637000179"}};
     }
 
-    @DataProvider(name = "cpfSolucaoFinanceiraCoop0718")
-    public Object[][] cpfSolucaoFinanceiraCoop0718() {
-        return new Object[][]{new Object[]{"08150967982"}};
-    }
 
     @DataProvider(name = "cpfSolucaoFinanceiraCoop0101")
     public Object[][] cpfCoop0101() {

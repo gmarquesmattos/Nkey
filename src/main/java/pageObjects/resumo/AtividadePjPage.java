@@ -36,7 +36,7 @@ public class AtividadePjPage extends BasePage {
 
     public void escreverAtividade() {
        clicar(tabelaDescricaoAtividade);
-       escrever(textoDescricaoAtividade,"Nova Atividade Automacao PJ");
+       escrever(textoDescricaoAtividade,"[TESTE]-Nova Atividade Automacao PJ");
 
     }
 

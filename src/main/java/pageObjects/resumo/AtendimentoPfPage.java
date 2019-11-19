@@ -15,11 +15,13 @@ public class AtendimentoPfPage extends BasePage {
     private By botaoOk = By.id("s_3_1_80_0_Ctrl");
     private By botaoSalvarAtendimento = By.id("s_1_1_24_0_Ctrl");
     private By tabelaDescricaoAtendimento = By.id("1_s_1_l_Description");
+    private By botaoPesquisarAtendimento = By.id("s_1_1_10_0_Ctrl");
+    private By tabelaDescricaoResponsavel = By.id("1_s_1_l_Owner");
+    private By textoDescricaoResponsavel = By.id("1_Owner");
     private By botaoExcluirAtendimento = By.id("s_1_1_5_0_Ctrl");
 
     public AtendimentoPfPage() {
         acessar();
-
     }
 
     public void pesquisarPessoaFisica(String cpf) {
@@ -34,13 +36,23 @@ public class AtendimentoPfPage extends BasePage {
         clicar(botaoNovoAtendimento);
      }
 
-    public String pesquisarAtendimento() {
+    public String retornarTextoDescricaoAtendimento() {
         return obterTexto(tabelaDescricaoAtendimento);
+    }
+
+    public void pesquisarAtendimento(){
+        clicar(botaoPesquisarAtendimento);
+    }
+
+    public void selecionarResponsavelAtendimento(){
+        clicar(tabelaDescricaoResponsavel);
+        escrever(textoDescricaoResponsavel,"KARINE_BONJOUR");
+        entrar();
     }
 
     public void escreverDescricaoAtendimento() {
         clicar(tabelaDescricaoAtendimento);
-        escrever(textoDescricaoAtendimento, "Novo Atendimento Automacao");
+        escrever(textoDescricaoAtendimento, "[TESTE]-Novo Atendimento Automacao");
     }
 
     public void selecionarAgenciaAtendimento() {

@@ -19,7 +19,7 @@ public class OportunidadePfTest extends BaseTest {
         oportunidadePage.preencherGrupoProduto();
         oportunidadePage.salvarOportunidade();
         String textoDescricaoAtendimentoTela = oportunidadePage.pesquisarTextoDescricaoOportunidade();
-        String descricaoEsperada = "Nova oportunidade Automacao";
+        String descricaoEsperada = "[TESTE]-Nova oportunidade Automacao";
 
         assertEquals(descricaoEsperada, textoDescricaoAtendimentoTela);
 

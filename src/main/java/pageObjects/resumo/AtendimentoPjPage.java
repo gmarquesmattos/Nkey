@@ -35,7 +35,7 @@ public class AtendimentoPjPage extends BasePage {
 
     public void escreverDescricaoAtendimento() {
         clicar(tabelaDescricaoAtendimentoPj);
-        escrever(textoDescricaoAtendimentoPj, "Novo Atendimento Automacao PJ");
+        escrever(textoDescricaoAtendimentoPj, "[TESTE]-Novo Atendimento Automacao PJ");
     }
 
     public void selecionarAgenciaAtendimento() {

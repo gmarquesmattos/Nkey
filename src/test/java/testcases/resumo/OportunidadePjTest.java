@@ -21,7 +21,7 @@ public class OportunidadePjTest extends BaseTest {
         oportunidadePjPage.salvarOportunidade();
         String textoDescricaoAtendimentoPj = oportunidadePjPage.pesquisarAtendimentoPj();
 
-        assertEquals("Nova Oportunidade Automacao PJ", textoDescricaoAtendimentoPj);
+        assertEquals("[TESTE]-Nova Oportunidade Automacao PJ", textoDescricaoAtendimentoPj);
 
         oportunidadePjPage.excluirOportunidadePj();
 

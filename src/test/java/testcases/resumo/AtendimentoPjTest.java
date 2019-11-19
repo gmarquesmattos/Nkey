@@ -20,7 +20,7 @@ public class AtendimentoPjTest extends BaseTest {
         atendimentoPjPage.salvarAtendimento();
         String textoDescricaoAtendimentoPj = atendimentoPjPage.pesquisarAtendimentoPj();
 
-        assertEquals("Novo Atendimento Automacao PJ", textoDescricaoAtendimentoPj);
+        assertEquals("[TESTE]-Novo Atendimento Automacao PJ", textoDescricaoAtendimentoPj);
 
         atendimentoPjPage.excluirAtedimentoPj();
     }

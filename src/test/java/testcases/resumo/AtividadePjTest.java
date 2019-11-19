@@ -21,7 +21,7 @@ public class AtividadePjTest extends BaseTest {
       atividadePjPage.salvarAtividade();
 
       String textoDescricaoAtividadeTela = atividadePjPage.pesquisarAtividade();
-      String descricaoEsperada = "Nova Atividade Automacao PJ";
+      String descricaoEsperada = "[TESTE]-Nova Atividade Automacao PJ";
 
       assertEquals(descricaoEsperada,textoDescricaoAtividadeTela);
 
