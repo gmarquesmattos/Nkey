@@ -4,14 +4,15 @@ import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.pessoa.SolucoesFinanceirasPage;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 import static org.testng.AssertJUnit.assertEquals;
 
 
 public class AtualizarSaldaContaPoupancaTest extends BaseTest {
-    private LocalDate localDate = LocalDate.now();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
 
     @Test(retryAnalyzer = Retentativa.class, dataProvider = "numeroSolucao")
     public void deveCompararDataAtualComDataAtualizacaoSaldo(String numeroSolucao) {
@@ -22,10 +23,13 @@ public class AtualizarSaldaContaPoupancaTest extends BaseTest {
         solucoesFinanceirasPage.clicarBotaoIr();
         solucoesFinanceirasPage.acessarNumerodaSolucao();
         solucoesFinanceirasPage.clicarBotaoAtualizarSaldo();
-        solucoesFinanceirasPage.obterDataAtualizacaoSaldo();
 
-        assertEquals(solucoesFinanceirasPage.obterDataAtualizacaoSaldo(),localDate.format(formatter));
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
+        String dataAtualizacao = solucoesFinanceirasPage.obterDataAtualizacaoSaldo();
+        String dataAtual = localDate.format(formatter);
+        assertEquals(dataAtualizacao, dataAtual);
 
 
     }
