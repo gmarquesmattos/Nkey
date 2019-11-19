@@ -80,5 +80,14 @@ public abstract class BaseTest extends ReportTest {
         return new Object[][]{new Object[]{"22661551808"}};
     }
 
- }
+
+    @DataProvider(name = "numeroSolucao")
+    public Object[][] numeroSolucao() {
+        return new Object[][]{new Object[]{"839228"}};
+
+    }
+
+
+
+}
 

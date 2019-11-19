@@ -4,7 +4,7 @@ import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.pessoa.ContaCorrentePage;
-import pageObjects.resumo.SolucoesFinanceirasPage;
+import pageObjects.resumo.SolucoesFinanceirasTelaRelacionamentoPage;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class SolucoesFinanceirasTest extends BaseTest {
@@ -12,7 +12,7 @@ public class SolucoesFinanceirasTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class, dataProvider = "cpfSolucaoFinanceiraCoop0718")
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePage(String cpf) {
-        SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage();
+        SolucoesFinanceirasTelaRelacionamentoPage solucoesFinanceirasPage = new SolucoesFinanceirasTelaRelacionamentoPage();
         solucoesFinanceirasPage.pesquisarPessoaFisica(cpf);
         String contaPrincipalAssociado = solucoesFinanceirasPage.obterContaPrincipal();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();

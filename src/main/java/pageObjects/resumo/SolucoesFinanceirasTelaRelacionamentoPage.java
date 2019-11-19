@@ -5,12 +5,12 @@ import org.openqa.selenium.By;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-public class SolucoesFinanceirasPage extends BasePage {
+public class SolucoesFinanceirasTelaRelacionamentoPage extends BasePage {
 
 	private By linkSaldoContaPrincipal = By.id("s_2_1_32_0");
 	private By rotuloContaPrincipal = By.id("s_2_1_12_0");
 
-	public SolucoesFinanceirasPage() {
+	public SolucoesFinanceirasTelaRelacionamentoPage() {
 		acessar();
 	}
 
