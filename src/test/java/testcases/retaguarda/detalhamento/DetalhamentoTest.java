@@ -12,7 +12,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class DetalhamentoTest extends BaseTest {
 
      @Test(retryAnalyzer = Retentativa.class)
-    public void deveriaCriarNovoDetalhamento() {
+    public void deveCriarNovoDetalhamento() {
         int valor = 200;
         new DetalhamentoPage()
                 .novoDetalhamento()
@@ -25,7 +25,7 @@ public class DetalhamentoTest extends BaseTest {
     }
 
     @Test(retryAnalyzer = Retentativa.class)
-    public void deveriaPesquisarDetalhamento() {
+    public void devePesquisarDetalhamento() {
         int valor = 200;
         new DetalhamentoPage()
                 .novoDetalhamento()

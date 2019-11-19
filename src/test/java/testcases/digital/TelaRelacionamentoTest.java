@@ -10,7 +10,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class TelaRelacionamentoTest extends BaseTest {
 
     @Test(dataProvider = "cpfDigital",retryAnalyzer = Retentativa.class)
-    public void deveraCompararMensagemPessoaDigital(String cpfDigital) {
+    public void deveCompararMensagemPessoaDigital(String cpfDigital) {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfDigital);
         String textoObtido = telaDeRelacionamentoPage.indicativoPfDigital();
@@ -21,7 +21,7 @@ public class TelaRelacionamentoTest extends BaseTest {
     }
 
     @Test(dataProvider = "cpfNaoDigital",retryAnalyzer = Retentativa.class)
-    public void deveraCompararMensagemPessoaNaoDigital(String cpfNaoDigital) {
+    public void deveCompararMensagemPessoaNaoDigital(String cpfNaoDigital) {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfNaoDigital);
         String textoObtido = telaDeRelacionamentoPage.indicativoPfDigital();
@@ -31,7 +31,7 @@ public class TelaRelacionamentoTest extends BaseTest {
 
     }
     @Test(dataProvider = "cpfDigital",retryAnalyzer = Retentativa.class)
-    public void deveraRetornarMensagemPessoaDigitalTelaRelacionamento(String cpfDigital) {
+    public void deveRetornarMensagemPessoaDigitalTelaRelacionamento(String cpfDigital) {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
         telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfDigital);
         telaDeRelacionamentoPage.clicarlinkEsteiraPS();

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class DadosBasicosAssociadoTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class,dataProvider = "cpfNaoDigital")
-    public void deveriaRetornarRotulosAssociadoTela(String cpf) {
+    public void deveRetornarRotulosAssociadoTela(String cpf) {
         DadosBasicosDb dadosBasicosDb = new DadosBasicosDb();
         ArrayList<String> informacoesAssociadoBancoResumo = dadosBasicosDb.retornarDadosBasicosDb(cpf);
 
