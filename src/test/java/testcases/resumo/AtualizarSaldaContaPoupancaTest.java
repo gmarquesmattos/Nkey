@@ -14,7 +14,7 @@ public class AtualizarSaldaContaPoupancaTest extends BaseTest {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     @Test(retryAnalyzer = Retentativa.class, dataProvider = "numeroSolucao")
-    public void deveAtualizarSaldo(String numeroSolucao) {
+    public void deveCompararDataAtualComDataAtualizacaoSaldo(String numeroSolucao) {
         SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage();
         solucoesFinanceirasPage.pesquisarSolucoesFinanceiras();
         solucoesFinanceirasPage.preencherNumeroSolucao(numeroSolucao);
@@ -24,7 +24,7 @@ public class AtualizarSaldaContaPoupancaTest extends BaseTest {
         solucoesFinanceirasPage.clicarBotaoAtualizarSaldo();
         solucoesFinanceirasPage.obterDataAtualizacaoSaldo();
 
-        assertEquals( solucoesFinanceirasPage.obterDataAtualizacaoSaldo(),localDate.format(formatter));
+        assertEquals(solucoesFinanceirasPage.obterDataAtualizacaoSaldo(),localDate.format(formatter));
 
 
 
