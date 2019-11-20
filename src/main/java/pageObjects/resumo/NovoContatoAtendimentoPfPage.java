@@ -25,46 +25,43 @@ public class NovoContatoAtendimentoPfPage extends BasePage {
     public void pesquisarPessoaFisica(String cpf){
         new PessoaFisicaPage(cpf).acessarNomeCompleto();
     }
-    public void criarNovoContato(){
 
+    public void criarNovoContato(){
         clicar(botaoNovoContato);
         clicar(botaoNovoContatoAtendimento);
     }
+
     public void criarNovoAtendimento(){
-
         clicar(botaoNovoAtendimento);
-
     }
-    public void escreverAtendimento(){
 
+    public void escreverAtendimento(){
         clicar(tabelaDescricaoAtendimento);
         escrever(textoDescricaoAtendimento,"Novo Atendimento Automação PF");
-
     }
-    public void selecionarAgenciaAtendimento(){
 
+    public void selecionarAgenciaAtendimento(){
         clicar(tabelaDescricaoAgencia);
         clicar(botaoPicListAgencia);
         clicar(botaoOkAgencia);
 
     }
+
     public void salvarAtendimento(){
-
         clicar(botaoSalvarAtendimento);
-
     }
-    public String pesquisarAtendimento(){
 
+    public String pesquisarAtendimento(){
         return obterTexto(tabelaDescricaoAtendimento);
 
     }
 
     public void excluirAtendimento(){
-
         clicar(botaoExcluirAtendimento);
         esperaAceitarAlert();
 
     }
+
     private void acessar() {
         HomePage homePage = new HomePage();
         homePage.acessarPessoaFisica();
