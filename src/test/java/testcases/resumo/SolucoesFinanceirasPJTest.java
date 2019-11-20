@@ -3,31 +3,21 @@ package testcases.resumo;
 import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pageObjects.pessoa.ContaCorrentePage;
 
+import pageObjects.resumo.SolucoesFinanceirasPjTelaRelacionamentoPage;
 
-import pageObjects.resumo.SolucoesFinanceirasPjPage;
-
-import java.util.ArrayList;
-
-
+import static org.testng.AssertJUnit.assertEquals;
 
 public class SolucoesFinanceirasPJTest extends BaseTest {
     @Test(dataProvider = "cnpjSolucaoFinanceiraCoop0718", retryAnalyzer = Retentativa.class)
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePJPage(String cnpj) {
-        SolucoesFinanceirasPjPage solucoesFinanceirasPjPage = new SolucoesFinanceirasPjPage();
-        solucoesFinanceirasPjPage.pesquisarPessoaJuridica(cnpj);
-        ArrayList<String> dadosContaPrincipal = solucoesFinanceirasPjPage.obterDadosContaPrincipalAssociado();
-        solucoesFinanceirasPjPage.clicarLinkSaldoContaPrincipal();
-
+        SolucoesFinanceirasPjTelaRelacionamentoPage solucoesFinanceirasPjTelaRelacionamentoPage = new SolucoesFinanceirasPjTelaRelacionamentoPage(cnpj);
+        String contaPrincipalAssociado = solucoesFinanceirasPjTelaRelacionamentoPage.obterContaPrincipal();
+        solucoesFinanceirasPjTelaRelacionamentoPage.clicarLinkSaldoContaPrincipal();
         ContaCorrentePage contaCorrentePFPage = new ContaCorrentePage();
-        ArrayList<String>dadosContaSolucoesFinanceiras = contaCorrentePFPage.obterDadosContaSolucoesFinanceirasAssociado();
-        SoftAssert softAssert = new SoftAssert();
 
-        softAssert.assertEqualsNoOrder(dadosContaPrincipal.toArray(), dadosContaSolucoesFinanceiras.toArray());
-
-        softAssert.assertAll();
+        assertEquals(contaPrincipalAssociado, contaCorrentePFPage.obterNumeroConta());
 
     }
 

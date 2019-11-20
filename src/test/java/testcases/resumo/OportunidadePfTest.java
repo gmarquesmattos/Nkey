@@ -9,7 +9,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class OportunidadePfTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class, dataProvider = "cpfSolucaoFinanceiraCoop0718")
-    public void deveriaCriarOportunidade(String cpf) {
+    public void deveCriarOportunidade(String cpf) {
         OportunidadePfPage oportunidadePage = new OportunidadePfPage();
         oportunidadePage.pesquisarPessoaFisica(cpf);
         oportunidadePage.acessarOportunidade();

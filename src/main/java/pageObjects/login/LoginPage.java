@@ -11,7 +11,6 @@ public class LoginPage extends BasePage {
     protected static final String USUARIO_TESTE = "karine_bonjour";
     protected static final String SENHA_TESTE = "teste123";
 
-
     public LoginPage() {
         realizaLoginPortal();
     }

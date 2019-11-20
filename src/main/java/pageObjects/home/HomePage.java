@@ -12,24 +12,32 @@ public class HomePage extends BasePage {
     private By menuLateralPessoaFisica = By.linkText("Pessoa física");
     private By menulateralPessoaJuridica = By.linkText("Pessoa jurídica");
     private By rotuloBemVindo = By.className("Welcome");
-
+    private By menuLateralSolucoesFinanceiras = By.linkText("Soluções financeiras");
 
     public HomePage() {
-         new LoginPage();
-         obterTexto(rotuloBemVindo);
+        new LoginPage();
+        obterTexto(rotuloBemVindo);
     }
 
     public void selecionarMenuHome() {
         clicar(tabelaMeusAtendimentosDeRetaguarda);
     }
 
-    public void acessarPessoaFisica( ) {
+    public void acessarPessoaFisica() {
         clicar(menuLateralPaginaInicial);
         clicar(menuLateralPessoaFisica);
     }
 
-    public void acessarPessoaJuridica(){
+    public void acessarPessoaJuridica() {
         clicar(menuLateralPaginaInicial);
         clicar(menulateralPessoaJuridica);
     }
+
+    public void acessarSolucoesFinanceiras() {
+        clicar(menuLateralPaginaInicial);
+        clicar(menuLateralSolucoesFinanceiras);
+
+    }
+
+
 }
