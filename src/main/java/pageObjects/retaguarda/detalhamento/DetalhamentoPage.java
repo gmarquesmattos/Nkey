@@ -61,18 +61,15 @@ public class DetalhamentoPage extends BasePage {
     }
 
 
-    public DetalhamentoPage pesquisarDetalhamento() {
-
+    public void pesquisarDetalhamento() {
         clicar(botaoPesquisarDetalhamento);
         clicar(botaoIr);
-        return this;
     }
 
-    public DetalhamentoPage excluirRegistroDetalhamento() {
+    public void excluirRegistroDetalhamento() {
         clicar(botaoExcluirDetalhamento);
         esperaAceitarAlert();
-        return this;
-    }
+     }
 
     public String pegarMensagemJanelaDeErro() {
         String texto = obterTexto(janelaDialogo);

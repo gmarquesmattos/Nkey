@@ -16,7 +16,7 @@ public class HomePage extends BasePage {
 
     public HomePage() {
          new LoginPage();
-        obterTexto(rotuloBemVindo);
+         obterTexto(rotuloBemVindo);
     }
 
     public void selecionarMenuHome() {

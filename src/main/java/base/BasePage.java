@@ -2,9 +2,10 @@ package base;
 
 import driver.DriverManager;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static driver.DriverManager.getDriver;
+
 
 public class BasePage {
 
@@ -17,17 +18,17 @@ public class BasePage {
 
     public BasePage() {
         driver = DriverManager.getDriver();
-        AGUARDAR = new WebDriverWait(getDriver(), TEMPO_ESPERA);
+        AGUARDAR = new WebDriverWait(driver, TEMPO_ESPERA);
     }
 
     public void clicar(By by) {
-        new Jquery();
+        aguardarCarregamento();
         elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
     }
 
     public void escrever(By by, String texto) {
-        new Jquery();
+        aguardarCarregamento();
         elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
         elemento.clear();
@@ -36,45 +37,61 @@ public class BasePage {
     }
 
     public String obterTexto(By by) {
-        new Jquery();
+        aguardarCarregamento();
         elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         return elemento.getText();
     }
 
     public String obterValorElemento(By by) {
-        new Jquery();
+        aguardarCarregamento();
         AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
-        return getDriver().findElement(by).getAttribute("value");
+        return driver.findElement(by).getAttribute("value");
     }
 
     public void clicarTab() {
-        new Jquery();
+        aguardarCarregamento();
         elemento.sendKeys(Keys.TAB);
     }
 
     public void limparCampo() {
-        new Jquery();
+        aguardarCarregamento();
         elemento.clear();
     }
 
     public void entrar() {
-        new Jquery();
+        aguardarCarregamento();
         elemento.sendKeys(Keys.ENTER);
     }
 
     public boolean verificarSeEstaAtivo(By by) {
-        new Jquery();
-        elemento = getDriver().findElement(by);
+       aguardarCarregamento();
+        elemento = driver.findElement(by);
         return elemento.isEnabled();
     }
 
     public String esperaAceitarAlert() {
         AGUARDAR.until(ExpectedConditions.alertIsPresent());
-        Alert alert = DriverManager.getDriver().switchTo().alert();
+        Alert alert = driver.switchTo().alert();
         String textoAlerta = alert.getText();
         alert.accept();
         return textoAlerta;
     }
 
+    public void clicarJavaScript(By by){
+        aguardarCarregamento();
+        elemento = driver.findElement(by);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", elemento);
+    }
+
+    private void aguardarCarregamento(){
+        AGUARDAR.until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                JavascriptExecutor js = (JavascriptExecutor) driver;
+                js.executeScript("return document.readyState");
+                return (Boolean) js.executeScript("return !!window.jQuery && window.jQuery.active == 0");
+            }
+        });
+    }
 
 }
