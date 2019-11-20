@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cad="http://cadastro.ejb.enterprise.cadastros.servicos.sicredi.com.br/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <cad:buscarRendaAssociado>
+            <!--Optional:-->
+            <inBuscarRendaAssociado>
+                <!--Optional:-->
+                <numAgencia>?</numAgencia>
+                <!--Optional:-->
+                <numDocumento>?</numDocumento>
+                <!--Optional:-->
+                <oidPessoa>#(oidPessoa)</oidPessoa>
+                <!--Optional:-->
+                <tpoPessoa>?</tpoPessoa>
+            </inBuscarRendaAssociado>
+        </cad:buscarRendaAssociado>
+    </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:vw="http://xmlns.oracle.com/pcbpel/adapter/db/VW_ISA_ASSOCIADOS_CPF_CNPJ_COUNTER">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <vw:VW_ISA_ASSOCIADOS_CPF_CNPJ_COUNTERInput>
+            <vw:OID_PESSOA>#(oid_pessoa)</vw:OID_PESSOA>
+            <vw:CPF_CNPJ_ASSOCIADO>#(documento)</vw:CPF_CNPJ_ASSOCIADO>
+            <vw:PERIODO>#(periodo)</vw:PERIODO>
+        </vw:VW_ISA_ASSOCIADOS_CPF_CNPJ_COUNTERInput>
+    </soapenv:Body>
+</soapenv:Envelope>

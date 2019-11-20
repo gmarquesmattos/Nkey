@@ -76,4 +76,6 @@ public abstract class BaseTest extends ReportTest {
     public Object[][] cpfResumo() {
         return new Object[][]{new Object[]{"22661551808"}};
     }
-}
+
+ }
+
