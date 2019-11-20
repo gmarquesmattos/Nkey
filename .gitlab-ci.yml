@@ -1,6 +1,26 @@
 stages:
+  - healthcheck
+  - contract
   - Resumo
   - Digital
+
+healthcheck:
+  stage: healthcheck
+  script:
+    - mvn clean test -Dtest=*HealthcheckTest
+  tags:
+    - docker-images-cds
+
+contract:
+  stage: contract
+  script:
+    - mvn clean test -Dtest=*ContractTest
+  tags:
+    - docker-images-cds
+  artifacts:
+    when: always
+    expire_in: 1 week
+
 resumo:
   before_script:
   - sh grid/start-zalenium.sh
