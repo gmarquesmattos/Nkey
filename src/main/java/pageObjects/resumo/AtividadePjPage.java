@@ -2,7 +2,6 @@ package pageObjects.resumo;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaJuridicaPage;
 
@@ -36,8 +35,8 @@ public class AtividadePjPage extends BasePage {
     }
 
     public void escreverAtividade() {
-        clicar(tabelaDescricaoAtividade);
-        escrever(textoDescricaoAtividade,"Nova Atividade Automacao PJ");
+       clicar(tabelaDescricaoAtividade);
+       escrever(textoDescricaoAtividade,"Nova Atividade Automacao PJ");
 
     }
 

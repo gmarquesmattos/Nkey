@@ -1,16 +1,34 @@
 stages:
-  - suite-funcional-web
-
-siebel-dev:
-  stage: suite-funcional-web
+  - Resumo
+  - Digital
+resumo:
   before_script:
-    - sh grid/start-zalenium.sh
+  - sh grid/start-zalenium.sh
+  stage: Resumo
+  when: always
   script:
-    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteSiebelWeb.xml -Denv=hom
-  after_script:
-    - sh grid/stop-zalenium.sh
+    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteResumo.xml -Denv=ci
   tags:
     - docker-images-cds
+  after_script:
+    - sh grid/stop-zalenium.sh
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - target/relatorio/*.html
+
+digital:
+  before_script:
+    - sh grid/start-zalenium.sh
+  stage: Digital
+  when: always
+  script:
+    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteDigital.xml -Denv=ci
+  tags:
+    - docker-images-cds
+  after_script:
+    - sh grid/stop-zalenium.sh
   artifacts:
     when: always
     expire_in: 1 week

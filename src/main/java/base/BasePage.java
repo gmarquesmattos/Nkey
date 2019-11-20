@@ -1,86 +1,80 @@
 package base;
 
 import driver.DriverManager;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-import java.util.concurrent.TimeUnit;
-
 import static driver.DriverManager.getDriver;
 
 public class BasePage {
 
-    public WebDriver driver;
-    public WebDriverWait wait;
-    public static final Logger LOGGER = LogManager.getLogger();
-    WaitAux waitAux = new WaitAux();
-    WebElement elemento;
-    private int tempo_espera = 30;
+    private static final int TEMPO_ESPERA = 35;
+    private WebDriverWait AGUARDAR;
 
-    public BasePage(WebDriver driver) {
-        this.driver = DriverManager.getDriver();
-        wait = new WebDriverWait(getDriver(), tempo_espera);
+    private WebElement elemento;
+    public WebDriver driver;
+
+
+    public BasePage() {
+        driver = DriverManager.getDriver();
+        AGUARDAR = new WebDriverWait(getDriver(), TEMPO_ESPERA);
     }
 
     public void clicar(By by) {
-        waitAux.waitJQueryAndLoadPage();
-        elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        new Jquery();
+        elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
     }
 
     public void escrever(By by, String texto) {
-        waitAux.waitJQueryAndLoadPage();
-        elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        new Jquery();
+        elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
         elemento.clear();
         elemento.sendKeys(texto);
+
     }
 
     public String obterTexto(By by) {
-        waitAux.waitJQueryAndLoadPage();
-        elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        new Jquery();
+        elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         return elemento.getText();
     }
 
-    public String obterValueElemento(By by) {
-        WaitAux.waitJQueryAndLoadPage();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    public String obterValorElemento(By by) {
+        new Jquery();
+        AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         return getDriver().findElement(by).getAttribute("value");
     }
 
-    public void clicarTab(By by) {
-        waitAux.waitJQueryAndLoadPage();
+    public void clicarTab() {
+        new Jquery();
         elemento.sendKeys(Keys.TAB);
     }
 
-    public void limparCampo(By by) {
-        waitAux.waitJQueryAndLoadPage();
+    public void limparCampo() {
+        new Jquery();
         elemento.clear();
     }
 
     public void entrar() {
-        WaitAux.waitJQueryAndLoadPage();
+        new Jquery();
         elemento.sendKeys(Keys.ENTER);
     }
 
     public boolean verificarSeEstaAtivo(By by) {
-        WaitAux.waitJQueryAndLoadPage();
+        new Jquery();
         elemento = getDriver().findElement(by);
         return elemento.isEnabled();
     }
 
-    public void esperaAceitarAlert() {
-        wait.until(ExpectedConditions.alertIsPresent());
+    public String esperaAceitarAlert() {
+        AGUARDAR.until(ExpectedConditions.alertIsPresent());
         Alert alert = DriverManager.getDriver().switchTo().alert();
+        String textoAlerta = alert.getText();
         alert.accept();
-
+        return textoAlerta;
     }
+
+
 }

@@ -7,10 +7,8 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariOptions;
+
 
 import java.net.URL;
 
@@ -18,19 +16,6 @@ import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 
 public enum DriverFactory implements IDriverType {
 
-    FIREFOX {
-        public MutableCapabilities returnDriver() {
-            return new FirefoxOptions();
-        }
-    },
-
-    FIREFOX_HEADLESS {
-        public MutableCapabilities returnDriver() {
-            FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.setHeadless(true);
-            return firefoxOptions;
-        }
-    },
 
     CHROME {
         @Override
@@ -42,20 +27,6 @@ public enum DriverFactory implements IDriverType {
         @Override
         public MutableCapabilities returnDriver() {
             return ((ChromeOptions) defaultChromeOptions()).addArguments("headless");
-        }
-    },
-
-    SAFARI {
-        @Override
-        public MutableCapabilities returnDriver() {
-            return new SafariOptions();
-        }
-    },
-
-    EDGE {
-        @Override
-        public MutableCapabilities returnDriver() {
-            return new EdgeOptions();
         }
     };
 
@@ -69,18 +40,13 @@ public enum DriverFactory implements IDriverType {
         return capabilities;
     }
 
-    public static WebDriver criarInstancia(String browser) throws Exception {
+    public static void criarInstancia(String browser) throws Exception {
         WebDriver driver;
         RemoteWebDriver remoteWebDriver;
 
         switch(retornarValorArquivoConfiguracao("execucao")){
 
-            case "local-mac":
-                System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/mac/chromedriver"); // path of chromedriver
-                driver = new ChromeDriver();
-                break;
-
-            case "local":
+             case "local":
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
@@ -92,7 +58,7 @@ public enum DriverFactory implements IDriverType {
 
             case "grid":
                 String gridURL = retornarValorArquivoConfiguracao("grid.url") + ":" + retornarValorArquivoConfiguracao("grid.port") + "/wd/hub";
-                remoteWebDriver = new RemoteWebDriver(new URL(gridURL), retornaCapacidade(browser));
+                remoteWebDriver = new RemoteWebDriver(new URL(gridURL), defaultChromeOptions());
 
                 driver = remoteWebDriver;
                 break;
@@ -104,12 +70,13 @@ public enum DriverFactory implements IDriverType {
                 driver = remoteWebDriver;
                 break;
 
+
             default:
                 throw new Exception("Browser no encontrado: " +  browser);
         }
 
 
-        return driver;
+        DriverManager.setDriver(driver);
     }
 
     private static MutableCapabilities retornaCapacidade(String browser) {

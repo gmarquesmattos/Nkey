@@ -2,7 +2,6 @@ package pageObjects.resumo;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 import java.util.ArrayList;
@@ -18,9 +17,12 @@ public class DadosBasicosAssociadoPage extends BasePage {
     private By rotuloGrupoEconomico = By.id("s_6_1_11_0");
     private By rotuloCbo = By.id("s_6_1_9_0");
 
-    public DadosBasicosAssociadoPage(WebDriver driver) {
-        super(driver);
-        acessar();
+    public DadosBasicosAssociadoPage() {
+           acessar();
+    }
+
+    public void pesquisarPessoaFisica(String cpf) {
+        new PessoaFisicaPage(cpf).acessarNomeCompleto();
     }
 
     public ArrayList<String> obterValor() {
@@ -30,18 +32,17 @@ public class DadosBasicosAssociadoPage extends BasePage {
         informacoesResumoAssociado.add(obterTexto(rotuloEstadoCivil).trim());
         informacoesResumoAssociado.add(obterTexto(rotuloCpf).trim());
         informacoesResumoAssociado.add(obterTexto(rotuloRg).trim());
-        informacoesResumoAssociado.add(obterTexto(rotuloAssociadoDesde).trim());
-        informacoesResumoAssociado.add(obterTexto(rotuloGrupoEconomico).trim());
+        informacoesResumoAssociado.add(obterTexto(rotuloAssociadoDesde));
+        informacoesResumoAssociado.add(obterTexto(rotuloGrupoEconomico));
         informacoesResumoAssociado.add(obterTexto(rotuloCbo).trim());
 
         return informacoesResumoAssociado;
     }
 
-    private DadosBasicosAssociadoPage acessar() {
-        HomePage homePage = new HomePage(driver);
+    private void acessar() {
+        HomePage homePage = new HomePage();
         homePage.acessarPessoaFisica();
-        new PessoaFisicaPage(driver);
-        return this;
     }
+
 
 }

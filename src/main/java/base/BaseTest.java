@@ -3,80 +3,80 @@ package base;
 import com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter;
 import driver.DriverFactory;
 import driver.DriverManager;
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
-import java.io.File;
 import java.lang.reflect.Method;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 
 
-@Listeners({ListenerTest.class, ExtentITestListenerClassAdapter.class})
-public abstract class BaseTest extends ListenerTest {
+@Listeners({ReportTest.class, ExtentITestListenerClassAdapter.class})
+public abstract class BaseTest extends ReportTest {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
 
-    public WebDriver driver;
-
     @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
     public void preCondition(@Optional("chrome") String browser, Method method) throws Exception {
-
-        WebDriver driver = DriverFactory.criarInstancia(browser);
-        DriverManager.setDriver(driver);
-
+        DriverFactory.criarInstancia(browser);
         DriverManager.getDriver().get(URL_BASE);
-        driver.manage().window().maximize();
-
-
+        DriverManager.getDriver().manage().window().maximize();
     }
 
     @AfterMethod(alwaysRun = true)
-    public void postCondition() {
+    public void aposTeste() {
         DriverManager.quit();
     }
 
-    @AfterSuite(alwaysRun = true)
-    public void updateReport() {
-        try {
+    @DataProvider(name = "cpfNaoDigital")
+    public Object[][] cpfNaoDigital() {
+        return new Object[][]{new Object[]{"97452874820"}};
+    }
 
-            String relatorioPath = "target/relatorio/execucao.html";
-            String htmlContent = FileUtils.readFileToString(new File(relatorioPath), "utf-8");
+    @DataProvider(name = "cpfDigital")
+    public Object[][] cpfDigital() {
+        return new Object[][]{new Object[]{"03334856020"}};
+    }
 
-            String pattern = "href='([^'].*)' data-featherlight";
+    @DataProvider(name = "cnpjDigitalCoop0718")
+    public Object[][] cnpjDigitalCoop0718() {
+        return new Object[][]{new Object[]{"24712637000179"}};
 
-            // Create a Pattern object
-            Pattern r = Pattern.compile(pattern);
+    }
 
-            // Now create matcher object.
-            Matcher matcher = r.matcher(htmlContent);
+    @DataProvider(name = "cnpjDigitalCoop0101")
+    public Object[][] cnpjDigitalCopp0101() {
+        return new Object[][]{new Object[]{"30659721000179"}};
 
-            Set<String> keyList = new HashSet();
-
-            while (matcher.find()) {
-                keyList.add(matcher.group(1));
-            }
-            for (String data : keyList) {
-                String oldString = data + "' data-featherlight='image'>";
-                htmlContent = htmlContent.replace(oldString, oldString + "<img src='" + data + "' style=\"width:150px\">");
-            }
-            htmlContent = htmlContent.replace("<span class='label grey badge white-text text-white'>base64-img</span>", "");
-
-            FileUtils.writeStringToFile(new File(relatorioPath), htmlContent, "utf-8");
-
-        } catch (Exception e) {
-            LOGGER.error("Erro ao atualizar miniaturas no report html", e);
-        }
     }
 
 
+    @DataProvider(name = "cnpjSolucaoFinanceiraCoop0101")
+    public Object[][] cnpjSolucaoFinanceiraCoop0101() {
+        return new Object[][]{new Object[]{"23848798000121"}};
+    }
+
+    @DataProvider(name = "cnpjSolucaoFinanceiraCoop0718")
+    public Object[][] cnpjSolucaoFinanceiraCopp0718() {
+        return new Object[][]{new Object[]{"24712637000179"}};
+    }
+
+    @DataProvider(name = "cpfSolucaoFinanceiraCoop0718")
+    public Object[][] cpfSolucaoFinanceiraCoop0718() {
+        return new Object[][]{new Object[]{"08150967982"}};
+    }
+
+    @DataProvider(name = "cpfSolucaoFinanceiraCoop0101")
+    public Object[][] cpfCoop0101() {
+        return new Object[][]{new Object[]{"01779085052"}};
+    }
+
+    @DataProvider(name = "cpfResumo")
+    public Object[][] cpfResumo() {
+        return new Object[][]{new Object[]{"22661551808"}};
+    }
 }

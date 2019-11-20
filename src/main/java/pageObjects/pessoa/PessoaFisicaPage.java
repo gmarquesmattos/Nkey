@@ -10,21 +10,17 @@ public class PessoaFisicaPage extends BasePage {
     private By textoCpf = By.id("1_Social_Security_Number");
     private By textoNomeCompleto = By.name("Sicredi Nome Completo");
 
-    public PessoaFisicaPage(WebDriver driver) {
-        super(driver);
-        pesquisarPessoa();
-        acessarNomeCompleto();
+    public PessoaFisicaPage(String cpf) {
+           pesquisarPessoa(cpf);
     }
 
-    private void pesquisarPessoa() {
+    private void pesquisarPessoa(String cpf) {
         clicar(botaoPesquisar);
-        escrever(textoCpf, "03401711970");
+        escrever(textoCpf, cpf);
         entrar();
     }
 
-    private void acessarNomeCompleto() {
+    public void acessarNomeCompleto() {
         clicar(textoNomeCompleto);
     }
-
 }
-

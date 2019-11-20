@@ -1,25 +1,28 @@
 package testcases.resumo;
 
 import base.BaseTest;
+import base.Retentativa;
 import org.testng.annotations.Test;
-import pageObjects.resumo.AtendimentoPjPage;
 import pageObjects.resumo.OportunidadePjPage;
 
 import static org.testng.AssertJUnit.assertEquals;
 
 public class OportunidadePjTest extends BaseTest {
 
-    @Test
-    public void deveriaCriarOportunidadePj() {
-        AtendimentoPjPage atendimentoPjPage = new AtendimentoPjPage(driver);
-        atendimentoPjPage.irParaOportunidade();
-        OportunidadePjPage oportunidadePjPage = new OportunidadePjPage(driver);
-        oportunidadePjPage.criarNovoOportunidade();
-        oportunidadePjPage.preencherAgenciaOportunidade();
-        oportunidadePjPage.preencherDescriçãoOportunidade();
+    @Test(retryAnalyzer = Retentativa.class, dataProvider = "cnpjSolucaoFinanceiraCoop0718")
+    public void deveriaCriarOportunidadePj(String cnpj) {
+        OportunidadePjPage oportunidadePjPage = new OportunidadePjPage();
+        oportunidadePjPage.pesquisarPessoaJuridica(cnpj);
+        oportunidadePjPage.acessarOportunidade();
+        oportunidadePjPage.adicionarNovaOportunidade();
+        oportunidadePjPage.selecionarAgenciaOportunidade();
+        oportunidadePjPage.preencherDescricao();
+        oportunidadePjPage.preencherGrupoProduto();
         oportunidadePjPage.salvarOportunidade();
         String textoDescricaoAtendimentoPj = oportunidadePjPage.pesquisarAtendimentoPj();
-        assertEquals("Novo Oportunidade Automacao PJ", textoDescricaoAtendimentoPj);
+
+        assertEquals("Nova Oportunidade Automacao PJ", textoDescricaoAtendimentoPj);
+
         oportunidadePjPage.excluirOportunidadePj();
 
 
