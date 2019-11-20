@@ -5,7 +5,6 @@ import driver.DriverFactory;
 import driver.DriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
@@ -53,7 +52,6 @@ public abstract class BaseTest extends ReportTest {
         return new Object[][]{new Object[]{"30659721000179"}};
 
     }
-
 
     @DataProvider(name = "cnpjSolucaoFinanceiraCoop0101")
     public Object[][] cnpjSolucaoFinanceiraCoop0101() {

@@ -2,7 +2,6 @@ package pageObjects.retaguarda.alterarRenda;
 
 import base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pageObjects.retaguarda.RetaguardaPage;
 
 import java.time.LocalDate;

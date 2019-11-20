@@ -3,9 +3,12 @@ package testcases.resumo;
 import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pageObjects.pessoa.ContaCorrentePage;
 import pageObjects.resumo.SolucoesFinanceirasPage;
-import static org.testng.AssertJUnit.assertEquals;
+import java.util.ArrayList;
+
+
 
 public class SolucoesFinanceirasTest extends BaseTest {
 
@@ -14,13 +17,17 @@ public class SolucoesFinanceirasTest extends BaseTest {
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePage(String cpf) {
         SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage();
         solucoesFinanceirasPage.pesquisarPessoaFisica(cpf);
-        String contaPrincipalAssociado = solucoesFinanceirasPage.obterContaPrincipal();
+        ArrayList<String>dadosContaPrincipal = solucoesFinanceirasPage.obterDadosContaPrincipalAssociado();
         solucoesFinanceirasPage.clicarLinkSaldoContaPrincipal();
 
         ContaCorrentePage contaCorrentePFPage = new ContaCorrentePage();
-        String contaAssociado = contaCorrentePFPage.obterNumeroConta();
+        ArrayList<String>dadosContaSolucoesFinanceiras = contaCorrentePFPage.obterDadosContaSolucoesFinanceirasAssociado();
+        SoftAssert softAssert = new SoftAssert();
 
-        assertEquals(contaPrincipalAssociado, contaAssociado);
+        softAssert.assertEqualsNoOrder(dadosContaPrincipal.toArray(), dadosContaSolucoesFinanceiras.toArray());
+
+        softAssert.assertAll();
     }
+
 
 }
