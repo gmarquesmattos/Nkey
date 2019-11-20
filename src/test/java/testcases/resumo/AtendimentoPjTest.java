@@ -9,7 +9,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class AtendimentoPjTest extends BaseTest {
 
-    @Test(retryAnalyzer = Retentativa.class, dataProvider = "cnpjSolucaoFinanceiraCoop0718")
+    @Test(retryAnalyzer = Retentativa.class, dataProvider = "cnpjSolucaoFinanceiraCoop0101")
     public void deveCriarAtendimentoPj(String cnpj) {
         AtendimentoPjPage atendimentoPjPage = new AtendimentoPjPage();
         atendimentoPjPage.pesquisarPessoaJuridica(cnpj);
