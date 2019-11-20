@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 import static org.testng.AssertJUnit.assertEquals;
 
 
-public class AtualizarSaldaContaPoupancaTest extends BaseTest {
+public class AtualizarSaldoContaPoupancaTest extends BaseTest {
 
 
     @Test(retryAnalyzer = Retentativa.class, dataProvider = "numeroSolucao")
