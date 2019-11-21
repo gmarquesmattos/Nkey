@@ -19,10 +19,10 @@ public class NovoContatoAtendimentoPfTest extends BaseTest {
         novoContatoAtendimentoPfPage.selecionarAgenciaAtendimento();
         novoContatoAtendimentoPfPage.salvarAtendimento();
 
-        String textodescricao = novoContatoAtendimentoPfPage.pesquisarAtendimento();
+        String textoDescricao = novoContatoAtendimentoPfPage.pesquisarAtendimento();
         String descricaoEsperada = "Novo Atendimento Automação PF";
 
-        assertEquals(descricaoEsperada,textodescricao);
+        assertEquals(descricaoEsperada,textoDescricao);
 
         novoContatoAtendimentoPfPage.excluirAtendimento();
     }
