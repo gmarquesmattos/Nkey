@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-public class OportunidadePfPage extends BasePage {
+public class OportunidadePessoaFisicaPage extends BasePage {
 
     private By botaoIrParaOportunidade = By.id("s_18_1_1_0_Ctrl");
     private By botaoNovaOportunidade = By.id("s_1_1_8_0_Ctrl");
@@ -18,9 +18,12 @@ public class OportunidadePfPage extends BasePage {
     private By tabelaGrupoProduto = By.id("1_s_1_l_Sicredi_Op_Prod_Produto");
     private By textoGrupoProduto = By.id("1_Sicredi_Op_Prod_Produto");
     private By botaoSalvarOportunidade = By.id("s_1_1_11_0_Ctrl");
+    private By botaoPesquisarOportunidade = By.id("s_1_1_7_0_Ctrl");
+    private By tabelaDescricaoResponsavel = By.id("1_s_1_l_Sales_Rep");
+    private By textoDescricaoResponsavel = By.id("1_Sales_Rep");
     private By botaoExcluirOportunidade = By.id("s_1_1_3_0_Ctrl");
 
-    public OportunidadePfPage() {
+    public OportunidadePessoaFisicaPage() {
              acessar();
     }
 
@@ -56,8 +59,18 @@ public class OportunidadePfPage extends BasePage {
         clicar(botaoSalvarOportunidade);
     }
 
-    public String pesquisarTextoDescricaoOportunidade() {
+    public String retornarTextoDescricaoOportunidade() {
         return obterTexto(tabelaTextoDescricao);
+    }
+
+    public void pesquisarOportunidade(){
+        clicar(botaoPesquisarOportunidade);
+    }
+
+    public void selecionarResponsavelOportunidade(String responsavel){
+        clicar(tabelaDescricaoResponsavel);
+        escrever(textoDescricaoResponsavel,responsavel);
+        entrar();
     }
 
     public void ExcluirOportunidade() {

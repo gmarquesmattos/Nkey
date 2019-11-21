@@ -3,14 +3,14 @@ package testcases.resumo;
 import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
-import pageObjects.resumo.OportunidadePfPage;
+import pageObjects.resumo.OportunidadePessoaFisicaPage;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class OportunidadePfTest extends BaseTest {
+public class OportunidadePessoaFisicaTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class)
-    public void deveCriarOportunidade() {
-        OportunidadePfPage oportunidadePage = new OportunidadePfPage();
+    public void deveCriarOportunidadePessoaFisica() {
+        OportunidadePessoaFisicaPage oportunidadePage = new OportunidadePessoaFisicaPage();
         oportunidadePage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
         oportunidadePage.acessarOportunidade();
         oportunidadePage.adicionarNovaOportunidade();
@@ -18,11 +18,13 @@ public class OportunidadePfTest extends BaseTest {
         oportunidadePage.preencherDescricao();
         oportunidadePage.preencherGrupoProduto();
         oportunidadePage.salvarOportunidade();
-        String textoDescricaoAtendimentoTela = oportunidadePage.pesquisarTextoDescricaoOportunidade();
+        String textoDescricaoOportunidadeTela = oportunidadePage.retornarTextoDescricaoOportunidade();
         String descricaoEsperada = "[TESTE]-Nova oportunidade Automacao";
 
-        assertEquals(descricaoEsperada, textoDescricaoAtendimentoTela);
+        assertEquals(descricaoEsperada, textoDescricaoOportunidadeTela);
 
+        oportunidadePage.pesquisarOportunidade();
+        oportunidadePage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL);
         oportunidadePage.ExcluirOportunidade();
 
     }

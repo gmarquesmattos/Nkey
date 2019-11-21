@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaFisicaPage;
 
-public class AtividadePfPage extends BasePage {
+public class AtividadePessoaFisicaPage extends BasePage {
 
     private By botaoIrParaAtividade = By.id("s_13_1_0_0_Ctrl");
     private By botaoNovaAtividade = By.id("s_1_1_15_0_Ctrl");
@@ -15,11 +15,15 @@ public class AtividadePfPage extends BasePage {
     private By textoAgencia = By.id("s_1_2_38_0_icon");
     private By botaoOk = By.id("s_3_1_63_0_Ctrl");
     private By botaoSalvarAtividade = By.id("s_1_1_20_0_Ctrl");
+    private By botaoPesquisarAtividade = By.id("s_1_1_14_0_Ctrl");
+    private By tabelaDescricaoResponsavel = By.id("1_s_1_l_Primary_Owned_By");
+    private By textoDescricaoResponsavel = By.id("1_Primary_Owned_By");
     private By botaoExcluirAtividade = By.id("s_1_1_4_0_Ctrl");
 
-    public AtividadePfPage() {
+    public AtividadePessoaFisicaPage() {
             acessar();
     }
+
 
     public void pesquisarPessoaFisica(String cpf) {
         new PessoaFisicaPage(cpf).acessarNomeCompleto();
@@ -46,12 +50,22 @@ public class AtividadePfPage extends BasePage {
         clicar(botaoSalvarAtividade);
     }
 
+    public void pesquisarAtividade(){
+        clicar(botaoPesquisarAtividade);
+    }
+
+    public void selecionarResponsavelAtividade(String responsavel){
+        clicar(tabelaDescricaoResponsavel);
+        escrever(textoDescricaoResponsavel,responsavel);
+        entrar();
+    }
+
     public void excluirAtividade() {
         clicar(botaoExcluirAtividade);
         esperaAceitarAlert();
     }
 
-    public String pesquisarAtividade() {
+    public String retornarTextoDescricaoAtividade() {
         return obterTexto(tabelaDescricaoAtividade);
     }
 

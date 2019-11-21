@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import pageObjects.home.HomePage;
 import pageObjects.pessoa.PessoaJuridicaPage;
 
-public class AtividadePjPage extends BasePage {
+public class AtividadePessoaJuridicaPage extends BasePage {
 
     private By botaoIrParaAtividade =By.cssSelector("button[title='Atividades:Ir para']");
     private By botaoCriarAtividade =By.cssSelector("button[title='Atividades:Novo']");
@@ -15,9 +15,12 @@ public class AtividadePjPage extends BasePage {
     private By botaoPicListAgencia =By.id("s_1_2_38_0_icon");
     private By botaoOkAgencia =By.cssSelector("button[title='Agência:OK']");
     private By botaoSalvarAtividade =By.cssSelector("button[title='Atividades:Salvar']");
+    private By botaoPesquisarAtividade = By.id("s_1_1_14_0_Ctrl");
+    private By tabelaDescricaoResponsavel = By.id("1_s_1_l_Primary_Owned_By");
+    private By textoDescricaoResponsavel = By.id("1_Primary_Owned_By");
     private By botaoExcluirAtividade =By.cssSelector("button[title='Atividades:Excluir']");
 
-    public AtividadePjPage(){
+    public AtividadePessoaJuridicaPage(){
         acessar();
     }
 
@@ -50,8 +53,18 @@ public class AtividadePjPage extends BasePage {
         clicar(botaoSalvarAtividade);
     }
 
-    public String pesquisarAtividade() {
+    public String retornarTextoDescricaoAtividade() {
         return obterTexto(tabelaDescricaoAtividade);
+    }
+
+    public void pesquisarAtividade(){
+        clicar(botaoPesquisarAtividade);
+    }
+
+    public void selecionarResponsavelAtividade(String responsavel){
+        clicar(tabelaDescricaoResponsavel);
+        escrever(textoDescricaoResponsavel,responsavel);
+        entrar();
     }
 
     public void excluirAtividade(){

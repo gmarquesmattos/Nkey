@@ -7,12 +7,12 @@ import pageObjects.pessoa.PessoaFisicaPage;
 
 import java.util.ArrayList;
 
-public class SolucoesFinanceirasPfTelaRelacionamentoPage extends BasePage {
+public class SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage extends BasePage {
 
 	private By linkSaldoContaPrincipal = By.id("s_2_1_32_0");
 	private By rotuloContaPrincipal = By.id("s_2_1_12_0");
 
-	public SolucoesFinanceirasPfTelaRelacionamentoPage() {
+	public SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage() {
 		acessar();
 	}
 
