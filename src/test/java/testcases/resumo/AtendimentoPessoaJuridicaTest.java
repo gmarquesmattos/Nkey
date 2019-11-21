@@ -23,7 +23,7 @@ public class AtendimentoPessoaJuridicaTest extends BaseTest {
         assertEquals("[TESTE]-Novo Atendimento Automacao PJ", textoDescricaoAtendimento);
 
         atendimentoPessoaJuridicaPage.pesquisarAtendimento();
-        atendimentoPessoaJuridicaPage.selecionarResponsavelAtendimento(USUARIO_RESPONSAVEL);
+        atendimentoPessoaJuridicaPage.selecionarResponsavelAtendimento(USUARIO_RESPONSAVEL_0718);
         atendimentoPessoaJuridicaPage.excluirAtedimento();
     }
 }

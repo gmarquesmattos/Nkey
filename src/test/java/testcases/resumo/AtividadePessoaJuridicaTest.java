@@ -25,7 +25,7 @@ public class AtividadePessoaJuridicaTest extends BaseTest {
       assertEquals(descricaoEsperada,textoDescricaoAtividadeTela);
 
       atividadePessoaJuridicaPage.pesquisarAtividade();
-      atividadePessoaJuridicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL);
+      atividadePessoaJuridicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL_0718);
       atividadePessoaJuridicaPage.excluirAtividade();
 
    }

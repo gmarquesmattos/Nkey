@@ -24,7 +24,7 @@ public class OportunidadePessoaJuridicaTest extends BaseTest {
         assertEquals("[TESTE]-Nova Oportunidade Automacao PJ", textoDescricaoAtendimentoPj);
 
         oportunidadePessoaJuridicaPage.pesquisarOportunidade();
-        oportunidadePessoaJuridicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL);
+        oportunidadePessoaJuridicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL_0718);
         oportunidadePessoaJuridicaPage.excluirOportunidade();
 
 

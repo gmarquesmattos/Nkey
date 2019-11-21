@@ -24,7 +24,7 @@ public class OportunidadePessoaFisicaTest extends BaseTest {
         assertEquals(descricaoEsperada, textoDescricaoOportunidadeTela);
 
         oportunidadePessoaFisicaPage.pesquisarOportunidade();
-        oportunidadePessoaFisicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL);
+        oportunidadePessoaFisicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL_0718);
         oportunidadePessoaFisicaPage.ExcluirOportunidade();
 
     }

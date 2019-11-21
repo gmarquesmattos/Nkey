@@ -24,7 +24,7 @@ public class AtividadePessoaFisicaTest extends BaseTest {
         assertEquals(descricaoEsperada, textoDescricaoAtividadeTela);
 
         atividadePessoaFisicaPage.pesquisarAtividade();
-        atividadePessoaFisicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL);
+        atividadePessoaFisicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL_0718);
         atividadePessoaFisicaPage.excluirAtividade();
     }
 
