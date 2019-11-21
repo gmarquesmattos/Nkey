@@ -10,10 +10,10 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class AtividadePjTest extends BaseTest {
 
-    @Test(retryAnalyzer = Retentativa.class,dataProvider = "cnpjSolucaoFinanceiraCoop0718")
-    public void deveCriarAtividadePj(String cnpj){
+    @Test(retryAnalyzer = Retentativa.class)
+    public void deveCriarAtividadePj(){
       AtividadePjPage atividadePjPage = new AtividadePjPage();
-      atividadePjPage.pesquisarPessoaJuridica(cnpj);
+      atividadePjPage.pesquisarPessoaJuridica(CNPJ_SOLUCOES_0718);
       atividadePjPage.acessarAtividade();
       atividadePjPage.criarAtividade();
       atividadePjPage.escreverAtividade();

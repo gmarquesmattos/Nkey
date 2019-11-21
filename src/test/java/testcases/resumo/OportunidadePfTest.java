@@ -8,10 +8,10 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class OportunidadePfTest extends BaseTest {
 
-    @Test(retryAnalyzer = Retentativa.class, dataProvider = "cpfSolucaoFinanceiraCoop0718")
-    public void deveCriarOportunidade(String cpf) {
+    @Test(retryAnalyzer = Retentativa.class)
+    public void deveCriarOportunidade() {
         OportunidadePfPage oportunidadePage = new OportunidadePfPage();
-        oportunidadePage.pesquisarPessoaFisica(cpf);
+        oportunidadePage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
         oportunidadePage.acessarOportunidade();
         oportunidadePage.adicionarNovaOportunidade();
         oportunidadePage.selecionarAgenciaAtendimento();

@@ -9,10 +9,10 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class AtendimentoPjTest extends BaseTest {
 
-    @Test(retryAnalyzer = Retentativa.class, dataProvider = "cnpjSolucaoFinanceiraCoop0101")
-    public void deveCriarAtendimentoPj(String cnpj) {
+    @Test(retryAnalyzer = Retentativa.class)
+    public void deveCriarAtendimentoPj() {
         AtendimentoPjPage atendimentoPjPage = new AtendimentoPjPage();
-        atendimentoPjPage.pesquisarPessoaJuridica(cnpj);
+        atendimentoPjPage.pesquisarPessoaJuridica(CNPJ_SOLUCOES_0718);
         atendimentoPjPage.acessarAtendimento();
         atendimentoPjPage.criarNovoAtendimento();
         atendimentoPjPage.escreverDescricaoAtendimento();
@@ -22,6 +22,8 @@ public class AtendimentoPjTest extends BaseTest {
 
         assertEquals("[TESTE]-Novo Atendimento Automacao PJ", textoDescricaoAtendimentoPj);
 
+        atendimentoPjPage.pesquisarAtendimento();
+        atendimentoPjPage.selecionarResponsavelAtendimento();
         atendimentoPjPage.excluirAtedimentoPj();
     }
 }

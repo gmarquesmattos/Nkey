@@ -48,7 +48,7 @@ public class SolucoesFinanceirasPage extends BasePage {
     }
 
     public String obterDataAtualizacaoSaldo() {
-        return obterValueElemento(textoDataAtualizacaoSaldo);
+        return obterValorElemento(textoDataAtualizacaoSaldo);
     }
 
     public void acessar() {

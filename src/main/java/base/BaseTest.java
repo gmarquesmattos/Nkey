@@ -19,6 +19,8 @@ public abstract class BaseTest extends ReportTest {
     static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
     public static final String CNPJ_DIGITAL_0718 = retornarValorArquivoConfiguracao("cnpj.digital.0718");
     public  static  final String CPF_SOLUCOES_0718 =retornarValorArquivoConfiguracao("cpf.solucoes.0718");
+    public  static  final String CNPJ_SOLUCOES_0718 = retornarValorArquivoConfiguracao("cnpj.soluces.0718");
+    public  static  final String CNPJ_SOLUCOES_0101 =retornarValorArquivoConfiguracao("cnpj.solucoes.0101");
 
 
     @BeforeMethod(alwaysRun = true)
