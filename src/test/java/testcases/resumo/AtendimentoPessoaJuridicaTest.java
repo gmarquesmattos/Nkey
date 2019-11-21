@@ -11,19 +11,19 @@ public class AtendimentoPessoaJuridicaTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class)
     public void deveCriarAtendimentoPessoaJuridica() {
-        AtendimentoPessoaJuridicaPage atendimentoPjPage = new AtendimentoPessoaJuridicaPage();
-        atendimentoPjPage.pesquisarPessoaJuridica(CNPJ_SOLUCOES_0718);
-        atendimentoPjPage.acessarAtendimento();
-        atendimentoPjPage.criarNovoAtendimento();
-        atendimentoPjPage.escreverDescricaoAtendimento();
-        atendimentoPjPage.selecionarAgenciaAtendimento();
-        atendimentoPjPage.salvarAtendimento();
-        String textoDescricaoAtendimento = atendimentoPjPage.retornarTextoDescricaoAtendimento();
+        AtendimentoPessoaJuridicaPage atendimentoPessoaJuridicaPage = new AtendimentoPessoaJuridicaPage();
+        atendimentoPessoaJuridicaPage.pesquisarPessoaJuridica(CNPJ_SOLUCOES_0718);
+        atendimentoPessoaJuridicaPage.acessarAtendimento();
+        atendimentoPessoaJuridicaPage.criarNovoAtendimento();
+        atendimentoPessoaJuridicaPage.escreverDescricaoAtendimento();
+        atendimentoPessoaJuridicaPage.selecionarAgenciaAtendimento();
+        atendimentoPessoaJuridicaPage.salvarAtendimento();
+        String textoDescricaoAtendimento = atendimentoPessoaJuridicaPage.retornarTextoDescricaoAtendimento();
 
         assertEquals("[TESTE]-Novo Atendimento Automacao PJ", textoDescricaoAtendimento);
 
-        atendimentoPjPage.pesquisarAtendimento();
-        atendimentoPjPage.selecionarResponsavelAtendimento(USUARIO_RESPONSAVEL);
-        atendimentoPjPage.excluirAtedimento();
+        atendimentoPessoaJuridicaPage.pesquisarAtendimento();
+        atendimentoPessoaJuridicaPage.selecionarResponsavelAtendimento(USUARIO_RESPONSAVEL);
+        atendimentoPessoaJuridicaPage.excluirAtedimento();
     }
 }

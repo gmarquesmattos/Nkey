@@ -10,22 +10,22 @@ public class OportunidadePessoaFisicaTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class)
     public void deveCriarOportunidadePessoaFisica() {
-        OportunidadePessoaFisicaPage oportunidadePage = new OportunidadePessoaFisicaPage();
-        oportunidadePage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
-        oportunidadePage.acessarOportunidade();
-        oportunidadePage.adicionarNovaOportunidade();
-        oportunidadePage.selecionarAgenciaAtendimento();
-        oportunidadePage.preencherDescricao();
-        oportunidadePage.preencherGrupoProduto();
-        oportunidadePage.salvarOportunidade();
-        String textoDescricaoOportunidadeTela = oportunidadePage.retornarTextoDescricaoOportunidade();
+        OportunidadePessoaFisicaPage oportunidadePessoaFisicaPage = new OportunidadePessoaFisicaPage();
+        oportunidadePessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
+        oportunidadePessoaFisicaPage.acessarOportunidade();
+        oportunidadePessoaFisicaPage.adicionarNovaOportunidade();
+        oportunidadePessoaFisicaPage.selecionarAgenciaAtendimento();
+        oportunidadePessoaFisicaPage.preencherDescricao();
+        oportunidadePessoaFisicaPage.preencherGrupoProduto();
+        oportunidadePessoaFisicaPage.salvarOportunidade();
+        String textoDescricaoOportunidadeTela = oportunidadePessoaFisicaPage.retornarTextoDescricaoOportunidade();
         String descricaoEsperada = "[TESTE]-Nova oportunidade Automacao";
 
         assertEquals(descricaoEsperada, textoDescricaoOportunidadeTela);
 
-        oportunidadePage.pesquisarOportunidade();
-        oportunidadePage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL);
-        oportunidadePage.ExcluirOportunidade();
+        oportunidadePessoaFisicaPage.pesquisarOportunidade();
+        oportunidadePessoaFisicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL);
+        oportunidadePessoaFisicaPage.ExcluirOportunidade();
 
     }
 }

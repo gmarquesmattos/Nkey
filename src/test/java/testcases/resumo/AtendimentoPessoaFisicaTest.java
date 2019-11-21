@@ -12,21 +12,21 @@ public class AtendimentoPessoaFisicaTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class)
     public void deveCriarAtendimentoPessoaFisica() {
-        AtendimentoPessoaFisicaPage atendimentoPage = new AtendimentoPessoaFisicaPage();
-        atendimentoPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
-        atendimentoPage.acessarAtendimento();
-        atendimentoPage.realizarNovoAtendimento();
-        atendimentoPage.escreverDescricaoAtendimento();
-        atendimentoPage.selecionarAgenciaAtendimento();
-        atendimentoPage.salvarAtendimento();
-        String textoDescricaoAtendimentoTela = atendimentoPage.retornarTextoDescricaoAtendimento();
+        AtendimentoPessoaFisicaPage atendimentoPessoaFisicaPage = new AtendimentoPessoaFisicaPage();
+        atendimentoPessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
+        atendimentoPessoaFisicaPage.acessarAtendimento();
+        atendimentoPessoaFisicaPage.realizarNovoAtendimento();
+        atendimentoPessoaFisicaPage.escreverDescricaoAtendimento();
+        atendimentoPessoaFisicaPage.selecionarAgenciaAtendimento();
+        atendimentoPessoaFisicaPage.salvarAtendimento();
+        String textoDescricaoAtendimentoTela = atendimentoPessoaFisicaPage.retornarTextoDescricaoAtendimento();
         String descricaoEsperada = "[TESTE]-Novo Atendimento Automacao";
 
         assertEquals(descricaoEsperada, textoDescricaoAtendimentoTela);
 
-        atendimentoPage.pesquisarAtendimento();
-        atendimentoPage.selecionarResponsavelAtendimento(USUARIO_RESPONSAVEL);
-        atendimentoPage.excluirAtendimento();
+        atendimentoPessoaFisicaPage.pesquisarAtendimento();
+        atendimentoPessoaFisicaPage.selecionarResponsavelAtendimento(USUARIO_RESPONSAVEL);
+        atendimentoPessoaFisicaPage.excluirAtendimento();
     }
 
 }
