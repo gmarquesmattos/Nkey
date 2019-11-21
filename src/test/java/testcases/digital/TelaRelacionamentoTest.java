@@ -4,8 +4,7 @@ import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.digital.TelaDeRelacionamentoPage;
-import pageObjects.pessoa.BarraBotoesTelaRelacionamento;
-
+import pageObjects.pessoa.BarraBotoesTelaRelacionamentoPage;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class TelaRelacionamentoTest extends BaseTest {
@@ -35,7 +34,7 @@ public class TelaRelacionamentoTest extends BaseTest {
     public void deveRetornarMensagemPessoaDigitalTelaRelacionamento() {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
         telaDeRelacionamentoPage.pesquisarPessoaFisica(CPF_DIGITAL_0718);
-        new BarraBotoesTelaRelacionamento().clicarLinkEsteiraPS();
+        new BarraBotoesTelaRelacionamentoPage().clicarLinkEsteiraPS();
         String textoObtido = telaDeRelacionamentoPage.esperaAceitarAlertRecomendar();
         String textoEsperado = "Este associado utiliza a Plataforma Digital. Para realizar a contratação de produtos e serviços, acesse a Salesforce!";
 

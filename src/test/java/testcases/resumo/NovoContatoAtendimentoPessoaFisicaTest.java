@@ -3,9 +3,8 @@ package testcases.resumo;
 import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
-import pageObjects.pessoa.BarraBotoesTelaRelacionamento;
+import pageObjects.pessoa.BarraBotoesTelaRelacionamentoPage;
 import pageObjects.resumo.AtendimentoPessoaFisicaPage;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 public class NovoContatoAtendimentoPessoaFisicaTest extends BaseTest {
@@ -14,7 +13,7 @@ public class NovoContatoAtendimentoPessoaFisicaTest extends BaseTest {
     public void deveCriarNovoContatoAtendimentoPessoaFisica(){
         AtendimentoPessoaFisicaPage atendimentoPessoaFisicaPage = new AtendimentoPessoaFisicaPage();
         atendimentoPessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
-        new BarraBotoesTelaRelacionamento().criarNovoContatoAtendimento();
+        new BarraBotoesTelaRelacionamentoPage().criarNovoContatoAtendimento();
         atendimentoPessoaFisicaPage.realizarNovoAtendimento();
         atendimentoPessoaFisicaPage.escreverDescricaoAtendimento();
         atendimentoPessoaFisicaPage.selecionarAgenciaAtendimento();
