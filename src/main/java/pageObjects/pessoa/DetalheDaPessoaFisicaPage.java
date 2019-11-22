@@ -19,7 +19,6 @@ public class DetalheDaPessoaFisicaPage extends BasePage {
     }
 
     public String mensagemBotaoRecomendar() {
-
         return obterTexto(janelaErroRecomendar);
     }
 

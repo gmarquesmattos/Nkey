@@ -11,7 +11,7 @@ public class AlterarRendaTest extends BaseTest {
 
 
      @Test(retryAnalyzer = Retentativa.class)
-    public void deveriaEditarRenda() {
+    public void deveEditarRenda() {
         new AlterarRendaPage()
                 .editar()
                 .salvar()
@@ -19,7 +19,7 @@ public class AlterarRendaTest extends BaseTest {
     }
 
     @Test(retryAnalyzer = Retentativa.class)
-    public void deveriaSalvarComMesMenorQueAtual() {
+    public void deveSalvarComMesMenorQueAtual() {
         int mesMenorQueAtual = -2;
         new AlterarRendaPage()
                 .editar()
