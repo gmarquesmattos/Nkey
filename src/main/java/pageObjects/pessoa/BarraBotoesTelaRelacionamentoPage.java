@@ -8,14 +8,13 @@ public class BarraBotoesTelaRelacionamentoPage extends BasePage {
     private By botaoNovoContato =By.cssSelector("#S_A14_tile_3");
     private By botaoNovoContatoAtendimento =By.cssSelector("#BtnAtendimento");
 
-    public BarraBotoesTelaRelacionamentoPage clicarLinkEsteiraPS() {
+    public void clicarLinkEsteiraPS() {
         clicarJavaScript(linkEsteiraPS);
-        return this;
     }
 
-    public BarraBotoesTelaRelacionamentoPage criarNovoContatoAtendimento(){
+    public void criarNovoContatoAtendimento(){
         clicar(botaoNovoContato);
         clicar(botaoNovoContatoAtendimento);
-        return this;
+
     }
 }
