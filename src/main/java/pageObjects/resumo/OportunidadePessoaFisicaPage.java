@@ -73,7 +73,7 @@ public class OportunidadePessoaFisicaPage extends BasePage {
         entrar();
     }
 
-    public void ExcluirOportunidade() {
+    public void excluirOportunidade() {
         clicar(botaoExcluirOportunidade);
         esperaAceitarAlert();
     }

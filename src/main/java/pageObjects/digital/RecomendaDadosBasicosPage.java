@@ -7,10 +7,7 @@ import org.openqa.selenium.By;
 public class RecomendaDadosBasicosPage extends BasePage {
     private By textoRecomendarDadosbasicos = By.cssSelector("div[class='siebui-applet-taskui-h']");
 
-    public RecomendaDadosBasicosPage() {
-        }
-
-    public String mensagemPaginaRecomendaDadosBasicos() {
+       public String mensagemPaginaRecomendaDadosBasicos() {
         return obterTexto(textoRecomendarDadosbasicos);
     }
 }
