@@ -27,7 +27,7 @@ resumo:
   stage: Resumo
   when: always
   script:
-    - ping http://crmoperacional.hom.sicredi.net/     
+    - ping crmoperacional.hom.sicredi.net   
     - mvn clean test -PsuiteFuncional -DtestSuite=SuiteResumo.xml -Denv=ci
   tags:
     - docker-images-cds
