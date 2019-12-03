@@ -25,7 +25,7 @@ public class OportunidadePessoaFisicaTest extends BaseTest {
 
         oportunidadePessoaFisicaPage.pesquisarOportunidade();
         oportunidadePessoaFisicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL_0718);
-        oportunidadePessoaFisicaPage.ExcluirOportunidade();
+        oportunidadePessoaFisicaPage.excluirOportunidade();
 
     }
 }

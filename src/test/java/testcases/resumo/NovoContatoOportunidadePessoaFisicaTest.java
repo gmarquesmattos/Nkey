@@ -4,7 +4,6 @@ import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.pessoa.BarraBotoesTelaRelacionamentoPage;
-import pageObjects.resumo.AtendimentoPessoaFisicaPage;
 import pageObjects.resumo.OportunidadePessoaFisicaPage;
 
 import static org.testng.AssertJUnit.assertEquals;
@@ -16,7 +15,7 @@ public class NovoContatoOportunidadePessoaFisicaTest extends BaseTest {
 
         OportunidadePessoaFisicaPage  oportunidadePessoaFisicaPage = new OportunidadePessoaFisicaPage();
         oportunidadePessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
-        new BarraBotoesTelaRelacionamentoPage().criaNovoContatoOportunidade();
+        new BarraBotoesTelaRelacionamentoPage().criarNovoContatoOportunidade();
         oportunidadePessoaFisicaPage.adicionarNovaOportunidade();
         oportunidadePessoaFisicaPage.selecionarAgenciaAtendimento();
         oportunidadePessoaFisicaPage.preencherDescricao();
@@ -30,7 +29,7 @@ public class NovoContatoOportunidadePessoaFisicaTest extends BaseTest {
 
         oportunidadePessoaFisicaPage.pesquisarOportunidade();
         oportunidadePessoaFisicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL_0718);
-        oportunidadePessoaFisicaPage.ExcluirOportunidade();
+        oportunidadePessoaFisicaPage.excluirOportunidade();
 
     }
 }

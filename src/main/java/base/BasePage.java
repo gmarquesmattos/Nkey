@@ -64,7 +64,7 @@ public class BasePage {
     }
 
     public boolean verificarSeEstaAtivo(By by) {
-       aguardarCarregamento();
+        aguardarCarregamento();
         elemento = driver.findElement(by);
         return elemento.isEnabled();
     }
