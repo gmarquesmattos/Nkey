@@ -5,7 +5,6 @@ import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.resumo.AtividadePessoaJuridicaPage;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AtividadePessoaJuridicaTest extends BaseTest {

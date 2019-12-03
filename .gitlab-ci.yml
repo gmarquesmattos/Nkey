@@ -13,6 +13,7 @@ healthcheck:
 
 contract:
   stage: contract
+  when: always
   script:
     - mvn clean test -Dtest=*ContractTest
   tags:

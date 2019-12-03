@@ -4,7 +4,6 @@ import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.resumo.AtividadePessoaFisicaPage;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AtividadePessoaFisicaTest extends BaseTest {
