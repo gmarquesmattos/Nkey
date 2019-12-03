@@ -22,11 +22,11 @@ public class AtualizarSaldoContaPoupancaTest extends BaseTest {
         solucoesFinanceirasPage.acessarNumerodaSolucao();
         solucoesFinanceirasPage.clicarBotaoAtualizarSaldo();
         LocalDate localDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
         String dataAtualizacao = solucoesFinanceirasPage.obterDataAtualizacaoSaldo();
         String dataAtual = localDate.format(formatter);
-        assertEquals(dataAtualizacao, dataAtual);
+        assertEquals(dataAtual, dataAtualizacao);
 
 
     }
