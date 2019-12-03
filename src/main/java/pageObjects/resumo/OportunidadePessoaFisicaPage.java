@@ -28,6 +28,7 @@ public class OportunidadePessoaFisicaPage extends BasePage {
     }
 
     public void pesquisarPessoaFisica(String cpf) {
+
         new PessoaFisicaPage(cpf).acessarNomeCompleto();
     }
 
