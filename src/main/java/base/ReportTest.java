@@ -30,6 +30,8 @@ public class ReportTest implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
         LOGGER.info("Está executando: " + iTestResult.getName());
+        LOGGER.info("Método: " + iTestResult.getMethod() );
+
     }
 
     @Override
