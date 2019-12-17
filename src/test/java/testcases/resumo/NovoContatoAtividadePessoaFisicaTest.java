@@ -25,6 +25,7 @@ public class NovoContatoAtividadePessoaFisicaTest  extends BaseTest {
         String descricaoEsperada = "[TESTE]-Nova Atividade Automacao PF";
 
         assertEquals(descricaoEsperada,textoDescricao);
+
         atividadePessoaFisicaPage.pesquisarAtividade();
         atividadePessoaFisicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL_0718);
         atividadePessoaFisicaPage.excluirAtividade();

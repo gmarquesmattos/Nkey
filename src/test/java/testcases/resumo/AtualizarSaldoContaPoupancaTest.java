@@ -26,7 +26,7 @@ public class AtualizarSaldoContaPoupancaTest extends BaseTest {
 
         String dataAtualizacao = solucoesFinanceirasPage.obterDataAtualizacaoSaldo();
         String dataAtual = localDate.format(formatter);
-        assertEquals(dataAtual,dataAtualizacao);
+        assertEquals(dataAtual, dataAtualizacao);
 
 
     }

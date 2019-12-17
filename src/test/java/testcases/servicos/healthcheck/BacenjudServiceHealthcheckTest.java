@@ -8,7 +8,7 @@ import servicos.geral.BacenjudService;
 
 public class BacenjudServiceHealthcheckTest extends BacenjudService {
 
-    @Test(timeOut = 5000)
+    @Test(timeOut = 9000)
     public void deveVerificarStatusDoServico() {
 
         CustomRestAssured.givenSoap(URL_SERVICE, ACTION_CONSULTAR_Bacenjud)

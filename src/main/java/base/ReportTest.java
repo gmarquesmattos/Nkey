@@ -30,10 +30,12 @@ public class ReportTest implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
         LOGGER.info("Está executando: " + iTestResult.getName());
+
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
+        LOGGER.info("Status Teste " + Status.PASS);
         reportPrint(Status.PASS, "");
     }
 
