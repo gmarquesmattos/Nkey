@@ -20,7 +20,7 @@ public class SolucoesFinanceirasTelaRelacionamentoPessoaJuridicaPage extends Bas
     }
 
     public void clicarLinkSaldoContaPrincipal() {
-        clicar(linkSaldoContaPrincipal);
+         clicar(linkSaldoContaPrincipal);
     }
 
     public ArrayList<String> obterDadosContaPrincipalAssociado(){
