@@ -16,17 +16,17 @@ public class BarraBotoesTelaRelacionamentoPage extends BasePage {
     }
 
     public void criarNovoContatoAtendimento(){
-        clicar(botaoNovoContato);
-        clicar(botaoNovoContatoAtendimento);
+        clicarJavaScript(botaoNovoContato);
+        clicarJavaScript(botaoNovoContatoAtendimento);
     }
 
     public void criarNovoContatoOportunidade(){
-        clicar(botaoNovoContato);
-        clicar(botaoNovaOportunidade);
+        clicarJavaScript(botaoNovoContato);
+        clicarJavaScript(botaoNovaOportunidade);
     }
 
     public void criarNovoContatoAtividade(){
-        clicar(botaoNovoContato);
-        clicar(botaoNovaAtividade);
+        clicarJavaScript(botaoNovoContato);
+        clicarJavaScript(botaoNovaAtividade);
     }
 }
