@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage extends BasePage {
 
-	private By linkSaldoContaPrincipal = By.id("s_2_1_32_0");
-	private By rotuloContaPrincipal = By.id("s_2_1_12_0");
+	private By linkSaldoContaPrincipal = By.id("ExtratoDetalhes");
+	private By rotuloContaPrincipal = By.id("s_2_1_13_0");
 
 	public SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage() {
 		acessar();

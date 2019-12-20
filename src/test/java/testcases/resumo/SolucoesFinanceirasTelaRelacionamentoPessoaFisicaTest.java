@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class SolucoesFinanceirasTelaRelacionamentoPessoaFisicaTest extends BaseTest {
 
 
-    @Test(retryAnalyzer = Retentativa.class)
+    @Test
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePage() {
         SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage solucoesFinanceirasTelaRelacionamentoPessoaFisicaPage = new SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage();
         solucoesFinanceirasTelaRelacionamentoPessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);

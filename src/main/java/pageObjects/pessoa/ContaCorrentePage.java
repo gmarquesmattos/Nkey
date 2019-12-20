@@ -18,6 +18,7 @@ public class ContaCorrentePage extends BasePage {
         ArrayList<String>dadosContaAssociado = new ArrayList<>();
         dadosContaAssociado.add(obterValorElemento(textoNumeroConta));
         dadosContaAssociado.add(obterValorElemento(textoTipoConta).substring(6,14));
+
         return dadosContaAssociado;
     }
 
