@@ -3,7 +3,7 @@ docker stop siebelSelenium || true
 docker rm siebelSelenium || true
 
 docker pull docker.sicredi.net/selenium/standalone-chrome
-docker run -d --name siebelSelenium -e SCREEN_WIDTH=1366 -e SCREEN_HEIGHT=768 -e SCREEN_DEPTH=24 -e SCREEN_DPI=74 -p 4446:4444 -v /dev/shm:/dev/shm docker.sicredi.net/selenium/standalone-chrome
+docker run -d -name siebelSelenium -e SCREEN_WIDTH=1366 -e SCREEN_HEIGHT=768 -e SCREEN_DEPTH=24 -e SCREEN_DPI=74 -p 4446:4444 -v /dev/shm:/dev/shm docker.sicredi.net/selenium/standalone-chrome
 
 #Garantir Grid Online
 contador=0

@@ -9,31 +9,31 @@ import java.util.ArrayList;
 
 public class SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage extends BasePage {
 
-	private By linkSaldoContaPrincipal = By.id("s_2_1_32_0");
-	private By rotuloContaPrincipal = By.id("s_2_1_12_0");
+    private By linkSaldoContaPrincipal = By.id("ExtratoDetalhes");
+    private By rotuloContaPrincipal = By.id("s_2_1_13_0");
 
-	public SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage() {
-		acessar();
-	}
+    public SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage() {
+        acessar();
+    }
 
-	public void pesquisarPessoaFisica(String cpf) {
-		new PessoaFisicaPage(cpf).acessarNomeCompleto();
-	}
+    public void pesquisarPessoaFisica(String cpf) {
+        new PessoaFisicaPage(cpf).acessarNomeCompleto();
+    }
 
-	public void clicarLinkSaldoContaPrincipal() {
-		clicar(linkSaldoContaPrincipal);
-	}
+    public void clicarLinkSaldoContaPrincipal() {
+        clicar(linkSaldoContaPrincipal);
+    }
 
-	public ArrayList<String> obterDadosContaPrincipalAssociado(){
-		ArrayList<String>dadosContaPrincipalAssociado = new ArrayList<>();
-		dadosContaPrincipalAssociado.add(obterTexto(rotuloContaPrincipal).substring(1, 7));
-		dadosContaPrincipalAssociado.add(obterTexto(rotuloContaPrincipal).substring(9,17).toLowerCase());
-		return dadosContaPrincipalAssociado;
-	}
+    public ArrayList<String> obterDadosContaPrincipalAssociado() {
+        ArrayList<String> dadosContaPrincipalAssociado = new ArrayList<>();
+        dadosContaPrincipalAssociado.add(obterTexto(rotuloContaPrincipal).substring(1, 7));
+        dadosContaPrincipalAssociado.add(obterTexto(rotuloContaPrincipal).substring(9, 17).toLowerCase());
+        return dadosContaPrincipalAssociado;
+    }
 
-	private void acessar(){
-		HomePage homePage = new HomePage();
-		homePage.acessarPessoaFisica();
-	}
+    private void acessar() {
+        HomePage homePage = new HomePage();
+        homePage.acessarPessoaFisica();
+    }
 
 }
