@@ -24,6 +24,7 @@ public class AtividadePessoaFisicaPage extends BasePage {
             acessar();
     }
 
+
     public void pesquisarPessoaFisica(String cpf) {
         new PessoaFisicaPage(cpf).acessarNomeCompleto();
     }

@@ -10,11 +10,11 @@ import java.time.format.DateTimeFormatter;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class AtualizarSaldoInvestimentoDiferentePoupançaTest extends BaseTest {
+public class AtualizarSaldoInvestimentoDiferentePoupancaTest extends BaseTest {
 
 
 
-    @Test//(retryAnalyzer = Retentativa.class)
+    @Test(retryAnalyzer = Retentativa.class)
     public void deveCompararDataAtualComDataAtualizacaoSaldo() {
         SolucoesFinanceirasPage solucoesFinanceirasPage = new SolucoesFinanceirasPage();
         solucoesFinanceirasPage.pesquisarSolucoesFinanceiras();
@@ -25,10 +25,10 @@ public class AtualizarSaldoInvestimentoDiferentePoupançaTest extends BaseTest {
         LocalDate localDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        String dataAtualizacao = solucoesFinanceirasPage.obterDataAtualizacaoSaldoLca();
+        String dataAtualizacao = solucoesFinanceirasPage.obterDataAtualizacaoSaldo();
         String dataAtual = localDate.format(formatter);
 
-        assertEquals(dataAtual,dataAtualizacao );
+        assertEquals(dataAtual,dataAtualizacao);
 
     }
 }
