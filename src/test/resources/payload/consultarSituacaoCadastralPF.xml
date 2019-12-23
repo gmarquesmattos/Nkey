@@ -1,0 +1,15 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:res="http://sicredi.com.br/crm/ws/v1/restritivo">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <res:consultarSituacaoCadastral>
+            <res:inConsultarSituacaoCadastralPF>
+                <res:cpf>#(cpf)</res:cpf>
+                <res:agenciaArea>#(agenciaArea)</res:agenciaArea>
+                <res:cooperativa>#(cooperativa)</res:cooperativa>
+                <res:autorizaOnline>#(autorizaOnline)</res:autorizaOnline>
+                <res:usuarioLogado>#(usuarioLogado)</res:usuarioLogado>
+                <res:sistemaOrigem>#(sistemaOrigem)</res:sistemaOrigem>
+            </res:inConsultarSituacaoCadastralPF>
+        </res:consultarSituacaoCadastral>
+    </soapenv:Body>
+</soapenv:Envelope>

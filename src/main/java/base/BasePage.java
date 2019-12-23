@@ -1,6 +1,8 @@
 package base;
 
 import driver.DriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +16,7 @@ public class BasePage {
 
     private WebElement elemento;
     public WebDriver driver;
-
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public BasePage() {
         driver = DriverManager.getDriver();
@@ -22,12 +24,14 @@ public class BasePage {
     }
 
     public void clicar(By by) {
+        LOGGER.info("Clicou em: " + by.toString());
         aguardarCarregamento();
         elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
     }
 
     public void escrever(By by, String texto) {
+        LOGGER.info("Escreveu em: " + by.toString());
         aguardarCarregamento();
         elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         elemento.click();
@@ -64,7 +68,7 @@ public class BasePage {
     }
 
     public boolean verificarSeEstaAtivo(By by) {
-       aguardarCarregamento();
+        aguardarCarregamento();
         elemento = driver.findElement(by);
         return elemento.isEnabled();
     }

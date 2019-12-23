@@ -17,6 +17,18 @@ public abstract class BaseTest extends ReportTest {
 
     protected static final Logger LOGGER = LogManager.getLogger();
     static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
+    public static final String CNPJ_DIGITAL_0718 = retornarValorArquivoConfiguracao("cnpj.digital.0718");
+    public static final String CPF_DIGITAL_0718 = retornarValorArquivoConfiguracao("cpf.digital.0718");
+    public static final String CPF_NAO_DIGITAL_0718 = retornarValorArquivoConfiguracao("cpf.nao.digital.0718");
+    public static  final String CPF_SOLUCOES_0718 = retornarValorArquivoConfiguracao("cpf.solucoes.0718");
+    public static  final String CNPJ_SOLUCOES_0718 = retornarValorArquivoConfiguracao("cnpj.solucoes.0718");
+    public static  final String CNPJ_SOLUCOES_0101 = retornarValorArquivoConfiguracao("cnpj.solucoes.0101");
+    public static  final String CPF_SOLUCOES_0101 = retornarValorArquivoConfiguracao("cpf.solucoes.0101");
+    public static  final String USUARIO_RESPONSAVEL_0718 = retornarValorArquivoConfiguracao("usuario.responsavel.0718");
+    public static  final String USUARIO_RESPONSAVEL_0101 = retornarValorArquivoConfiguracao("usuario.responsavel.0101");
+    public static  final String CONTA_0718 =  retornarValorArquivoConfiguracao("conta.0718");
+    public static  final String CONTA_0101 =  retornarValorArquivoConfiguracao("conta.0101");
+
 
     @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
@@ -31,50 +43,6 @@ public abstract class BaseTest extends ReportTest {
         DriverManager.quit();
     }
 
-    @DataProvider(name = "cpfNaoDigital")
-    public Object[][] cpfNaoDigital() {
-        return new Object[][]{new Object[]{"97452874820"}};
-    }
 
-    @DataProvider(name = "cpfDigital")
-    public Object[][] cpfDigital() {
-        return new Object[][]{new Object[]{"03334856020"}};
-    }
-
-    @DataProvider(name = "cnpjDigitalCoop0718")
-    public Object[][] cnpjDigitalCoop0718() {
-        return new Object[][]{new Object[]{"24712637000179"}};
-
-    }
-
-    @DataProvider(name = "cnpjDigitalCoop0101")
-    public Object[][] cnpjDigitalCopp0101() {
-        return new Object[][]{new Object[]{"30659721000179"}};
-
-    }
-
-    @DataProvider(name = "cnpjSolucaoFinanceiraCoop0101")
-    public Object[][] cnpjSolucaoFinanceiraCoop0101() {
-        return new Object[][]{new Object[]{"23848798000121"}};
-    }
-
-    @DataProvider(name = "cnpjSolucaoFinanceiraCoop0718")
-    public Object[][] cnpjSolucaoFinanceiraCopp0718() {
-        return new Object[][]{new Object[]{"24712637000179"}};
-    }
-
-    @DataProvider(name = "cpfSolucaoFinanceiraCoop0718")
-    public Object[][] cpfSolucaoFinanceiraCoop0718() {
-        return new Object[][]{new Object[]{"08150967982"}};
-    }
-
-    @DataProvider(name = "cpfSolucaoFinanceiraCoop0101")
-    public Object[][] cpfCoop0101() {
-        return new Object[][]{new Object[]{"01779085052"}};
-    }
-
-    @DataProvider(name = "cpfResumo")
-    public Object[][] cpfResumo() {
-        return new Object[][]{new Object[]{"22661551808"}};
-    }
 }
+

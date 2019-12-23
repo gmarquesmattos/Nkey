@@ -4,15 +4,15 @@ import base.BaseTest;
 import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.digital.TelaDeRelacionamentoPage;
-
+import pageObjects.pessoa.BarraBotoesTelaRelacionamentoPage;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class TelaRelacionamentoTest extends BaseTest {
 
-    @Test(dataProvider = "cpfDigital",retryAnalyzer = Retentativa.class)
-    public void deveraCompararMensagemPessoaDigital(String cpfDigital) {
+    @Test(retryAnalyzer = Retentativa.class)
+    public void deveCompararMensagemPessoaDigital() {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
-        telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfDigital);
+        telaDeRelacionamentoPage.pesquisarPessoaFisica(CPF_DIGITAL_0718);
         String textoObtido = telaDeRelacionamentoPage.indicativoPfDigital();
         String textoEsperado = "Este associado utiliza a Plataforma Digital. Para realizar o atendimento acesse a Salesforce.";
 
@@ -20,21 +20,21 @@ public class TelaRelacionamentoTest extends BaseTest {
 
     }
 
-    @Test(dataProvider = "cpfNaoDigital",retryAnalyzer = Retentativa.class)
-    public void deveraCompararMensagemPessoaNaoDigital(String cpfNaoDigital) {
+    @Test(retryAnalyzer = Retentativa.class)
+    public void deveCompararMensagemPessoaNaoDigital() {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
-        telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfNaoDigital);
+        telaDeRelacionamentoPage.pesquisarPessoaFisica(CPF_NAO_DIGITAL_0718);
         String textoObtido = telaDeRelacionamentoPage.indicativoPfDigital();
         String textoEsperado = "";
 
         assertEquals(textoEsperado, textoObtido);
 
     }
-    @Test(dataProvider = "cpfDigital",retryAnalyzer = Retentativa.class)
-    public void deveraRetornarMensagemPessoaDigitalTelaRelacionamento(String cpfDigital) {
+    @Test(retryAnalyzer = Retentativa.class)
+    public void deveRetornarMensagemPessoaDigitalTelaRelacionamento() {
         TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
-        telaDeRelacionamentoPage.pesquisarPessoaFisica(cpfDigital);
-        telaDeRelacionamentoPage.clicarlinkEsteiraPS();
+        telaDeRelacionamentoPage.pesquisarPessoaFisica(CPF_DIGITAL_0718);
+        new BarraBotoesTelaRelacionamentoPage().clicarLinkEsteiraPS();
         String textoObtido = telaDeRelacionamentoPage.esperaAceitarAlertRecomendar();
         String textoEsperado = "Este associado utiliza a Plataforma Digital. Para realizar a contratação de produtos e serviços, acesse a Salesforce!";
 
