@@ -22,12 +22,8 @@ public abstract class BaseTest extends ReportTest {
     public static final String CPF_NAO_DIGITAL_0718 = retornarValorArquivoConfiguracao("cpf.nao.digital.0718");
     public static  final String CPF_SOLUCOES_0718 = retornarValorArquivoConfiguracao("cpf.solucoes.0718");
     public static  final String CNPJ_SOLUCOES_0718 = retornarValorArquivoConfiguracao("cnpj.solucoes.0718");
-    public static  final String CNPJ_SOLUCOES_0101 = retornarValorArquivoConfiguracao("cnpj.solucoes.0101");
-    public static  final String CPF_SOLUCOES_0101 = retornarValorArquivoConfiguracao("cpf.solucoes.0101");
     public static  final String USUARIO_RESPONSAVEL_0718 = retornarValorArquivoConfiguracao("usuario.responsavel.0718");
-    public static  final String USUARIO_RESPONSAVEL_0101 = retornarValorArquivoConfiguracao("usuario.responsavel.0101");
     public static  final String CONTA_0718 =  retornarValorArquivoConfiguracao("conta.0718");
-    public static  final String CONTA_0101 =  retornarValorArquivoConfiguracao("conta.0101");
     public static  final String NUMERO_ATIVO_INVESTIMENTO =  retornarValorArquivoConfiguracao("numero.solucoes.diferente.poupanca0718");
 
 
