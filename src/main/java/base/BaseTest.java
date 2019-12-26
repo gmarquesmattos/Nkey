@@ -15,7 +15,6 @@ import static utils.CommonUtils.retornarValorArquivoConfiguracao;
 @Listeners({ReportTest.class, ExtentITestListenerClassAdapter.class})
 public abstract class BaseTest extends ReportTest {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
     static final String URL_BASE = retornarValorArquivoConfiguracao("url.base");
     public static final String CNPJ_DIGITAL_0718 = retornarValorArquivoConfiguracao("cnpj.digital.0718");
     public static final String CPF_DIGITAL_0718 = retornarValorArquivoConfiguracao("cpf.digital.0718");
