@@ -1,13 +1,10 @@
 package testcases.resumo;
 
 import base.BaseTest;
+import base.DataUtil;
 import base.Retentativa;
 import org.testng.annotations.Test;
 import pageObjects.pessoa.SolucoesFinanceirasPage;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AtualizarSaldoInvestimentoDiferentePoupancaTest extends BaseTest {
@@ -22,13 +19,11 @@ public class AtualizarSaldoInvestimentoDiferentePoupancaTest extends BaseTest {
         solucoesFinanceirasPage.clicarBotaoIr();
         solucoesFinanceirasPage.acessarNumerodaSolucao();
         solucoesFinanceirasPage.clicarBotaoAtualizarSaldo();
-        LocalDate localDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         String dataAtualizacao = solucoesFinanceirasPage.obterDataAtualizacaoSaldo();
-        String dataAtual = localDate.format(formatter);
+        DataUtil dataUtil = new DataUtil();
 
-        assertEquals(dataAtual,dataAtualizacao);
+        assertEquals(dataUtil.ObterDataAtual(),dataAtualizacao);
 
     }
 }
