@@ -24,7 +24,7 @@ public class AtualizarSaldoContaPoupancaTest extends BaseTest {
         LocalDate localDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
-        String dataAtualizacao = solucoesFinanceirasPage.obterDataAtualizacaoSaldo();
+        String dataAtualizacao = solucoesFinanceirasPage.obterDataAtualizacaoSaldoPoupanca();
         String dataAtual = localDate.format(formatter);
         assertEquals(dataAtual, dataAtualizacao);
 

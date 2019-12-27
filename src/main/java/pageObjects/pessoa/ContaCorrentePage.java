@@ -14,12 +14,11 @@ public class ContaCorrentePage extends BasePage {
 
     }
 
-    public ArrayList<String> obterDadosContaSolucoesFinanceirasAssociado(){
-        ArrayList<String>dadosContaAssociado = new ArrayList<>();
+    public ArrayList<String> obterDadosContaSolucoesFinanceirasAssociado() {
+        ArrayList<String> dadosContaAssociado = new ArrayList<>();
         dadosContaAssociado.add(obterValorElemento(textoNumeroConta));
-        dadosContaAssociado.add(obterValorElemento(textoTipoConta).substring(6,14));
-
-        return dadosContaAssociado;
+        dadosContaAssociado.add(obterValorElemento(textoTipoConta).substring(6,14).trim());
+         return dadosContaAssociado;
     }
 
 }

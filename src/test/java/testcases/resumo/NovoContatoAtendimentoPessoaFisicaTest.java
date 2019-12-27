@@ -25,6 +25,11 @@ public class NovoContatoAtendimentoPessoaFisicaTest extends BaseTest {
 
         atendimentoPessoaFisicaPage.pesquisarAtendimento();
         atendimentoPessoaFisicaPage.selecionarResponsavelAtendimento(USUARIO_RESPONSAVEL_0718);
+
         atendimentoPessoaFisicaPage.cancelarAtendimento();
+
+
+        atendimentoPessoaFisicaPage.excluirAtendimento();
+
     }
 }

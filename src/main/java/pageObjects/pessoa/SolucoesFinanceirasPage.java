@@ -14,7 +14,8 @@ public class SolucoesFinanceirasPage extends BasePage {
     private By botaoAtualizarSaldo = By.cssSelector("button[title='Atualizar saldo']");
     private By tabelaNumeroDaSolucao = By.id("1_s_1_l_Account_Number");
     private By textoNumeroDaSolucao = By.id("1_Account_Number");
-    private By textoDataAtualizacaoSaldo = By.name("s_1_1_14_0");
+    private By textoDataAtualizacaoSaldo = By.cssSelector("input[aria-label='Data última atualização']");
+    private By textoDataAtualizacaoSaldoPoupanca = By.cssSelector("input[aria-label='Data atualização saldo']");
 
     public SolucoesFinanceirasPage() {
         acessar();
@@ -51,6 +52,9 @@ public class SolucoesFinanceirasPage extends BasePage {
         return obterValorElemento(textoDataAtualizacaoSaldo);
     }
 
+    public String obterDataAtualizacaoSaldoPoupanca() {
+        return obterValorElemento(textoDataAtualizacaoSaldoPoupanca);
+    }
     public void acessar() {
         HomePage homePage = new HomePage();
         homePage.acessarSolucoesFinanceiras();

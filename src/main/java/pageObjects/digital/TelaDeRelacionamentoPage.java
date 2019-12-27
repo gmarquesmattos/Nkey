@@ -11,7 +11,7 @@ public class TelaDeRelacionamentoPage extends BasePage {
     private By textoPlataformaDigital = By.id("SectionDigitalInfo");
 
     public TelaDeRelacionamentoPage() {
-             acessar();
+            acessar();
     }
 
     public void clicarlinkEsteiraPS() {
