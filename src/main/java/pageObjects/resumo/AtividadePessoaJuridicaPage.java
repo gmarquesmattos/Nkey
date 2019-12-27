@@ -18,7 +18,9 @@ public class AtividadePessoaJuridicaPage extends BasePage {
     private By botaoPesquisarAtividade = By.id("s_1_1_14_0_Ctrl");
     private By tabelaDescricaoResponsavel = By.id("1_s_1_l_Primary_Owned_By");
     private By textoDescricaoResponsavel = By.id("1_Primary_Owned_By");
-    private By botaoExcluirAtividade =By.cssSelector("button[title='Atividades:Excluir']");
+    private By tabelaStatus = By.id("1_s_1_l_Status");
+    private By textoStatus = By.id("1_Status");
+
 
     public AtividadePessoaJuridicaPage(){
         acessar();
@@ -67,9 +69,10 @@ public class AtividadePessoaJuridicaPage extends BasePage {
         entrar();
     }
 
-    public void excluirAtividade(){
-        clicar(botaoExcluirAtividade);
-        esperaAceitarAlert();
+    public void cancelarAtividade(){
+        clicar(tabelaStatus);
+        escrever(textoStatus,"Cancelado");
+        salvarAtividade();
     }
 
     private void acessar() {

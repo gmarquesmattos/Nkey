@@ -25,7 +25,7 @@ public class OportunidadePessoaJuridicaTest extends BaseTest {
 
         oportunidadePessoaJuridicaPage.pesquisarOportunidade();
         oportunidadePessoaJuridicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL_0718);
-        oportunidadePessoaJuridicaPage.excluirOportunidade();
+        oportunidadePessoaJuridicaPage.cancelarOportunidade();
 
 
     }
