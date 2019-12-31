@@ -70,7 +70,6 @@ public class AtendimentoPessoaJuridicaPage extends BasePage {
             clicar(tabelaStatus);
             escrever(textoStatus,"Cancelado");
             salvarAtendimento();
-
     }
 
     private void acessar() {

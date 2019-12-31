@@ -11,7 +11,7 @@ public class OportunidadePessoaFisicaTest extends BaseTest {
     @Test(retryAnalyzer = Retentativa.class)
     public void deveCriarOportunidadePessoaFisica() {
         OportunidadePessoaFisicaPage oportunidadePessoaFisicaPage = new OportunidadePessoaFisicaPage();
-        oportunidadePessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
+        oportunidadePessoaFisicaPage.pesquisarPessoaFisica(CPF_JOAO_CATAVENTO);
         oportunidadePessoaFisicaPage.acessarOportunidade();
         oportunidadePessoaFisicaPage.adicionarNovaOportunidade();
         oportunidadePessoaFisicaPage.selecionarAgenciaAtendimento();
@@ -24,7 +24,7 @@ public class OportunidadePessoaFisicaTest extends BaseTest {
         assertEquals(descricaoEsperada, textoDescricaoOportunidadeTela);
 
         oportunidadePessoaFisicaPage.pesquisarOportunidade();
-        oportunidadePessoaFisicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL_0718);
+        oportunidadePessoaFisicaPage.selecionarResponsavelOportunidade(USUARIO_RESPONSAVEL_PRODUCAO);
         oportunidadePessoaFisicaPage.cancelarOportunidade();
 
     }

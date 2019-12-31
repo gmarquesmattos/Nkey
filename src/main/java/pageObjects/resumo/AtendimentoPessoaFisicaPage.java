@@ -70,7 +70,8 @@ public class AtendimentoPessoaFisicaPage extends BasePage {
     public void cancelarAtendimento() {
         clicar(tabelaStatus);
         escrever(textoStatus,"Cancelado");
-        salvarAtendimento();
+         salvarAtendimento();
+
      }
 
     private void acessar() {
