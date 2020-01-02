@@ -26,7 +26,7 @@ public class AtendimentoPessoaFisicaTest extends BaseTest {
 
         atendimentoPessoaFisicaPage.pesquisarAtendimento();
         atendimentoPessoaFisicaPage.selecionarResponsavelAtendimento(USUARIO_RESPONSAVEL_0718);
-        atendimentoPessoaFisicaPage.excluirAtendimento();
+        atendimentoPessoaFisicaPage.cancelarAtendimento();
     }
 
 }

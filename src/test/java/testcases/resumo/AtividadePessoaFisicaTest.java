@@ -24,7 +24,7 @@ public class AtividadePessoaFisicaTest extends BaseTest {
 
         atividadePessoaFisicaPage.pesquisarAtividade();
         atividadePessoaFisicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL_0718);
-        atividadePessoaFisicaPage.excluirAtividade();
+        atividadePessoaFisicaPage.cancelarAtividade();
     }
 
 

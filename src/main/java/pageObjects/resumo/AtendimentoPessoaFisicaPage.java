@@ -18,7 +18,8 @@ public class AtendimentoPessoaFisicaPage extends BasePage {
     private By botaoPesquisarAtendimento = By.id("s_1_1_10_0_Ctrl");
     private By tabelaDescricaoResponsavel = By.id("1_s_1_l_Owner");
     private By textoDescricaoResponsavel = By.id("1_Owner");
-    private By botaoExcluirAtendimento = By.id("s_1_1_5_0_Ctrl");
+    private By tabelaStatus = By.id("1_s_1_l_Status");
+    private By textoStatus = By.id("1_Status");
 
     public AtendimentoPessoaFisicaPage() {
         acessar();
@@ -66,9 +67,10 @@ public class AtendimentoPessoaFisicaPage extends BasePage {
         clicar(botaoSalvarAtendimento);
      }
 
-    public void excluirAtendimento() {
-        clicar(botaoExcluirAtendimento);
-        esperaAceitarAlert();
+    public void cancelarAtendimento() {
+        clicar(tabelaStatus);
+        escrever(textoStatus,"Cancelado");
+        salvarAtendimento();
      }
 
     private void acessar() {

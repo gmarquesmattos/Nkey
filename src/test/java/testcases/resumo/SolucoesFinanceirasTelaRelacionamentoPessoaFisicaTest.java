@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class SolucoesFinanceirasTelaRelacionamentoPessoaFisicaTest extends BaseTest {
 
 
-    @Test//(retryAnalyzer = Retentativa.class)
+    @Test
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePage() {
         SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage solucoesFinanceirasTelaRelacionamentoPessoaFisicaPage = new SolucoesFinanceirasTelaRelacionamentoPessoaFisicaPage();
         solucoesFinanceirasTelaRelacionamentoPessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
@@ -23,7 +23,7 @@ public class SolucoesFinanceirasTelaRelacionamentoPessoaFisicaTest extends BaseT
         ArrayList<String> dadosContaSolucoesFinanceiras = contaCorrentePFPage.obterDadosContaSolucoesFinanceirasAssociado();
         SoftAssert softAssert = new SoftAssert();
 
-        softAssert.assertEqualsNoOrder(dadosContaPrincipal.toArray(),dadosContaSolucoesFinanceiras.toArray());
+        softAssert.assertEqualsNoOrder(dadosContaPrincipal.toArray(), dadosContaSolucoesFinanceiras.toArray());
 
         softAssert.assertAll();
 

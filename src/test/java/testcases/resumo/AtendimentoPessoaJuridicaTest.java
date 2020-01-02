@@ -24,6 +24,6 @@ public class AtendimentoPessoaJuridicaTest extends BaseTest {
 
         atendimentoPessoaJuridicaPage.pesquisarAtendimento();
         atendimentoPessoaJuridicaPage.selecionarResponsavelAtendimento(USUARIO_RESPONSAVEL_0718);
-        atendimentoPessoaJuridicaPage.excluirAtedimento();
+        atendimentoPessoaJuridicaPage.cancelarAtedimento();
     }
 }

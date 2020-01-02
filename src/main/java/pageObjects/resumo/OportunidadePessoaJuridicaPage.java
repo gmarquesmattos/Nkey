@@ -20,7 +20,8 @@ public class OportunidadePessoaJuridicaPage extends BasePage {
     private By botaoPesquisarOportunidade = By.id("s_1_1_7_0_Ctrl");
     private By tabelaDescricaoResponsavel = By.id("1_s_1_l_Sales_Rep");
     private By textoDescricaoResponsavel = By.id("1_Sales_Rep");
-    private By botaoExcluirOportunidade = By.id("s_1_1_3_0_Ctrl");
+    private By tabelaStatus = By.id("1_s_1_l_Status");
+    private By textoStatus = By.id("1_Status");
 
     public OportunidadePessoaJuridicaPage() {
         acessar();
@@ -71,9 +72,10 @@ public class OportunidadePessoaJuridicaPage extends BasePage {
         entrar();
     }
 
-    public void excluirOportunidade() {
-        clicar(botaoExcluirOportunidade);
-        esperaAceitarAlert();
+    public void cancelarOportunidade() {
+        clicar(tabelaStatus);
+        escrever(textoStatus,"Cancelado");
+        salvarOportunidade();
     }
 
     private void acessar() {
