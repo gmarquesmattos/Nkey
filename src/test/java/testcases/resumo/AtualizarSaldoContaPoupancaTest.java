@@ -27,7 +27,6 @@ public class AtualizarSaldoContaPoupancaTest extends BaseTest {
 
         String dataAtualizacao = solucoesFinanceirasPage.obterDataAtualizacaoSaldoPoupanca();
         DataUtil dataUtil = new DataUtil();
-
         assertEquals(dataUtil.ObterDataAtual(), dataAtualizacao);
 
 
