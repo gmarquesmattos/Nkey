@@ -7,7 +7,7 @@ public class DataUtil {
 
 public String ObterDataAtual(){
     LocalDate localDate = LocalDate.now();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
     String dataAtual = localDate.format(formatter);
 
     return dataAtual;
