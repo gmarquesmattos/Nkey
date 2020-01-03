@@ -18,11 +18,6 @@ public class CommonUtils {
 
     }
 
-    /**
-     * Retorna o valor da propriedade contida no arquivo conf/config.properties
-     * @param propriedade uma propriedade existente no arquivo config/config.properties
-     * @return o valor da propriedade informada
-     */
     public static String retornarValorArquivoConfiguracao(String propriedade) {
         Properties properties;
 
@@ -64,11 +59,7 @@ public class CommonUtils {
 
         return null;
     }
-    /**
-         * Obtém um arquivo do resource
-         * @param fileName Caminho do arquivo dentro do resources
-         * @return File
-         */
+
         public static File getFileFromResources (String fileName){
 
             ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
