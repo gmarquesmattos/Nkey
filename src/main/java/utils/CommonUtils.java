@@ -29,7 +29,7 @@ public class CommonUtils {
         try {
             properties = new Properties();
 
-            String env = null == System.getProperty("env") ? "prod" : System.getProperty("env");
+            String env = null == System.getProperty("env") ? "local" : System.getProperty("env");
 
             String separadorArquivo = System.getProperty("file.separator");
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
@@ -49,7 +49,7 @@ public class CommonUtils {
         try {
             properties = new Properties();
 
-            String conf = null == System.getProperty("conf") ? "prod" : System.getProperty("conf");
+            String conf = null == System.getProperty("conf") ? "local" : System.getProperty("conf");
 
             String separadorArquivo = System.getProperty("file.separator");
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();

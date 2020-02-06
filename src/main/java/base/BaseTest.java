@@ -24,6 +24,7 @@ public abstract class BaseTest extends ReportTest {
     public static  final String CNPJ_SOLUCOES_0718 = retornarValorArquivoConfiguracao("cnpj.solucoes.0718");
     public static  final String CNPJ_SOLUCOES_0101 = retornarValorArquivoConfiguracao("cnpj.solucoes.0101");
     public static  final String CPF_JOAO_CATAVENTO = retornarValorArquivoConfiguracao("cpf.joao.catavento");
+    public static  final String CNPJ_JOAO_CATAVENTO = retornarValorArquivoConfiguracao("cnpj.joao.catavento");
     public static  final String CPF_SOLUCOES_0101 = retornarValorArquivoConfiguracao("cpf.solucoes.0101");
     public static  final String USUARIO_RESPONSAVEL_0718 = retornarValorArquivoConfiguracao("usuario.responsavel.0718");
     public static  final String USUARIO_RESPONSAVEL_PRODUCAO = retornarValorArquivoConfiguracao("usuario.responsavel.producao");

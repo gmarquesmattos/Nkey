@@ -11,7 +11,7 @@ public class AtividadePessoaFisicaTest extends BaseTest {
     @Test(retryAnalyzer = Retentativa.class)
     public void deveCriarAtividadePessoaFisica() {
         AtividadePessoaFisicaPage atividadePessoaFisicaPage = new AtividadePessoaFisicaPage();
-        atividadePessoaFisicaPage.pesquisarPessoaFisica(CPF_JOAO_CATAVENTO);
+        atividadePessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
         atividadePessoaFisicaPage.acessarAtividade();
         atividadePessoaFisicaPage.adicionarNovaAtividade();
         atividadePessoaFisicaPage.escreverDescricaoAtividade();
@@ -23,7 +23,7 @@ public class AtividadePessoaFisicaTest extends BaseTest {
         assertEquals(descricaoEsperada, textoDescricaoAtividadeTela);
 
         atividadePessoaFisicaPage.pesquisarAtividade();
-        atividadePessoaFisicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL_PRODUCAO);
+        atividadePessoaFisicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL_0718);
         atividadePessoaFisicaPage.cancelarAtividade();
     }
 

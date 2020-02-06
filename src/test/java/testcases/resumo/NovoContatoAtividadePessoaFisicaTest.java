@@ -14,7 +14,7 @@ public class NovoContatoAtividadePessoaFisicaTest  extends BaseTest {
     public void deveCriarNovaAtividadePessoaFisica(){
 
         AtividadePessoaFisicaPage atividadePessoaFisicaPage = new AtividadePessoaFisicaPage();
-        atividadePessoaFisicaPage.pesquisarPessoaFisica(CPF_JOAO_CATAVENTO);
+        atividadePessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);
         new BarraBotoesTelaRelacionamentoPage().criarNovoContatoAtividade();
         atividadePessoaFisicaPage.adicionarNovaAtividade();
         atividadePessoaFisicaPage.escreverDescricaoAtividade();
@@ -27,7 +27,7 @@ public class NovoContatoAtividadePessoaFisicaTest  extends BaseTest {
         assertEquals(descricaoEsperada,textoDescricao);
 
         atividadePessoaFisicaPage.pesquisarAtividade();
-        atividadePessoaFisicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL_PRODUCAO);
+        atividadePessoaFisicaPage.selecionarResponsavelAtividade(USUARIO_RESPONSAVEL_0718);
         atividadePessoaFisicaPage.cancelarAtividade();
     }
 }
