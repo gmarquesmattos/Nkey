@@ -69,11 +69,6 @@ public class XsdInClasspath extends TypeSafeMatcher<String> {
         description.appendText("Esperava que o XML (sem as tags Envelope, Header e Body) estivesse conforme designado no XSD " + xsdFile);
     }
 
-    /**
-     * Matcher que confronta o XML de retorno do serviço SOAP sem as tags Envelope, Header e Body e o XSD
-     * @param xsdFile Nome do XDS
-     * @return
-     */
     public static Matcher<String> matchesXsdInClasspath(String xsdFile) {
         return new XsdInClasspath(xsdFile);
     }

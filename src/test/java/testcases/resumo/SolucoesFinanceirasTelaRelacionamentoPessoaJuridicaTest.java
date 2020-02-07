@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class SolucoesFinanceirasTelaRelacionamentoPessoaJuridicaTest extends BaseTest {
     
-    @Test(retryAnalyzer = Retentativa.class)
+    @Test//(retryAnalyzer = Retentativa.class)
     public void deveCompararContaDaPaginaSolucoesFinanceirasComContaCorrentePJPage() {
         SolucoesFinanceirasTelaRelacionamentoPessoaJuridicaPage solucoesFinanceirasTelaRelacionamentoPessoaJuridicaPage = new SolucoesFinanceirasTelaRelacionamentoPessoaJuridicaPage();
         solucoesFinanceirasTelaRelacionamentoPessoaJuridicaPage.pesquisarPessoaJuridica(CNPJ_SOLUCOES_0718);

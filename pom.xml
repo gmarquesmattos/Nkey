@@ -107,6 +107,7 @@
                         <version>2.22.0</version>
                         <configuration>
                             <suiteXmlFiles>
+                                <!--suppress MavenModelInspection -->
                                 <suiteXmlFile>./src/test/resources/suites/${testSuite}</suiteXmlFile>
                             </suiteXmlFiles>
                             <forkCount>0</forkCount>
