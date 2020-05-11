@@ -4,35 +4,40 @@ stages:
   - Resumo
   - Digital
 
+default:
+  image: harbor.sicredi.net/docker-base-images/maven:3.6.3-jdk-8-slim
+
 healthcheck:
+  services:
+    - selenium/standalone-chrome
   stage: healthcheck
   script:
     - mvn clean test -Dtest=*HealthcheckTest
   tags:
-    - docker-images-cds
+    - autoscaling_uat
 
 contract:
+  services:
+    - selenium/standalone-chrome
   stage: contract
   when: always
   script:
     - mvn clean test -Dtest=*ContractTest
   tags:
-    - docker-images-cds
+    - autoscaling_uat
   artifacts:
     when: always
     expire_in: 1 week
 
 resumo:
-  before_script:
-  - sh grid/start-zalenium.sh
+  services:
+    - selenium/standalone-chrome
   stage: Resumo
   when: always
   script:
     - mvn clean test -PsuiteFuncional -DtestSuite=SuiteResumo.xml -Denv=ci
   tags:
-    - docker-images-cds
-  after_script:
-    - sh grid/stop-zalenium.sh
+    - autoscaling_uat
   artifacts:
     when: always
     expire_in: 1 week
@@ -40,16 +45,14 @@ resumo:
       - target/relatorio/*.html
 
 digital:
-  before_script:
-    - sh grid/start-zalenium.sh
+  services:
+    - selenium/standalone-chrome
   stage: Digital
   when: always
   script:
     - mvn clean test -PsuiteFuncional -DtestSuite=SuiteDigital.xml -Denv=ci
   tags:
-    - docker-images-cds
-  after_script:
-    - sh grid/stop-zalenium.sh
+    - autoscaling_uat
   artifacts:
     when: always
     expire_in: 1 week
