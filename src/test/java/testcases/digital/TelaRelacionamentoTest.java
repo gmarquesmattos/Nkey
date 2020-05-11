@@ -30,14 +30,5 @@ public class TelaRelacionamentoTest extends BaseTest {
         assertEquals(textoEsperado, textoObtido);
 
     }
-    @Test(retryAnalyzer = Retentativa.class)
-    public void deveRetornarMensagemPessoaDigitalTelaRelacionamento() {
-        TelaDeRelacionamentoPage telaDeRelacionamentoPage = new TelaDeRelacionamentoPage();
-        telaDeRelacionamentoPage.pesquisarPessoaFisica(CPF_DIGITAL_0718);
-        new BarraBotoesTelaRelacionamentoPage().clicarLinkEsteiraPS();
-        String textoObtido = telaDeRelacionamentoPage.esperaAceitarAlertRecomendar();
-        String textoEsperado = "Este associado utiliza a Plataforma Digital. Para realizar a contratação de produtos e serviços, acesse a Salesforce!";
 
-        assertEquals(textoEsperado, textoObtido);
-    }
 }

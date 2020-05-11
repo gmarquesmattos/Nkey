@@ -10,16 +10,6 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class DetalhesDaPessoaTest extends BaseTest {
 
-      @Test(retryAnalyzer = Retentativa.class)
-    public void deveRetornarMensagemDigitalDetalhePessoa() {
-        DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage();
-        detalheDaPessoaFisicaPage.pesquisarPessoaFisica(CPF_DIGITAL_0718);
-        detalheDaPessoaFisicaPage.clicarBotaoRecomendarPS();
-        String textoObtido = detalheDaPessoaFisicaPage.mensagemBotaoRecomendar();
-        String textoEsperado = "Este associado utiliza a Plataforma Digital. Para realizar a contratação de produtos e serviços, acesse a Salesforce. (SBL-APS-00802)";
-
-        assertEquals(textoEsperado, textoObtido);
-    }
 
      @Test(retryAnalyzer = Retentativa.class)
     public void deveRetornarNaoDigitalDetalhePessoa( ) {
