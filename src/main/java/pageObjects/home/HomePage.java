@@ -11,12 +11,12 @@ public class HomePage extends BasePage {
     private By menuLateralPaginaInicial = By.cssSelector("button[title='Primeiro nível da barra de visualização']");
     private By menuLateralPessoaFisica = By.linkText("Pessoa física");
     private By menulateralPessoaJuridica = By.linkText("Pessoa jurídica");
-    private By rotuloBemVindo = By.className("Welcome");
+    private By proximoConjuntoRegistrosMinhaAgenda = By.xpath("//td[@id='last_pager_s_1_l']//span");
     private By menuLateralSolucoesFinanceiras = By.linkText("Soluções financeiras");
 
     public HomePage() {
         new LoginPage();
-        obterTexto(rotuloBemVindo);
+        obterTexto(proximoConjuntoRegistrosMinhaAgenda);
     }
 
     public void selecionarMenuHome() {
