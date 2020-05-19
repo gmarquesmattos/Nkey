@@ -55,6 +55,7 @@ public class SolucoesFinanceirasPage extends BasePage {
     public String obterDataAtualizacaoSaldoPoupanca() {
         return obterValorElemento(textoDataAtualizacaoSaldoPoupanca);
     }
+
     public void acessar() {
         HomePage homePage = new HomePage();
         homePage.acessarSolucoesFinanceiras();
