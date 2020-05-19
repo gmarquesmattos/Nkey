@@ -22,7 +22,7 @@ public class SolucoesFinanceirasPosicaoMensalInvestimentosTest extends BaseTest 
         solucoesFinanceirasPage.acessarNumerodaSolucao();
         frameSolucoesFinanceirasPage.acessarFrameInvestimentos();
         String numeroTitulo = frameSolucoesFinanceirasPage.obterNumeroTitulo();
-        assertEquals(numeroTitulo,"1801506988-9");
+        assertEquals(numeroTitulo,"1801506988-4");
 
 
     }
