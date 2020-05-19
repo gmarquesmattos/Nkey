@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-    private static final int TEMPO_ESPERA = 35;
+    private static final int TEMPO_ESPERA = 40;
     private WebDriverWait AGUARDAR;
 
     private WebElement elemento;
@@ -88,6 +88,11 @@ public class BasePage {
         executor.executeScript("arguments[0].click();", elemento);
     }
 
+    public void acessarFrame(){
+        aguardarCarregamento();
+        driver.switchTo().frame("symbUrlIFrame0");
+    }
+
     private void aguardarCarregamento(){
         AGUARDAR.until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
@@ -97,5 +102,6 @@ public class BasePage {
             }
         });
     }
+
 
 }

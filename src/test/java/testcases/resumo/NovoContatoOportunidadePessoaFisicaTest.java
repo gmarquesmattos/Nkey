@@ -11,7 +11,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class NovoContatoOportunidadePessoaFisicaTest extends BaseTest {
 
     @Test(retryAnalyzer = Retentativa.class)
-    public void deveCriarNovaContatoOportunidadePessoaFisica(){
+    public void deveCriarNovoContatoOportunidadePessoaFisica(){
 
         OportunidadePessoaFisicaPage  oportunidadePessoaFisicaPage = new OportunidadePessoaFisicaPage();
         oportunidadePessoaFisicaPage.pesquisarPessoaFisica(CPF_SOLUCOES_0718);

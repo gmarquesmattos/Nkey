@@ -22,6 +22,7 @@ public class DetalheDaPessoaFisicaPage extends BasePage {
         return obterTexto(janelaErroRecomendar);
     }
 
+
     private void acessar() {
         HomePage homePage = new HomePage();
         homePage.acessarPessoaFisica();

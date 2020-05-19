@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class BarraBotoesTelaRelacionamentoPage extends BasePage {
 
     private By linkEsteiraPS = By.cssSelector("#S_A14_tile_2");
-    private By botaoNovoContato =By.xpath("//*[text()='Novo Contato']/../../../..");
+    private By botaoNovoContato =By.id("S_A14_tile_3");
     private By botaoNovoContatoAtendimento =By.cssSelector("#BtnAtendimento");
     private By botaoNovaOportunidade =By.cssSelector("#BtnOportunidade");
     private By botaoNovaAtividade =By.cssSelector("#BtnAtividade");
