@@ -7,13 +7,17 @@ import pageObjects.home.HomePage;
 public class DetalheDaPessoaFisicaPage extends BasePage {
     private By botaoRecomendarPS = By.cssSelector("button[title='Detalhes do contato:Recomendar P&S']");
     private By janelaErroRecomendar = By.cssSelector("#_sweview_popup");
-    public DetalheDaPessoaFisicaPage() {
-        acessar();
+    private By textoCPF = By.cssSelector("input[aria-label='CPF']");
+
+    public void acessar() {
+        HomePage homePage = new HomePage();
+        homePage.acessarPessoaFisica();
     }
 
     public void pesquisarPessoaFisica(String cpf) {
         new PessoaFisicaPage(cpf);
     }
+
     public void clicarBotaoRecomendarPS() {
         clicar(botaoRecomendarPS);
     }
@@ -22,10 +26,10 @@ public class DetalheDaPessoaFisicaPage extends BasePage {
         return obterTexto(janelaErroRecomendar);
     }
 
-
-    private void acessar() {
-        HomePage homePage = new HomePage();
-        homePage.acessarPessoaFisica();
+    public String retornarNumeroCpf(){
+        return obterValorElemento(textoCPF);
     }
+
+
 }
 
