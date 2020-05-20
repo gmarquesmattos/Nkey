@@ -13,6 +13,7 @@ public class RecomendaDadosBasicosTest extends BaseTest {
     @Test(retryAnalyzer = Retentativa.class)
     public void deveRetornarMensagemRecomendarDadosBasicosPessoaJuridica() {
         DetalhesDaPessoajuridicaPage detalhesDaPessoajuridicaPage = new DetalhesDaPessoajuridicaPage();
+        detalhesDaPessoajuridicaPage.acessar();
         detalhesDaPessoajuridicaPage.pesquisarPessoaJuridica(CNPJ_DIGITAL_0718);
         detalhesDaPessoajuridicaPage.clicarBotaoRecomendarPS();
         RecomendaDadosBasicosPage recomendaDadosBasicosPage = new RecomendaDadosBasicosPage();

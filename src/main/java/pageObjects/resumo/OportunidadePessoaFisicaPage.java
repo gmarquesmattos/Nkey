@@ -24,14 +24,15 @@ public class OportunidadePessoaFisicaPage extends BasePage {
     private By tabelaStatus = By.id("1_s_1_l_Status");
     private By textoStatus = By.id("1_Status");
 
+
     public OportunidadePessoaFisicaPage() {
              acessar();
     }
 
     public void pesquisarPessoaFisica(String cpf) {
-
         new PessoaFisicaPage(cpf).acessarNomeCompleto();
     }
+
 
     public void acessarOportunidade(){
         clicar(botaoIrParaOportunidade);

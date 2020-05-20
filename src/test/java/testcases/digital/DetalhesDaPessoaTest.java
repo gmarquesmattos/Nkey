@@ -14,6 +14,7 @@ public class DetalhesDaPessoaTest extends BaseTest {
      @Test(retryAnalyzer = Retentativa.class)
     public void deveRetornarNaoDigitalDetalhePessoa( ) {
         DetalheDaPessoaFisicaPage detalheDaPessoaFisicaPage = new DetalheDaPessoaFisicaPage();
+        detalheDaPessoaFisicaPage.acessar();
         detalheDaPessoaFisicaPage.pesquisarPessoaFisica(CPF_NAO_DIGITAL_0718);
         detalheDaPessoaFisicaPage.clicarBotaoRecomendarPS();
         RecomendaDadosBasicosPage recomendaDadosBasicosPage = new RecomendaDadosBasicosPage();

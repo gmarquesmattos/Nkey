@@ -7,9 +7,9 @@ import pageObjects.home.HomePage;
 public class DetalhesDaPessoajuridicaPage extends BasePage {
     private By botaoRecomendarPS = By.id("s_2_1_4_0_Ctrl");
 
-
-    public DetalhesDaPessoajuridicaPage(){
-           acessar();
+    public void acessar() {
+        HomePage homePage = new HomePage();
+        homePage.acessarPessoaJuridica();
     }
 
     public void pesquisarPessoaJuridica(String cnpj) {
@@ -19,8 +19,5 @@ public class DetalhesDaPessoajuridicaPage extends BasePage {
         clicar(botaoRecomendarPS);
     }
 
-    private void acessar() {
-        HomePage homePage = new HomePage();
-        homePage.acessarPessoaJuridica();
-    }
+
 }
