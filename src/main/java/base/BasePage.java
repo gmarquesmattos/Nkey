@@ -20,7 +20,7 @@ import java.util.Set;
 public class BasePage {
     //String janelaPrincipal = this.SelectPopUp();
 
-    private static final int TEMPO_ESPERA = 70;
+    private static final int TEMPO_ESPERA = 90;
     private WebDriverWait AGUARDAR;
 
     private WebElement elemento;
