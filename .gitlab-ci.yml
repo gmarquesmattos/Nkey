@@ -1,56 +1,17 @@
 stages:
-  - healthcheck
-  - contract
-  - Resumo
-  - Digital
 
+  - LGAtendimento
 default:
   image: harbor.sicredi.net/docker-base-images/maven:3.6.3-jdk-8-slim
 
-healthcheck:
-  services:
-    - selenium/standalone-chrome
-  stage: healthcheck
-  script:
-    - mvn clean test -Dtest=*HealthcheckTest
-  tags:
-    - autoscaling_uat
 
-contract:
+LGAtendimento:
   services:
     - selenium/standalone-chrome
-  stage: contract
+  stage: LGAtendimento
   when: always
   script:
-    - mvn clean test -Dtest=*ContractTest
-  tags:
-    - autoscaling_uat
-  artifacts:
-    when: always
-    expire_in: 1 week
-
-resumo:
-  services:
-    - selenium/standalone-chrome
-  stage: Resumo
-  when: always
-  script:
-    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteResumo.xml -Denv=ci
-  tags:
-    - autoscaling_uat
-  artifacts:
-    when: always
-    expire_in: 1 week
-    paths:
-      - target/relatorio/*.html
-
-digital:
-  services:
-    - selenium/standalone-chrome
-  stage: Digital
-  when: always
-  script:
-    - mvn clean test -PsuiteFuncional -DtestSuite=SuiteDigital.xml -Denv=ci
+    - mvn clean test -PsuiteFuncional -DtestSuite=LgAtendimento.xml -Denv=ci
   tags:
     - autoscaling_uat
   artifacts:
