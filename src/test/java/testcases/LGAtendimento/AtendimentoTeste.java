@@ -219,8 +219,9 @@ public class AtendimentoTeste extends BaseTest {
         atendimentoChamadoPage.clicarAbaEncerramento(RESPONSAVEL_PELO_ENCERRAMENTO);
         atendimentoChamadoPage.escolherCausaFCA(VALOR_ENCERRAMENTO_CAUSA_FCA);
         atendimentoChamadoPage.escolhercausaSolucao(TEXTO_ENCERRAMENTO_SOLUCAO);
+        esperar(5000);
         atendimentoChamadoPage.clicarBotaoEncerrarAtendimento();
-        esperar(14000);
+        esperar(5000);
         assertEquals(TEXTO_ETAPA_ENCERRAR, atendimentoChamadoPage.getNomeEtapa());
 
     }
