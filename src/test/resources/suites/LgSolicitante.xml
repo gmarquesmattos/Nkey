@@ -3,7 +3,7 @@
 <suite name="SuiteFuncionalPortalSiebel">
     <test name="Teste Funcionais Web - Resumo" >
         <packages>
-            <package name="testcases.resumo.*"/>
+            <package name="testcases.LGSolicitacao.*"/>
         </packages>
     </test>
 </suite>
