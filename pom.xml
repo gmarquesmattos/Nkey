@@ -2,8 +2,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>br.com.sicredi</groupId>
-    <artifactId>siebel-web</artifactId>
+    <groupId>br.com.qualitor</groupId>
+    <artifactId>qualitor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
@@ -53,12 +53,7 @@
             <version>${testng.version}</version>
         </dependency>
 
-        <!-- Dependencias Oracle Driver -->
-        <dependency>
-            <groupId>com.hynnet</groupId>
-            <artifactId>oracle-driver-ojdbc6</artifactId>
-            <version>${oracle.version}</version>
-        </dependency>
+
 
         <!-- Dependencias Log4j -->
         <dependency>

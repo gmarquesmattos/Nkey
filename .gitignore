@@ -82,7 +82,7 @@ local.properties
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-siebel-web.iml
+qualitor.iml
 
 
 # Generated files

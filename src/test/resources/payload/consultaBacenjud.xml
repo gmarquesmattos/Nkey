@@ -1,8 +1,0 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bac="http://sicredi.com.br/crm/ws/v1/BacenJud">
-    <soapenv:Header/>
-    <soapenv:Body>
-        <bac:IndicadorBloqueioJudicialResumoInput>
-            <bac:cpfCnpj>#(numDocumento)</bac:cpfCnpj>
-        </bac:IndicadorBloqueioJudicialResumoInput>
-    </soapenv:Body>
-</soapenv:Envelope>
