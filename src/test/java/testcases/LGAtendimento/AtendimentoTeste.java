@@ -63,6 +63,7 @@ public class AtendimentoTeste extends BaseTest {
         PesquisaDeClientesPage pesquisaDeClientesPage = new PesquisaDeClientesPage();
         pesquisaDeClientesPage.fecharPesquisa();
         pesquisaDeClientesPage.clicarBotaoNovoClientePreencharCadastroCliente(NOME_CLIENTE_AUTOMACAO, NOME_CLIENTE_RAZAO_AUTOMACAO, CNPJ_AUTOMACAO, TIPO_CLIENTE);
+        esperar(5000);
         idCliente = pesquisaDeClientesPage.getIdCliente();
         pesquisaDeClientesPage.fecharPagina();
     }
@@ -85,7 +86,7 @@ public class AtendimentoTeste extends BaseTest {
     public void devePesquisarPorChamado() {
         AtendimentoHomePage atendimentoHomePage = new AtendimentoHomePage();
         atendimentoHomePage.pesquisarPorchamdo(CHAMADO_ATENDIMENTO);
-        esperar(2000);
+        esperar(5000);
         assertEquals(MENSAGEM_PESQUISA_CHAMADO, atendimentoHomePage.getTextoTituloPesquisa());
 
     }
