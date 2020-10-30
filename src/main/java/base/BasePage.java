@@ -49,18 +49,14 @@ public class BasePage {
 
     }
 
-    //    public void moverMouse(WebElement by){
-//
-//     //   WebElement gmailLink = driver.findElement(By.linkText("Gmail"));
-//        elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated((By) by));
-//        Actions actionProvider = new Actions(driver);
-//
-//
-//        // Performs mouse move action onto the element
-//        actionProvider.moveToElement(elemento).build().perform(); //moves cursor to point (5,5)
-//
-//
-//    }
+    public void moverMouse(By by) {
+        WebElement gmailLink = driver.findElement(by);
+        Actions actionProvider = new Actions(driver);
+        actionProvider.moveToElement(gmailLink).build().perform();
+
+
+    }
+
     public void escrever(By by, String texto) {
         LOGGER.info("Escreveu em: " + by.toString());
 
@@ -207,6 +203,7 @@ public class BasePage {
         }
         return janelaPrincipal;
     }
+
     public void SelectPageMain2(final String janelaPrincipal) {
 
         this.sleep(2500);
@@ -221,6 +218,7 @@ public class BasePage {
 
         driver.switchTo().window(mainWindow);
     }
+
     private void sleep(int timeOut) {
         try {
             Thread.sleep(timeOut);
@@ -229,7 +227,7 @@ public class BasePage {
         }
     }
 
-    public String gerarDataAtual(){
+    public String gerarDataAtual() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date(System.currentTimeMillis());
         System.out.println(formatter.format(date));

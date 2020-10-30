@@ -12,8 +12,6 @@ import pageObjects.Atendmento.ManutencaoChamados.NovoChamadoPage;
 import pageObjects.Atendmento.PesquisaClientes.PesquisaDeClientesPage;
 import pageObjects.Atendmento.PesquisaContato.PesquisaContatoPage;
 import pageObjects.Atendmento.RegistroDeAtividades.RegistroDeAtividadePage;
-
-
 import static org.testng.Assert.assertEquals;
 
 

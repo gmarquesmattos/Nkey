@@ -10,7 +10,7 @@ public class LgSolicitacaoTeste extends BaseSolicitacaoTest {
 
 
     @Test
-    public void deveAcessarAplicação() {
+    public void deveAcessarAplicacao() {
         HomePage homePage = new HomePage();
         homePage.getTextoUsuariologado();
 
@@ -19,5 +19,14 @@ public class LgSolicitacaoTeste extends BaseSolicitacaoTest {
 
     }
 
+    @Test
+    public void deveAcessarMenuServico() {
+        HomePage homePage = new HomePage();
+        homePage.acessarMenuServico();
+        esperar(2000);
+        homePage.acessarBeneficiosAdm();
+        esperar(2000);
+        homePage.acessarMenuAssociacao();
+    }
 
 }
