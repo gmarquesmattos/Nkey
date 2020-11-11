@@ -18,7 +18,6 @@ import java.util.Set;
 
 
 public class BasePage {
-    //String janelaPrincipal = this.SelectPopUp();
 
     private static final int TEMPO_ESPERA = 90;
     private WebDriverWait AGUARDAR;
@@ -88,17 +87,11 @@ public class BasePage {
     }
 
     public String obterValorElemento(By by) {
-        //aguardarCarregamento();
-        AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
+         AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         return driver.findElement(by).getAttribute("value");
     }
 
     public void selecionarValor(final By elementId, final String value) {
-//        WebElement comboboxElement = driver.findElement(elementId);
-//        driver.findElement(elementId).click();
-//        Select combobox = new Select(comboboxElement);
-//        combobox.selectByVisibleText(value);
-
         elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(elementId));
 
         WebElement comboboxElement = driver.findElement(elementId);
@@ -125,7 +118,7 @@ public class BasePage {
     }
 
     public void entrar() {
-        //aguardarCarregamento();
+
         elemento.sendKeys(Keys.ENTER);
     }
 
@@ -153,13 +146,11 @@ public class BasePage {
     public void acessarFrame() {
         System.out.println("@@@@@@@@@@@" + driver.switchTo().frame("framePrincipal").getTitle());
 
-
     }
 
     public void acessarFrame2() {
 
         driver.switchTo().frame(0);
-
 
     }
 
@@ -214,9 +205,7 @@ public class BasePage {
 
     public void SelectPageMain(final String mainWindow) {
         this.sleep(2500);
-        //  driver.close();
-
-        driver.switchTo().window(mainWindow);
+         driver.switchTo().window(mainWindow);
     }
 
     private void sleep(int timeOut) {

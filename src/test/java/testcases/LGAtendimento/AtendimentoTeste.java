@@ -255,7 +255,7 @@ public class AtendimentoTeste extends BaseTest {
         atendimentoPage.inseriAcompanhamento(TEXTO_DESCRICAO_ACOMPANHAMENTO);
         atendimentoPage.escolherTipoAcompanhamento();
         atendimentoPage.clicarRegistrar();
-
+/////////////////////// colcoar aqui o deveRealizarEncerramentoChamado()
 
     }
 

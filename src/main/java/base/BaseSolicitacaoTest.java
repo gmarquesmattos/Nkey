@@ -22,6 +22,11 @@ public abstract class BaseSolicitacaoTest extends ReportTest {
     public static final String USUARIO_LOGIN = "silvio.ferreira@stone.com.br";
     public static final String USUARIO_SENHA= "123";
     public static final String TEXTO_USUARIO_LOGIN= "SILVIO FERREIRA";
+    public static final String TEXTO_MINHAS_SOLICITACOES= "MINHAS SOLICITAÇÕES";
+    public static final String TEXTO_MINHAS_PENDENCIAS= "MINHAS PENDÊNCIAS";
+    public static final String TEXTO_DESCRICAO_ATIVIDADE= "AUT#_AUT#_AUT#_AUT#_AUT#";
+    public static final String TEXTO_REGISTRO_SALVO_COM_SUCESSO= "Registro inserido com sucesso.";
+    public static final String TEXTO_REGISTRO_CHAMADO= "AUTOMAÇÃO_AUTOMAÇÃO_AUTOMAÇÃO";
 
 
     @BeforeMethod(alwaysRun = true)
