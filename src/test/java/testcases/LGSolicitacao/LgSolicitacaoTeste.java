@@ -60,6 +60,18 @@ public class LgSolicitacaoTeste extends BaseSolicitacaoTest {
     }
 
     @Test
+    public void deveExibirCatalogoDeServicos() {
+        HomePage homePage = new HomePage();
+        assertEquals(TEXTO_BENEFICIOS_SAAS,homePage.getTextoServicoBeneficioSaaS());
+        assertEquals(TEXTO_BENEFICIOS_SAAS_CONFIGURACAO,homePage.getTextoBenefícioSaaSConfiguracoes());
+        assertEquals(TEXTO_FPW_REPORTS,homePage.getTextoFpwReports());
+        assertEquals(GEN_TE_AGREGA_AUTOATENDIMENTO,homePage.getTextoGenAgregaAutoatendimento());
+        assertEquals(GEN_TE_FLUI_WORKFLOW,homePage.getTextoGenFluiWorkflow());
+
+    }
+
+
+    @Test
     public void deveExibirAtendimento() {
         deveAcessarCriarAtendimento();
         HomePage homePage = new HomePage();
@@ -69,7 +81,7 @@ public class LgSolicitacaoTeste extends BaseSolicitacaoTest {
         esperar(30000);
         solicitacaoPage.clicarLinkAbrirChamado();
         solicitacaoPage.clicarAtendimento(TEXTO_DESCRICAO_ATIVIDADE);
-        ;
+
         assertEquals(TEXTO_REGISTRO_SALVO_COM_SUCESSO, solicitacaoPage.getTextoRegistroSalvoComSucesso());
 
     }

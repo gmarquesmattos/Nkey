@@ -27,6 +27,11 @@ public abstract class BaseSolicitacaoTest extends ReportTest {
     public static final String TEXTO_DESCRICAO_ATIVIDADE= "AUT#_AUT#_AUT#_AUT#_AUT#";
     public static final String TEXTO_REGISTRO_SALVO_COM_SUCESSO= "Registro inserido com sucesso.";
     public static final String TEXTO_REGISTRO_CHAMADO= "AUTOMAÇÃO_AUTOMAÇÃO_AUTOMAÇÃO";
+    public static final String TEXTO_BENEFICIOS_SAAS= "Benefício SaaS";
+    public static final String TEXTO_BENEFICIOS_SAAS_CONFIGURACAO= "Benefício SaaS - Configurações";
+    public static final String TEXTO_FPW_REPORTS= "FPw Reports";
+    public static final String GEN_TE_AGREGA_AUTOATENDIMENTO= "Gen.te Agrega - Autoatendimento";
+    public static final String GEN_TE_FLUI_WORKFLOW= "Gen.te Flui - Workflow";
 
 
     @BeforeMethod(alwaysRun = true)

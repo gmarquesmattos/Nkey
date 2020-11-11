@@ -6,7 +6,11 @@ import org.openqa.selenium.By;
 public class HomePage extends BasePage {
     private By textoUsuarioLogado = By.id("navbar-user-name");
     private By menuLaretalServico = By.id("optService");
-    private By BotaoBeneSaasAdmBeneficio = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/span[1]");
+    private By botaoBeneSaasAdmBeneficio = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/span[1]");
+    private By botaoBeneSaasAdmBeneficioConfiguracao = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[2]/div[1]/div[2]/span[1]");
+    private By botaoFpwReports = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[3]/div[1]/div[2]/span[1]");
+    private By botaoGenAgregaAutoAtendimento = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[4]/div[1]/div[2]/span[1]");
+    private By botaoGenFluiWorkflow = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[2]/div[1]/div[1]/div[2]/span[1]");
     private By BotaoComponentesAdmBeneficio = By.id("btnActionService8450");
     private By BotaoComponentesAssociacao = By.xpath("//div[@id='btnActionService8451']");
     private By campoDescricao = By.id("txtdescricao");
@@ -30,7 +34,7 @@ public class HomePage extends BasePage {
     }
 
     public void acessarBeneficiosAdm() {
-        moverMouse(BotaoBeneSaasAdmBeneficio);
+        moverMouse(botaoBeneSaasAdmBeneficio);
         clicar(BotaoComponentesAdmBeneficio);
 
     }
@@ -51,19 +55,9 @@ public class HomePage extends BasePage {
     public String getNumeroChamado() {
         String numchamado = obterTexto(confirmacaoNumeroChamado);
         this.SelectPopUp();
-      //  clicar(menuLateralSolicitacao);
-      //  clicar(botaoNao);
-     ///   this.SelectPopUp();
         return numchamado;
     }
 
-    public String AbrriPgarNumeroChamado() {
-        SelectPopUp();
-        String texto = obterTexto(idChamado);
-        return texto;
-
-
-    }
 
     public void clicarMenuSolicitacao() {
 
@@ -72,5 +66,31 @@ public class HomePage extends BasePage {
 
     public void clicarMenuPendencia() {
         clicar(menuLateralPendencia);
+    }
+
+    public String getTextoServicoBeneficioSaaS() {
+        System.out.println(obterTexto(botaoBeneSaasAdmBeneficio));
+        return obterTexto(botaoBeneSaasAdmBeneficio);
+
+    }
+    public String getTextoBenefícioSaaSConfiguracoes() {
+        System.out.println(obterTexto(botaoBeneSaasAdmBeneficioConfiguracao));
+        return obterTexto(botaoBeneSaasAdmBeneficioConfiguracao);
+
+    }
+    public String getTextoFpwReports() {
+        System.out.println(obterTexto(botaoFpwReports));
+        return obterTexto(botaoFpwReports);
+
+    }
+    public String getTextoGenAgregaAutoatendimento() {
+        System.out.println(obterTexto(botaoGenAgregaAutoAtendimento));
+        return obterTexto(botaoGenAgregaAutoAtendimento);
+
+    }
+    public String getTextoGenFluiWorkflow() {
+        System.out.println(obterTexto(botaoGenFluiWorkflow));
+        return obterTexto(botaoGenFluiWorkflow);
+
     }
 }
