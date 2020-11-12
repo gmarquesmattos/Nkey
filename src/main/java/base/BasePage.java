@@ -87,7 +87,7 @@ public class BasePage {
     }
 
     public String obterValorElemento(By by) {
-         AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
+        AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
         return driver.findElement(by).getAttribute("value");
     }
 
@@ -144,7 +144,7 @@ public class BasePage {
     }
 
     public void acessarFrame() {
-        System.out.println("@@@@@@@@@@@" + driver.switchTo().frame("framePrincipal").getTitle());
+        System.out.println(driver.switchTo().frame("framePrincipal").getTitle());
 
     }
 
@@ -205,7 +205,7 @@ public class BasePage {
 
     public void SelectPageMain(final String mainWindow) {
         this.sleep(2500);
-         driver.switchTo().window(mainWindow);
+        driver.switchTo().window(mainWindow);
     }
 
     private void sleep(int timeOut) {
@@ -224,5 +224,15 @@ public class BasePage {
         return dataAtual;
     }
 
+    public void rolagemPagina() {
+////        Actions act = new Actions(driver);
+////        act.sendKeys(Keys.PAGE_DOWN).build().perform(); //Page Down
+////        System.out.println("Scroll down perfomed");
+////      //  Thread.sleep(3000);
+//        JavascriptExecutor jse = (JavascriptExecutor) driver;
+//        jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+////        JavascriptExecutor jse = (JavascriptExecutor) driver;
+////        jse.executeScript("window.scrollBy(0,120)");
+    }
 
 }

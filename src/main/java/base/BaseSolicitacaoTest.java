@@ -32,6 +32,11 @@ public abstract class BaseSolicitacaoTest extends ReportTest {
     public static final String TEXTO_FPW_REPORTS= "FPw Reports";
     public static final String GEN_TE_AGREGA_AUTOATENDIMENTO= "Gen.te Agrega - Autoatendimento";
     public static final String GEN_TE_FLUI_WORKFLOW= "Gen.te Flui - Workflow";
+    public static final String GEN_TE_MOBILE_AUTOATENDIMENTO= "Gen.te Mobile - Autoatendimento";
+    public static final String GEN_TE_RECEBE_FOLHA_PAGAMENTO= "Gen.te recebe - Folha de Pagamento";
+    public static final String SA3= "SA3";
+    public static final String SOC= "SOC";
+    public static final String TABELAS_GENERICAS= "Tabelas Genéricas";
 
 
     @BeforeMethod(alwaysRun = true)

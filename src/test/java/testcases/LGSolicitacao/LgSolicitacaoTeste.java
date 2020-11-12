@@ -67,6 +67,11 @@ public class LgSolicitacaoTeste extends BaseSolicitacaoTest {
         assertEquals(TEXTO_FPW_REPORTS,homePage.getTextoFpwReports());
         assertEquals(GEN_TE_AGREGA_AUTOATENDIMENTO,homePage.getTextoGenAgregaAutoatendimento());
         assertEquals(GEN_TE_FLUI_WORKFLOW,homePage.getTextoGenFluiWorkflow());
+        assertEquals(GEN_TE_MOBILE_AUTOATENDIMENTO,homePage.getTextoGenMobileAutoAtendimento());
+        assertEquals(GEN_TE_RECEBE_FOLHA_PAGAMENTO,homePage.getTextoGenFolhaPagamento());
+        assertEquals(SA3,homePage.getTextoSA3());
+        assertEquals(SOC,homePage.getTextoSoc());
+        assertEquals(TABELAS_GENERICAS,homePage.getTextoTabelaGenericas());
 
     }
 

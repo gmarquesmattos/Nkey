@@ -11,6 +11,11 @@ public class HomePage extends BasePage {
     private By botaoFpwReports = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[3]/div[1]/div[2]/span[1]");
     private By botaoGenAgregaAutoAtendimento = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[4]/div[1]/div[2]/span[1]");
     private By botaoGenFluiWorkflow = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[2]/div[1]/div[1]/div[2]/span[1]");
+    private By botaoGenMobileAutoAtendimento = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[2]/div[2]/div[1]/div[2]/span[1]");
+    private By botaoGenMobileFolhaPagamento = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[2]/div[3]/div[1]/div[2]/span[1]");
+    private By botaoSa3 = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[2]/div[4]/div[1]/div[2]/span[1]");
+    private By botaoSoc = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[3]/div[1]/div[1]/div[2]/span[1]");
+    private By botaoTabelaGenericas = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[3]/div[2]/div[1]/div[2]/span[1]");
     private By BotaoComponentesAdmBeneficio = By.id("btnActionService8450");
     private By BotaoComponentesAssociacao = By.xpath("//div[@id='btnActionService8451']");
     private By campoDescricao = By.id("txtdescricao");
@@ -93,4 +98,36 @@ public class HomePage extends BasePage {
         return obterTexto(botaoGenFluiWorkflow);
 
     }
+
+    public String getTextoGenMobileAutoAtendimento() {
+        System.out.println(obterTexto(botaoGenMobileAutoAtendimento));
+        return obterTexto(botaoGenMobileAutoAtendimento);
+
+    }
+    public String getTextoGenFolhaPagamento() {
+        System.out.println(obterTexto(botaoGenMobileFolhaPagamento));
+        return obterTexto(botaoGenMobileFolhaPagamento);
+
+    }
+    public String getTextoSA3() {
+        System.out.println(obterTexto(botaoSa3));
+        return obterTexto(botaoSa3);
+
+    }
+
+    public String getTextoSoc() {
+        rolagemPagina();
+        System.out.println(obterTexto(botaoSoc));
+        return obterTexto(botaoSoc);
+
+    }
+
+    public String getTextoTabelaGenericas() {
+        System.out.println(obterTexto(botaoTabelaGenericas));
+        return obterTexto(botaoTabelaGenericas);
+
+    }
 }
+
+
+
