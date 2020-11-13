@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class HomePage extends BasePage {
     private By textoUsuarioLogado = By.id("navbar-user-name");
     private By menuLaretalServico = By.id("optService");
-    private By botaoBeneSaasAdmBeneficio = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/span[1]");
+    private By cardBeneSaasAdmBeneficio = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[1]/div[1]/div[2]/span[1]");
     private By botaoBeneSaasAdmBeneficioConfiguracao = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[2]/div[1]/div[2]/span[1]");
     private By botaoFpwReports = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[3]/div[1]/div[2]/span[1]");
     private By botaoGenAgregaAutoAtendimento = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[12]/div[1]/div[4]/div[1]/div[2]/span[1]");
@@ -25,7 +25,13 @@ public class HomePage extends BasePage {
     private By idChamado = By.id("cdchamado");
     private By menuLateralSolicitacao = By.id("portal");
     private By menuLateralPendencia = By.id("optPendencias");
-
+    private By barraRolagem = By.id("ascrail2001");
+    private By botaoLinkAcessarPainelAdmBene = By.xpath("(//div[@onclick=\"searchService(8449, 3, true, true, '');dw_Tooltip.hide();\"])[2]");
+    private By textoCardAdmDeBeneficio = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[5]/div[1]/div[1]/div[1]/div[2]/span[1]");
+    private By textoCardRelatorio = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[5]/div[1]/div[2]/div[1]/div[2]/span[1]");
+    private By textoCardRelatorioReports = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[5]/div[1]/div[3]/div[1]/div[2]/span[1]");
+    private By textoCardEstornoLancamentoColetivoEspecificos = By.xpath("//body/div[@id='bodycontent']/div[@id='wrapper']/div[@id='page-content-wrapper']/div[1]/div[2]/div[1]/div[2]/form[1]/div[2]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/div[2]/span[1]");
+    private By campoPesquisar = By.id("dsconteudosearchservice");
 
     public String getTextoUsuariologado() {
 
@@ -39,8 +45,14 @@ public class HomePage extends BasePage {
     }
 
     public void acessarBeneficiosAdm() {
-        moverMouse(botaoBeneSaasAdmBeneficio);
+        moverMouse(cardBeneSaasAdmBeneficio);
         clicar(BotaoComponentesAdmBeneficio);
+
+    }
+
+    public void acessarPainelAdmBeneficio() {
+        moverMouse(cardBeneSaasAdmBeneficio);
+        clicar(botaoLinkAcessarPainelAdmBene);
 
     }
 
@@ -74,25 +86,29 @@ public class HomePage extends BasePage {
     }
 
     public String getTextoServicoBeneficioSaaS() {
-        System.out.println(obterTexto(botaoBeneSaasAdmBeneficio));
-        return obterTexto(botaoBeneSaasAdmBeneficio);
+        System.out.println(obterTexto(cardBeneSaasAdmBeneficio));
+        return obterTexto(cardBeneSaasAdmBeneficio);
 
     }
+
     public String getTextoBenefícioSaaSConfiguracoes() {
         System.out.println(obterTexto(botaoBeneSaasAdmBeneficioConfiguracao));
         return obterTexto(botaoBeneSaasAdmBeneficioConfiguracao);
 
     }
+
     public String getTextoFpwReports() {
         System.out.println(obterTexto(botaoFpwReports));
         return obterTexto(botaoFpwReports);
 
     }
+
     public String getTextoGenAgregaAutoatendimento() {
         System.out.println(obterTexto(botaoGenAgregaAutoAtendimento));
         return obterTexto(botaoGenAgregaAutoAtendimento);
 
     }
+
     public String getTextoGenFluiWorkflow() {
         System.out.println(obterTexto(botaoGenFluiWorkflow));
         return obterTexto(botaoGenFluiWorkflow);
@@ -104,19 +120,24 @@ public class HomePage extends BasePage {
         return obterTexto(botaoGenMobileAutoAtendimento);
 
     }
+
     public String getTextoGenFolhaPagamento() {
         System.out.println(obterTexto(botaoGenMobileFolhaPagamento));
         return obterTexto(botaoGenMobileFolhaPagamento);
 
     }
+
     public String getTextoSA3() {
+        //rolagemPagina();
+        clicar(barraRolagem);
+
         System.out.println(obterTexto(botaoSa3));
         return obterTexto(botaoSa3);
 
     }
 
     public String getTextoSoc() {
-        rolagemPagina();
+        //  rolagemPagina();
         System.out.println(obterTexto(botaoSoc));
         return obterTexto(botaoSoc);
 
@@ -127,7 +148,33 @@ public class HomePage extends BasePage {
         return obterTexto(botaoTabelaGenericas);
 
     }
-}
 
+    public String getAdministracaoDeBenefícios() {
+        System.out.println(obterTexto(textoCardAdmDeBeneficio));
+        return obterTexto(textoCardAdmDeBeneficio);
+    }
+
+    public String getRelatorio() {
+        System.out.println(obterTexto(textoCardRelatorio));
+        return obterTexto(textoCardRelatorio);
+    }
+
+    public String getRelatorioReports() {
+        System.out.println(obterTexto(textoCardRelatorioReports));
+        return obterTexto(textoCardRelatorioReports);
+    }
+
+    public String getEstornoLancamentoColetivoEspecificos() {
+        System.out.println(obterTexto(textoCardEstornoLancamentoColetivoEspecificos));
+        return obterTexto(textoCardEstornoLancamentoColetivoEspecificos);
+    }
+
+    public void pesquisarServico(String texto) {
+        escrever(campoPesquisar, texto);
+        entrar2(campoPesquisar);
+
+
+    }
+}
 
 

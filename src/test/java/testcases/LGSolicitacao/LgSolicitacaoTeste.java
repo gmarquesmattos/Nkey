@@ -62,16 +62,21 @@ public class LgSolicitacaoTeste extends BaseSolicitacaoTest {
     @Test
     public void deveExibirCatalogoDeServicos() {
         HomePage homePage = new HomePage();
-        assertEquals(TEXTO_BENEFICIOS_SAAS,homePage.getTextoServicoBeneficioSaaS());
-        assertEquals(TEXTO_BENEFICIOS_SAAS_CONFIGURACAO,homePage.getTextoBenefícioSaaSConfiguracoes());
-        assertEquals(TEXTO_FPW_REPORTS,homePage.getTextoFpwReports());
-        assertEquals(GEN_TE_AGREGA_AUTOATENDIMENTO,homePage.getTextoGenAgregaAutoatendimento());
-        assertEquals(GEN_TE_FLUI_WORKFLOW,homePage.getTextoGenFluiWorkflow());
-        assertEquals(GEN_TE_MOBILE_AUTOATENDIMENTO,homePage.getTextoGenMobileAutoAtendimento());
-        assertEquals(GEN_TE_RECEBE_FOLHA_PAGAMENTO,homePage.getTextoGenFolhaPagamento());
-        assertEquals(SA3,homePage.getTextoSA3());
-        assertEquals(SOC,homePage.getTextoSoc());
-        assertEquals(TABELAS_GENERICAS,homePage.getTextoTabelaGenericas());
+        assertEquals(TEXTO_BENEFICIOS_SAAS, homePage.getTextoServicoBeneficioSaaS());
+        assertEquals(TEXTO_BENEFICIOS_SAAS_CONFIGURACAO, homePage.getTextoBenefícioSaaSConfiguracoes());
+        assertEquals(TEXTO_FPW_REPORTS, homePage.getTextoFpwReports());
+        assertEquals(GEN_TE_AGREGA_AUTOATENDIMENTO, homePage.getTextoGenAgregaAutoatendimento());
+        assertEquals(GEN_TE_FLUI_WORKFLOW, homePage.getTextoGenFluiWorkflow());
+        assertEquals(GEN_TE_MOBILE_AUTOATENDIMENTO, homePage.getTextoGenMobileAutoAtendimento());
+        assertEquals(GEN_TE_RECEBE_FOLHA_PAGAMENTO, homePage.getTextoGenFolhaPagamento());
+        assertEquals(SA3, homePage.getTextoSA3());
+
+        homePage.acessarPainelAdmBeneficio();
+        assertEquals(ADMINISTRACAO_DE_BENEFICIOS, homePage.getAdministracaoDeBenefícios());
+        assertEquals(RELATORIO, homePage.getRelatorio());
+        assertEquals(RELATORIO_REPORTS, homePage.getRelatorioReports());
+        homePage.pesquisarServico(ESTORNO_lANCAMENTO_COLETIVO_ESPECIFICO);
+        assertEquals(ESTORNO_lANCAMENTO_COLETIVO_ESPECIFICO, homePage.getEstornoLancamentoColetivoEspecificos());
 
     }
 

@@ -11,7 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
@@ -120,8 +121,13 @@ public class BasePage {
     public void entrar() {
 
         elemento.sendKeys(Keys.ENTER);
-    }
 
+    }
+    public void entrar2(By by) {
+        elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
+        elemento.sendKeys(Keys.ENTER);
+
+    }
     public boolean verificarSeEstaAtivo(By by) {
         aguardarCarregamento();
         elemento = driver.findElement(by);
@@ -225,14 +231,18 @@ public class BasePage {
     }
 
     public void rolagemPagina() {
-////        Actions act = new Actions(driver);
-////        act.sendKeys(Keys.PAGE_DOWN).build().perform(); //Page Down
-////        System.out.println("Scroll down perfomed");
-////      //  Thread.sleep(3000);
-//        JavascriptExecutor jse = (JavascriptExecutor) driver;
-//        jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-////        JavascriptExecutor jse = (JavascriptExecutor) driver;
-////        jse.executeScript("window.scrollBy(0,120)");
+//        Actions act = new Actions(driver);
+//       act.sendKeys(Keys.PAGE_DOWN).build().perform(); //Page Down
+//       System.out.println("Scroll down perfomed");
+
+        Actions actions = new Actions(driver);
+
+        // Scroll Down using Actions class
+        actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+     //  Thread.sleep(3000);
+
+    //    JavascriptExecutor jse = (JavascriptExecutor) driver;
+    //    jse.executeScript("window.scrollBy(0,120)");
     }
 
 }

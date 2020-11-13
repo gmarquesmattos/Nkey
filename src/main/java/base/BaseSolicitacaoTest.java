@@ -35,8 +35,10 @@ public abstract class BaseSolicitacaoTest extends ReportTest {
     public static final String GEN_TE_MOBILE_AUTOATENDIMENTO= "Gen.te Mobile - Autoatendimento";
     public static final String GEN_TE_RECEBE_FOLHA_PAGAMENTO= "Gen.te recebe - Folha de Pagamento";
     public static final String SA3= "SA3";
-    public static final String SOC= "SOC";
-    public static final String TABELAS_GENERICAS= "Tabelas Genéricas";
+    public static final String ADMINISTRACAO_DE_BENEFICIOS= "Administração de benefícios";
+    public static final String RELATORIO= "Relatórios";
+    public static final String RELATORIO_REPORTS= "Relatórios Reports";
+    public static final String ESTORNO_lANCAMENTO_COLETIVO_ESPECIFICO= "Estorno de lançamento coletivo de dados específicos";
 
 
     @BeforeMethod(alwaysRun = true)
