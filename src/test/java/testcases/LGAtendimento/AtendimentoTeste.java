@@ -37,18 +37,19 @@ public class AtendimentoTeste extends BaseTest {
         NovoChamadoPage novoChamadoPage = new NovoChamadoPage();
         novoChamadoPage.inserirClienteContato(ID_CLIENTE, ID_CONTATO);
         novoChamadoPage.inserirTipoPrioridadeCategorias();
+        esperar(2000);
         novoChamadoPage.inserircategoria1();
         esperar(2000);
         novoChamadoPage.inserirCategoria2();
-        esperar(2000);
+        esperar(4000);
         novoChamadoPage.inserirCategoria3();
-        esperar(2000);
+        esperar(4000);
         novoChamadoPage.inserirTituloDescrucao();
-        esperar(2000);
+        esperar(4000);
         novoChamadoPage.inserirInformacaoAdicional();
-        esperar(2000);
+        esperar(4000);
         novoChamadoPage.clicarBoaoProcessar();
-        esperar(2000);
+        esperar(4000);
         numeroChamado = novoChamadoPage.obterNumeroChamadoCriado();
 
     }
