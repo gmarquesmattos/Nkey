@@ -11,6 +11,7 @@ public class NegocioPage extends BasePage {
     private By livkOportunidade = By.xpath("/html[1]/body[1]/div[1]/main[1]/section[1]/div[9]/div[1]/div[2]/a[1]/div[1]");
     private By comboFunil = By.xpath(" //div[@id='root']/main/section/div[7]/div/select");
 
+
     public String getTextoNegocio() {
 
         return obterTexto(textoNegocio);

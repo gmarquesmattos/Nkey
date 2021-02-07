@@ -23,6 +23,8 @@ public class NovoNegocioPage extends BasePage {
     private By botaoPerdeu = By.xpath("//img[contains(@src,'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGqADAAQAAAABAAAAGgAAAABvAZQwAAACJ0lEQVRIDaWU4VXDMAyEGx7/2w3IBnQDvAEdATZgAzICGzQjlAkaJqBsUCYgG5TvEtm4xm5T0HtXydKdZDtNqtkZOxwOSyj3wIHagJvtDR3+taqqHf5yY4ADWzDVthDdRZMQtFH3nvgFrEDtGym2nLjieFt7TtHDXIB3U0jcKFcUWEEc4/qB25M6ijsgk0DP5iKTxrS4wzYrpuCvS0POniLbhKS0QD1kx9dIwg3pP54kHUqv+GQu1Cl0NqgJySSgXoO7AuqErpM1QDZeIYGmy3Tc7JWR15AvULKvzKAFZPWULa8grIzU8tL1qcDWD/jsJqyups7iwVmvjeVWGuRs0ZnPuadcckLOD3IaVJtglxOy0wfy81xtQm5vnLke2mAlEcWdUc45l+vhRTpR0SAtKd4WCRcUNOhTfJrW8v+wPtXaRpX+uOZnD26Adq84mD79kB9J1CE5Bs/J+k3cJKdlbbleJ2mArLXkSQdPf+XYtJlFTkS+NWKjQUtb6IXMCuImcJzx5U4N0Yb8S67bGp5PZ+JmSJz4gfdk3OIQyeE0xutCOxJ+l9rBOD1UfwfWpHh69QD+NO6oA4UWyCZd4ZE4WqCPr6yNSj8hJF2HbNLJfpRjhC4+SZfWwxqidhMPe1YuEAqB6cT119VN0c0g+WskHMRr/D0Iz0+x5dZ4P4Bw2msS9ozAAe1sqonrQoMkqJL1ryVinWIFHNA1+m/fB3EPOrApfBkojfYNhvE6rah9neYAAAAASUVORK5CYII=')]");
     private By comboMotivoDescarte = By.xpath("//div[@id='root']/main/section/div[8]/div/label/div/select");
     private By campoObsPerdaNegocio = By.xpath("(//textarea[@type='text'])[6]");
+    private By abaProspec = By.xpath("//div[@id='root']/main/section/div/div/div[3]/div/span");
+    private By campoNomeNegocio = By.xpath("/html[1]/body[1]/div[1]/main[1]/section[1]/div[1]/div[1]/div[4]/label[1]/input[1]");
 
 
     public String getTextoNegocioCadastradoSucesso() {
@@ -49,6 +51,13 @@ public class NovoNegocioPage extends BasePage {
 
     public void clicarAbaPosVenda() {
         clicar(abaPosVenda);
+    }
+
+    public void clicarAbaPros(String texto) {
+
+        clicar(abaProspec);
+        escrever(campoNomeNegocio, texto);
+
     }
 
     public void inserirNomeNegocio(String NomeNegocio) {

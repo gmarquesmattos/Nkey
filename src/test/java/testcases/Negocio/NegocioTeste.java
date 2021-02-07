@@ -40,6 +40,21 @@ public class NegocioTeste extends BaseTest {
     }
 
     @Test
+    public void deveCriarNovoNegocioTipoFunilCustom() {
+        HomePage homePage = new HomePage();
+        homePage.clicarBotaoNegocio();
+        NegocioPage negocioPage = new NegocioPage();
+        negocioPage.escolherOpsCustom(FUNIL_CUSTOM);
+        negocioPage.clicarNovoNegocio();
+        NovoNegocioPage novoNegocioPage = new NovoNegocioPage();
+        novoNegocioPage.clicarAbaPros(NOME_NEGOCIO);
+
+        novoNegocioPage.escolherEmpresa(NOME_EMPRESA);
+        novoNegocioPage.clicarBotaoSalvar();
+
+        assertEquals(TEXTO_NEGOCIO_CADASTRADO_COM_SUCESSO, novoNegocioPage.getTextoNegocioCadastradoSucesso());
+    }
+    @Test
 
     public void deveQualificarNegociacaoEAgendarAtividade() {
         deveCriarNovoNegocio();
@@ -127,25 +142,9 @@ public class NegocioTeste extends BaseTest {
 
     }
 
-    @Test
-    public void deveCriarNovoNegocioTipoFunilCustom() {
-        HomePage homePage = new HomePage();
-        homePage.clicarBotaoNegocio();
-        NegocioPage negocioPage = new NegocioPage();
-        negocioPage.escolherOpsCustom(FUNIL_CUSTOM);
-        negocioPage.clicarNovoNegocio();
+
+
     }
 
-//    @Test
-//    public void deveAtualizarParaPerdeu() {
-//        deveRealizarFluxoDaNegociação();
-//        NovoNegocioPage novoNegocioPage = new NovoNegocioPage();
-//        novoNegocioPage.clicarBotaoPerdeu(TEXTO_GANHOU,MOTIVO_DESCARTE);
-//        QualificarPage qualificarPage = new QualificarPage();
-//        esperar(8000);
-//
-//        assertEquals(ETAPA_NEGOCIO_DEU_CERTO, qualificarPage.getTextoGanhouSucesso());
-//
-//    }
 
-}
+
