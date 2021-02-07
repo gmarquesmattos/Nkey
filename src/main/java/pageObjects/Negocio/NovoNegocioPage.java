@@ -25,6 +25,11 @@ public class NovoNegocioPage extends BasePage {
     private By campoObsPerdaNegocio = By.xpath("(//textarea[@type='text'])[6]");
     private By abaProspec = By.xpath("//div[@id='root']/main/section/div/div/div[3]/div/span");
     private By campoNomeNegocio = By.xpath("/html[1]/body[1]/div[1]/main[1]/section[1]/div[1]/div[1]/div[4]/label[1]/input[1]");
+    private By abaNovaEtapaPre = By.xpath("//div[@id='root']/main/section/div[9]/div/div[2]/span");
+    private By abaNovaetapaPreVendas2 = By.xpath("/html[1]/body[1]/div[1]/main[1]/section[1]/div[9]/div[1]/div[3]");
+    private By abaNovaetapaPreVendas3 = By.xpath("/html[1]/body[1]/div[1]/main[1]/section[1]/div[9]/div[1]/div[4]");
+    private By abaVisita = By.xpath("/html[1]/body[1]/div[1]/main[1]/section[1]/div[9]/div[1]/div[5]");
+    private By abaDemostracao = By.xpath("/html[1]/body[1]/div[1]/main[1]/section[1]/div[9]/div[1]/div[6]");
 
 
     public String getTextoNegocioCadastradoSucesso() {
@@ -91,4 +96,23 @@ public class NovoNegocioPage extends BasePage {
         clicar(abaPerdeu);
 
     }
+
+    public void clicarAbaNovaAtapaPre() {
+        clicar(abaNovaEtapaPre);
+    }
+
+    public void clicarAbaNovaEtapa() {
+        clicar(abaNovaetapaPreVendas2);
+    }
+    public void clicarAbaNovaEtapa2() {
+        clicar(abaNovaetapaPreVendas3);
+    }
+
+    public void clicarAbaVisita() {
+        clicar(abaVisita);
+    }
+    public void clicarAbaDemostracao() {
+        clicar(abaDemostracao);
+    }
 }
+

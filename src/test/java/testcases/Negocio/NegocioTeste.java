@@ -54,6 +54,7 @@ public class NegocioTeste extends BaseTest {
 
         assertEquals(TEXTO_NEGOCIO_CADASTRADO_COM_SUCESSO, novoNegocioPage.getTextoNegocioCadastradoSucesso());
     }
+
     @Test
 
     public void deveQualificarNegociacaoEAgendarAtividade() {
@@ -88,7 +89,7 @@ public class NegocioTeste extends BaseTest {
 
     @Test
 
-    public void deveRealizarFluxoDaNegociação() {
+    public void deveRealizarFluxoDaNegociacao() {
         deveCriarNovoNegocio();
         QualificarPage qualificarPage = new QualificarPage();
         esperar(4000);
@@ -116,8 +117,32 @@ public class NegocioTeste extends BaseTest {
     }
 
     @Test
+
+    public void deveRealizarFluxoDaNegociacaoFunillCustom() {
+        deveCriarNovoNegocioTipoFunilCustom();
+        NegocioPage negocioPage = new NegocioPage();
+        negocioPage.clicarCardProspec();
+        NovoNegocioPage novoNegocioPage = new NovoNegocioPage();
+        novoNegocioPage.clicarAbaNovaAtapaPre();
+        esperar(4000);
+        QualificarPage qualificarPage = new QualificarPage();
+        assertEquals(ETAPA_NEGOCIO_REALIZADA_SUCESSO, qualificarPage.getTextoQualificacaoSucesso());
+        novoNegocioPage.clicarAbaNovaEtapa();
+        assertEquals(ETAPA_NEGOCIO_REALIZADA_SUCESSO, qualificarPage.getTextoQualificacaoSucesso());
+        novoNegocioPage.clicarAbaNovaEtapa2();
+        assertEquals(ETAPA_NEGOCIO_REALIZADA_SUCESSO, qualificarPage.getTextoQualificacaoSucesso());
+        novoNegocioPage.clicarAbaVisita();
+        assertEquals(ETAPA_NEGOCIO_REALIZADA_SUCESSO, qualificarPage.getTextoQualificacaoSucesso());
+        novoNegocioPage.clicarAbaDemostracao();
+        assertEquals(ETAPA_NEGOCIO_REALIZADA_SUCESSO, qualificarPage.getTextoQualificacaoSucesso());
+
+
+    }
+
+
+    @Test
     public void deveAtualizarParaGanhou() {
-        deveRealizarFluxoDaNegociação();
+        deveRealizarFluxoDaNegociacao();
         NovoNegocioPage novoNegocioPage = new NovoNegocioPage();
         novoNegocioPage.clicarBotaoGanhou(TEXTO_GANHOU);
         QualificarPage qualificarPage = new QualificarPage();
@@ -143,8 +168,7 @@ public class NegocioTeste extends BaseTest {
     }
 
 
-
-    }
+}
 
 
 
