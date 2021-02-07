@@ -39,6 +39,7 @@ public class EmpresaTeste extends BaseTest {
         homePage.clicarBotaoEmpresa();
         EmpresaPage empresaPage = new EmpresaPage();
         empresaPage.clicarNovaEmpresa();
+        esperar(2000);
         empresaPage.CadastroNovaEmpresa(NOME_EMPRESA,VALOR_SEGMENTO,SITE,EMAIL,TELEFONE_PRINCIPAL,TELEFONE_SECUNDARIO,TELEFONE_WHATSAPP,TEXTO_RAZAO_SOCIAL,ENDERECO,NUMERO,COMPLE,BAIRRO,CIDADE,ESTADO,TEXTO_OBS);
         empresaPage.clicarBotaoSalvar();
         assertEquals(TEXTO_EMPRESA_SALVA, empresaPage.getTextoEmpresaSalvaComSucesso());
