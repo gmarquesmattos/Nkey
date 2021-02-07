@@ -29,6 +29,7 @@ public class NegocioTeste extends BaseTest {
         NegocioPage negocioPage = new NegocioPage();
         negocioPage.clicarNovoNegocio();
         NovoNegocioPage novoNegocioPage = new NovoNegocioPage();
+        esperar(3000);
         novoNegocioPage.clicarAbaNegocio();
         novoNegocioPage.inserirNomeNegocio(NOME_NEGOCIO);
         novoNegocioPage.escolherEmpresa(NOME_EMPRESA);
