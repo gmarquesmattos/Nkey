@@ -39,6 +39,7 @@ public class AtividadeTeste extends BaseTest {
     homePage.clicarBotaoNovaAtividade();
     AtividadePage atividadePage = new AtividadePage();
     atividadePage.salvarSemCampoNegocio(HORA_INICIO, HORA_FIM, DESC);
+
     assertEquals(TEXTO_NEGOCIO_OBRIGATORIO, atividadePage.getTextoNegocioObrigatorio());
 
 
@@ -49,6 +50,7 @@ public class AtividadeTeste extends BaseTest {
         homePage.clicarBotaoNovaAtividade();
         AtividadePage atividadePage = new AtividadePage();
         atividadePage.salvarSemCampoData(HORA_INICIO, HORA_FIM, DESC);
+
         assertEquals(TEXTO_DATA_OBRIGATORIO, atividadePage.getTextoNegocioObrigatorio());
 
 
@@ -60,6 +62,7 @@ public class AtividadeTeste extends BaseTest {
         homePage.clicarBotaoNovaAtividade();
         AtividadePage atividadePage = new AtividadePage();
         atividadePage.salvarSemCampoFormaContato(HORA_INICIO, HORA_FIM, DESC);
+
         assertEquals(TEXTO_FORMA_CONTATO, atividadePage.getTextoNegocioObrigatorio());
 
 
