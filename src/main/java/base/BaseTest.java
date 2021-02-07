@@ -75,6 +75,7 @@ public abstract class BaseTest extends ReportTest {
     public static final String ATIVIDADE_NOTA_CONCLUSÃO = "ATIVIDADE_NOTA_CONCLUIDA_CNCLUIDA_ATIVIDADE_NOTA_CONCLUIDA_CNCLUIDA_ATIVIDADE_NOTA_CONCLUIDA_CNCLUIDA_ATIVIDADE_NOTA_CONCLUIDA_CNCLUIDA_";
     public static final String TEXTO_GANHOU = "GANHOU_GANHOU_AUT_AUT";
     public static final String MOTIVO_DESCARTE = "Achou caro";
+    public static final String FUNIL_CUSTOM = "Funil Custom";
 
 
 

@@ -121,12 +121,20 @@ public class NegocioTeste extends BaseTest {
         negocioPage.clicarNaOportunidade();
         QualificarPage qualificarPage = new QualificarPage();
         qualificarPage.cadastrarAtividadeNota(TEXTO_ATIVIDADE_NOTA, HORA_INICIO, HORA_FIM);
-       // esperar(1000);
+        // esperar(1000);
         assertEquals(TEXTO_FORMA_CONTATO_ATIV_NOTA, qualificarPage.getTextoFormaContato());
 
 
     }
 
+    @Test
+    public void deveCriarNovoNegocioTipoFunilCustom() {
+        HomePage homePage = new HomePage();
+        homePage.clicarBotaoNegocio();
+        NegocioPage negocioPage = new NegocioPage();
+        negocioPage.escolherOpsCustom(FUNIL_CUSTOM);
+        negocioPage.clicarNovoNegocio();
+    }
 
 //    @Test
 //    public void deveAtualizarParaPerdeu() {
