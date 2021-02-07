@@ -4,13 +4,12 @@
 ~~- Classes~~
 ~~- Metodos~~
 ~~- Selenium~~
-- Coneções no banco?
+
 
 
 ## Revissão do código
 ~~- Revissão em par?~~
-- Analise estatica do código (Sonar)?
-- Como fazer?
+
 
 ## Report
 - Como será dado report?

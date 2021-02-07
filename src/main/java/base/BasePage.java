@@ -20,7 +20,7 @@ import java.util.Set;
 
 public class BasePage {
 
-    private static final int TEMPO_ESPERA = 90;
+    private static final int TEMPO_ESPERA = 100;
     private WebDriverWait AGUARDAR;
 
     private WebElement elemento;
@@ -66,6 +66,18 @@ public class BasePage {
         elemento.sendKeys(texto);
 
     }
+
+    public void descerValor(By by) {
+        LOGGER.info("Escreveu em: " + by.toString());
+
+        elemento = AGUARDAR.until(ExpectedConditions.visibilityOfElementLocated(by));
+      //  elemento.click();
+       // elemento.clear();
+        elemento.sendKeys(Keys.DOWN);
+
+    }
+
+
 
     public String obterTexto(By by) {
 

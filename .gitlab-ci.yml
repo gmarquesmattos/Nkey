@@ -1,17 +1,17 @@
 stages:
 
-  - LGAtendimento
+  - Negocio
 default:
   image: harbor.sicredi.net/docker-base-images/maven:3.6.3-jdk-8-slim
 
 
-LGAtendimento:
+Negocio:
   services:
     - selenium/standalone-chrome
-  stage: LGAtendimento
+  stage: Negocio
   when: always
   script:
-    - mvn clean test -PsuiteFuncional -DtestSuite=LgAtendimento.xml -Denv=ci
+    - mvn clean test -PsuiteFuncional -DtestSuite=Negocio.xml -Denv=ci
   tags:
     - autoscaling_uat
   artifacts:
